@@ -166,12 +166,12 @@
 		6780DDD916C02593005EDD1D /* AppCreatorLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				67CCC9DB16C15B41000EBC0B /* Vendor */,
-				67CCC9DA16C157AD000EBC0B /* Library */,
 				67CCC9D516C152CB000EBC0B /* AppTypes */,
 				67CCC9CB16C11D97000EBC0B /* UserInterface */,
+				67CCC9DA16C157AD000EBC0B /* Library */,
 				6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */,
 				6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */,
+				67CCC9DB16C15B41000EBC0B /* Vendor */,
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
 			);
 			path = AppCreatorLibrary;
@@ -207,8 +207,8 @@
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				67CCC9D916C1579D000EBC0B /* Components */,
 				67CCC9CC16C11DA9000EBC0B /* Pages */,
+				67CCC9D916C1579D000EBC0B /* Components */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -250,6 +250,10 @@
 		67CCC9DA16C157AD000EBC0B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9FA16C16A07000EBC0B /* Categories */,
+				67CCC9FB16C16A11000EBC0B /* Network */,
+				67CCC9FD16C16A2B000EBC0B /* Strategies */,
+				67CCC9FC16C16A21000EBC0B /* Authentication */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -270,6 +274,34 @@
 				67CCC9E716C15BAF000EBC0B /* SSToolkitResources.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		67CCC9FA16C16A07000EBC0B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		67CCC9FB16C16A11000EBC0B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		67CCC9FC16C16A21000EBC0B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		67CCC9FD16C16A2B000EBC0B /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Strategies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
