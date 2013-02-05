@@ -16,6 +16,8 @@
 		6780DDED16C02593005EDD1D /* libAppCreatorLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */; };
 		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
 		6780DDF616C02593005EDD1D /* AppCreatorLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* AppCreatorLibraryTests.m */; };
+		67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */; };
+		67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */,
 				6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +57,9 @@
 		6780DDF216C02593005EDD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6780DDF416C02593005EDD1D /* AppCreatorLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCreatorLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* AppCreatorLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCreatorLibraryTests.m; sourceTree = "<group>"; };
+		67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageControllerViewController.h; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.h; sourceTree = "<group>"; };
+		67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageControllerViewController.m; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.m; sourceTree = "<group>"; };
+		67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMHomePageControllerViewController.xib; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		6780DDD916C02593005EDD1D /* AppCreatorLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9CB16C11D97000EBC0B /* UserInterface */,
 				6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */,
 				6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */,
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
@@ -143,6 +150,32 @@
 				6780DDF116C02593005EDD1D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9CC16C11DA9000EBC0B /* Pages */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		67CCC9CC16C11DA9000EBC0B /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9CD16C11DB2000EBC0B /* Homepage */,
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
+		67CCC9CD16C11DB2000EBC0B /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */,
+				67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */,
+				67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */,
+			);
+			name = Homepage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */,
+				67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +370,10 @@
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -348,8 +384,10 @@
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -403,6 +441,7 @@
 				6780DDFB16C02593005EDD1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "AppCreatorLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +450,7 @@
 				6780DDFE16C02593005EDD1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

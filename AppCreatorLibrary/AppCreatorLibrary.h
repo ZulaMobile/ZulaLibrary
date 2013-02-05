@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMHomePageControllerViewController.h"
 
 @interface AppCreatorLibrary : NSObject
+
+- (void)saySomething;
 
 @end

@@ -10,4 +10,9 @@
 
 @implementation AppCreatorLibrary
 
+- (void)saySomething
+{
+    NSLog(@"say somethonjg");
+}
+
 @end
