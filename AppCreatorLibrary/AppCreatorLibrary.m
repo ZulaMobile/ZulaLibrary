@@ -7,12 +7,15 @@
 //
 
 #import "AppCreatorLibrary.h"
+#import <SSToolkit/SSToolkit.h>
 
 @implementation AppCreatorLibrary
 
 - (void)saySomething
 {
-    NSLog(@"say somethonjg");
+    SSTextField *textField = [[SSTextField alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+    [textField setText:@"yeah"];
+    NSLog(@"say somethonjg %@", textField.text);
 }
 
 @end

@@ -18,6 +18,10 @@
 		6780DDF616C02593005EDD1D /* AppCreatorLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* AppCreatorLibraryTests.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */; };
+		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
+		67CCC9EC16C15BD9000EBC0B /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9E316C15BAF000EBC0B /* libSSToolkit.a */; };
+		67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
+		67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6780DDD316C02593005EDD1D;
 			remoteInfo = AppCreatorLibrary;
+		};
+		67CCC9E216C15BAF000EBC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		67CCC9E416C15BAF000EBC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		67CCC9E616C15BAF000EBC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		67CCC9E816C15BCC000EBC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		67CCC9EA16C15BCC000EBC0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B2C507E9151BA64400E94614;
+			remoteInfo = SSToolkitResources;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,6 +99,11 @@
 		67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageControllerViewController.h; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageControllerViewController.m; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.m; sourceTree = "<group>"; };
 		67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMHomePageControllerViewController.xib; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.xib; sourceTree = "<group>"; };
+		67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPortfolioAppDelegate.h; path = AppTypes/SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
+		67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPortfolioAppDelegate.m; path = AppTypes/SMPortfolioAppDelegate.m; sourceTree = "<group>"; };
+		67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = ../../../../../OpenSource/sstoolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
+		67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +112,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */,
+				67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */,
+				67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */,
+				67CCC9EC16C15BD9000EBC0B /* libSSToolkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +154,8 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */,
+				67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */,
 				6780DDD716C02593005EDD1D /* Foundation.framework */,
 				6780DDE616C02593005EDD1D /* SenTestingKit.framework */,
 				6780DDE816C02593005EDD1D /* UIKit.framework */,
@@ -117,6 +166,9 @@
 		6780DDD916C02593005EDD1D /* AppCreatorLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9DB16C15B41000EBC0B /* Vendor */,
+				67CCC9DA16C157AD000EBC0B /* Library */,
+				67CCC9D516C152CB000EBC0B /* AppTypes */,
 				67CCC9CB16C11D97000EBC0B /* UserInterface */,
 				6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */,
 				6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */,
@@ -155,6 +207,7 @@
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9D916C1579D000EBC0B /* Components */,
 				67CCC9CC16C11DA9000EBC0B /* Pages */,
 			);
 			name = UserInterface;
@@ -178,6 +231,47 @@
 			name = Homepage;
 			sourceTree = "<group>";
 		};
+		67CCC9D516C152CB000EBC0B /* AppTypes */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */,
+				67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */,
+			);
+			name = AppTypes;
+			sourceTree = "<group>";
+		};
+		67CCC9D916C1579D000EBC0B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		67CCC9DA16C157AD000EBC0B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		67CCC9DB16C15B41000EBC0B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		67CCC9DD16C15BAE000EBC0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67CCC9E316C15BAF000EBC0B /* libSSToolkit.a */,
+				67CCC9E516C15BAF000EBC0B /* SSToolkitTests.app */,
+				67CCC9E716C15BAF000EBC0B /* SSToolkitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +286,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				67CCC9E916C15BCC000EBC0B /* PBXTargetDependency */,
+				67CCC9EB16C15BCC000EBC0B /* PBXTargetDependency */,
 			);
 			name = AppCreatorLibrary;
 			productName = AppCreatorLibrary;
@@ -236,6 +332,12 @@
 			mainGroup = 6780DDCB16C02592005EDD1D;
 			productRefGroup = 6780DDD516C02593005EDD1D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 67CCC9DD16C15BAE000EBC0B /* Products */;
+					ProjectRef = 67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6780DDD316C02593005EDD1D /* AppCreatorLibrary */,
@@ -243,6 +345,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		67CCC9E316C15BAF000EBC0B /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = 67CCC9E216C15BAF000EBC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67CCC9E516C15BAF000EBC0B /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = 67CCC9E416C15BAF000EBC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67CCC9E716C15BAF000EBC0B /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = 67CCC9E616C15BAF000EBC0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6780DDE216C02593005EDD1D /* Resources */ = {
@@ -278,6 +404,7 @@
 			files = (
 				6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */,
+				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +423,16 @@
 			isa = PBXTargetDependency;
 			target = 6780DDD316C02593005EDD1D /* AppCreatorLibrary */;
 			targetProxy = 6780DDEB16C02593005EDD1D /* PBXContainerItemProxy */;
+		};
+		67CCC9E916C15BCC000EBC0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = 67CCC9E816C15BCC000EBC0B /* PBXContainerItemProxy */;
+		};
+		67CCC9EB16C15BCC000EBC0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkitResources;
+			targetProxy = 67CCC9EA16C15BCC000EBC0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -370,8 +507,12 @@
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Users/solomon/Projects/OpenSource/sstoolkit;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -384,8 +525,12 @@
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Users/solomon/Projects/OpenSource/sstoolkit;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
