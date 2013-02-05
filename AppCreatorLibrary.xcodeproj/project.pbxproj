@@ -22,6 +22,8 @@
 		67CCC9EC16C15BD9000EBC0B /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9E316C15BAF000EBC0B /* libSSToolkit.a */; };
 		67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
 		67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
+		67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0316C16C4F000EBC0B /* SMContentPage.m */; };
+		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,10 @@
 		67CCC9DC16C15BAE000EBC0B /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = ../../../../../OpenSource/sstoolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
 		67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		67CCCA0216C16C4F000EBC0B /* SMContentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentPage.h; path = UserInterface/Pages/ContentPage/Model/SMContentPage.h; sourceTree = "<group>"; };
+		67CCCA0316C16C4F000EBC0B /* SMContentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentPage.m; path = UserInterface/Pages/ContentPage/Model/SMContentPage.m; sourceTree = "<group>"; };
+		67CCCA0616C16E54000EBC0B /* SMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMModel.h; path = Library/Base/SMModel.h; sourceTree = "<group>"; };
+		67CCCA0716C16E54000EBC0B /* SMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMModel.m; path = Library/Base/SMModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				67CCC9FE16C16B44000EBC0B /* ContentPage */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 			);
 			name = Pages;
@@ -250,6 +257,7 @@
 		67CCC9DA16C157AD000EBC0B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				67CCCA0116C16B85000EBC0B /* Base */,
 				67CCC9FA16C16A07000EBC0B /* Categories */,
 				67CCC9FB16C16A11000EBC0B /* Network */,
 				67CCC9FD16C16A2B000EBC0B /* Strategies */,
@@ -302,6 +310,40 @@
 			children = (
 			);
 			name = Strategies;
+			sourceTree = "<group>";
+		};
+		67CCC9FE16C16B44000EBC0B /* ContentPage */ = {
+			isa = PBXGroup;
+			children = (
+				67CCCA0016C16B54000EBC0B /* Model */,
+				67CCC9FF16C16B4C000EBC0B /* Controller */,
+			);
+			name = ContentPage;
+			sourceTree = "<group>";
+		};
+		67CCC9FF16C16B4C000EBC0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		67CCCA0016C16B54000EBC0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67CCCA0216C16C4F000EBC0B /* SMContentPage.h */,
+				67CCCA0316C16C4F000EBC0B /* SMContentPage.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67CCCA0116C16B85000EBC0B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				67CCCA0616C16E54000EBC0B /* SMModel.h */,
+				67CCCA0716C16E54000EBC0B /* SMModel.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +479,8 @@
 				6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
+				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
+				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
