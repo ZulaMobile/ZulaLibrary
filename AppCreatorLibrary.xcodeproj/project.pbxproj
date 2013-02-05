@@ -24,6 +24,7 @@
 		67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 		67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0316C16C4F000EBC0B /* SMContentPage.m */; };
 		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
+		67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,9 @@
 		67CCCA0316C16C4F000EBC0B /* SMContentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentPage.m; path = UserInterface/Pages/ContentPage/Model/SMContentPage.m; sourceTree = "<group>"; };
 		67CCCA0616C16E54000EBC0B /* SMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMModel.h; path = Library/Base/SMModel.h; sourceTree = "<group>"; };
 		67CCCA0716C16E54000EBC0B /* SMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMModel.m; path = Library/Base/SMModel.m; sourceTree = "<group>"; };
+		67CCCA0916C1710A000EBC0B /* SMContentPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentPageViewController.h; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.h; sourceTree = "<group>"; };
+		67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentPageViewController.m; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.m; sourceTree = "<group>"; };
+		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +328,9 @@
 		67CCC9FF16C16B4C000EBC0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				67CCCA0916C1710A000EBC0B /* SMContentPageViewController.h */,
+				67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */,
+				67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -481,6 +488,7 @@
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
+				67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
