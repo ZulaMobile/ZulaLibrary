@@ -9,7 +9,7 @@
 #import "SMContentPageViewController.h"
 
 @interface SMContentPageViewController ()
-
+- (void)_customizeViews;
 @end
 
 @implementation SMContentPageViewController
@@ -26,13 +26,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // fetch the data and load the model
+    
+    // customize views
+    
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - private methods
+
+// organize and customize the views
+// must be called after the data is fetched and we have a model instance
+- (void)_customizeViews
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    /*
+    SMAppearance *appearance = [[SMAppearance alloc] init];
+    [appearance fetchAppearanceWithBlock:(void(^)(NSError *error)) {
+        
+    }];
+    
+    
+    SMComponentAppearance *titleAppearance = [SMComponentAppearance appearanceForModel:[SMContentPage identifier] element:@"title"];
+    NSString *fontName = [titleAppearance objectForKey:@"font-name"];
+    NSString *textColor = [titleAppearance objectForKey:@"text-color"];
+    float fontSize = [titleAppearance floatForKey:@"font-size"];
+    */
 }
 
 @end

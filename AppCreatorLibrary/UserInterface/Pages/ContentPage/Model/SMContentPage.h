@@ -13,6 +13,7 @@
 #define kModelContentPageTitle @"title"
 #define kModelContentPageText @"text"
 #define kModelContentPageImageUrl @"image_url"
+#define kModelContentPageBackgroundImageUrl @"background_image_url"
 
 /**
  Model class to provide the data for the `Content Page` object.
@@ -36,5 +37,10 @@
  Optional image to display on the page just above the title.
  */
 @property (nonatomic, readonly) NSURL *imageUrl;
+
+/**
+ Optional background image
+ */
+@property (nonatomic, readonly) NSURL *backgroundUrl;
 
 @end

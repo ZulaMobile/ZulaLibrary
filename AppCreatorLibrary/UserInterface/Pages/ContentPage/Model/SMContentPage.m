@@ -24,6 +24,11 @@
         if (imageUrlString && ![imageUrlString isEqualToString:@""]) {
             _imageUrl = [NSURL URLWithString:imageUrlString];
         }
+        
+        NSString *backgroundImageUrlString = [attributes objectForKey:kModelContentPageBackgroundImageUrl];
+        if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
+            _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
+        }
     }
     return self;
 }

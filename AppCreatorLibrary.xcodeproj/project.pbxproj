@@ -25,6 +25,8 @@
 		67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0316C16C4F000EBC0B /* SMContentPage.m */; };
 		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
 		67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */; };
+		67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */; };
+		67CCCA1316C1C61B000EBC0B /* SMComponentAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1216C1C61B000EBC0B /* SMComponentAppearance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,10 @@
 		67CCCA0916C1710A000EBC0B /* SMContentPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentPageViewController.h; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.h; sourceTree = "<group>"; };
 		67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentPageViewController.m; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.m; sourceTree = "<group>"; };
 		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
+		67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearance.h; path = Library/Appearance/SMAppearance.h; sourceTree = "<group>"; };
+		67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearance.m; path = Library/Appearance/SMAppearance.m; sourceTree = "<group>"; };
+		67CCCA1116C1C61B000EBC0B /* SMComponentAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentAppearance.h; path = Library/Appearance/SMComponentAppearance.h; sourceTree = "<group>"; };
+		67CCCA1216C1C61B000EBC0B /* SMComponentAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentAppearance.m; path = Library/Appearance/SMComponentAppearance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +267,7 @@
 		67CCC9DA16C157AD000EBC0B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				67CCCA0D16C1B57D000EBC0B /* Appearance */,
 				67CCCA0116C16B85000EBC0B /* Base */,
 				67CCC9FA16C16A07000EBC0B /* Categories */,
 				67CCC9FB16C16A11000EBC0B /* Network */,
@@ -351,6 +358,17 @@
 				67CCCA0716C16E54000EBC0B /* SMModel.m */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		67CCCA0D16C1B57D000EBC0B /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */,
+				67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */,
+				67CCCA1116C1C61B000EBC0B /* SMComponentAppearance.h */,
+				67CCCA1216C1C61B000EBC0B /* SMComponentAppearance.m */,
+			);
+			name = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +507,8 @@
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
 				67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */,
+				67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */,
+				67CCCA1316C1C61B000EBC0B /* SMComponentAppearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
