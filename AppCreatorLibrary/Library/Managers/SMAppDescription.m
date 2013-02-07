@@ -7,6 +7,7 @@
 //
 
 #import "SMAppDescription.h"
+#import "SMAppearanceDescription.h"
 
 #define kDefaultsKeyAppDescription @"app_description"
 
@@ -21,12 +22,19 @@
     self = [super init];
     if (self) {
         // set the default data source
+        self.dataSource = self;
         
         // get the cached data
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *cachedAppDescription = [defaults dictionaryForKey:kDefaultsKeyAppDescription];
         
-        // create appearance instance
-        
-        // create navigation instance
+        if (cachedAppDescription) {
+            // create appearance instance
+            NSArray *components = (NSArray *)[cachedAppDescription objectForKey:@"appearances"];
+            _appearance = [[SMAppearanceDescription alloc] initWithComponents:components];
+            
+            // create navigation instance
+        }
     }
     return self;
 }
@@ -44,6 +52,14 @@
 
 - (void)fetchAndSaveAppDescriptionWithCompletion:(void (^)(NSError *))completion
 {
+    // if data is already downloaded, skip the operation
+    if (_appearance && _navigation) {
+        if (completion) {
+            completion(nil);
+        }
+        return;
+    }
+    
     // fetch the data
     [self.dataSource fetchAppDescriptionWithCompletion:^(NSDictionary *response, NSError *error) {
         if (error) {
@@ -63,6 +79,8 @@
         [defaults synchronize];
         
         // create appearance instance
+        NSArray *components = (NSArray *)[response objectForKey:@"appearances"];
+        _appearance = [[SMAppearanceDescription alloc] initWithComponents:components];
         
         // create navigation instance
         
@@ -74,6 +92,45 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationAppDescriptionDidFetch
                                                             object:self];
     }];
+}
+
+#pragma mark - data source
+
+- (void)fetchAppDescriptionWithCompletion:(void (^)(NSDictionary *, NSError *))completion
+{
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setValue:@"App Title" forKey:@"title"];
+    
+    NSMutableArray *appearances = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *homepageApp = [[NSMutableDictionary alloc] init];
+    [homepageApp setValue:@"HomePage" forKey:@"component"];
+    [homepageApp setValue:@"Home Page" forKey:@"title"];
+    [homepageApp setValue:@"home_page" forKey:@"slug"];
+    [homepageApp setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"top center", @"align", nil], @"logo", nil]
+                   forKey:@"appearance"];
+    
+    NSMutableDictionary *contentPage = [[NSMutableDictionary alloc] init];
+    [contentPage setValue:@"ContentPage" forKey:@"component"];
+    [contentPage setValue:@"About Us" forKey:@"title"];
+    [contentPage setValue:@"about_us" forKey:@"slug"];
+    [contentPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"center", @"alignment", nil], @"image",
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font-size", @"#ff0000", @"color", nil], @"title",
+                           nil]
+                   forKey:@"appearance"];
+    
+    
+    
+    //[appearances addObject:homepageApp];
+    [appearances addObject:contentPage];
+    
+    [data setValue:appearances forKey:@"appearances"];
+    
+    if (completion) {
+        completion(data, nil);
+    }
 }
 
 @end

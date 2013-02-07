@@ -26,10 +26,10 @@
 		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
 		67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */; };
 		67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */; };
-		67CCCA1616C3EFC7000EBC0B /* SMAppLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1516C3EFC7000EBC0B /* SMAppLauncher.m */; };
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2316C3FD27000EBC0B /* SMAppearanceDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */; };
+		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,14 +121,14 @@
 		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
 		67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearance.h; path = Library/Appearance/SMAppearance.h; sourceTree = "<group>"; };
 		67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearance.m; path = Library/Appearance/SMAppearance.m; sourceTree = "<group>"; };
-		67CCCA1416C3EFC7000EBC0B /* SMAppLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppLauncher.h; path = AppTypes/SMAppLauncher.h; sourceTree = "<group>"; };
-		67CCCA1516C3EFC7000EBC0B /* SMAppLauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppLauncher.m; path = AppTypes/SMAppLauncher.m; sourceTree = "<group>"; };
 		67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescription.h; path = Library/Managers/SMAppDescription.h; sourceTree = "<group>"; };
 		67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescription.m; path = Library/Managers/SMAppDescription.m; sourceTree = "<group>"; };
 		67CCCA1D16C3F318000EBC0B /* SMAppDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionTests.h; path = Library/Managers/SMAppDescriptionTests.h; sourceTree = "<group>"; };
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2116C3FD27000EBC0B /* SMAppearanceDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceDescription.h; path = Library/Descriptions/SMAppearanceDescription.h; sourceTree = "<group>"; };
 		67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceDescription.m; path = Library/Descriptions/SMAppearanceDescription.m; sourceTree = "<group>"; };
+		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
+		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,8 +263,6 @@
 			children = (
 				67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */,
 				67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */,
-				67CCCA1416C3EFC7000EBC0B /* SMAppLauncher.h */,
-				67CCCA1516C3EFC7000EBC0B /* SMAppLauncher.m */,
 			);
 			name = AppTypes;
 			sourceTree = "<group>";
@@ -414,6 +412,8 @@
 				67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */,
 				67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */,
 				67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */,
+				67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */,
+				67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */,
 			);
 			name = Descriptions;
 			sourceTree = "<group>";
@@ -555,9 +555,9 @@
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
 				67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */,
 				67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */,
-				67CCCA1616C3EFC7000EBC0B /* SMAppLauncher.m in Sources */,
 				67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */,
 				67CCCA2316C3FD27000EBC0B /* SMAppearanceDescription.m in Sources */,
+				67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

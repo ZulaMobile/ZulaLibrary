@@ -13,7 +13,12 @@
 #define kNotificationAppDescriptionFail @"kNotificationAppDescriptionDidFetch"
 
 @class SMAppearanceDescription, SMNavigationDescription;
-@protocol SMAppearanceDataSource;
+
+@protocol SMAppDescriptionDataSource <NSObject>
+
+- (void)fetchAppDescriptionWithCompletion:(void(^)(NSDictionary *response, NSError *error))completion;
+
+@end
 
 /**
  @class
@@ -21,7 +26,7 @@
  The data includes the installed components and their appearances.
  Please see wiki entry of REST Api - AppDescription service for details.
  */
-@interface SMAppDescription : NSObject
+@interface SMAppDescription : NSObject <SMAppDescriptionDataSource>
 
 /**
  App title, a.k.a. the title of the app.
@@ -39,7 +44,7 @@
  */
 @property (nonatomic, strong) SMNavigationDescription *navigation;
 
-@property (nonatomic, unsafe_unretained) id<SMAppearanceDataSource> dataSource;
+@property (nonatomic, unsafe_unretained) id<SMAppDescriptionDataSource> dataSource;
 
 /**
  Singleton instance of the SMAppDescription.
@@ -51,12 +56,5 @@
  Fetches the description via the data source and make it persistent for later use
  */
 - (void)fetchAndSaveAppDescriptionWithCompletion:(void(^)(NSError *error))completion;
-
-@end
-
-
-@protocol SMAppearanceDataSource <NSObject>
-
-- (void)fetchAppDescriptionWithCompletion:(void(^)(NSDictionary *response, NSError *error))completion;
 
 @end

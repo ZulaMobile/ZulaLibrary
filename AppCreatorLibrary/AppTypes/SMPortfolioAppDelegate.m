@@ -7,7 +7,6 @@
 //
 
 #import "SMPortfolioAppDelegate.h"
-#import "SMAppLauncher.h"
 
 @implementation SMPortfolioAppDelegate
 
