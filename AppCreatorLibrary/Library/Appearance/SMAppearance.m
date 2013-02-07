@@ -9,27 +9,41 @@
 #import "SMAppearance.h"
 
 @implementation SMAppearance
-@synthesize dataSource = _dataSource;
 
-+ (SMAppearance *)sharedInstance
+- (id)initWithAppearanceData:(NSDictionary *)theAppearanceData
 {
-    static SMAppearance *_sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[SMAppearance alloc] init];
-    });
-    return _sharedInstance;
+    self = [super init];
+    if (self) {
+        appearanceData = theAppearanceData;
+    }
+    return self;
 }
 
-- (void)fetchAppearanceWithBlock:(void(^)(NSError *error))block
+- (NSString *)stringForElement:(NSString *)element key:(NSString *)key
 {
-    
+    NSDictionary *attributes = (NSDictionary *)[appearanceData objectForKey:element];
+    if (!attributes) {
+        return nil;
+    }
+    return [attributes objectForKey:key];
 }
 
-- (SMComponentAppearance *)componentAppearanceForModelIdentifier:(NSString *)modelIdentifier componentName:(NSString *)componentName
+- (BOOL)boolForElement:(NSString *)element key:(NSString *)key
 {
-    return nil;
+    NSDictionary *attributes = (NSDictionary *)[appearanceData objectForKey:element];
+    if (!attributes) {
+        return NO;
+    }
+    return [[attributes objectForKey:key] boolValue];
 }
 
+- (NSInteger)integerForElement:(NSString *)element key:(NSString *)key
+{
+    NSDictionary *attributes = (NSDictionary *)[appearanceData objectForKey:element];
+    if (!attributes) {
+        return NO;
+    }
+    return [[attributes objectForKey:key] integerValue];
+}
 
 @end

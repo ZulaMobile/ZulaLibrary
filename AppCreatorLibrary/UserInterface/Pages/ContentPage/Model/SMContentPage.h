@@ -12,8 +12,8 @@
 // data structure constants
 #define kModelContentPageTitle @"title"
 #define kModelContentPageText @"text"
-#define kModelContentPageImageUrl @"image_url"
-#define kModelContentPageBackgroundImageUrl @"background_image_url"
+#define kModelContentPageImageUrl @"image"
+#define kModelContentPageBackgroundImageUrl @"bg-image"
 
 /**
  Model class to provide the data for the `Content Page` object.

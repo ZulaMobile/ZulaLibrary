@@ -7,12 +7,23 @@
 //
 
 #import "SMPortfolioAppDelegate.h"
+#import "SMAppLauncher.h"
 
 @implementation SMPortfolioAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // add the preloader as the 1st screen
+    
+    // fetch `app description`
+    
+    // create component instances
+    
+    // create navigation
+    
+    // set up the root view controller
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

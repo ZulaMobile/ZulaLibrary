@@ -12,38 +12,39 @@
 @protocol SMAppearanceDataSource;
 
 /**
- Loads appearance values via data source
+ A Wrapper for appearance values.
  */
 @interface SMAppearance : NSObject
+{
+    // private appearance data
+    NSDictionary *appearanceData;
+}
+
+- (id)initWithAppearanceData:(NSDictionary *)appearanceData;
 
 /**
- The data source responsible from data fetching and persistance
- */
-@property (nonatomic, unsafe_unretained) id<SMAppearanceDataSource> dataSource;
-
-+ (SMAppearance *)sharedInstance;
-
-- (void)fetchAppearanceWithBlock:(void(^)(NSError *error))block;
-- (SMComponentAppearance *)componentAppearanceForModelIdentifier:(NSString *)modelIdentifier componentName:(NSString *)componentName;
-
-@end
-
-
-@protocol SMAppearanceDataSource <NSObject>
-
-/**
- Downloads values from data source (i.e. server)
- */
-- (void)appearance:(SMAppearance *)appearance fetchAppearanceWithBlock:(void(^)(NSError *error))block;
-
-/**
- Returns the component appearance class instance which gives relevant appearance values for the model.
+ Returns the value if exists, otherwise nil
  
- @param ModelIdentifier Unique identifier for the model class. See [SMModel identifier].
- @param ComponentName The name/identifier for the ui component. i.e. title
+ @param Element the name of the element (i.e. title, text, image, etc.)
+ @param Key the attribute name (i.e. font, color, font-size, etc.)
  */
-- (SMComponentAppearance *)componentAppearanceForModelIdentifier:(NSString *)modelIdentifier
-                                                   componentName:(NSString *)componentName;
+- (NSString *)stringForElement:(NSString *)element key:(NSString *)key;
+
+/**
+ Returns the value if exists, otherwise nil
+ 
+ @param Element the name of the element (i.e. title, text, image, etc.)
+ @param Key the attribute name (i.e. font, color, font-size, etc.)
+ */
+- (BOOL)boolForElement:(NSString *)element key:(NSString *)key;
+
+/**
+ Returns the value if exists, otherwise nil
+ 
+ @param Element the name of the element (i.e. title, text, image, etc.)
+ @param Key the attribute name (i.e. font, color, font-size, etc.)
+ */
+- (NSInteger)integerForElement:(NSString *)element key:(NSString *)key;
 
 @end
 
