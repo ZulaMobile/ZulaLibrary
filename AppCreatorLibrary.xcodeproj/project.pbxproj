@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
+		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
+		6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */; };
 		6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */; };
@@ -84,6 +86,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */,
 				67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */,
 				6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */,
 			);
@@ -96,6 +99,9 @@
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
 		6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationDescription.m; path = Library/Descriptions/SMNavigationDescription.m; sourceTree = "<group>"; };
+		6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPreloaderComponentViewController.h; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.h; sourceTree = "<group>"; };
+		6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPreloaderComponentViewController.m; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.m; sourceTree = "<group>"; };
+		6772D45016D6871000B36C0F /* SMPreloaderComponentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPreloaderComponentViewController.xib; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.xib; sourceTree = "<group>"; };
 		6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppCreatorLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* AppCreatorLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCreatorLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -157,6 +163,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6772D44D16D686D300B36C0F /* PreLoader */ = {
+			isa = PBXGroup;
+			children = (
+				6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */,
+				6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */,
+				6772D45016D6871000B36C0F /* SMPreloaderComponentViewController.xib */,
+			);
+			name = PreLoader;
+			sourceTree = "<group>";
+		};
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +258,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6772D44D16D686D300B36C0F /* PreLoader */,
 				67CCC9FE16C16B44000EBC0B /* ContentPage */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 			);
@@ -389,18 +406,18 @@
 		67CCCA1B16C3F2E6000EBC0B /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				67CCCA1C16C3F2EF000EBC0B /* Managers */,
+				67CCCA1C16C3F2EF000EBC0B /* Descriptions */,
 			);
 			name = Library;
 			sourceTree = "<group>";
 		};
-		67CCCA1C16C3F2EF000EBC0B /* Managers */ = {
+		67CCCA1C16C3F2EF000EBC0B /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
 				67CCCA1D16C3F318000EBC0B /* SMAppDescriptionTests.h */,
 				67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */,
 			);
-			name = Managers;
+			name = Descriptions;
 			sourceTree = "<group>";
 		};
 		67CCCA2016C3F64F000EBC0B /* Descriptions */ = {
@@ -558,6 +575,7 @@
 				67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */,
 				6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */,
 				6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */,
+				6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

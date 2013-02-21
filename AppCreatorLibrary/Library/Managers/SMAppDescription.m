@@ -102,8 +102,59 @@
 
 - (void)fetchAppDescriptionWithCompletion:(void (^)(NSDictionary *, NSError *))completion
 {
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setValue:@"App Title" forKey:@"title"];
+    
+    //
+    // Set components
+    //
+    NSMutableArray *components = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *homepageApp = [[NSMutableDictionary alloc] init];
+    [homepageApp setValue:@"HomePage" forKey:@"type"];
+    [homepageApp setValue:@"Home Page" forKey:@"title"];
+    [homepageApp setValue:@"home_page" forKey:@"slug"];
+    [homepageApp setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"top center", @"align", nil], @"logo", nil]
+                   forKey:@"appearance"];
+    
+    NSMutableDictionary *contentPage = [[NSMutableDictionary alloc] init];
+    [contentPage setValue:@"Content" forKey:@"type"];
+    [contentPage setValue:@"About Us" forKey:@"title"];
+    [contentPage setValue:@"about_us" forKey:@"slug"];
+    [contentPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"center", @"alignment", nil], @"image",
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font-size", @"#ff0000", @"color", nil], @"title",
+                           nil]
+                   forKey:@"appearance"];
+    
+    [components addObject:homepageApp];
+    [components addObject:contentPage];
+    
+    [data setValue:components forKey:@"components"];
+    
+    //
+    // Set navigation
+    //
+    NSArray *navComponents = [NSArray arrayWithObjects:@"home_page", @"about_us", nil];
+    NSDictionary *navigatorAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         @"tabbar", @"type",
+                                         @"glymps", @"iconset",
+                                         @"#ff0000", @"bg-color",
+                                         nil];
+    NSDictionary *navBarAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"glymps", @"iconset",
+                                      @"#ff0000", @"bg-color",
+                                      nil];
+    NSDictionary *navAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   navigatorAppearance, @"navigator",
+                                   navBarAppearance, @"navbar",
+                                   nil];
+    [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:navComponents, @"components", navAppearance, @"appearance", nil]
+            forKey:@"navigation"];
+    
     if (completion) {
-        completion(nil, nil);
+        completion([NSDictionary dictionaryWithDictionary:data], nil);
     }
 }
 

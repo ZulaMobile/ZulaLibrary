@@ -8,6 +8,8 @@
 
 #import "SMPortfolioAppDelegate.h"
 #import "SMAppDescription.h"
+#import "SMPreloaderComponentViewController.h"
+#import "SMContentPageViewController.h"
 
 @implementation SMPortfolioAppDelegate
 
@@ -15,7 +17,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // add the preloader as the 1st screen
+    // show the preloader screen
+    SMPreloaderComponentViewController *preloader = [[SMPreloaderComponentViewController alloc] init];
     
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
@@ -31,12 +34,20 @@
         
         // create navigation
         
-        // set up the root view controller
+        // set up the root view controller and pages
+        
+        
+        //SMContentPageViewController *ctrl = [[SMContentPageViewController alloc] initWithNibName:@"SMContentPageViewController" bundle:nil];
+        //[self.window setRootViewController:ctrl];
+        
     }];
     
     // set root view controller as preloader controller temporarily
+    //UIViewController *rootViewController = [[UIViewController alloc] init];
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window setRootViewController:preloader];
     [self.window makeKeyAndVisible];
     return YES;
 }
