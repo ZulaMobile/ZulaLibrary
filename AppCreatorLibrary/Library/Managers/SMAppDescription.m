@@ -12,8 +12,8 @@
 #define kDefaultsKeyAppDescription @"app_description"
 
 @implementation SMAppDescription
-@synthesize appearance = _appearance;
-@synthesize navigation = _navigation;
+@synthesize appearanceDescription = _appearanceDescription;
+@synthesize navigationDescription = _navigationDescription;
 @synthesize appTitle = _appTitle;
 @synthesize dataSource = _dataSource;
 
@@ -31,9 +31,10 @@
         if (cachedAppDescription) {
             // create appearance instance
             NSArray *components = (NSArray *)[cachedAppDescription objectForKey:@"appearances"];
-            _appearance = [[SMAppearanceDescription alloc] initWithComponents:components];
+            _appearanceDescription = [[SMAppearanceDescription alloc] initWithComponents:components];
             
             // create navigation instance
+#warning create navigation instance
         }
     }
     return self;
@@ -53,7 +54,7 @@
 - (void)fetchAndSaveAppDescriptionWithCompletion:(void (^)(NSError *))completion
 {
     // if data is already downloaded, skip the operation
-    if (_appearance && _navigation) {
+    if (_appearanceDescription && _navigationDescription) {
         if (completion) {
             completion(nil);
         }
@@ -80,7 +81,7 @@
         
         // create appearance instance
         NSArray *components = (NSArray *)[response objectForKey:@"appearances"];
-        _appearance = [[SMAppearanceDescription alloc] initWithComponents:components];
+        _appearanceDescription = [[SMAppearanceDescription alloc] initWithComponents:components];
         
         // create navigation instance
         

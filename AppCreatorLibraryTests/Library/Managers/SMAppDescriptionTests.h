@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "SMAppDescription.h"
 
-@interface SMAppDescriptionTests : SenTestCase
+@interface SMAppDescriptionTests : SenTestCase <SMAppDescriptionDataSource>
 
 @end

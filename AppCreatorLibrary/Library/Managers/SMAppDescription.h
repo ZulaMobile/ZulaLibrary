@@ -36,13 +36,13 @@
 /**
  The collection of component appearance data
  */
-@property (nonatomic, strong) SMAppearanceDescription *appearance;
+@property (nonatomic, strong) SMAppearanceDescription *appearanceDescription;
 
 /**
  The navigation description data, includes navigation ui appearances and
  components in order
  */
-@property (nonatomic, strong) SMNavigationDescription *navigation;
+@property (nonatomic, strong) SMNavigationDescription *navigationDescription;
 
 @property (nonatomic, unsafe_unretained) id<SMAppDescriptionDataSource> dataSource;
 

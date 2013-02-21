@@ -28,7 +28,8 @@
     for (NSDictionary *componentDict in _components) {
         NSString *componentSlug = (NSString *)[componentDict objectForKey:@"slug"];
         if ([componentSlug isEqualToString:slug]) {
-            return [[SMAppearance alloc] initWithAppearanceData:componentDict];
+            NSDictionary *componentAppearances = (NSDictionary *)[componentDict objectForKey:@"appearance"];
+            return [[SMAppearance alloc] initWithAppearanceData:componentAppearances];
         }
     }
     return nil;

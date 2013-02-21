@@ -7,6 +7,7 @@
 //
 
 #import "SMPortfolioAppDelegate.h"
+#import "SMAppDescription.h"
 
 @implementation SMPortfolioAppDelegate
 
@@ -17,12 +18,23 @@
     // add the preloader as the 1st screen
     
     // fetch `app description`
+    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
+        if (error) {
+            // show an error alert
+            return;
+        }
+        
+        // app description is fetched
+        // create component instances
+        
+        
+        // create navigation
+        
+        // set up the root view controller
+    }];
     
-    // create component instances
-    
-    // create navigation
-    
-    // set up the root view controller
+    // set root view controller as preloader controller temporarily
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

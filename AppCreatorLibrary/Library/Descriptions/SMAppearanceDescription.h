@@ -27,6 +27,16 @@
 /** @name Getter Methods */
 
 /**
+ Returns all component desctiptions
+ */
+- (NSArray *)components;
+
+/**
+ Returns a component description by the component slug
+ */
+- (NSDictionary *)componentDescriptionForComponentSlug:(NSString *)slug;
+
+/**
  Appearances data for the given component model and the slug.
  If the data is not found, returns nil
  */
