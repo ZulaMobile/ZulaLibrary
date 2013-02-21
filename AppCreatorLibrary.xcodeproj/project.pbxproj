@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
+		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */; };
 		6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */; };
@@ -25,10 +27,8 @@
 		67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0316C16C4F000EBC0B /* SMContentPage.m */; };
 		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
 		67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */; };
-		67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */; };
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
-		67CCCA2316C3FD27000EBC0B /* SMAppearanceDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +92,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
+		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
+		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
+		6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationDescription.m; path = Library/Descriptions/SMNavigationDescription.m; sourceTree = "<group>"; };
 		6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppCreatorLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* AppCreatorLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCreatorLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -119,14 +123,10 @@
 		67CCCA0916C1710A000EBC0B /* SMContentPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentPageViewController.h; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.h; sourceTree = "<group>"; };
 		67CCCA0A16C1710A000EBC0B /* SMContentPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentPageViewController.m; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.m; sourceTree = "<group>"; };
 		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
-		67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearance.h; path = Library/Appearance/SMAppearance.h; sourceTree = "<group>"; };
-		67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearance.m; path = Library/Appearance/SMAppearance.m; sourceTree = "<group>"; };
 		67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescription.h; path = Library/Managers/SMAppDescription.h; sourceTree = "<group>"; };
 		67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescription.m; path = Library/Managers/SMAppDescription.m; sourceTree = "<group>"; };
 		67CCCA1D16C3F318000EBC0B /* SMAppDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionTests.h; path = Library/Managers/SMAppDescriptionTests.h; sourceTree = "<group>"; };
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
-		67CCCA2116C3FD27000EBC0B /* SMAppearanceDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceDescription.h; path = Library/Descriptions/SMAppearanceDescription.h; sourceTree = "<group>"; };
-		67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceDescription.m; path = Library/Descriptions/SMAppearanceDescription.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,12 +408,12 @@
 			children = (
 				67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */,
 				67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */,
-				67CCCA2116C3FD27000EBC0B /* SMAppearanceDescription.h */,
-				67CCCA2216C3FD27000EBC0B /* SMAppearanceDescription.m */,
-				67CCCA0E16C1BBC0000EBC0B /* SMAppearance.h */,
-				67CCCA0F16C1BBC0000EBC0B /* SMAppearance.m */,
 				67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */,
 				67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */,
+				6772D44516D6795D00B36C0F /* SMComponentDescription.h */,
+				6772D44616D6795E00B36C0F /* SMComponentDescription.m */,
+				6772D44916D6831F00B36C0F /* SMNavigationDescription.h */,
+				6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */,
 			);
 			name = Descriptions;
 			sourceTree = "<group>";
@@ -554,10 +554,10 @@
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
 				67CCCA0C16C1710A000EBC0B /* SMContentPageViewController.m in Sources */,
-				67CCCA1016C1BBC0000EBC0B /* SMAppearance.m in Sources */,
 				67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */,
-				67CCCA2316C3FD27000EBC0B /* SMAppearanceDescription.m in Sources */,
 				67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */,
+				6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */,
+				6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

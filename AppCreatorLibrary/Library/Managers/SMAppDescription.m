@@ -7,12 +7,13 @@
 //
 
 #import "SMAppDescription.h"
-#import "SMAppearanceDescription.h"
+#import "SMComponentDescription.h"
+#import "SMNavigationDescription.h"
 
 #define kDefaultsKeyAppDescription @"app_description"
 
 @implementation SMAppDescription
-@synthesize appearanceDescription = _appearanceDescription;
+@synthesize components = _components;
 @synthesize navigationDescription = _navigationDescription;
 @synthesize appTitle = _appTitle;
 @synthesize dataSource = _dataSource;
@@ -23,19 +24,6 @@
     if (self) {
         // set the default data source
         self.dataSource = self;
-        
-        // get the cached data
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *cachedAppDescription = [defaults dictionaryForKey:kDefaultsKeyAppDescription];
-        
-        if (cachedAppDescription) {
-            // create appearance instance
-            NSArray *components = (NSArray *)[cachedAppDescription objectForKey:@"appearances"];
-            _appearanceDescription = [[SMAppearanceDescription alloc] initWithComponents:components];
-            
-            // create navigation instance
-#warning create navigation instance
-        }
     }
     return self;
 }
@@ -51,16 +39,18 @@
     return _sharedInstance;
 }
 
+- (SMComponentDescription *)componentDescriptionWithSlug:(NSString *)slug
+{
+    for (SMComponentDescription *componentDesc in _components) {
+        if ([componentDesc.slug isEqualToString:slug]) {
+            return componentDesc;
+        }
+    }
+    return nil;
+}
+
 - (void)fetchAndSaveAppDescriptionWithCompletion:(void (^)(NSError *))completion
 {
-    // if data is already downloaded, skip the operation
-    if (_appearanceDescription && _navigationDescription) {
-        if (completion) {
-            completion(nil);
-        }
-        return;
-    }
-    
     // fetch the data
     [self.dataSource fetchAppDescriptionWithCompletion:^(NSDictionary *response, NSError *error) {
         if (error) {
@@ -75,15 +65,28 @@
         }
         
         // save the data
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:response forKey:kDefaultsKeyAppDescription];
-        [defaults synchronize];
+        //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        //[defaults setObject:response forKey:kDefaultsKeyAppDescription];
+        //[defaults synchronize];
         
-        // create appearance instance
-        NSArray *components = (NSArray *)[response objectForKey:@"appearances"];
-        _appearanceDescription = [[SMAppearanceDescription alloc] initWithComponents:components];
+        // create components
+        NSArray *componentDatas = (NSArray *)[response objectForKey:@"components"];
+        NSMutableArray *tmpComponents = [[NSMutableArray alloc] initWithCapacity:[componentDatas count]];
+        for (NSDictionary *componentData in componentDatas) {
+            SMComponentDescription *component = [[SMComponentDescription alloc] init];
+            [component setType:[componentData objectForKey:@"type"]];
+            [component setTitle:[componentData objectForKey:@"title"]];
+            [component setSlug:[componentData objectForKey:@"slug"]];
+            [component setAppearance:[componentData objectForKey:@"appearance"]];
+            [tmpComponents addObject:component];
+        }
+        _components = [NSArray arrayWithArray:tmpComponents];
         
         // create navigation instance
+        NSDictionary *navData = [response objectForKey:@"navigation"];
+        _navigationDescription = [[SMNavigationDescription alloc] init];
+        [_navigationDescription setComponentSlugs:[navData objectForKey:@"components"]];
+        [_navigationDescription setAppearance:[navData objectForKey:@"appearance"]];
         
         if (completion) {
             completion(nil);
@@ -99,38 +102,8 @@
 
 - (void)fetchAppDescriptionWithCompletion:(void (^)(NSDictionary *, NSError *))completion
 {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
-    [data setValue:@"App Title" forKey:@"title"];
-    
-    NSMutableArray *appearances = [[NSMutableArray alloc] init];
-    
-    NSMutableDictionary *homepageApp = [[NSMutableDictionary alloc] init];
-    [homepageApp setValue:@"HomePage" forKey:@"component"];
-    [homepageApp setValue:@"Home Page" forKey:@"title"];
-    [homepageApp setValue:@"home_page" forKey:@"slug"];
-    [homepageApp setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"top center", @"align", nil], @"logo", nil]
-                   forKey:@"appearance"];
-    
-    NSMutableDictionary *contentPage = [[NSMutableDictionary alloc] init];
-    [contentPage setValue:@"ContentPage" forKey:@"component"];
-    [contentPage setValue:@"About Us" forKey:@"title"];
-    [contentPage setValue:@"about_us" forKey:@"slug"];
-    [contentPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"center", @"alignment", nil], @"image",
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font-size", @"#ff0000", @"color", nil], @"title",
-                           nil]
-                   forKey:@"appearance"];
-    
-    
-    
-    //[appearances addObject:homepageApp];
-    [appearances addObject:contentPage];
-    
-    [data setValue:appearances forKey:@"appearances"];
-    
     if (completion) {
-        completion(data, nil);
+        completion(nil, nil);
     }
 }
 

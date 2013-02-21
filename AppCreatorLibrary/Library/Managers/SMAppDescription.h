@@ -12,7 +12,7 @@
 #define kNotificationAppDescriptionDidFetch @"kNotificationAppDescriptionDidFetch"
 #define kNotificationAppDescriptionFail @"kNotificationAppDescriptionDidFetch"
 
-@class SMAppearanceDescription, SMNavigationDescription;
+@class SMComponentDescription, SMNavigationDescription;
 
 @protocol SMAppDescriptionDataSource <NSObject>
 
@@ -29,14 +29,14 @@
 @interface SMAppDescription : NSObject <SMAppDescriptionDataSource>
 
 /**
- App title, a.k.a. the title of the app.
+ App title, a.k.a. the title of the app (set by user)
  */
 @property (nonatomic, strong) NSString *appTitle;
 
 /**
- The collection of component appearance data
+ The collection of SMComponentDescription object
  */
-@property (nonatomic, strong) SMAppearanceDescription *appearanceDescription;
+@property (nonatomic, strong) NSArray *components;
 
 /**
  The navigation description data, includes navigation ui appearances and
@@ -51,6 +51,12 @@
  SMAppDescription holds the meta data (components, appearances) of the app
  */
 + (SMAppDescription *)sharedInstance;
+
+/**
+ Retrieves component description instance by its slug
+ nil if not found
+ */
+- (SMComponentDescription *)componentDescriptionWithSlug:(NSString *)slug;
 
 /**
  Fetches the description via the data source and make it persistent for later use
