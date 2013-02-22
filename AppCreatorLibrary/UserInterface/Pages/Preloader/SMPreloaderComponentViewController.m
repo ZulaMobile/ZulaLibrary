@@ -18,12 +18,21 @@
 
 - (void)loadView
 {
-    UIView *view = [[UIView alloc] init];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 548)];
+    [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [_activityIndicatorView setFrame:CGRectMake(10, 10, 100, 100)];
+    [_activityIndicatorView setFrame:CGRectMake(150, 440, 20, 20)];
+    [_activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin];
     [_activityIndicatorView startAnimating];
     
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
+    //NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"AquarianHarp" ofType:@"bundle"];
+    //NSString *imageName = [myBundle pathForResource:@"trebleclef2" ofType:@"png"];
+    //[_imageView setImage:[UIImage imageNamed:@"zularesources.bundle/sample.png"]];
+    [_imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    
+    [view addSubview:_imageView];
     [view addSubview:_activityIndicatorView];
     
     [self setView:view];

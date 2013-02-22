@@ -5,3 +5,21 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
 #endif
+
+/**
+ Macros
+ */
+
+#define UIViewAutoresizingFlexibleAll                       \
+                UIViewAutoresizingFlexibleBottomMargin    | \
+                UIViewAutoresizingFlexibleHeight          | \
+                UIViewAutoresizingFlexibleLeftMargin      | \
+                UIViewAutoresizingFlexibleRightMargin     | \
+                UIViewAutoresizingFlexibleTopMargin       | \
+                UIViewAutoresizingFlexibleWidth
+
+#define UIViewAutoresizingFlexibleMargins                   \
+                UIViewAutoresizingFlexibleBottomMargin    | \
+                UIViewAutoresizingFlexibleLeftMargin      | \
+                UIViewAutoresizingFlexibleRightMargin     | \
+                UIViewAutoresizingFlexibleTopMargin
