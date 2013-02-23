@@ -39,7 +39,7 @@
 			containerPortal = 6780DDCC16C02592005EDD1D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6780DDD316C02593005EDD1D;
-			remoteInfo = AppCreatorLibrary;
+			remoteInfo = ZulaLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -178,7 +178,7 @@
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
 			);
 			name = ZulaLibrary;
-			path = AppCreatorLibrary;
+			path = ZulaLibrary;
 			sourceTree = "<group>";
 		};
 		6780DDDA16C02593005EDD1D /* Supporting Files */ = {
@@ -198,7 +198,7 @@
 				6780DDEF16C02593005EDD1D /* Supporting Files */,
 			);
 			name = ZulaLibraryTests;
-			path = AppCreatorLibraryTests;
+			path = ZulaLibraryTests;
 			sourceTree = "<group>";
 		};
 		6780DDEF16C02593005EDD1D /* Supporting Files */ = {
@@ -404,7 +404,7 @@
 			dependencies = (
 			);
 			name = ZulaLibrary;
-			productName = AppCreatorLibrary;
+			productName = ZulaLibrary;
 			productReference = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
@@ -423,7 +423,7 @@
 				6780DDEC16C02593005EDD1D /* PBXTargetDependency */,
 			);
 			name = ZulaLibraryTests;
-			productName = AppCreatorLibraryTests;
+			productName = ZulaLibraryTests;
 			productReference = 6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -587,9 +587,9 @@
 		6780DDFA16C02593005EDD1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/AppCreatorLibrary.dst;
+				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/ZulaLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
@@ -605,9 +605,9 @@
 		6780DDFB16C02593005EDD1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/AppCreatorLibrary.dst;
+				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/ZulaLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
@@ -628,8 +628,8 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
-				INFOPLIST_FILE = "AppCreatorLibraryTests/ZulaLibraryTests-Info.plist";
+				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
+				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
 				PRODUCT_NAME = ZulaLibraryTests;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -643,8 +643,8 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
-				INFOPLIST_FILE = "AppCreatorLibraryTests/ZulaLibraryTests-Info.plist";
+				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
+				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
 				PRODUCT_NAME = ZulaLibraryTests;
 				WRAPPER_EXTENSION = octest;
 			};
