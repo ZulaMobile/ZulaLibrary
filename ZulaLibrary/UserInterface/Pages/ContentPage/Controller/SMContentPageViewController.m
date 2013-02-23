@@ -7,23 +7,32 @@
 //
 
 #import "SMContentPageViewController.h"
+#import "SMComponentDescription.h"
+#import "SMImageView.h"
+#import "SMLabel.h"
 
 @interface SMContentPageViewController ()
-- (void)_customizeViews;
 @end
 
 @implementation SMContentPageViewController
 
 - (void)loadView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 548)];
+    // screen size
+    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [view setBackgroundColor:[UIColor yellowColor]];
     
-    _titleView = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, CGRectGetWidth(view.frame), 30)];
+    _imageView = [[SMImageView alloc] initWithFrame:CGRectMake(padding, padding, CGRectGetWidth(view.frame) - padding * 2, 150.0)];
+    [_imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+    [_imageView applyAppearances:[self.description.appearance objectForKey:@"image"]];
+    
+    _titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, padding * 2 + CGRectGetHeight(_imageView.frame), CGRectGetWidth(view.frame) - padding * 2, 30)];
     [_titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [_titleView setText:@"Test label"];
-    [_titleView setTextColor:[UIColor blackColor]];
+    [_titleView applyAppearances:[self.description.appearance objectForKey:@"title"]];
+    [_titleView setText:@"sample text"];
     
     [view addSubview:_titleView];
     [self setView:view];
@@ -37,26 +46,6 @@
     
     // customize views
     
-}
-
-#pragma mark - private methods
-
-// organize and customize the views
-// must be called after the data is fetched and we have a model instance
-- (void)_customizeViews
-{
-    /*
-    SMAppearance *appearance = [[SMAppearance alloc] init];
-    [appearance fetchAppearanceWithBlock:(void(^)(NSError *error)) {
-        
-    }];
-    
-    
-    SMComponentAppearance *titleAppearance = [SMComponentAppearance appearanceForModel:[SMContentPage identifier] element:@"title"];
-    NSString *fontName = [titleAppearance objectForKey:@"font-name"];
-    NSString *textColor = [titleAppearance objectForKey:@"text-color"];
-    float fontSize = [titleAppearance floatForKey:@"font-size"];
-    */
 }
 
 @end

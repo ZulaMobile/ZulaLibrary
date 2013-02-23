@@ -123,12 +123,18 @@
     [contentPage setValue:@"About Us" forKey:@"title"];
     [contentPage setValue:@"about_us" forKey:@"slug"];
     [contentPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"center", @"alignment", nil], @"image",
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font-size", @"#ff0000", @"color", nil], @"title",
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fit", @"alignment", nil], @"image",
+                           [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"16", @"font_size",
+                            @"AmericanTypewriter", @"font_family",
+                            @"ff0000", @"color",
+                            @"000000", @"bg_color",
+                            @"center", @"alignment", nil], @"title",
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
                            nil]
                    forKey:@"appearance"];
     
-    [components addObject:homepageApp];
+    //[components addObject:homepageApp];
     [components addObject:contentPage];
     
     [data setValue:components forKey:@"components"];
@@ -154,8 +160,8 @@
             forKey:@"navigation"];
     
     
-    // delay execution for 2 seconds
-    double delayInSeconds = 2.0;
+    // delay execution
+    double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         if (completion) {

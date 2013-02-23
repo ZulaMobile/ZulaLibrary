@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMDefaultAppDelegate.h"
 
 /**
  Portfolio AppType is designed to provide basic app structure for companies and portfolios
  */
-@interface SMPortfolioAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface SMPortfolioAppDelegate : SMDefaultAppDelegate
 
 @end

@@ -32,6 +32,10 @@
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
+		67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */; };
+		67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */; };
+		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
+		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +106,15 @@
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
+		67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultAppDelegate.h; path = AppTypes/SMDefaultAppDelegate.h; sourceTree = "<group>"; };
+		67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultAppDelegate.m; path = AppTypes/SMDefaultAppDelegate.m; sourceTree = "<group>"; };
+		67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBaseComponentViewController.h; path = UserInterface/Pages/SMBaseComponentViewController.h; sourceTree = "<group>"; };
+		67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBaseComponentViewController.m; path = UserInterface/Pages/SMBaseComponentViewController.m; sourceTree = "<group>"; };
+		67D4C44116D9031600BCE927 /* SMImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMImageView.h; path = UserInterface/Elements/SMImageView.h; sourceTree = "<group>"; };
+		67D4C44216D9031600BCE927 /* SMImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMImageView.m; path = UserInterface/Elements/SMImageView.m; sourceTree = "<group>"; };
+		67D4C44416D903A900BCE927 /* SMViewElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMViewElement.h; path = UserInterface/Elements/SMViewElement.h; sourceTree = "<group>"; };
+		67D4C44516D9088600BCE927 /* SMLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLabel.h; path = UserInterface/Elements/SMLabel.h; sourceTree = "<group>"; };
+		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
 		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -145,7 +158,6 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
-				67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
@@ -166,6 +178,7 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */,
 				67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */,
 				67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */,
 				6780DDD716C02593005EDD1D /* Foundation.framework */,
@@ -233,6 +246,8 @@
 				6772D44D16D686D300B36C0F /* PreLoader */,
 				67CCC9FE16C16B44000EBC0B /* ContentPage */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
+				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
+				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -252,6 +267,8 @@
 			children = (
 				67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */,
 				67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */,
+				67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */,
+				67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */,
 			);
 			name = AppTypes;
 			sourceTree = "<group>";
@@ -259,6 +276,11 @@
 		67CCC9D916C1579D000EBC0B /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				67D4C44416D903A900BCE927 /* SMViewElement.h */,
+				67D4C44116D9031600BCE927 /* SMImageView.h */,
+				67D4C44216D9031600BCE927 /* SMImageView.m */,
+				67D4C44516D9088600BCE927 /* SMLabel.h */,
+				67D4C44616D9088600BCE927 /* SMLabel.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -520,6 +542,10 @@
 				6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */,
 				6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */,
 				6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */,
+				67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */,
+				67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */,
+				67D4C44316D9031600BCE927 /* SMImageView.m in Sources */,
+				67D4C44716D9088600BCE927 /* SMLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +643,6 @@
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
-					"-ObjC",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = ZulaLibrary;
@@ -636,7 +661,6 @@
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
-					"-ObjC",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = ZulaLibrary;
