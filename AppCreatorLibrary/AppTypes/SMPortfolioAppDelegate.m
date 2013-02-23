@@ -17,8 +17,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // root view controller
+    __block UIViewController *rootViewController = [[UIViewController alloc] init];
+    
     // show the preloader screen
-    SMPreloaderComponentViewController *preloader = [[SMPreloaderComponentViewController alloc] init];
+    UIViewController *preloader = [[SMPreloaderComponentViewController alloc] init];
     
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
@@ -29,16 +32,19 @@
         }
         
         // app description is fetched
-        // create component instances
         
+        // create component instances
+        SMContentPageViewController *contentComponent = [[SMContentPageViewController alloc] init];
         
         // create navigation
         
         // set up the root view controller and pages
+        //[preloader.navigationController pushViewController:contentComponent animated:YES];
         
-        
-        //SMContentPageViewController *ctrl = [[SMContentPageViewController alloc] initWithNibName:@"SMContentPageViewController" bundle:nil];
-        //[self.window setRootViewController:ctrl];
+        [rootViewController dismissViewControllerAnimated:NO completion:^{
+            [self.window addSubview:contentComponent.view];
+            [rootViewController.view removeFromSuperview];
+        }];
         
     }];
     
@@ -47,8 +53,12 @@
     
     
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window setRootViewController:preloader];
+    [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
+    
+    // show the modal preloader
+    [rootViewController presentViewController:preloader animated:NO completion:nil];
+    
     return YES;
 }
 

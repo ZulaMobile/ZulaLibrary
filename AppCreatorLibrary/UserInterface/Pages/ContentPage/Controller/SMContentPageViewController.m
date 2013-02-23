@@ -14,13 +14,19 @@
 
 @implementation SMContentPageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)loadView
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 548)];
+    [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [view setBackgroundColor:[UIColor yellowColor]];
+    
+    _titleView = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, CGRectGetWidth(view.frame), 30)];
+    [_titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [_titleView setText:@"Test label"];
+    [_titleView setTextColor:[UIColor blackColor]];
+    
+    [view addSubview:_titleView];
+    [self setView:view];
 }
 
 - (void)viewDidLoad

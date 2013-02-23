@@ -11,7 +11,6 @@
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
 		6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */; };
-		6772D45316D692D800B36C0F /* SMContentPageViewController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */; };
 		6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */; };
@@ -87,7 +86,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				6772D45316D692D800B36C0F /* SMContentPageViewController.xib in CopyFiles */,
 				6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */,
 				67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */,
 				6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */,
