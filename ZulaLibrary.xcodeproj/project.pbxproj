@@ -12,12 +12,12 @@
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
 		6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
-		6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */; };
-		6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */; };
+		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
+		6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* ZulaLibrary.m */; };
 		6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE616C02593005EDD1D /* SenTestingKit.framework */; };
 		6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE816C02593005EDD1D /* UIKit.framework */; };
 		6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
-		6780DDED16C02593005EDD1D /* libAppCreatorLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */; };
+		6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
 		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
 		6780DDF616C02593005EDD1D /* AppCreatorLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* AppCreatorLibraryTests.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */; };
@@ -88,7 +88,7 @@
 			files = (
 				6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */,
 				67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */,
-				6780DDDD16C02593005EDD1D /* AppCreatorLibrary.h in CopyFiles */,
+				6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,15 +102,15 @@
 		6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPreloaderComponentViewController.h; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.h; sourceTree = "<group>"; };
 		6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPreloaderComponentViewController.m; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.m; sourceTree = "<group>"; };
 		6772D45016D6871000B36C0F /* SMPreloaderComponentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPreloaderComponentViewController.xib; path = UserInterface/Pages/Preloader/SMPreloaderComponentViewController.xib; sourceTree = "<group>"; };
-		6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppCreatorLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6780DDD416C02593005EDD1D /* libZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZulaLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6780DDDB16C02593005EDD1D /* AppCreatorLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppCreatorLibrary-Prefix.pch"; sourceTree = "<group>"; };
-		6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCreatorLibrary.h; sourceTree = "<group>"; };
-		6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCreatorLibrary.m; sourceTree = "<group>"; };
-		6780DDE516C02593005EDD1D /* AppCreatorLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppCreatorLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		6780DDDC16C02593005EDD1D /* ZulaLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibrary.h; sourceTree = "<group>"; };
+		6780DDDE16C02593005EDD1D /* ZulaLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibrary.m; sourceTree = "<group>"; };
+		6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZulaLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDE616C02593005EDD1D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6780DDE816C02593005EDD1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		6780DDF016C02593005EDD1D /* AppCreatorLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppCreatorLibraryTests-Info.plist"; sourceTree = "<group>"; };
+		6780DDF016C02593005EDD1D /* ZulaLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZulaLibraryTests-Info.plist"; sourceTree = "<group>"; };
 		6780DDF216C02593005EDD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6780DDF416C02593005EDD1D /* AppCreatorLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCreatorLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* AppCreatorLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCreatorLibraryTests.m; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */,
 				6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */,
 				6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */,
-				6780DDED16C02593005EDD1D /* libAppCreatorLibrary.a in Frameworks */,
+				6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +186,8 @@
 		6780DDD516C02593005EDD1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */,
-				6780DDE516C02593005EDD1D /* AppCreatorLibraryTests.octest */,
+				6780DDD416C02593005EDD1D /* libZulaLibrary.a */,
+				6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,8 +210,8 @@
 				67CCC9D516C152CB000EBC0B /* AppTypes */,
 				67CCC9CB16C11D97000EBC0B /* UserInterface */,
 				67CCC9DA16C157AD000EBC0B /* Library */,
-				6780DDDC16C02593005EDD1D /* AppCreatorLibrary.h */,
-				6780DDDE16C02593005EDD1D /* AppCreatorLibrary.m */,
+				6780DDDC16C02593005EDD1D /* ZulaLibrary.h */,
+				6780DDDE16C02593005EDD1D /* ZulaLibrary.m */,
 				67CCC9DB16C15B41000EBC0B /* Vendor */,
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
 			);
@@ -221,7 +221,7 @@
 		6780DDDA16C02593005EDD1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6780DDDB16C02593005EDD1D /* AppCreatorLibrary-Prefix.pch */,
+				6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 		6780DDEF16C02593005EDD1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6780DDF016C02593005EDD1D /* AppCreatorLibraryTests-Info.plist */,
+				6780DDF016C02593005EDD1D /* ZulaLibraryTests-Info.plist */,
 				6780DDF116C02593005EDD1D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -438,9 +438,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6780DDD316C02593005EDD1D /* AppCreatorLibrary */ = {
+		6780DDD316C02593005EDD1D /* ZulaLibrary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6780DDF916C02593005EDD1D /* Build configuration list for PBXNativeTarget "AppCreatorLibrary" */;
+			buildConfigurationList = 6780DDF916C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibrary" */;
 			buildPhases = (
 				6780DDD016C02593005EDD1D /* Sources */,
 				6780DDD116C02593005EDD1D /* Frameworks */,
@@ -452,14 +452,14 @@
 				67CCC9E916C15BCC000EBC0B /* PBXTargetDependency */,
 				67CCC9EB16C15BCC000EBC0B /* PBXTargetDependency */,
 			);
-			name = AppCreatorLibrary;
+			name = ZulaLibrary;
 			productName = AppCreatorLibrary;
-			productReference = 6780DDD416C02593005EDD1D /* libAppCreatorLibrary.a */;
+			productReference = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		6780DDE416C02593005EDD1D /* AppCreatorLibraryTests */ = {
+		6780DDE416C02593005EDD1D /* ZulaLibraryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "AppCreatorLibraryTests" */;
+			buildConfigurationList = 6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibraryTests" */;
 			buildPhases = (
 				6780DDE016C02593005EDD1D /* Sources */,
 				6780DDE116C02593005EDD1D /* Frameworks */,
@@ -471,9 +471,9 @@
 			dependencies = (
 				6780DDEC16C02593005EDD1D /* PBXTargetDependency */,
 			);
-			name = AppCreatorLibraryTests;
+			name = ZulaLibraryTests;
 			productName = AppCreatorLibraryTests;
-			productReference = 6780DDE516C02593005EDD1D /* AppCreatorLibraryTests.octest */;
+			productReference = 6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -485,7 +485,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = laplacesdemon;
 			};
-			buildConfigurationList = 6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "AppCreatorLibrary" */;
+			buildConfigurationList = 6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "ZulaLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -503,8 +503,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				6780DDD316C02593005EDD1D /* AppCreatorLibrary */,
-				6780DDE416C02593005EDD1D /* AppCreatorLibraryTests */,
+				6780DDD316C02593005EDD1D /* ZulaLibrary */,
+				6780DDE416C02593005EDD1D /* ZulaLibraryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -565,7 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6780DDDF16C02593005EDD1D /* AppCreatorLibrary.m in Sources */,
+				6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
@@ -593,7 +593,7 @@
 /* Begin PBXTargetDependency section */
 		6780DDEC16C02593005EDD1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6780DDD316C02593005EDD1D /* AppCreatorLibrary */;
+			target = 6780DDD316C02593005EDD1D /* ZulaLibrary */;
 			targetProxy = 6780DDEB16C02593005EDD1D /* PBXContainerItemProxy */;
 		};
 		67CCC9E916C15BCC000EBC0B /* PBXTargetDependency */ = {
@@ -678,14 +678,14 @@
 			buildSettings = {
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "AppCreatorLibrary/ZulaLibrary-Prefix.pch";
 				HEADER_SEARCH_PATHS = /Users/solomon/Projects/OpenSource/sstoolkit;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZulaLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -696,14 +696,14 @@
 			buildSettings = {
 				DSTROOT = /tmp/AppCreatorLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "AppCreatorLibrary/ZulaLibrary-Prefix.pch";
 				HEADER_SEARCH_PATHS = /Users/solomon/Projects/OpenSource/sstoolkit;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZulaLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -718,8 +718,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
-				INFOPLIST_FILE = "AppCreatorLibraryTests/AppCreatorLibraryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AppCreatorLibraryTests/ZulaLibraryTests-Info.plist";
+				PRODUCT_NAME = ZulaLibraryTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -733,8 +733,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppCreatorLibrary/AppCreatorLibrary-Prefix.pch";
-				INFOPLIST_FILE = "AppCreatorLibraryTests/AppCreatorLibraryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "AppCreatorLibraryTests/ZulaLibraryTests-Info.plist";
+				PRODUCT_NAME = ZulaLibraryTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -742,7 +742,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "AppCreatorLibrary" */ = {
+		6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "ZulaLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6780DDF716C02593005EDD1D /* Debug */,
@@ -751,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6780DDF916C02593005EDD1D /* Build configuration list for PBXNativeTarget "AppCreatorLibrary" */ = {
+		6780DDF916C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6780DDFA16C02593005EDD1D /* Debug */,
@@ -760,7 +760,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "AppCreatorLibraryTests" */ = {
+		6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibraryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6780DDFD16C02593005EDD1D /* Debug */,

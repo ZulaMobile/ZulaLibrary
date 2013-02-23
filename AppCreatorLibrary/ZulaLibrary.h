@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SMHomePageControllerViewController.h"
 
-@interface AppCreatorLibrary : NSObject
-
-- (void)saySomething;
+@interface ZulaLibrary : NSObject
 
 @end
