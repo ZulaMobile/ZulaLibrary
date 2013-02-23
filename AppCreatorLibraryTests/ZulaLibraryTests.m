@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "AppCreatorLibraryTests.h"
+#import "ZulaLibraryTests.h"
 
-@implementation AppCreatorLibraryTests
+@implementation ZulaLibraryTests
 
 - (void)setUp
 {

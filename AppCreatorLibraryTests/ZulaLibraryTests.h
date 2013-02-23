@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface AppCreatorLibraryTests : SenTestCase
+@interface ZulaLibraryTests : SenTestCase
 
 @end
