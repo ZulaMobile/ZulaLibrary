@@ -20,6 +20,7 @@
 		6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
 		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
 		6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */; };
+		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
@@ -31,6 +32,7 @@
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
+		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZulaLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		6780DDF216C02593005EDD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryTests.m; sourceTree = "<group>"; };
+		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageControllerViewController.h; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageControllerViewController.m; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.m; sourceTree = "<group>"; };
 		67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMHomePageControllerViewController.xib; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.xib; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
+		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +110,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */,
 				6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */,
 				67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */,
 				67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */,
+				8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,10 +145,12 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
+				67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
 				6780DDD516C02593005EDD1D /* Products */,
+				AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +171,7 @@
 				6780DDD716C02593005EDD1D /* Foundation.framework */,
 				6780DDE616C02593005EDD1D /* SenTestingKit.framework */,
 				6780DDE816C02593005EDD1D /* UIKit.framework */,
+				061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,7 +187,6 @@
 				67CCC9DB16C15B41000EBC0B /* Vendor */,
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
 			);
-			name = ZulaLibrary;
 			path = ZulaLibrary;
 			sourceTree = "<group>";
 		};
@@ -197,7 +206,6 @@
 				6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */,
 				6780DDEF16C02593005EDD1D /* Supporting Files */,
 			);
-			name = ZulaLibraryTests;
 			path = ZulaLibraryTests;
 			sourceTree = "<group>";
 		};
@@ -398,6 +406,7 @@
 				6780DDD016C02593005EDD1D /* Sources */,
 				6780DDD116C02593005EDD1D /* Frameworks */,
 				6780DDD216C02593005EDD1D /* CopyFiles */,
+				EAEB2C768C9549D5B68C9DC5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -478,6 +487,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		EAEB2C768C9549D5B68C9DC5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-ZulaLibrary-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -586,15 +609,16 @@
 		};
 		6780DDFA16C02593005EDD1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = ZulaLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
@@ -604,15 +628,16 @@
 		};
 		6780DDFB16C02593005EDD1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = ZulaLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
