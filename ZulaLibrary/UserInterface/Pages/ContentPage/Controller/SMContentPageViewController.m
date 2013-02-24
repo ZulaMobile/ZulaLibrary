@@ -40,15 +40,15 @@
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [_scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    _imageView = [[SMImageView alloc] initWithFrame:CGRectMake(padding, padding, CGRectGetWidth(view.frame) - padding * 2, 150.0)];
+    _imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), 150.0)];
     [_imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [_imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
-    _titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, padding * 2 + CGRectGetHeight(_imageView.frame), CGRectGetWidth(view.frame) - padding * 2, 30)];
+    _titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(_imageView.frame), CGRectGetWidth(view.frame) - padding * 2, 30)];
     [_titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [_titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
     
-    _webView = [[SMWebView alloc] initWithFrame:CGRectMake(padding, padding * 2 + CGRectGetHeight(_imageView.frame) + CGRectGetHeight(_titleView.frame), CGRectGetWidth(view.frame) - padding * 2, 600)];
+    _webView = [[SMWebView alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(_imageView.frame) + CGRectGetHeight(_titleView.frame), CGRectGetWidth(view.frame) - padding * 2, 600)];
     [_webView setAutoresizesSubviews:UIViewAutoresizingDefault];
     [_webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [_webView setDelegate:self];
@@ -102,8 +102,17 @@
             [self.backgroundImageView setImageWithURL:contentPage.backgroundUrl];
         }
         
-        
         // reposition elements
+        if (!contentPage.imageUrl) {
+            // move views up
+            CGRect imageViewFrame = _imageView.frame;
+            CGRect titleViewFrame = _titleView.frame;
+            CGRect webViewFrame = _webView.frame;
+            titleViewFrame.origin.y -= imageViewFrame.size.height;
+            webViewFrame.origin.y -= imageViewFrame.size.height;
+            [_titleView setFrame:titleViewFrame];
+            [_webView setFrame:webViewFrame];
+        }
     }];
 }
 
