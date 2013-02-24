@@ -12,6 +12,8 @@
 /**
  A component'a root/parent view.
  App wide appearances will apply to this view
+ * bg_color
+ * scroll_color
  */
 @interface SMMainView : UIView <SMViewElement>
 

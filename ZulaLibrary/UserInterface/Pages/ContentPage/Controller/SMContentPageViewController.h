@@ -34,7 +34,8 @@
 @property (nonatomic, strong) SMWebView *webView;
 
 /**
- 
+ The 320x150 image view.
+ If there is no image set, this view will disappear
  */
 @property (nonatomic, strong) SMImageView *imageView;
 

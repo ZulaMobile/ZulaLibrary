@@ -118,7 +118,10 @@
     //
     // set main appearances
     //
-    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:@"333333", @"bg_color", nil];
+    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"333333", @"bg_color",
+                                     [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fill", @"alignment", @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url", nil], @"bg_image",
+                                     nil];
     [data setValue:mainAppearances forKey:@"appearance"];
     
     //
@@ -139,12 +142,12 @@
     [contentPage setValue:@"About Us" forKey:@"title"];
     [contentPage setValue:@"about_us" forKey:@"slug"];
     [contentPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fit", @"alignment", nil], @"image",
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fill", @"alignment", nil], @"image",
                            [NSDictionary dictionaryWithObjectsAndKeys:
                             @"16", @"font_size",
                             @"AmericanTypewriter", @"font_family",
                             @"ff0000", @"color",
-                            @"000000", @"bg_color",
+                            @"333333", @"bg_color",
                             @"center", @"alignment", nil], @"title",
                            //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
                            nil]

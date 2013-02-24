@@ -10,6 +10,7 @@
 #import "SMComponentDescription.h"
 #import "SMAppDescription.h"
 #import "SMMainView.h"
+#import "SMImageView.h"
 
 @interface SMBaseComponentViewController ()
 
@@ -17,6 +18,7 @@
 
 @implementation SMBaseComponentViewController
 @synthesize componentDesciption = _componentDesciption;
+@synthesize backgroundImageView = _backgroundImageView;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -42,6 +44,30 @@
     if ([self.view isKindOfClass:[SMMainView class]]) {
         [(SMMainView *)self.view applyAppearances:appDescription.appearance];
     }
+    
+    // set background image view if no subclass set it before
+    if (!self.backgroundImageView) {
+        NSDictionary *bgImageViewAppearance = [appDescription.appearance objectForKey:@"bg_image"];
+        // if no app wide settings for bg image exists, dissmiss it
+        if (bgImageViewAppearance) {
+            NSURL *imageUrl = [NSURL URLWithString:[bgImageViewAppearance objectForKey:@"url"]];
+            if (imageUrl) {
+                _backgroundImageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+                [_backgroundImageView applyAppearances:bgImageViewAppearance];
+                [_backgroundImageView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+                [_backgroundImageView setImageWithURL:imageUrl];
+                [self.view addSubview:_backgroundImageView];
+                [self.view sendSubviewToBack:_backgroundImageView];
+            }
+        }
+    }
+    
+    
+}
+
+- (void)fetchContents
+{
+    // must be overridden
 }
 
 @end

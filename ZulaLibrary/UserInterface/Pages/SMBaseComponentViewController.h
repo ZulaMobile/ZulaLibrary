@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+SSToolkitAdditions.h"
 
-@class SMComponentDescription;
+@class SMComponentDescription, SMImageView;
 
 /**
  Base component provides the common functionality for all components.
@@ -30,8 +31,20 @@
 @property (nonatomic, strong) SMComponentDescription *componentDesciption;
 
 /**
+ Background image view, set by the [[App Wide Appearances]] and can be
+ overridden by the subclasses
+ */
+@property (nonatomic, strong) SMImageView *backgroundImageView;
+
+/**
  Initializer (constructor) that must be used to initialize a component instance
  */
 - (id)initWithDescription:(SMComponentDescription *)description;
+
+/**
+ Downloads the contents from the server and set the view files. 
+ Must be overridden by the subclasses
+ */
+- (void)fetchContents;
 
 @end

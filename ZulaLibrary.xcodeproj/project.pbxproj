@@ -154,14 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6772D44D16D686D300B36C0F /* PreLoader */ = {
+		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
 			isa = PBXGroup;
 			children = (
 				6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */,
 				6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */,
 				6772D45016D6871000B36C0F /* SMPreloaderComponentViewController.xib */,
 			);
-			name = PreLoader;
+			name = SplashPreLoader;
 			sourceTree = "<group>";
 		};
 		6780DDCB16C02592005EDD1D = {
@@ -252,7 +252,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6772D44D16D686D300B36C0F /* PreLoader */,
+				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67CCC9FE16C16B44000EBC0B /* ContentPage */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
@@ -286,14 +286,14 @@
 			isa = PBXGroup;
 			children = (
 				67D4C44416D903A900BCE927 /* SMViewElement.h */,
+				677C46B716DA44DD003CE7A1 /* SMMainView.h */,
+				677C46B816DA44DD003CE7A1 /* SMMainView.m */,
 				67D4C44116D9031600BCE927 /* SMImageView.h */,
 				67D4C44216D9031600BCE927 /* SMImageView.m */,
 				67D4C44516D9088600BCE927 /* SMLabel.h */,
 				67D4C44616D9088600BCE927 /* SMLabel.m */,
 				67D4C44816D918C900BCE927 /* SMTextView.h */,
 				67D4C44916D918C900BCE927 /* SMTextView.m */,
-				677C46B716DA44DD003CE7A1 /* SMMainView.h */,
-				677C46B816DA44DD003CE7A1 /* SMMainView.m */,
 				677C46BA16DA5878003CE7A1 /* SMWebView.h */,
 				677C46BB16DA5878003CE7A1 /* SMWebView.m */,
 			);

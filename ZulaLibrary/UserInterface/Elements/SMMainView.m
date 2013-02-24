@@ -13,7 +13,6 @@
 
 @interface SMMainView()
 - (void)appearanceForBackgroundHexColor:(NSString *)hexColor;
-- (void)appearanceForBackgroundImageAppearance:(NSDictionary *)appearance;
 @end
 
 @implementation SMMainView
@@ -35,7 +34,6 @@
 - (void)applyAppearances:(NSDictionary *)appearances
 {
     [self appearanceForBackgroundHexColor:[appearances objectForKey:@"bg_color"]];
-    [self appearanceForBackgroundImageAppearance:[appearances objectForKey:@"bg_image"]];
 }
 
 #pragma mark - appearances
@@ -52,35 +50,6 @@
     } else {
         [self setBackgroundColor:[UIColor colorWithHex:hexColor]];
     }
-}
-
-- (void)appearanceForBackgroundImageAppearance:(NSDictionary *)appearance
-{
-    // default value
-    if (!appearance) {
-        return;
-    }
-    
-    // validate if there is a url data
-    NSString *imageUrl = [appearance objectForKey:@"url"];
-    if (!imageUrl) {
-        return;
-    }
-    
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    
-    // validate url
-    if (!url) {
-        return;
-    }
-    
-    // place the background
-    SMImageView *imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-    [imageView applyAppearances:appearance]; // apply appearance (alignment and bg_color)
-    [imageView setImageWithURL:url];
-    
-    [self addSubview:imageView];
-    [self sendSubviewToBack:imageView];
 }
 
 @end

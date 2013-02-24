@@ -13,7 +13,7 @@
 #define kModelContentPageTitle @"title"
 #define kModelContentPageText @"text"
 #define kModelContentPageImageUrl @"image"
-#define kModelContentPageBackgroundImageUrl @"bg-image"
+#define kModelContentPageBackgroundImageUrl @"bg_image"
 
 /**
  Model class to provide the data for the `Content Page` object.
@@ -42,5 +42,11 @@
  Optional background image
  */
 @property (nonatomic, readonly) NSURL *backgroundUrl;
+
+/**
+ Content data for Content model
+ See the data structure at [[GET Content Page Service]] wiki entry
+ */
++ (void)fetchWithCompletion:(void(^)(SMContentPage *contentPage, NSError *error))completion;
 
 @end
