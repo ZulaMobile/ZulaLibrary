@@ -17,6 +17,7 @@
 @synthesize navigationDescription = _navigationDescription;
 @synthesize appTitle = _appTitle;
 @synthesize dataSource = _dataSource;
+@synthesize appearance = _appearance;
 
 - (id)init
 {
@@ -69,6 +70,13 @@
         //[defaults setObject:response forKey:kDefaultsKeyAppDescription];
         //[defaults synchronize];
         
+        // set the app title
+        _appTitle = [response objectForKey:@"title"];
+        
+        // set appearances
+        NSDictionary *appearances = [response objectForKey:@"appearance"];
+        _appearance = appearances;
+        
         // create components
         NSArray *componentDatas = (NSArray *)[response objectForKey:@"components"];
         NSMutableArray *tmpComponents = [[NSMutableArray alloc] initWithCapacity:[componentDatas count]];
@@ -102,8 +110,16 @@
 
 - (void)fetchAppDescriptionWithCompletion:(void (^)(NSDictionary *, NSError *))completion
 {
+    // @todo: validation of data
+    
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     [data setValue:@"App Title" forKey:@"title"];
+    
+    //
+    // set main appearances
+    //
+    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:@"333333", @"bg_color", nil];
+    [data setValue:mainAppearances forKey:@"appearance"];
     
     //
     // Set components
@@ -130,7 +146,7 @@
                             @"ff0000", @"color",
                             @"000000", @"bg_color",
                             @"center", @"alignment", nil], @"title",
-                           [NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
+                           //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
                            nil]
                    forKey:@"appearance"];
     

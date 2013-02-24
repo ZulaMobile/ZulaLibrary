@@ -38,7 +38,7 @@
             return;
         }
         
-        // app description is fetched
+        /* app description is fetched */
         
         // create navigation
         navigationComponent = [[UITabBarController alloc] init];

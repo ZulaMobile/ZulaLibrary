@@ -34,6 +34,12 @@
 @property (nonatomic, strong) NSString *appTitle;
 
 /**
+ App wide appearance dictionary.
+ @see [[App Wide Appearances]] wiki entry for available options
+ */
+@property (nonatomic, strong) NSDictionary *appearance;
+
+/**
  The collection of SMComponentDescription object
  */
 @property (nonatomic, strong) NSArray *components;

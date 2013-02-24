@@ -21,6 +21,12 @@
     [data setValue:@"App Title" forKey:@"title"];
     
     //
+    // set main appearances
+    //
+    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:@"333333", @"bg_color", nil];
+    [data setValue:mainAppearances forKey:@"appearance"];
+    
+    //
     // Set components
     //
     NSMutableArray *components = [[NSMutableArray alloc] init];
@@ -122,6 +128,9 @@
     STAssertTrue([homepage isEqualToString:@"home_page"], @"home page");
     NSString *aboutus = [navDesc.componentSlugs objectAtIndex:1];
     STAssertTrue([aboutus isEqualToString:@"about_us"], @"about us");
+    
+    NSDictionary *appAppearance = [appDescription appearance];
+    STAssertNotNil(appAppearance, @"app appearance must not be nil");
 }
 
 #pragma mark - app description data source

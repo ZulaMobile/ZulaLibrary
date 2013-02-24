@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SMViewElement.h"
+#import "UIImageView+AFNetworking.h"
 
 /**
  Standard image view

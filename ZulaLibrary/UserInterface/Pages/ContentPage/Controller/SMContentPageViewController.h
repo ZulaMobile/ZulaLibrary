@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMBaseComponentViewController.h"
 
-@class SMImageView, SMLabel;
+@class SMImageView, SMLabel, SMWebView;
 
 /**
  Content page is a simple page consist of title, text and image
@@ -31,7 +31,7 @@
 /**
  web view to show html content
  */
-@property (nonatomic, strong) UIWebView *textView;
+@property (nonatomic, strong) SMWebView *webView;
 
 /**
  

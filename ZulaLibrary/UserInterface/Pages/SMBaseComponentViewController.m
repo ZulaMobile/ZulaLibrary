@@ -8,6 +8,8 @@
 
 #import "SMBaseComponentViewController.h"
 #import "SMComponentDescription.h"
+#import "SMAppDescription.h"
+#import "SMMainView.h"
 
 @interface SMBaseComponentViewController ()
 
@@ -29,6 +31,17 @@
         padding = 10.0;
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // apply app wide appearaces
+    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    if ([self.view isKindOfClass:[SMMainView class]]) {
+        [(SMMainView *)self.view applyAppearances:appDescription.appearance];
+    }
 }
 
 @end
