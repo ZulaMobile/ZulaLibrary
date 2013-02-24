@@ -14,6 +14,7 @@
 #import "SMMainView.h"
 #import "SMWebView.h"
 #import "SMContentPage.h"
+#import "SMProgressHUD.h"
 
 @interface SMContentPageViewController ()
 
@@ -74,9 +75,11 @@
 - (void)fetchContents
 {
     // start preloader
-    
+    [SMProgressHUD show];
     [SMContentPage fetchWithCompletion:^(SMContentPage *contentPage, NSError *error) {
         // end preloader
+        [SMProgressHUD dismiss];
+        
         if (error) {
             // show error
             [self displayErrorString:NSLocalizedString(@"We encountered an error, Please try again", nil)];

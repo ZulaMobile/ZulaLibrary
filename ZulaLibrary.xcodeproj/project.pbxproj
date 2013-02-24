@@ -13,6 +13,7 @@
 		6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */; };
 		677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46B816DA44DD003CE7A1 /* SMMainView.m */; };
 		677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BB16DA5878003CE7A1 /* SMWebView.m */; };
+		677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
 		6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* ZulaLibrary.m */; };
@@ -80,6 +81,8 @@
 		677C46B816DA44DD003CE7A1 /* SMMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMainView.m; path = UserInterface/Elements/SMMainView.m; sourceTree = "<group>"; };
 		677C46BA16DA5878003CE7A1 /* SMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWebView.h; path = UserInterface/Elements/SMWebView.h; sourceTree = "<group>"; };
 		677C46BB16DA5878003CE7A1 /* SMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWebView.m; path = UserInterface/Elements/SMWebView.m; sourceTree = "<group>"; };
+		677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProgressHUD.h; path = UserInterface/Elements/SMProgressHUD.h; sourceTree = "<group>"; };
+		677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProgressHUD.m; path = UserInterface/Elements/SMProgressHUD.m; sourceTree = "<group>"; };
 		6780DDD416C02593005EDD1D /* libZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZulaLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 				67D4C44916D918C900BCE927 /* SMTextView.m */,
 				677C46BA16DA5878003CE7A1 /* SMWebView.h */,
 				677C46BB16DA5878003CE7A1 /* SMWebView.m */,
+				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
+				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */,
 				677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */,
 				677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */,
+				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
