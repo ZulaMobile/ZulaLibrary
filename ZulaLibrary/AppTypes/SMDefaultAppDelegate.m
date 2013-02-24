@@ -13,6 +13,12 @@
 #import "SMComponentDescription.h"
 
 @implementation SMDefaultAppDelegate
+{
+    /**
+     The navigation component is on the heap to prevent memory issues
+     */
+    UITabBarController *navigationComponent;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -35,7 +41,7 @@
         // app description is fetched
         
         // create navigation
-        UITabBarController *tabbarController = [[UITabBarController alloc] init];
+        navigationComponent = [[UITabBarController alloc] init];
         
         // create component instances
         for (SMComponentDescription *componentDesc in appDescription.components) {
@@ -44,13 +50,13 @@
                 SMContentPageViewController *contentComponent = [[SMContentPageViewController alloc] initWithDescription:componentDesc];
                 
                 // add the component to the navigation
-                [tabbarController addChildViewController:contentComponent];
+                [navigationComponent addChildViewController:contentComponent];
             }
         }
         
         // show the main window
         [rootViewController dismissViewControllerAnimated:NO completion:^{
-            [self.window addSubview:tabbarController.view];
+            [self.window addSubview:navigationComponent.view];
             [rootViewController.view removeFromSuperview];
         }];
         

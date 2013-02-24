@@ -14,16 +14,16 @@
 @end
 
 @implementation SMBaseComponentViewController
-@synthesize description = _description;
+@synthesize componentDesciption = _componentDesciption;
 
-- (id)initWithDescription:(SMComponentDescription *)componentDescription
+- (id)initWithDescription:(SMComponentDescription *)description
 {
     self = [super init];
     if (self) {
-        [self setDescription:componentDescription];
+        [self setComponentDesciption:description];
         
         // configure component
-        [self setTitle:self.description.title];
+        [self setTitle:self.componentDesciption.title];
         
         // padding default value
         padding = 10.0;

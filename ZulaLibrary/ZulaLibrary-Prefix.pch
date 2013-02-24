@@ -24,3 +24,5 @@
                 UIViewAutoresizingFlexibleLeftMargin      | \
                 UIViewAutoresizingFlexibleRightMargin     | \
                 UIViewAutoresizingFlexibleTopMargin
+
+#define UIViewAutoresizingDefault UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin

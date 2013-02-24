@@ -36,6 +36,7 @@
 		67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */; };
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
+		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		67D4C44416D903A900BCE927 /* SMViewElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMViewElement.h; path = UserInterface/Elements/SMViewElement.h; sourceTree = "<group>"; };
 		67D4C44516D9088600BCE927 /* SMLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLabel.h; path = UserInterface/Elements/SMLabel.h; sourceTree = "<group>"; };
 		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
+		67D4C44816D918C900BCE927 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTextView.h; path = UserInterface/Elements/SMTextView.h; sourceTree = "<group>"; };
+		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
 		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -281,6 +284,8 @@
 				67D4C44216D9031600BCE927 /* SMImageView.m */,
 				67D4C44516D9088600BCE927 /* SMLabel.h */,
 				67D4C44616D9088600BCE927 /* SMLabel.m */,
+				67D4C44816D918C900BCE927 /* SMTextView.h */,
+				67D4C44916D918C900BCE927 /* SMTextView.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */,
 				67D4C44316D9031600BCE927 /* SMImageView.m in Sources */,
 				67D4C44716D9088600BCE927 /* SMLabel.m in Sources */,
+				67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +610,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -627,7 +633,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

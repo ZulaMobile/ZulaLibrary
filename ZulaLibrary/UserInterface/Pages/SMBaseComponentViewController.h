@@ -27,7 +27,7 @@
  Description file, provides title and slug that the user set
  and appearance dict for view elements.
  */
-@property (nonatomic, strong) SMComponentDescription *description;
+@property (nonatomic, strong) SMComponentDescription *componentDesciption;
 
 /**
  Initializer (constructor) that must be used to initialize a component instance
