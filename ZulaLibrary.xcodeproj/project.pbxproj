@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -70,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZulaLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
+		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -157,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		675BDD5916DB73E600B141F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */,
+				675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +342,7 @@
 		67CCC9FA16C16A07000EBC0B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				675BDD5916DB73E600B141F8 /* UI */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -570,6 +583,7 @@
 				677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */,
 				677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */,
 				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
+				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

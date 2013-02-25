@@ -19,6 +19,8 @@
     * color: hex code for text color
     * font-size: number
     * font: the font family (string)
+ 
+ @see [[Label Element]] wiki entry
  */
 @interface SMLabel : SSLabel <SMViewElement>
 

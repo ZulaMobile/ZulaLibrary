@@ -15,6 +15,7 @@
 #import "SMWebView.h"
 #import "SMContentPage.h"
 #import "SMProgressHUD.h"
+#import "UIWebView+SMAdditions.h"
 
 @interface SMContentPageViewController ()
 
@@ -53,6 +54,7 @@
     [_webView setAutoresizesSubviews:UIViewAutoresizingDefault];
     [_webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [_webView setDelegate:self];
+    [_webView disableScrollBounce];
     
     [_scrollView addSubview:_imageView];
     [_scrollView addSubview:_titleView];

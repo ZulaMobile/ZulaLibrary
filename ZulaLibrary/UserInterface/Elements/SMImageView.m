@@ -16,6 +16,15 @@
 
 @implementation SMImageView
 
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setClipsToBounds:YES];
+    }
+    return self;
+}
+
 /**
  image view settings, Current available options are:
     * alignment: the content mode [center, left, right, aspect_fill, aspect_fit]. default is aspect_fill

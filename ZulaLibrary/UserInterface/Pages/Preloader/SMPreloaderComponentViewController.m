@@ -23,7 +23,7 @@
     
     _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_activityIndicatorView setFrame:CGRectMake(150, 420, 20, 20)];
-    [_activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin];
+    [_activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin];
     [_activityIndicatorView startAnimating];
     
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
