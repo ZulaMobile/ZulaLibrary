@@ -15,7 +15,6 @@
  App wide appearances will apply to this view
  * bg_color
  * bg_image
- * scroll_color
  */
 @interface SMMainView : UIView <SMViewElement>
 

@@ -120,6 +120,7 @@
     //
     NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"ff0000", @"bg_color",
+                                     @"white", @"scroll_color",
                                      [NSDictionary dictionaryWithObjectsAndKeys:
                                       @"aspect_fill", @"alignment",
                                       @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url",

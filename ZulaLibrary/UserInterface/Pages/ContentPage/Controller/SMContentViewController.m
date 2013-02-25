@@ -13,6 +13,7 @@
 #import "SMTextView.h"
 #import "SMMainView.h"
 #import "SMWebView.h"
+#import "SMScrollView.h"
 #import "SMContentPage.h"
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
@@ -23,7 +24,7 @@
 /**
  scroll view as a wrapper for content view
  */
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) SMScrollView *scrollView;
 
 @end
 
@@ -40,7 +41,8 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+    self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+    [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 150.0)];

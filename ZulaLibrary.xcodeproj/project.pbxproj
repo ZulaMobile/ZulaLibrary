@@ -14,6 +14,7 @@
 		675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
 		675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */; };
 		675BDD7016DB990F00B141F8 /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
+		675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7216DBB77C00B141F8 /* SMScrollView.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -88,6 +89,8 @@
 		675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SMAdditions.m"; path = "Library/Categories/NSDictionary+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD6C16DB968A00B141F8 /* NSDictionarySSAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionarySSAdditionsTests.h; sourceTree = "<group>"; };
 		675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
+		675BDD7116DBB77B00B141F8 /* SMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMScrollView.h; path = UserInterface/Elements/SMScrollView.h; sourceTree = "<group>"; };
+		675BDD7216DBB77C00B141F8 /* SMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMScrollView.m; path = UserInterface/Elements/SMScrollView.m; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				677C46BB16DA5878003CE7A1 /* SMWebView.m */,
 				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
 				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
+				675BDD7116DBB77B00B141F8 /* SMScrollView.h */,
+				675BDD7216DBB77C00B141F8 /* SMScrollView.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
 				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
 				675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */,
+				675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
