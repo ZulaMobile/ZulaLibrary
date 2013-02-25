@@ -1,12 +1,12 @@
 //
-//  SMContentPageViewController.m
+//  SMContentViewController.m
 //  AppCreatorLibrary
 //
 //  Created by Suleyman Melikoglu on 2/5/13.
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMContentPageViewController.h"
+#import "SMContentViewController.h"
 #import "SMComponentDescription.h"
 #import "SMImageView.h"
 #import "SMLabel.h"
@@ -16,8 +16,9 @@
 #import "SMContentPage.h"
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
+#import "UIViewController+SSToolkitAdditions.h"
 
-@interface SMContentPageViewController ()
+@interface SMContentViewController ()
 
 /**
  scroll view as a wrapper for content view
@@ -26,7 +27,7 @@
 
 @end
 
-@implementation SMContentPageViewController
+@implementation SMContentViewController
 @synthesize titleView = _titleView;
 @synthesize imageView = _imageView;
 @synthesize webView = _webView;

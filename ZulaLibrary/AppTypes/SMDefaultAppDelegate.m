@@ -9,7 +9,7 @@
 #import "SMDefaultAppDelegate.h"
 #import "SMAppDescription.h"
 #import "SMPreloaderComponentViewController.h"
-#import "SMContentPageViewController.h"
+#import "SMContentViewController.h"
 #import "SMComponentDescription.h"
 
 @implementation SMDefaultAppDelegate
@@ -44,10 +44,10 @@
         navigationComponent = [[UITabBarController alloc] init];
         
         // create component instances
-        for (SMComponentDescription *componentDesc in appDescription.components) {
+        for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
             if ([componentDesc.type isEqualToString:@"Content"]) {
                 // create the component
-                SMContentPageViewController *contentComponent = [[SMContentPageViewController alloc] initWithDescription:componentDesc];
+                SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDesc];
                 
                 // add the component to the navigation
                 [navigationComponent addChildViewController:contentComponent];

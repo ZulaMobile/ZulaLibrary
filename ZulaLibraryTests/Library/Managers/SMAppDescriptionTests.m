@@ -92,7 +92,7 @@
     }];
     
     // get components
-    NSArray *components = [appDescription components];
+    NSArray *components = [appDescription componentDescriptions];
     STAssertTrue(2 == [components count], @"component sizes are not equal 2 != %d", [components count]);
     
     SMComponentDescription *homePageComponent = [components objectAtIndex:0];

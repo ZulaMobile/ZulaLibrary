@@ -1,5 +1,5 @@
 //
-//  SMContentPageViewController.h
+//  SMContentViewController.h
 //  AppCreatorLibrary
 //
 //  Created by Suleyman Melikoglu on 2/5/13.
@@ -20,7 +20,7 @@
  
  @see SMContentPage model class for the component data to fetch for this page
  */
-@interface SMContentPageViewController : SMBaseComponentViewController <UIWebViewDelegate>
+@interface SMContentViewController : SMBaseComponentViewController <UIWebViewDelegate>
 
 /**
  Title label

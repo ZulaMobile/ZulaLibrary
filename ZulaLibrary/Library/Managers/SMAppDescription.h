@@ -42,7 +42,7 @@
 /**
  The collection of SMComponentDescription object
  */
-@property (nonatomic, strong) NSArray *components;
+@property (nonatomic, strong) NSArray *componentDescriptions;
 
 /**
  The navigation description data, includes navigation ui appearances and

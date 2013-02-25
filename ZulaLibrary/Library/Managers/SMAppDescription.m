@@ -13,7 +13,7 @@
 #define kDefaultsKeyAppDescription @"app_description"
 
 @implementation SMAppDescription
-@synthesize components = _components;
+@synthesize componentDescriptions = _components;
 @synthesize navigationDescription = _navigationDescription;
 @synthesize appTitle = _appTitle;
 @synthesize dataSource = _dataSource;

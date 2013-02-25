@@ -11,6 +11,7 @@
 #import "SMAppDescription.h"
 #import "SMMainView.h"
 #import "SMImageView.h"
+#import "UIViewController+SSToolkitAdditions.h"
 
 @interface SMBaseComponentViewController ()
 
