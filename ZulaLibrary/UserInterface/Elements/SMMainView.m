@@ -16,6 +16,7 @@
 @end
 
 @implementation SMMainView
+@synthesize backgroundImageUrl = _backgroundImageUrl;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,8 +29,6 @@
 
 /**
  App wide appearances. Available options are
- * bg_color
- * bg_image
  */
 - (void)applyAppearances:(NSDictionary *)appearances
 {

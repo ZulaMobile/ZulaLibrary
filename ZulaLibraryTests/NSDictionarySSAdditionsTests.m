@@ -62,4 +62,86 @@
     STAssertTrue([[result objectForKey:@"status"] isEqualToString:@"active"], @"");
 }
 
+- (void)testMergeMultiDimensional
+{
+    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"ff0000", @"bg_color",
+                                     
+                                     [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"aspect_fill", @"alignment",
+                                      @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url",
+                                      nil], @"bg_image",
+                                     
+                                     nil];
+     
+    NSDictionary *componentApperances =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                          
+                                          [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fill", @"alignment", nil], @"image",
+                                         
+                                          [NSDictionary dictionaryWithObjectsAndKeys:
+                                          @"20", @"font_size",
+                                          @"GillSans-Bold", @"font_family",
+                                          @"F6FFA6", @"color",
+                                          @"clean", @"bg_color",
+                                          @"center", @"alignment", nil], @"title",
+                                         //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
+     nil];
+    
+    NSDictionary *result = [NSDictionary dictionaryByMerging:componentApperances with:mainAppearances];
+    
+    STAssertTrue([result count] == 4, @"total count of items must be 4");
+    STAssertTrue([[result objectForKey:@"bg_color"] isEqualToString:@"ff0000"], @"");
+    
+    NSDictionary *resultBgImage = [result objectForKey:@"bg_image"];
+    STAssertTrue([[resultBgImage objectForKey:@"alignment"] isEqualToString:@"aspect_fill"], @"");
+    STAssertTrue([[resultBgImage objectForKey:@"url"] isEqualToString:@"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg"], @"");
+
+    NSDictionary *image = [result objectForKey:@"image"];
+    STAssertTrue([[image objectForKey:@"alignment"] isEqualToString:@"aspect_fill"], @"");
+}
+
+- (void)testMergeMultiDimensionalOverride
+{
+    NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"ff0000", @"bg_color",
+                                     
+                                     [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"aspect_fill", @"alignment",
+                                      @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url",
+                                      nil], @"bg_image",
+                                     
+                                     nil];
+    
+    NSDictionary *componentApperances =  [NSDictionary dictionaryWithObjectsAndKeys:
+                                          @"444222", @"bg_color",
+                                          
+                                          [NSDictionary dictionaryWithObjectsAndKeys:
+                                           @"center", @"alignment",
+                                           @"http://overridden.png", @"url",
+                                           nil], @"bg_image",
+                                          
+                                          [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fill", @"alignment", nil], @"image",
+                                          
+                                          [NSDictionary dictionaryWithObjectsAndKeys:
+                                           @"20", @"font_size",
+                                           @"GillSans-Bold", @"font_family",
+                                           @"F6FFA6", @"color",
+                                           @"clean", @"bg_color",
+                                           @"center", @"alignment", nil], @"title",
+                                          //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
+                                          nil];
+    
+    NSDictionary *result = [NSDictionary dictionaryByMerging:componentApperances with:mainAppearances];
+    
+    STAssertTrue([result count] == 4, @"total count of items must be 4");
+    STAssertTrue([[result objectForKey:@"bg_color"] isEqualToString:@"444222"], @"");
+    
+    NSDictionary *resultBgImage = [result objectForKey:@"bg_image"];
+    STAssertTrue([[resultBgImage objectForKey:@"alignment"] isEqualToString:@"center"], @"");
+    STAssertTrue([[resultBgImage objectForKey:@"url"] isEqualToString:@"http://overridden.png"], @"");
+    
+    NSDictionary *image = [result objectForKey:@"image"];
+    STAssertTrue([[image objectForKey:@"alignment"] isEqualToString:@"aspect_fill"], @"");
+}
+
 @end

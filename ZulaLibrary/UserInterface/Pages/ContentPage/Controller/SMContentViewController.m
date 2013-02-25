@@ -35,34 +35,32 @@
 
 - (void)loadView
 {
+    [super loadView];
+    
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
-    SMMainView *view = [[SMMainView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+    [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
-    [_scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 150.0)];
+    [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+    [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
-    _imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), 150.0)];
-    [_imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
-    [_imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
+    self.titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 30)];
+    [self.titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [self.titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
     
-    _titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(_imageView.frame), CGRectGetWidth(view.frame) - padding * 2, 30)];
-    [_titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [_titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
+    self.webView = [[SMWebView alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame) + CGRectGetHeight(self.titleView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 600)];
+    [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
+    [self.webView setDelegate:self];
+    [self.webView disableScrollBounce];
     
-    _webView = [[SMWebView alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(_imageView.frame) + CGRectGetHeight(_titleView.frame), CGRectGetWidth(view.frame) - padding * 2, 600)];
-    [_webView setAutoresizesSubviews:UIViewAutoresizingDefault];
-    [_webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
-    [_webView setDelegate:self];
-    [_webView disableScrollBounce];
-    
-    [_scrollView addSubview:_imageView];
-    [_scrollView addSubview:_titleView];
-    [_scrollView addSubview:_webView];
-    [view addSubview:_scrollView];
-    
-    [self setView:view];
+    [self.scrollView addSubview:self.imageView];
+    [self.scrollView addSubview:self.titleView];
+    [self.scrollView addSubview:self.webView];
+    [self.view addSubview:self.scrollView];
 }
 
 - (void)viewDidLoad
@@ -91,22 +89,12 @@
         
         [_titleView setText:contentPage.title];
         [_webView loadHTMLString:contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
-        if (contentPage.imageUrl) {
+        if (contentPage.imageUrl)
             [_imageView setImageWithURL:contentPage.imageUrl];
-        }
-        if (contentPage.backgroundUrl) {
-            if (!self.backgroundImageView) {
-                self.backgroundImageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-                [self.backgroundImageView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
-                NSDictionary *bgImageAppearance = [self.componentDesciption.appearance objectForKey:@"bg_image"];
-                if (bgImageAppearance) {
-                    [self.backgroundImageView applyAppearances:bgImageAppearance];
-                }
-                [self.view addSubview:self.backgroundImageView];
-                [self.view sendSubviewToBack:self.backgroundImageView];
-            }
+        
+        if (contentPage.backgroundUrl)
             [self.backgroundImageView setImageWithURL:contentPage.backgroundUrl];
-        }
+        
         
         // reposition elements
         if (!contentPage.imageUrl) {

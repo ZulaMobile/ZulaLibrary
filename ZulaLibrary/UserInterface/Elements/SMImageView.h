@@ -16,6 +16,7 @@
  Appearance options:
      * alignment: the content mode [center, left, right, aspect_fill, aspect_fit]. default is aspect_fill.
      * bg_color: hex code for rgb color (i.e. rrggbb).
+     * url: background image set by user (warning: this only can be set by the app wide settings)
  */
 @interface SMImageView : UIImageView <SMViewElement>
 
