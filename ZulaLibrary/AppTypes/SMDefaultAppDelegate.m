@@ -12,12 +12,17 @@
 #import "SMContentViewController.h"
 #import "SMComponentDescription.h"
 
+#import "SMNavigation.h"
+#import "SMTabbedNavigationViewController.h"
+#import "SMNavigationFactory.h"
+#import "SMNavigationDescription.h"
+
 @implementation SMDefaultAppDelegate
 {
     /**
      The navigation component is on the heap to prevent memory issues
      */
-    UITabBarController *navigationComponent;
+    UIViewController<SMNavigation> *navigationComponent;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -41,16 +46,17 @@
         /* app description is fetched */
         
         // create navigation
-        navigationComponent = [[UITabBarController alloc] init];
+        navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
         
         // create component instances
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
             if ([componentDesc.type isEqualToString:@"Content"]) {
                 // create the component
                 SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDesc];
+                UINavigationController *contentNavController = [[UINavigationController alloc] initWithRootViewController:contentComponent];
                 
                 // add the component to the navigation
-                [navigationComponent addChildViewController:contentComponent];
+                [navigationComponent addChildComponent:contentNavController];
             }
         }
         

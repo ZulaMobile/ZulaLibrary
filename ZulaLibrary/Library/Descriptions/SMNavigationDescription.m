@@ -11,5 +11,6 @@
 @implementation SMNavigationDescription
 @synthesize  componentSlugs = _componentSlugs;
 @synthesize appearance = _appearance;
+@synthesize type = _type;
 
 @end

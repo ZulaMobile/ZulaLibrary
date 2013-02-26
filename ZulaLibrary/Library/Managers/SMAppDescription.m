@@ -93,6 +93,7 @@
         // create navigation instance
         NSDictionary *navData = [response objectForKey:@"navigation"];
         _navigationDescription = [[SMNavigationDescription alloc] init];
+        [_navigationDescription setType:[navData objectForKey:@"type"]];
         [_navigationDescription setComponentSlugs:[navData objectForKey:@"components"]];
         [_navigationDescription setAppearance:[navData objectForKey:@"appearance"]];
         
@@ -125,6 +126,7 @@
                                       @"aspect_fill", @"alignment",
                                       @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url",
                                       nil], @"bg_image",
+                                     
                                      nil];
     [data setValue:mainAppearances forKey:@"appearance"];
     
@@ -158,8 +160,28 @@
                            nil]
                    forKey:@"appearance"];
     
+    
+    NSMutableDictionary *companyPage = [[NSMutableDictionary alloc] init];
+    [companyPage setValue:@"Content" forKey:@"type"];
+    [companyPage setValue:@"Company" forKey:@"title"];
+    [companyPage setValue:@"company" forKey:@"slug"];
+    [companyPage setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                           
+                           [NSDictionary dictionaryWithObjectsAndKeys:@"aspect_fill", @"alignment", nil], @"image",
+                           [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"20", @"font_size",
+                            @"HenveticaBold", @"font_family",
+                            @"FFFFFF", @"color",
+                            @"0000FF", @"bg_color",
+                            @"center", @"alignment", nil], @"title",
+                           //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
+                           nil]
+                   forKey:@"appearance"];
+    
+    
     //[components addObject:homepageApp];
     [components addObject:contentPage];
+    [components addObject:companyPage];
     
     [data setValue:components forKey:@"components"];
     
@@ -173,6 +195,7 @@
                                          @"#ff0000", @"bg-color",
                                          nil];
     NSDictionary *navBarAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"1", @"disabled",
                                       @"glymps", @"iconset",
                                       @"#ff0000", @"bg-color",
                                       nil];
@@ -180,7 +203,10 @@
                                    navigatorAppearance, @"navigator",
                                    navBarAppearance, @"navbar",
                                    nil];
-    [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:navComponents, @"components", navAppearance, @"appearance", nil]
+    [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:
+                    @"tabbar", @"type",
+                    navComponents, @"components",
+                    navAppearance, @"appearance", nil]
             forKey:@"navigation"];
     
     

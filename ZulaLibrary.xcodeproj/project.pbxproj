@@ -15,6 +15,9 @@
 		675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */; };
 		675BDD7016DB990F00B141F8 /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
 		675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7216DBB77C00B141F8 /* SMScrollView.m */; };
+		675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */; };
+		675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */; };
+		675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -91,6 +94,13 @@
 		675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
 		675BDD7116DBB77B00B141F8 /* SMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMScrollView.h; path = UserInterface/Elements/SMScrollView.h; sourceTree = "<group>"; };
 		675BDD7216DBB77C00B141F8 /* SMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMScrollView.m; path = UserInterface/Elements/SMScrollView.m; sourceTree = "<group>"; };
+		675BDD7516DBBF1D00B141F8 /* SMNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMNavigation.h; path = UserInterface/Navigation/SMNavigation.h; sourceTree = "<group>"; };
+		675BDD7616DBBFAE00B141F8 /* SMTabbedNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTabbedNavigationViewController.h; path = UserInterface/Navigation/SMTabbedNavigationViewController.h; sourceTree = "<group>"; };
+		675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTabbedNavigationViewController.m; path = UserInterface/Navigation/SMTabbedNavigationViewController.m; sourceTree = "<group>"; };
+		675BDD7916DBC02D00B141F8 /* SMNavbarNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavbarNavigationViewController.h; path = UserInterface/Navigation/SMNavbarNavigationViewController.h; sourceTree = "<group>"; };
+		675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavbarNavigationViewController.m; path = UserInterface/Navigation/SMNavbarNavigationViewController.m; sourceTree = "<group>"; };
+		675BDD7C16DCDF7400B141F8 /* SMNavigationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationFactory.h; path = UserInterface/Navigation/SMNavigationFactory.h; sourceTree = "<group>"; };
+		675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationFactory.m; path = UserInterface/Navigation/SMNavigationFactory.m; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -214,6 +224,20 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		675BDD7416DBBE4A00B141F8 /* NavigationComponents */ = {
+			isa = PBXGroup;
+			children = (
+				675BDD7516DBBF1D00B141F8 /* SMNavigation.h */,
+				675BDD7616DBBFAE00B141F8 /* SMTabbedNavigationViewController.h */,
+				675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */,
+				675BDD7916DBC02D00B141F8 /* SMNavbarNavigationViewController.h */,
+				675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */,
+				675BDD7C16DCDF7400B141F8 /* SMNavigationFactory.h */,
+				675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */,
+			);
+			name = NavigationComponents;
+			sourceTree = "<group>";
+		};
 		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +329,7 @@
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				675BDD7416DBBE4A00B141F8 /* NavigationComponents */,
 				67CCC9CC16C11DA9000EBC0B /* Components */,
 				67CCC9D916C1579D000EBC0B /* UI Elements */,
 			);
@@ -347,6 +372,8 @@
 		67CCC9D916C1579D000EBC0B /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
+				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
 				67D4C44416D903A900BCE927 /* SMViewElement.h */,
 				677C46B716DA44DD003CE7A1 /* SMMainView.h */,
 				677C46B816DA44DD003CE7A1 /* SMMainView.m */,
@@ -358,8 +385,6 @@
 				67D4C44916D918C900BCE927 /* SMTextView.m */,
 				677C46BA16DA5878003CE7A1 /* SMWebView.h */,
 				677C46BB16DA5878003CE7A1 /* SMWebView.m */,
-				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
-				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
 				675BDD7116DBB77B00B141F8 /* SMScrollView.h */,
 				675BDD7216DBB77C00B141F8 /* SMScrollView.m */,
 			);
@@ -640,6 +665,9 @@
 				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
 				675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */,
 				675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */,
+				675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */,
+				675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */,
+				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
