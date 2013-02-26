@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMHomePageControllerViewController.h"
 
 @interface ZulaLibrary : NSObject
 

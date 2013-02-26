@@ -19,6 +19,7 @@
 		675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */; };
 		675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
 		675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */; };
+		675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -36,8 +37,8 @@
 		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
 		6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
-		67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */; };
-		67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */; };
+		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
+		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
 		67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
 		67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
@@ -73,7 +74,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */,
-				67CCC9D316C138E0000EBC0B /* SMHomePageControllerViewController.h in CopyFiles */,
+				67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */,
 				6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +105,8 @@
 		675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationFactory.m; path = UserInterface/Navigation/SMNavigationFactory.m; sourceTree = "<group>"; };
 		675BDD7F16DCEA7C00B141F8 /* SMNavigationApperanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationApperanceManager.h; path = UserInterface/Navigation/SMNavigationApperanceManager.h; sourceTree = "<group>"; };
 		675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationApperanceManager.m; path = UserInterface/Navigation/SMNavigationApperanceManager.m; sourceTree = "<group>"; };
+		675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentFactory.h; path = UserInterface/Pages/SMComponentFactory.h; sourceTree = "<group>"; };
+		675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentFactory.m; path = UserInterface/Pages/SMComponentFactory.m; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -130,8 +133,8 @@
 		6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryTests.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageControllerViewController.h; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.h; sourceTree = "<group>"; };
-		67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageControllerViewController.m; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.m; sourceTree = "<group>"; };
+		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
+		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
 		67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMHomePageControllerViewController.xib; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.xib; sourceTree = "<group>"; };
 		67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPortfolioAppDelegate.h; path = AppTypes/SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
 		67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPortfolioAppDelegate.m; path = AppTypes/SMPortfolioAppDelegate.m; sourceTree = "<group>"; };
@@ -243,6 +246,13 @@
 			name = NavigationComponents;
 			sourceTree = "<group>";
 		};
+		675BDD8216DCF82000B141F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +359,8 @@
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
 				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
+				675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */,
+				675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -356,8 +368,9 @@
 		67CCC9CD16C11DB2000EBC0B /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
-				67CCC9CE16C11DED000EBC0B /* SMHomePageControllerViewController.h */,
-				67CCC9CF16C11DED000EBC0B /* SMHomePageControllerViewController.m */,
+				675BDD8216DCF82000B141F8 /* Model */,
+				67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */,
+				67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */,
 				67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */,
 			);
 			name = Homepage;
@@ -649,7 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */,
-				67CCC9D116C11DED000EBC0B /* SMHomePageControllerViewController.m in Sources */,
+				67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
@@ -674,6 +687,7 @@
 				675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */,
 				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
 				675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */,
+				675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

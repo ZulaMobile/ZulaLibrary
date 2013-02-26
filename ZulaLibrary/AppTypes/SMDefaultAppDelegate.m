@@ -9,8 +9,9 @@
 #import "SMDefaultAppDelegate.h"
 #import "SMAppDescription.h"
 #import "SMPreloaderComponentViewController.h"
-#import "SMContentViewController.h"
+
 #import "SMComponentDescription.h"
+#import "SMComponentFactory.h"
 
 #import "SMNavigation.h"
 #import "SMTabbedNavigationViewController.h"
@@ -51,13 +52,9 @@
         
         // create component instances
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
-            if ([componentDesc.type isEqualToString:@"Content"]) {
-                // create the component
-                SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDesc];
-                UINavigationController *contentNavController = [[UINavigationController alloc] initWithRootViewController:contentComponent];
-                
-                // add the component to the navigation
-                [navigationComponent addChildComponent:contentNavController];
+            UIViewController *component = [SMComponentFactory componentWithDescription:componentDesc];
+            if (component) {
+                [navigationComponent addChildComponent:component];
             }
         }
         

@@ -193,7 +193,7 @@
                    forKey:@"appearance"];
     
     
-    //[components addObject:homepageApp];
+    [components addObject:homepageApp];
     [components addObject:contentPage];
     [components addObject:companyPage];
     
