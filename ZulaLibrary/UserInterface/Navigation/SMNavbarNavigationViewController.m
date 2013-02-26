@@ -13,30 +13,37 @@
 @end
 
 @implementation SMNavbarNavigationViewController
-@synthesize components = components_;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
+    NSArray *components_;
 }
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // set the 1st component as the root controller
+    UIViewController *firstComponent = [self.components objectAtIndex:0];
+    [self presentViewController:firstComponent animated:NO completion:^{
+        // nothing
+    }];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma getters/setters
+
+- (NSArray *)components
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return components_;
 }
 
-- (void)addChildViewController:(UIViewController *)childController
+/**
+ Set components and view controllers for the tabbarcontroller
+ */
+- (void)setComponents:(NSArray *)components
+{
+    components_ = components;
+}
+
+#pragma methods
+
+- (void)addChildComponent:(UIViewController *)component
 {
     NSMutableArray *tmpComponents;
     if (self.components) {
@@ -44,8 +51,7 @@
     } else {
         tmpComponents = [NSMutableArray array];
     }
-    
-    [tmpComponents addObject:childController];
+    [tmpComponents addObject:component];
     [self setComponents:[NSArray arrayWithArray:tmpComponents]];
 }
 

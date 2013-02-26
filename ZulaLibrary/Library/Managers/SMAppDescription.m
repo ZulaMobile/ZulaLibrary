@@ -204,7 +204,7 @@
                                    navBarAppearance, @"navbar",
                                    nil];
     [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                    @"tabbar", @"type",
+                    @"navbar", @"type",
                     navComponents, @"components",
                     navAppearance, @"appearance", nil]
             forKey:@"navigation"];
