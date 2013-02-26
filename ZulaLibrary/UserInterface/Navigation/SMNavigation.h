@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMNavigationApperanceManager.h"
 
 @protocol SMNavigation <NSObject>
 
-@property(nonatomic,copy) NSArray *components;
+@property(nonatomic, strong) NSArray *components;
+
+@property(nonatomic, strong) SMNavigationApperanceManager *apperanceManager;
 
 - (void)addChildComponent:(UIViewController *)component;
 

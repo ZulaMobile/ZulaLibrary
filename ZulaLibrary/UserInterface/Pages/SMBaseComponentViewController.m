@@ -47,6 +47,15 @@
     [self.backgroundImageView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
     [self.backgroundImageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"bg_image"]];
     
+    // navigation bar
+    NSInteger displayNavBar = [[self.componentDesciption.appearance objectForKey:@"display_navbar"] integerValue];
+    if (displayNavBar == 1) {
+        [self.navigationController setNavigationBarHidden:NO];
+    } else {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+    
+    // set view
     [view addSubview:self.backgroundImageView];
     [view sendSubviewToBack:self.backgroundImageView];
     [self setView:view];

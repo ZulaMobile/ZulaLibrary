@@ -47,6 +47,7 @@
         
         // create navigation
         navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
+        [navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
         // create component instances
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {

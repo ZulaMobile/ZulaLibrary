@@ -18,6 +18,7 @@
 		675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */; };
 		675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */; };
 		675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
+		675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -101,6 +102,8 @@
 		675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavbarNavigationViewController.m; path = UserInterface/Navigation/SMNavbarNavigationViewController.m; sourceTree = "<group>"; };
 		675BDD7C16DCDF7400B141F8 /* SMNavigationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationFactory.h; path = UserInterface/Navigation/SMNavigationFactory.h; sourceTree = "<group>"; };
 		675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationFactory.m; path = UserInterface/Navigation/SMNavigationFactory.m; sourceTree = "<group>"; };
+		675BDD7F16DCEA7C00B141F8 /* SMNavigationApperanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationApperanceManager.h; path = UserInterface/Navigation/SMNavigationApperanceManager.h; sourceTree = "<group>"; };
+		675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationApperanceManager.m; path = UserInterface/Navigation/SMNavigationApperanceManager.m; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */,
 				675BDD7C16DCDF7400B141F8 /* SMNavigationFactory.h */,
 				675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */,
+				675BDD7F16DCEA7C00B141F8 /* SMNavigationApperanceManager.h */,
+				675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */,
 			);
 			name = NavigationComponents;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */,
 				675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */,
 				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
+				675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

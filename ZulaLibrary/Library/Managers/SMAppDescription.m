@@ -95,7 +95,6 @@
         _navigationDescription = [[SMNavigationDescription alloc] init];
         [_navigationDescription setType:[navData objectForKey:@"type"]];
         [_navigationDescription setComponentSlugs:[navData objectForKey:@"components"]];
-        [_navigationDescription setAppearance:[navData objectForKey:@"appearance"]];
         
         if (completion) {
             completion(nil);
@@ -119,6 +118,16 @@
     //
     // set main appearances
     //
+    NSDictionary *navigatorAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         @"glymps", @"iconset",
+                                         @"#ff0000", @"bg_color",
+                                         nil];
+    NSDictionary *navBarAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"glymps", @"iconset",
+                                      @"#ff0000", @"bg_color",
+                                      @"ffff00", @"tint_color",
+                                      nil];
+
     NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"ff0000", @"bg_color",
                                      @"white", @"scroll_color",
@@ -126,7 +135,9 @@
                                       @"aspect_fill", @"alignment",
                                       @"http://www.emobilez.com/wallpapers/data/media/298/nuclear_iphone_wallpapers.jpg", @"url",
                                       nil], @"bg_image",
-                                     
+                                     navigatorAppearance, @"navigator",
+                                     navBarAppearance, @"navbar",
+                                     @"0", @"display_navbar",
                                      nil];
     [data setValue:mainAppearances forKey:@"appearance"];
     
@@ -175,6 +186,9 @@
                             @"0000FF", @"bg_color",
                             @"center", @"alignment", nil], @"title",
                            //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
+                           [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"#ff00ff", @"bg-color", nil], @"navbar",
+                           @"1", @"display_navbar", 
                            nil]
                    forKey:@"appearance"];
     
@@ -189,24 +203,10 @@
     // Set navigation
     //
     NSArray *navComponents = [NSArray arrayWithObjects:@"home_page", @"about_us", nil];
-    NSDictionary *navigatorAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
-                                         @"tabbar", @"type",
-                                         @"glymps", @"iconset",
-                                         @"#ff0000", @"bg-color",
-                                         nil];
-    NSDictionary *navBarAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      @"1", @"disabled",
-                                      @"glymps", @"iconset",
-                                      @"#ff0000", @"bg-color",
-                                      nil];
-    NSDictionary *navAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   navigatorAppearance, @"navigator",
-                                   navBarAppearance, @"navbar",
-                                   nil];
+    
     [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                    @"navbar", @"type",
-                    navComponents, @"components",
-                    navAppearance, @"appearance", nil]
+                    @"tabbar", @"type",
+                    navComponents, @"components", nil]
             forKey:@"navigation"];
     
     

@@ -7,6 +7,7 @@
 //
 
 #import "SMTabbedNavigationViewController.h"
+#import "SMNavigationApperanceManager.h"
 
 @interface SMTabbedNavigationViewController ()
 
@@ -15,6 +16,16 @@
 @implementation SMTabbedNavigationViewController
 {
     NSArray *components_;
+}
+@synthesize apperanceManager = appearanceManager_;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setApperanceManager:[SMNavigationApperanceManager appearanceManager]];
+    }
+    return self;
 }
 
 #pragma getters/setters

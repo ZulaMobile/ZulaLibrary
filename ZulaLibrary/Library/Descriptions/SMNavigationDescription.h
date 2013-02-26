@@ -20,10 +20,4 @@
  */
 @property (nonatomic, strong) NSString *type;
 
-/**
- Appearance data, Each value in the dictionary is another dictionary for the appearance tuple (key/value)
- @see 'App Description Service' wiki entry
- */
-@property (nonatomic, strong) NSDictionary *appearance;
-
 @end

@@ -16,6 +16,16 @@
 {
     NSArray *components_;
 }
+@synthesize apperanceManager = appearanceManager_;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setApperanceManager:[SMNavigationApperanceManager appearanceManager]];
+    }
+    return self;
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
