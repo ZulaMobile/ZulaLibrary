@@ -58,4 +58,16 @@
     [self setComponents:[NSArray arrayWithArray:tmpComponents]];
 }
 
+- (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent
+{
+    // change selected tab accordingly
+    int i = 0;
+    for (UIViewController *controller in self.viewControllers) {
+        if (controller == toComponent) {
+            [self setSelectedIndex:i];
+        }
+        i++;
+    }
+}
+
 @end

@@ -28,4 +28,28 @@
     return component;
 }
 
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
+{
+    UIViewController *component;
+    if ([componentDescription.type isEqualToString:@"Content"]) {
+        // create the component
+        component = [[SMContentViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
+        component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
+    }
+    
+    if ([navigationDescription.type isEqualToString:@"tabbar"]) {
+        return [[UINavigationController alloc] initWithRootViewController:component];
+    } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
+        // only homepage must be navigation controller
+        if ([componentDescription.type isEqualToString:@"HomePage"]) {
+            return [[UINavigationController alloc] initWithRootViewController:component];
+        }
+        return component;
+    }
+    
+    DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    return nil;
+}
+
 @end

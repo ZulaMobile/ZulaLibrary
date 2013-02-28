@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SMNavigation.h"
 
-@interface SMNavbarNavigationViewController : UIViewController <SMNavigation>
+@interface SMNavbarNavigationViewController : UIViewController <SMNavigation, UINavigationControllerDelegate>
 
 @end

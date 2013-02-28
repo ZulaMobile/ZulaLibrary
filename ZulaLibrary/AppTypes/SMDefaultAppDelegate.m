@@ -15,18 +15,13 @@
 #import "SMComponentDescription.h"
 #import "SMComponentFactory.h"
 
-#import "SMNavigation.h"
 #import "SMTabbedNavigationViewController.h"
 #import "SMNavigationFactory.h"
 #import "SMNavigationDescription.h"
+#import "SMNavigation.h"
 
 @implementation SMDefaultAppDelegate
-{
-    /**
-     The navigation component is on the heap to prevent memory issues
-     */
-    UIViewController<SMNavigation> *navigationComponent;
-}
+@synthesize navigationComponent = _navigationComponent;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -53,20 +48,20 @@
         /* app description is fetched */
         
         // create navigation
-        navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
-        [navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
+        self.navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
+        [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
         // create component instances
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
-            UIViewController *component = [SMComponentFactory componentWithDescription:componentDesc];
+            UIViewController *component = [SMComponentFactory componentWithDescription:componentDesc forNavigation:appDescription.navigationDescription];
             if (component) {
-                [navigationComponent addChildComponent:component];
+                [self.navigationComponent addChildComponent:component];
             }
         }
         
         // show the main window
         [rootViewController dismissViewControllerAnimated:NO completion:^{
-            [self.window addSubview:navigationComponent.view];
+            [self.window addSubview:self.navigationComponent.view];
             [rootViewController.view removeFromSuperview];
         }];
         

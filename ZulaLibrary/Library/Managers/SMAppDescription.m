@@ -205,7 +205,7 @@
     NSArray *navComponents = [NSArray arrayWithObjects:@"home_page", @"about_us", nil];
     
     [data setValue:[NSDictionary dictionaryWithObjectsAndKeys:
-                    @"tabbar", @"type",
+                    @"navbar", @"type",
                     navComponents, @"components", nil]
             forKey:@"navigation"];
     

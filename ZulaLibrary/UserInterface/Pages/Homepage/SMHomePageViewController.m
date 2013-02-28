@@ -13,13 +13,16 @@
 #import "SMHomePage.h"
 #import "UIViewController+SSToolkitAdditions.h"
 
+#import "SMNavigation.h"
+#import "SMAppDelegate.h"
+
 @interface SMHomePageViewController ()
 
 /**
  scroll view as a wrapper for content view
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
-
+- (void)onComponentButton:(UIButton *)sender;
 @end
 
 @implementation SMHomePageViewController
@@ -55,7 +58,27 @@
     [self fetchContents];
     
     // place links
-    
+    UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
+    UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
+    int i = 0, j = 0;
+    for (UIViewController *component in navigation.components) {
+        if ([component isKindOfClass:[UINavigationController class]]) {
+            i++;
+            continue;
+        }
+        // place each component buttons
+        UIButton *componentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [componentButton setFrame:CGRectMake(padding,
+                                            120 + j * (40 + padding),
+                                            CGRectGetWidth(self.view.frame) - padding * 2,
+                                            40)];
+        [componentButton setTag:i];
+        [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
+        //DDLogVerbose(@"%d. component button: %f, %f, %f, %f", i, componentButton.frame.origin.x, componentButton.frame.origin.y, componentButton.frame.size.width, componentButton.frame.size.height);
+        [componentButton setTitle:component.title forState:UIControlStateNormal];
+        [self.scrollView addSubview:componentButton];
+        i++; j++;
+    }
 }
 
 - (void)fetchContents
@@ -76,6 +99,17 @@
         if (homePage.backgroundUrl)
             [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
     }];
+}
+
+#pragma mark - private methods
+
+- (void)onComponentButton:(UIButton *)sender
+{
+    UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
+    UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
+    UIViewController *component = (UIViewController *)[[navigation components] objectAtIndex:sender.tag];
+    
+    [navigation navigateComponent:component fromComponent:self];
 }
 
 @end

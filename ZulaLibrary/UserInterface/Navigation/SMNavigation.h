@@ -17,4 +17,12 @@
 
 - (void)addChildComponent:(UIViewController *)component;
 
+/**
+ Present the component using an approptiate way. Using the optional fromCompoonent if needed.
+ @discussion
+ Tabbar navigation should only change tabs to present component
+ Navbar navigation should push the component to the navigation stack
+ */
+- (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent;
+
 @end

@@ -20,18 +20,18 @@
 - (void)start
 {
     /* Compressing file manager and File Logger */
+    /*
     SMUploadingLogFileManager *logFileManager = [[SMUploadingLogFileManager alloc] init];
-	
 	fileLogger = [[SMFileLogger alloc] initWithLogFileManager:logFileManager];
-
 	fileLogger.maximumFileSize  = (1024 * 100);   //  100 KB
 	fileLogger.rollingFrequency = (60 * 60 * 12);  // 12 Hours
 	fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
     [fileLogger setLogFormatter:[[SMLogFileFormatter alloc] init]];
-
+     */
+    
 	/* Add Loggers */
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-	[DDLog addLogger:fileLogger];
+	//[DDLog addLogger:fileLogger];
 	
     /* Enable Colors */
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];

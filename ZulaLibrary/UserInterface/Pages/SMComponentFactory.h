@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SMBaseComponentViewController.h"
 #import "SMComponentDescription.h"
+#import "SMNavigationDescription.h"
 
 @interface SMComponentFactory : NSObject
 
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription;
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription;
 
 @end
