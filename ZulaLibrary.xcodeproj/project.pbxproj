@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6701BD7516DF91A3005A9BD3 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD7416DF91A3005A9BD3 /* SMLogManager.m */; };
+		6701BD7916DF931B005A9BD3 /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD7816DF931B005A9BD3 /* CompressingLogFileManager.m */; };
+		6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD7F16DF98BF005A9BD3 /* SMUploadingLogFileManager.m */; };
+		6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */; };
+		6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -83,13 +88,23 @@
 
 /* Begin PBXFileReference section */
 		061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZulaLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6701BD7316DF91A3005A9BD3 /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLogManager.h; path = Library/Managers/SMLogManager.h; sourceTree = "<group>"; };
+		6701BD7416DF91A3005A9BD3 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLogManager.m; path = Library/Managers/SMLogManager.m; sourceTree = "<group>"; };
+		6701BD7716DF931B005A9BD3 /* CompressingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressingLogFileManager.h; sourceTree = "<group>"; };
+		6701BD7816DF931B005A9BD3 /* CompressingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompressingLogFileManager.m; sourceTree = "<group>"; };
+		6701BD7E16DF98BF005A9BD3 /* SMUploadingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUploadingLogFileManager.h; path = Library/Managers/Loggers/SMUploadingLogFileManager.h; sourceTree = "<group>"; };
+		6701BD7F16DF98BF005A9BD3 /* SMUploadingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUploadingLogFileManager.m; path = Library/Managers/Loggers/SMUploadingLogFileManager.m; sourceTree = "<group>"; };
+		6701BD8116DF9C89005A9BD3 /* SMFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFileLogger.h; path = Library/Managers/Loggers/SMFileLogger.h; sourceTree = "<group>"; };
+		6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFileLogger.m; path = Library/Managers/Loggers/SMFileLogger.m; sourceTree = "<group>"; };
+		6701BD8416DF9E6D005A9BD3 /* SMLogFileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLogFileFormatter.h; path = Library/Managers/Loggers/SMLogFileFormatter.h; sourceTree = "<group>"; };
+		6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLogFileFormatter.m; path = Library/Managers/Loggers/SMLogFileFormatter.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
 		675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceDataTests.m; sourceTree = "<group>"; };
 		675BDD6216DB849100B141F8 /* SMComponentDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMComponentDescriptionTests.h; sourceTree = "<group>"; };
 		675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMComponentDescriptionTests.m; sourceTree = "<group>"; };
-		675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		675BDD6816DB955800B141F8 /* NSDictionary+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SMAdditions.h"; path = "Library/Categories/NSDictionary+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SMAdditions.m"; path = "Library/Categories/NSDictionary+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD6C16DB968A00B141F8 /* NSDictionarySSAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionarySSAdditionsTests.h; sourceTree = "<group>"; };
@@ -195,6 +210,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6701BD7616DF92F8005A9BD3 /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				6701BD7716DF931B005A9BD3 /* CompressingLogFileManager.h */,
+				6701BD7816DF931B005A9BD3 /* CompressingLogFileManager.m */,
+				6701BD7E16DF98BF005A9BD3 /* SMUploadingLogFileManager.h */,
+				6701BD7F16DF98BF005A9BD3 /* SMUploadingLogFileManager.m */,
+				6701BD8116DF9C89005A9BD3 /* SMFileLogger.h */,
+				6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */,
+				6701BD8416DF9E6D005A9BD3 /* SMLogFileFormatter.h */,
+				6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */,
+			);
+			name = Loggers;
+			sourceTree = "<group>";
+		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +539,9 @@
 		67CCCA1716C3F1C5000EBC0B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6701BD7616DF92F8005A9BD3 /* Loggers */,
+				6701BD7316DF91A3005A9BD3 /* SMLogManager.h */,
+				6701BD7416DF91A3005A9BD3 /* SMLogManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -688,6 +721,11 @@
 				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
 				675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */,
 				675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */,
+				6701BD7516DF91A3005A9BD3 /* SMLogManager.m in Sources */,
+				6701BD7916DF931B005A9BD3 /* CompressingLogFileManager.m in Sources */,
+				6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */,
+				6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */,
+				6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

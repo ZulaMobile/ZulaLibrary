@@ -22,7 +22,8 @@
         SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDescription];
         component = [[UINavigationController alloc] initWithRootViewController:contentComponent];
     } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
-        component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
+        SMHomePageViewController *homePageComponent = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
+        component = [[UINavigationController alloc] initWithRootViewController:homePageComponent];
     }
     return component;
 }

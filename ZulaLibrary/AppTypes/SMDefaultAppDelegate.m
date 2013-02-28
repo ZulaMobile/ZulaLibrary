@@ -10,6 +10,8 @@
 #import "SMAppDescription.h"
 #import "SMPreloaderComponentViewController.h"
 
+#import "SMLogManager.h"
+
 #import "SMComponentDescription.h"
 #import "SMComponentFactory.h"
 
@@ -29,6 +31,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // start logging
+    SMLogManager *logManager = [[SMLogManager alloc] init];
+    [logManager start];
     
     // root view controller
     __block UIViewController *rootViewController = [[UIViewController alloc] init];
