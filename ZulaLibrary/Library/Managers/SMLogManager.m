@@ -7,19 +7,12 @@
 //
 
 #import "SMLogManager.h"
-#import <DDLog.h>
 #import <DDTTYLogger.h>
 #import "SMUploadingLogFileManager.h"
 #import "SMLogFileFormatter.h"
 
-#ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
-
 @interface SMLogManager()
-- (void)writeLogMessages:(NSTimer *)aTimer;
+
 @end
 
 @implementation SMLogManager
@@ -40,12 +33,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
 	[DDLog addLogger:fileLogger];
 	
-	[NSTimer scheduledTimerWithTimeInterval:1.0
-	                                 target:self
-	                               selector:@selector(writeLogMessages:)
-	                               userInfo:nil
-	                                repeats:YES];
-    
     /* Enable Colors */
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     
@@ -56,15 +43,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:gray forFlag:LOG_FLAG_VERBOSE];
     
     // test it out
-    DDLogError(@"this is my error desctiption");
+    /*
+     DDLogError(@"this is my error desctiption");
     DDLogWarn(@"this is a warning");
     DDLogInfo(@"this is info");
     DDLogVerbose(@"User selected file:%@ withSize:%f ", @"/myfolder/sample.png", 2500.0);
-}
-
-- (void)writeLogMessages:(NSTimer *)aTimer
-{
-	DDLogVerbose(@"I like cheese");
+     */
 }
 
 @end

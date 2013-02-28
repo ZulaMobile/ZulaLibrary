@@ -12,6 +12,7 @@
 		6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD7F16DF98BF005A9BD3 /* SMUploadingLogFileManager.m */; };
 		6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */; };
 		6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */; };
+		6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -98,6 +99,8 @@
 		6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFileLogger.m; path = Library/Managers/Loggers/SMFileLogger.m; sourceTree = "<group>"; };
 		6701BD8416DF9E6D005A9BD3 /* SMLogFileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLogFileFormatter.h; path = Library/Managers/Loggers/SMLogFileFormatter.h; sourceTree = "<group>"; };
 		6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLogFileFormatter.m; path = Library/Managers/Loggers/SMLogFileFormatter.m; sourceTree = "<group>"; };
+		6701BD8716DFA1ED005A9BD3 /* SMHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePage.h; path = UserInterface/Pages/Homepage/Model/SMHomePage.h; sourceTree = "<group>"; };
+		6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePage.m; path = UserInterface/Pages/Homepage/Model/SMHomePage.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 		675BDD8216DCF82000B141F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6701BD8716DFA1ED005A9BD3 /* SMHomePage.h */,
+				6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -726,6 +731,7 @@
 				6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */,
 				6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */,
 				6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */,
+				6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

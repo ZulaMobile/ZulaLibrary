@@ -84,6 +84,7 @@
         [SMProgressHUD dismiss];
         
         if (error) {
+            DDLogError(@"Content page fetch contents error|%@", [error description]);
             // show error
             [self displayErrorString:NSLocalizedString(@"We encountered an error, Please try again", nil)];
             return;
