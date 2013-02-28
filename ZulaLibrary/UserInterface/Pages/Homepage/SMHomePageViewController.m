@@ -12,7 +12,7 @@
 #import "SMProgressHUD.h"
 #import "SMHomePage.h"
 #import "UIViewController+SSToolkitAdditions.h"
-
+#import "SMHomePageLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
 
@@ -22,7 +22,7 @@
  scroll view as a wrapper for content view
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
-- (void)onComponentButton:(UIButton *)sender;
+- (void)onComponentButton:(SMHomePageLinks *)sender;
 @end
 
 @implementation SMHomePageViewController
@@ -58,6 +58,20 @@
     [self fetchContents];
     
     // place links
+    
+    SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
+                                      CGRectMake(padding,
+                                                 120 + padding,
+                                                 CGRectGetWidth(self.view.frame) - padding * 2,
+                                                 CGRectGetHeight(self.view.frame))];
+    [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [homePageLinks setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
+    [self.scrollView addSubview:homePageLinks];
+    
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + 120 + padding)];
+    
+    /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
     int i = 0, j = 0;
@@ -78,7 +92,7 @@
         [componentButton setTitle:component.title forState:UIControlStateNormal];
         [self.scrollView addSubview:componentButton];
         i++; j++;
-    }
+    }*/
 }
 
 - (void)fetchContents
@@ -103,11 +117,11 @@
 
 #pragma mark - private methods
 
-- (void)onComponentButton:(UIButton *)sender
+- (void)onComponentButton:(SMHomePageLinks *)sender
 {
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
-    UIViewController *component = (UIViewController *)[[navigation components] objectAtIndex:sender.tag];
+    UIViewController *component = (UIViewController *)[[navigation components] objectAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
 }

@@ -196,6 +196,14 @@
     [components addObject:homepageApp];
     [components addObject:contentPage];
     [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
+    [components addObject:companyPage];
     
     [data setValue:components forKey:@"components"];
     
