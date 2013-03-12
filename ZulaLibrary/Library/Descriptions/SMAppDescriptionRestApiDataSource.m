@@ -12,7 +12,7 @@
 
 - (void)fetchAppDescriptionWithCompletion:(void (^)(NSDictionary *, NSError *))completion
 {
-    
+    // fetch data from datasource
 }
 
 @end

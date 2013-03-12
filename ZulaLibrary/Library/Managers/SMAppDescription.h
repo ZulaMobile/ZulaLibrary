@@ -25,6 +25,8 @@
  App description is the META data about the structure of the app.
  The data includes the installed components and their appearances.
  Please see wiki entry of REST Api - AppDescription service for details.
+ 
+ This class includes a default data source implementation for testing purposes
  */
 @interface SMAppDescription : NSObject <SMAppDescriptionDataSource>
 
