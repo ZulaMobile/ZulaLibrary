@@ -122,7 +122,7 @@
     
     SMNavigationDescription *navDesc = appDescription.navigationDescription;
     STAssertTrue([navDesc.componentSlugs isKindOfClass:[NSArray class]], @"navigation components");
-    STAssertTrue([navDesc.appearance isKindOfClass:[NSDictionary class]], @"navigation appearance");
+    //STAssertTrue([navDesc.appearance isKindOfClass:[NSDictionary class]], @"navigation appearance");
     
     NSString *homepage = [navDesc.componentSlugs objectAtIndex:0];
     STAssertTrue([homepage isEqualToString:@"home_page"], @"home page");

@@ -43,6 +43,8 @@
 		6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
 		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
 		6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */; };
+		67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
+		67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -154,6 +156,7 @@
 		6780DDF216C02593005EDD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryTests.m; sourceTree = "<group>"; };
+		67890A2D16EF868D001AA909 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */,
 				67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */,
 				6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */,
 				67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */,
@@ -206,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */,
 				6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */,
 				6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */,
 				6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */,
@@ -305,6 +310,7 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
+				67890A2D16EF868D001AA909 /* libz.dylib */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
@@ -869,6 +875,7 @@
 		};
 		6780DDFD16C02593005EDD1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -877,6 +884,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
 				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZulaLibraryTests;
 				WRAPPER_EXTENSION = octest;
 			};
