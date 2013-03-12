@@ -76,7 +76,6 @@
         CGRect tmpFrame = self.frame;
         tmpFrame.size.height = j * (40 + self.padding) + self.padding;
         [self setFrame:tmpFrame];
-        DDLogVerbose(@"links size: %f", self.frame.size.height);
     }
     
     if ([style isEqualToString:@"grid"]) {
