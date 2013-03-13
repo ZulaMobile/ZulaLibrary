@@ -28,7 +28,7 @@
  
  This class includes a default data source implementation for testing purposes
  */
-@interface SMAppDescription : NSObject <SMAppDescriptionDataSource>
+@interface SMAppDescription : NSObject
 
 /**
  App title, a.k.a. the title of the app (set by user)

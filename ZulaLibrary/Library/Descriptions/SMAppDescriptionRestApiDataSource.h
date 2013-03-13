@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "SMAppDescription.h"
+#import "SMValidator.h"
 
 /**
  Default implementation of the data source for app description.
  Connects to the REST Server and fetches the data from there
  */
-@interface SMAppDescriptionRestApiDataSource : NSObject <SMAppDescriptionDataSource>
+@interface SMAppDescriptionRestApiDataSource : NSObject <SMAppDescriptionDataSource, SMValidator>
 
 @end

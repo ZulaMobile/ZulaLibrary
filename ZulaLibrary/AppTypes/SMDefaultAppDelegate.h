@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SMAppDelegate.h"
+#import "SMPreloaderComponentViewController.h"
 
 /**
  Base App Delegate: Provides basic structure to start the zula app
  All the app type delegates must derive from this class
  */
-@interface SMDefaultAppDelegate : UIResponder <SMAppDelegate>
+@interface SMDefaultAppDelegate : UIResponder <SMAppDelegate, SMPreloaderComponentDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

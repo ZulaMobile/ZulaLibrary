@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SMPreloaderComponentDelegate <NSObject>
+/**
+ Triggered when error button tapped
+ */
+- (void)preloaderOnErrButton;
+@end
+
 @interface SMPreloaderComponentViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, unsafe_unretained) id<SMPreloaderComponentDelegate> delegate;
+
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
+
+- (void)onAppFail;
 
 @end

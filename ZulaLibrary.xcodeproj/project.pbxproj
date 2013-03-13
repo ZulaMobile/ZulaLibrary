@@ -45,6 +45,8 @@
 		6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */; };
 		67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
 		67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
+		67890A3316F05F41001AA909 /* SMApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3216F05F41001AA909 /* SMApiClient.m */; };
+		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -157,6 +159,11 @@
 		6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryTests.h; sourceTree = "<group>"; };
 		6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryTests.m; sourceTree = "<group>"; };
 		67890A2D16EF868D001AA909 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		67890A3116F05F41001AA909 /* SMApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMApiClient.h; sourceTree = "<group>"; };
+		67890A3216F05F41001AA909 /* SMApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMApiClient.m; sourceTree = "<group>"; };
+		67890A3516F06DD2001AA909 /* SMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMValidator.h; path = Library/Base/SMValidator.h; sourceTree = "<group>"; };
+		67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionDummyDataSource.h; path = Library/Descriptions/SMAppDescriptionDummyDataSource.h; sourceTree = "<group>"; };
+		67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionDummyDataSource.m; path = Library/Descriptions/SMAppDescriptionDummyDataSource.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
@@ -310,7 +317,6 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
-				67890A2D16EF868D001AA909 /* libz.dylib */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
@@ -331,6 +337,7 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67890A2D16EF868D001AA909 /* libz.dylib */,
 				67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */,
 				67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */,
 				67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */,
@@ -384,6 +391,17 @@
 				6780DDF116C02593005EDD1D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67890A3616F07021001AA909 /* AppDescriptionDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */,
+				67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */,
+				67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */,
+				67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */,
+			);
+			name = AppDescriptionDataSources;
 			sourceTree = "<group>";
 		};
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
@@ -492,6 +510,8 @@
 		67CCC9FB16C16A11000EBC0B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				67890A3116F05F41001AA909 /* SMApiClient.h */,
+				67890A3216F05F41001AA909 /* SMApiClient.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -543,6 +563,7 @@
 			children = (
 				67CCCA0616C16E54000EBC0B /* SMModel.h */,
 				67CCCA0716C16E54000EBC0B /* SMModel.m */,
+				67890A3516F06DD2001AA909 /* SMValidator.h */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -587,10 +608,9 @@
 		67CCCA2016C3F64F000EBC0B /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
+				67890A3616F07021001AA909 /* AppDescriptionDataSources */,
 				67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */,
 				67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */,
-				67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */,
-				67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */,
 				6772D44516D6795D00B36C0F /* SMComponentDescription.h */,
 				6772D44616D6795E00B36C0F /* SMComponentDescription.m */,
 				6772D44916D6831F00B36C0F /* SMNavigationDescription.h */,
@@ -746,6 +766,8 @@
 				6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */,
 				6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */,
 				6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */,
+				67890A3316F05F41001AA909 /* SMApiClient.m in Sources */,
+				67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

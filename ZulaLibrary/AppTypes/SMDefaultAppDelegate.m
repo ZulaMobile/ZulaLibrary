@@ -8,7 +8,8 @@
 
 #import "SMDefaultAppDelegate.h"
 #import "SMAppDescription.h"
-#import "SMPreloaderComponentViewController.h"
+#import "SMAppDescriptionDummyDataSource.h"
+#import "SMAppDescriptionRestApiDataSource.h"
 
 #import "SMLogManager.h"
 
@@ -20,7 +21,15 @@
 #import "SMNavigationDescription.h"
 #import "SMNavigation.h"
 
+@interface SMDefaultAppDelegate()
+- (void)launchApp;
+@end
+
 @implementation SMDefaultAppDelegate
+{
+    __block UIViewController *rootViewController;
+    __block SMPreloaderComponentViewController *preloader;
+}
 @synthesize navigationComponent = _navigationComponent;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -32,16 +41,43 @@
     [logManager start];
     
     // root view controller
-    __block UIViewController *rootViewController = [[UIViewController alloc] init];
+    rootViewController = [[UIViewController alloc] init];
     
-    // show the preloader screen
-    UIViewController *preloader = [[SMPreloaderComponentViewController alloc] init];
+    // init the preloader screen
+    preloader = [[SMPreloaderComponentViewController alloc] init];
+    [preloader setDelegate:self];
     
+    // launch the app
+    [self launchApp];
+    
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window setRootViewController:rootViewController];
+    [self.window makeKeyAndVisible];
+    
+    // show the modal preloader
+    [rootViewController presentViewController:preloader animated:NO completion:nil];
+    
+    return YES;
+}
+
+#pragma mark - private methods
+
+- (void)launchApp
+{
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    
+    //SMAppDescriptionDummyDataSource *dummyDataSource = [[SMAppDescriptionDummyDataSource alloc] init];
+    //[appDescription setDataSource:dummyDataSource];
+    
+    SMAppDescriptionRestApiDataSource *restApiDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
+    [appDescription setDataSource:restApiDataSource];
+    
     [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
         if (error) {
             // show an error alert
+            [preloader onAppFail];
             return;
         }
         
@@ -66,19 +102,14 @@
         }];
         
     }];
-    
-    // set root view controller as preloader controller temporarily
-    //UIViewController *rootViewController = [[UIViewController alloc] init];
-    
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window setRootViewController:rootViewController];
-    [self.window makeKeyAndVisible];
-    
-    // show the modal preloader
-    [rootViewController presentViewController:preloader animated:NO completion:nil];
-    
-    return YES;
+}
+
+#pragma mark - preloader delegate
+
+- (void)preloaderOnErrButton
+{
+    // relaunch app
+    [self launchApp];
 }
 
 @end
