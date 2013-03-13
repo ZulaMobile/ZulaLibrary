@@ -8,6 +8,8 @@
 
 #import "SMAppDescriptionRestApiDataSource.h"
 #import "SMApiClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "SMServerError.h"
 
 @implementation SMAppDescriptionRestApiDataSource
 
@@ -63,8 +65,9 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // error
+        SMServerError *err = [[SMServerError alloc] initWithOperation:operation];
         if (completion) {
-            completion(nil, error);
+            completion(nil, err);
         }
     }];
 }

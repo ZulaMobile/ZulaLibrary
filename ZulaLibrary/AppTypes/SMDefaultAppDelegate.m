@@ -50,7 +50,6 @@
     // launch the app
     [self launchApp];
     
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
@@ -77,6 +76,7 @@
     [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
         if (error) {
             // show an error alert
+            [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
             [preloader onAppFail];
             return;
         }

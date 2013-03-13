@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, strong) NSString *errorMessage;
 
 - (void)onAppFail;
 

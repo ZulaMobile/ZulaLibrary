@@ -47,6 +47,7 @@
 		67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
 		67890A3316F05F41001AA909 /* SMApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3216F05F41001AA909 /* SMApiClient.m */; };
 		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
+		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -164,6 +165,8 @@
 		67890A3516F06DD2001AA909 /* SMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMValidator.h; path = Library/Base/SMValidator.h; sourceTree = "<group>"; };
 		67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionDummyDataSource.h; path = Library/Descriptions/SMAppDescriptionDummyDataSource.h; sourceTree = "<group>"; };
 		67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionDummyDataSource.m; path = Library/Descriptions/SMAppDescriptionDummyDataSource.m; sourceTree = "<group>"; };
+		67890A3B16F0A475001AA909 /* SMServerError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMServerError.h; path = Library/Errors/SMServerError.h; sourceTree = "<group>"; };
+		67890A3C16F0A475001AA909 /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMServerError.m; path = Library/Errors/SMServerError.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
@@ -404,6 +407,15 @@
 			name = AppDescriptionDataSources;
 			sourceTree = "<group>";
 		};
+		67890A3A16F0A451001AA909 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				67890A3B16F0A475001AA909 /* SMServerError.h */,
+				67890A3C16F0A475001AA909 /* SMServerError.m */,
+			);
+			name = Errors;
+			sourceTree = "<group>";
+		};
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +490,7 @@
 		67CCC9DA16C157AD000EBC0B /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				67890A3A16F0A451001AA909 /* Errors */,
 				67CCCA2016C3F64F000EBC0B /* Descriptions */,
 				67CCCA1716C3F1C5000EBC0B /* Managers */,
 				67CCCA0D16C1B57D000EBC0B /* Appearance */,
@@ -768,6 +781,7 @@
 				6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */,
 				67890A3316F05F41001AA909 /* SMApiClient.m in Sources */,
 				67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */,
+				67890A3D16F0A475001AA909 /* SMServerError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

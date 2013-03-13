@@ -20,6 +20,7 @@
 @synthesize delegate = _delegate;
 @synthesize imageView = _imageView;
 @synthesize activityIndicatorView = _activityIndicatorView;
+@synthesize errorMessage = _errorMessage;
 
 - (void)loadView
 {
@@ -70,14 +71,17 @@
     [self.activityIndicatorView setHidden:YES];
     [errButton setHidden:NO];
     
-    NSString *failText = NSLocalizedString(@"A problem occurred and we couldn't launch the app. Tap anywhere to try again.", nil);
+    if (!self.errorMessage) {
+        self.errorMessage = NSLocalizedString(@"A problem occurred and we couldn't launch the app. Tap anywhere to try again.", nil);
+    }
+    
     CGRect errFrame = CGRectMake(0,
                               0,
                               CGRectGetWidth(self.view.frame),
                               CGRectGetHeight(self.view.frame));
     
     [errButton setFrame:errFrame];
-    [errButton setTitle:failText forState:UIControlStateNormal];
+    [errButton setTitle:self.errorMessage forState:UIControlStateNormal];
     [errButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [errButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [errButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
