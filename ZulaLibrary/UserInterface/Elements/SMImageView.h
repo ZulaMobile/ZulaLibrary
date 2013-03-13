@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SMViewElement.h"
 #import "UIImageView+AFNetworking.h"
-#import "SMValidator.h"
 
 /**
  Standard image view
@@ -19,6 +18,6 @@
      * bg_color: hex code for rgb color (i.e. rrggbb).
      * url: background image set by user (warning: this only can be set by the app wide settings)
  */
-@interface SMImageView : UIImageView <SMViewElement, SMValidator>
+@interface SMImageView : UIImageView <SMViewElement>
 
 @end

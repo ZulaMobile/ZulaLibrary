@@ -48,6 +48,7 @@
 		67890A3316F05F41001AA909 /* SMApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3216F05F41001AA909 /* SMApiClient.m */; };
 		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
 		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
+		67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -167,6 +168,8 @@
 		67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionDummyDataSource.m; path = Library/Descriptions/SMAppDescriptionDummyDataSource.m; sourceTree = "<group>"; };
 		67890A3B16F0A475001AA909 /* SMServerError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMServerError.h; path = Library/Errors/SMServerError.h; sourceTree = "<group>"; };
 		67890A3C16F0A475001AA909 /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMServerError.m; path = Library/Errors/SMServerError.m; sourceTree = "<group>"; };
+		67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceValidator.h; path = UserInterface/Elements/SMAppearanceValidator.h; sourceTree = "<group>"; };
+		67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceValidator.m; path = UserInterface/Elements/SMAppearanceValidator.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				675BDD7216DBB77C00B141F8 /* SMScrollView.m */,
 				6701BD8B16DFBEB9005A9BD3 /* SMHomePageLinks.h */,
 				6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */,
+				67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */,
+				67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				67890A3316F05F41001AA909 /* SMApiClient.m in Sources */,
 				67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67890A3D16F0A475001AA909 /* SMServerError.m in Sources */,
+				67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

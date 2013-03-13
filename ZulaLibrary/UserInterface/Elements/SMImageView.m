@@ -8,6 +8,7 @@
 
 #import "SMImageView.h"
 #import "UIColor+SSToolkitAdditions.h"
+#import "SMAppearanceValidator.h"
 
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
@@ -33,7 +34,7 @@
  */
 - (void)applyAppearances:(NSDictionary *)appearances
 {
-    if (![SMImageView isValidData:appearances]) {
+    if (![SMAppearanceValidator isValidData:appearances]) {
         DDLogError(@"Image data is not valid, expects dict: %@", appearances);
         return;
     }
@@ -93,15 +94,5 @@
     [self setImageWithURL:imageUrl];
 }
 
-#pragma mark - validator
-
-+ (BOOL)isValidData:(id)data
-{
-    if (![data isKindOfClass:[NSDictionary class]]) {
-        return NO;
-    }
-    
-    return YES;
-}
 
 @end
