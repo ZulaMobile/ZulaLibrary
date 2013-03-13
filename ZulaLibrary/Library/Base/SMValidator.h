@@ -10,6 +10,6 @@
 
 @protocol SMValidator <NSObject>
 
-+ (BOOL)isValid:(id)data;
++ (BOOL)isValidData:(id)data;
 
 @end

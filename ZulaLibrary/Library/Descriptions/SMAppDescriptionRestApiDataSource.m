@@ -13,7 +13,7 @@
 
 @implementation SMAppDescriptionRestApiDataSource
 
-+ (BOOL)isValid:(id)data
++ (BOOL)isValidData:(id)data
 {
     if (![data isKindOfClass:[NSDictionary class]]) {
         return NO;
@@ -50,7 +50,7 @@
         // successful response
         
         // validate data
-        if(![SMAppDescriptionRestApiDataSource isValid:responseObject]) {
+        if(![SMAppDescriptionRestApiDataSource isValidData:responseObject]) {
             NSError *err = [[NSError alloc] initWithDomain:@"zulamobile" code:500 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Invalid response data", @"description", nil]];
             if (completion) {
                 completion(nil, err);

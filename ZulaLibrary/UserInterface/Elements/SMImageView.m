@@ -33,6 +33,11 @@
  */
 - (void)applyAppearances:(NSDictionary *)appearances
 {
+    if (![SMImageView isValidData:appearances]) {
+        DDLogError(@"Image data is not valid, expects dict: %@", appearances);
+        return;
+    }
+    
     // set appearances
     [self appearanceForAlignment:[appearances objectForKey:@"alignment"]];
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
@@ -86,6 +91,17 @@
     }
     
     [self setImageWithURL:imageUrl];
+}
+
+#pragma mark - validator
+
++ (BOOL)isValidData:(id)data
+{
+    if (![data isKindOfClass:[NSDictionary class]]) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

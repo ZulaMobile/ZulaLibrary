@@ -31,18 +31,24 @@
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
 {
     UIViewController *component;
-    if ([componentDescription.type isEqualToString:@"Content"]) {
+    if ([componentDescription.type isEqualToString:@"ContentComponent"]) {
         // create the component
         component = [[SMContentViewController alloc] initWithDescription:componentDescription];
-    } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
+    } else if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
         component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
+    }
+    
+    if (!component) {
+        DDLogError(@"unknown component `%@`", componentDescription.type);
+        assert(component);
+        return nil;
     }
     
     if ([navigationDescription.type isEqualToString:@"tabbar"]) {
         return [[UINavigationController alloc] initWithRootViewController:component];
     } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
         // only homepage must be navigation controller
-        if ([componentDescription.type isEqualToString:@"HomePage"]) {
+        if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
             return [[UINavigationController alloc] initWithRootViewController:component];
         }
         return component;
