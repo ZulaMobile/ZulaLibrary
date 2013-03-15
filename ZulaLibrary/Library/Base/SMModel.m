@@ -15,10 +15,9 @@
     return [super init];
 }
 
-// must be overridded
-+ (NSString *)apiServiceName
++ (BOOL)isValidResponse:(id)response
 {
-    return @"";
+    return YES;
 }
 
 @end

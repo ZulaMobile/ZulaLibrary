@@ -14,7 +14,7 @@
 {
     self = [super initWithDomain:@"zulamobile" code:[operation.response statusCode] userInfo:nil];
     if (self) {
-        
+        // nothing to do
     }
     return self;
 }
@@ -24,6 +24,9 @@
     NSString *localizedDesc;
     if (self.code == 403) {
         localizedDesc = NSLocalizedString(@"Authentication error.", nil);
+    } else if (self.code == 502) {
+        // malformed response, the response we receive is in incorrect format
+        localizedDesc = NSLocalizedString(@"Malformed response.", nil);
     } else {
         localizedDesc = NSLocalizedString(@"Server error.", nil);
     }

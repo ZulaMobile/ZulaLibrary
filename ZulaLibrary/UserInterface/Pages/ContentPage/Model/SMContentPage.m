@@ -7,6 +7,8 @@
 //
 
 #import "SMContentPage.h"
+#import "SMApiClient.h"
+
 
 @implementation SMContentPage
 @synthesize title = _title;
@@ -34,12 +36,48 @@
     return self;
 }
 
-+ (NSString *)apiServiceName
++ (BOOL)isValidResponse:(id)response
 {
-    return @"";
+    if (![response isKindOfClass:[NSDictionary class]]) {
+        return NO;
+    }
+    
+    return ([response objectForKey:kModelContentPageTitle] &&
+            [response objectForKey:kModelContentPageText] &&
+            [response objectForKey:kModelContentPageImageUrl] &&
+            [response objectForKey:kModelContentPageBackgroundImageUrl]);
 }
 
-+ (void)fetchWithCompletion:(void (^)(SMContentPage *, NSError *))completion
++ (void)fetchWithURLString:(NSString *)urlString Completion:(void (^)(SMContentPage *, SMServerError *))completion
+{
+    [[SMApiClient sharedClient] getPath:urlString
+                             parameters:nil
+                                success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        // validate response
+        if (![SMContentPage isValidResponse:responseObject]) {
+            SMServerError *err = [[SMServerError alloc] initWithDomain:@"zulamobile" code:502 userInfo:nil];
+            if (completion) {
+                completion(nil, err);
+            }
+            return;
+        }
+        
+        NSDictionary *response = (NSDictionary *)responseObject;
+        SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:response];
+        if (completion) {
+            completion(contentPage, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // failure
+        SMServerError *err = [[SMServerError alloc] initWithOperation:operation];
+        if (completion) {
+            completion(nil, err);
+        }
+    }];
+}
+
++ (void)fetchWithCompletionSample:(void (^)(SMContentPage *, NSError *))completion
 {
     // sample images:
     // http://folioflip.foliothemes.com/wp-content/uploads/2009/11/guitar2-320x150.jpg

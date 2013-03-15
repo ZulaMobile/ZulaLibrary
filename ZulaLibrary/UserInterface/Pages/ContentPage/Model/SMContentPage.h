@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SMModel.h"
+#import "SMServerError.h"
 
 // data structure constants
 #define kModelContentPageTitle @"title"
@@ -47,6 +48,6 @@
  Content data for Content model
  See the data structure at [[GET Content Page Service]] wiki entry
  */
-+ (void)fetchWithCompletion:(void(^)(SMContentPage *contentPage, NSError *error))completion;
++ (void)fetchWithURLString:(NSString *)urlString Completion:(void(^)(SMContentPage *contentPage, SMServerError *error))completion;
 
 @end

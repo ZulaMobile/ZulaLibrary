@@ -10,6 +10,7 @@
 #import "SMComponentDescription.h"
 #import "SMImageView.h"
 #import "SMLabel.h"
+#import "SMTitleLabel.h"
 #import "SMTextView.h"
 #import "SMMainView.h"
 #import "SMWebView.h"
@@ -49,7 +50,7 @@
     [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
-    self.titleView = [[SMLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 30)];
+    self.titleView = [[SMTitleLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 30)];
     [self.titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [self.titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
     
@@ -79,14 +80,18 @@
 {
     // start preloader
     [SMProgressHUD show];
-    [SMContentPage fetchWithCompletion:^(SMContentPage *contentPage, NSError *error) {
+    
+    NSString *url = [self.componentDesciption url];
+    [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
         // end preloader
         [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);
+            
             // show error
-            [self displayErrorString:NSLocalizedString(@"We encountered an error, Please try again", nil)];
+            [self displayErrorString:error.localizedDescription];
+            
             return;
         }
         

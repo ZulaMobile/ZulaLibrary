@@ -22,10 +22,9 @@
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
 /**
- Returns the API service name if there is any. Otherwise an empty string.
- 
- @return The API service name as string.
+ Validator for the model
+ Must be overridden by subclasses
  */
-+ (NSString *)apiServiceName;
++ (BOOL)isValidResponse:(id)response;
 
 @end

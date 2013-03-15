@@ -9,6 +9,7 @@
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <DDLog.h>
 
+    #import "SMServerError.h"
 #endif
 
 #define DEBUG_APP 1
