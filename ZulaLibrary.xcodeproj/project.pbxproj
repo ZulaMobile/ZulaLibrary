@@ -171,6 +171,8 @@
 		67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceValidator.h; path = UserInterface/Elements/SMAppearanceValidator.h; sourceTree = "<group>"; };
 		67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceValidator.m; path = UserInterface/Elements/SMAppearanceValidator.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		67BD5B0516F30B4600FC503F /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		67BD5B0716F30B5200FC503F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
 		67CCC9D016C11DED000EBC0B /* SMHomePageControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMHomePageControllerViewController.xib; path = UserInterface/Pages/Homepage/SMHomePageControllerViewController.xib; sourceTree = "<group>"; };
@@ -692,6 +694,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				tr,
+				ar,
 			);
 			mainGroup = 6780DDCB16C02592005EDD1D;
 			productRefGroup = 6780DDD516C02593005EDD1D /* Products */;
@@ -819,6 +823,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6780DDF216C02593005EDD1D /* en */,
+				67BD5B0516F30B4600FC503F /* tr */,
+				67BD5B0716F30B5200FC503F /* ar */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

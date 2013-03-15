@@ -11,24 +11,28 @@
 #import "NSDictionary+SMAdditions.h"
 
 @implementation SMComponentDescription
-{
-    NSDictionary *_apperance;
-}
+
 @synthesize type = _type;
 @synthesize title = _title;
 @synthesize slug = _slug;
+@synthesize url = _url;
+@synthesize appearance = _apperance;
 
-- (NSDictionary *)appearance
+- (id)initWithAttributes:(NSDictionary *)attributes
 {
-    return _apperance;
+    self = [super init];
+    if (self) {
+        _type = [attributes objectForKey:@"type"];
+        _title = [attributes objectForKey:@"title"];
+        _slug = [attributes objectForKey:@"slug"];
+        _url = [attributes objectForKey:@"url"];
+        
+        // merge with app wide apperances
+        NSDictionary *appAppearances = [[SMAppDescription sharedInstance] appearance];
+        _apperance = [NSDictionary dictionaryByMerging:[attributes objectForKey:@"appearance"]
+                                                  with:appAppearances];
+    }
+    return self;
 }
-
-- (void)setAppearance:(NSDictionary *)appearance
-{
-    // merge with app wide apperances
-    NSDictionary *appAppearances = [[SMAppDescription sharedInstance] appearance];
-    _apperance = [NSDictionary dictionaryByMerging:appearance with:appAppearances];
-}
-
 
 @end

@@ -17,24 +17,36 @@
  The type of the component corresponds to the class name of it.
  @example 'Content' corresponds to 'SMContentViewController'
  */
-@property (nonatomic, strong) NSString *type;
+@property (nonatomic, readonly) NSString *type;
 
 /**
  The title set by user
  */
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, readonly) NSString *title;
 
 /**
  Unique identifier of the component instance
  Usually the slugified version of the title
  */
-@property (nonatomic, strong) NSString *slug;
+@property (nonatomic, readonly) NSString *slug;
 
 /**
  Appearance dictionary
  Merged with the appDescription.appearance dictionary
  appApperances are overridden by the component appearances
  */
-@property (nonatomic, strong) NSDictionary *appearance;
+@property (nonatomic, readonly) NSDictionary *appearance;
+
+/**
+ Rest API URL
+ To fetch the content data, components will use this url
+ */
+@property (nonatomic, readonly) NSString *url;
+
+/**
+ Initializer method
+ All properties must set using this initializer, since all of them are read-only
+ */
+- (id)initWithAttributes:(NSDictionary *)attributes;
 
 @end

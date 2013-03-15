@@ -80,11 +80,7 @@
         NSArray *componentDatas = (NSArray *)[response objectForKey:@"components"];
         NSMutableArray *tmpComponents = [[NSMutableArray alloc] initWithCapacity:[componentDatas count]];
         for (NSDictionary *componentData in componentDatas) {
-            SMComponentDescription *component = [[SMComponentDescription alloc] init];
-            [component setType:[componentData objectForKey:@"type"]];
-            [component setTitle:[componentData objectForKey:@"title"]];
-            [component setSlug:[componentData objectForKey:@"slug"]];
-            [component setAppearance:[componentData objectForKey:@"appearance"]];
+            SMComponentDescription *component = [[SMComponentDescription alloc] initWithAttributes:componentData];
             [tmpComponents addObject:component];
         }
         _components = [NSArray arrayWithArray:tmpComponents];

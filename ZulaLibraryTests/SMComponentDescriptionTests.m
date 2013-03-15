@@ -26,8 +26,9 @@
     NSDictionary *componentAppearance = [NSDictionary dictionaryWithObjectsAndKeys:
                                          @"test2valueOverridden", @"test2",
                                          nil];
-    SMComponentDescription *contentComponentDesc = [[SMComponentDescription alloc] init];
-    [contentComponentDesc setAppearance:componentAppearance];
+    
+    NSDictionary *componentAttributes = [NSDictionary dictionaryWithObjectsAndKeys:componentAppearance, @"appearance", nil];
+    SMComponentDescription *contentComponentDesc = [[SMComponentDescription alloc] initWithAttributes:componentAttributes];
     [appDescription setComponentDescriptions:[NSArray arrayWithObject:contentComponentDesc]];
     
     STAssertTrue([contentComponentDesc.appearance count] == 2, @"count of appearance options");
