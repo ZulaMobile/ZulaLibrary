@@ -98,12 +98,13 @@
 - (void)fetchContents
 {
     [SMProgressHUD show];
-    [SMHomePage fetchWithCompletion:^(SMHomePage *homePage, NSError *error) {
+    NSString *url = [self.componentDesciption url];
+    [SMHomePage fetchWithURLString:url completion:^(SMHomePage *homePage, SMServerError *error) {
         [SMProgressHUD dismiss];
         if (error) {
             DDLogError(@"Home page fetch contents error|%@", [error description]);
             // show error
-            [self displayErrorString:NSLocalizedString(@"We encountered an error, Please try again", nil)];
+            [self displayErrorString:error.localizedDescription];
             return;
         }
         

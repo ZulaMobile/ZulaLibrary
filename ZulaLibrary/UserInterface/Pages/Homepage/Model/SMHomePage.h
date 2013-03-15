@@ -8,6 +8,10 @@
 
 #import "SMModel.h"
 
+// data structure constants
+#define kModelHomePageImageLogo @"logo"
+#define kModelHomePageBackgroundImageUrl @"bg_image"
+
 @interface SMHomePage : SMModel
 
 /**
@@ -23,6 +27,6 @@
 /**
  See the data structure at [[GET HomePage Service]] wiki entry
  */
-+ (void)fetchWithCompletion:(void(^)(SMHomePage *homePage, NSError *error))completion;
++ (void)fetchWithURLString:(NSString *)urlString completion:(void(^)(SMHomePage *homePage, SMServerError *error))completion;
 
 @end
