@@ -73,7 +73,7 @@
         colorHex = @"clean";
     }
     
-    if ([colorHex isEqualToString:@"clean"]) {
+    if ([colorHex isEqualToString:@"clean"] || [colorHex isEqualToString:@""]) {
         [self setBackgroundColor:[UIColor clearColor]];
     } else {
         [self setBackgroundColor:[UIColor colorWithHex:colorHex]];

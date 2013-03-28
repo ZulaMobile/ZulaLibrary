@@ -53,7 +53,7 @@
         hexColor = @"clean";
     }
     
-    if ([hexColor isEqualToString:@"clean"]) {
+    if ([hexColor isEqualToString:@"clean"] || [hexColor isEqualToString:@""]) {
         [self setBackgroundColor:[UIColor clearColor]];
     } else {
         [self setBackgroundColor:[UIColor colorWithHex:hexColor]];
@@ -67,7 +67,7 @@
         hexColor = @"333333";
     }
     
-    if ([hexColor isEqualToString:@"clean"]) {
+    if ([hexColor isEqualToString:@"clean"] || [hexColor isEqualToString:@""]) {
         [self setBackgroundColor:[UIColor clearColor]];
     } else {
         [self setTextColor:[UIColor colorWithHex:hexColor]];

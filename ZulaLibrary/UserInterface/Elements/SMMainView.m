@@ -44,7 +44,7 @@
         hexColor = @"clean";
     }
     
-    if ([hexColor isEqualToString:@"clean"]) {
+    if ([hexColor isEqualToString:@"clean"] || [hexColor isEqualToString:@""]) {
         [self setBackgroundColor:[UIColor clearColor]];
     } else {
         [self setBackgroundColor:[UIColor colorWithHex:hexColor]];
