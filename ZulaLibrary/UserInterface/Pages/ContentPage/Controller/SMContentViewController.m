@@ -54,14 +54,18 @@
     [self.titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [self.titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
     
-    self.webView = [[SMWebView alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame) + CGRectGetHeight(self.titleView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 600)];
+    self.webView = [[SMWebView alloc] initWithFrame:
+                    CGRectMake(padding,
+                               CGRectGetHeight(self.imageView.frame),
+                               CGRectGetWidth(self.view.frame) - padding * 2,
+                               600)];
     [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
     [self.scrollView addSubview:self.imageView];
-    [self.scrollView addSubview:self.titleView];
+    //[self.scrollView addSubview:self.titleView];
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
 }
@@ -108,11 +112,11 @@
         if (!contentPage.imageUrl) {
             // move views up
             CGRect imageViewFrame = _imageView.frame;
-            CGRect titleViewFrame = _titleView.frame;
+            //CGRect titleViewFrame = _titleView.frame;
             CGRect webViewFrame = _webView.frame;
-            titleViewFrame.origin.y -= imageViewFrame.size.height;
+            //titleViewFrame.origin.y -= imageViewFrame.size.height;
             webViewFrame.origin.y -= imageViewFrame.size.height;
-            [_titleView setFrame:titleViewFrame];
+            //[_titleView setFrame:titleViewFrame];
             [_webView setFrame:webViewFrame];
         }
     }];
@@ -139,14 +143,13 @@
     frame.size = fittingSize;
     aWebView.frame = frame;
     
-    [self.webView setFrame:CGRectMake(
-                                       padding,
-                                       padding + CGRectGetHeight(_titleView.frame) + _titleView.frame.origin.y,
-                                       CGRectGetWidth(self.view.frame) - padding * 2,
-                                       fittingSize.height)];
+    [self.webView setFrame:CGRectMake(padding,
+                                      padding + CGRectGetHeight(self.imageView.frame),
+                                      CGRectGetWidth(self.view.frame) - padding * 2,
+                                      fittingSize.height)];
     [self.scrollView setContentSize:CGSizeMake(
                                                CGRectGetWidth(self.view.frame),
-                                               padding * 2 + CGRectGetHeight(_titleView.frame) + _titleView.frame.origin.y +fittingSize.height)];
+                                               padding * 2 + CGRectGetHeight(self.imageView.frame) + fittingSize.height)];
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
