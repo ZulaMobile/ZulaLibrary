@@ -29,8 +29,8 @@
         
         // merge with app wide apperances
         NSDictionary *appAppearances = [[SMAppDescription sharedInstance] appearance];
-        _apperance = [NSDictionary dictionaryByMerging:[attributes objectForKey:@"appearance"]
-                                                  with:appAppearances];
+        _apperance = [NSDictionary dictionaryByMerging:appAppearances
+                                                  with:[attributes objectForKey:@"appearance"]];
     }
     return self;
 }

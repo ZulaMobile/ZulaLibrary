@@ -18,8 +18,14 @@
 
 /**
  Merges the dictionary with given dictionary
- Given dictionary values will be overridden by the original dictionary
+ Given dictionary values overrides the original dictionary
  */
 - (NSDictionary *)dictionaryByMergingWith:(NSDictionary *)dict;
+
+/**
+ Merges the dictionary with given dictionary
+ Given dictionary values overrides the original dictionary
+ */
+- (NSDictionary*)dictionaryByMergingDictionary:(NSDictionary*)dictToOverride;
 
 @end

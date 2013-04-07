@@ -27,7 +27,7 @@
 {
     NSDictionary *overridden = [NSDictionary dictionaryWithObjectsAndKeys:@"ali", @"name", @"engineer", @"title", nil];
     NSDictionary *overrides = [NSDictionary dictionaryWithObjectsAndKeys:@"ayse", @"name", @"doctor", @"title", @"sm123", @"id", @"active", @"status", nil];
-    NSDictionary *result = [NSDictionary dictionaryByMerging:overrides with:overridden];
+    NSDictionary *result = [NSDictionary dictionaryByMerging:overridden with:overrides];
     
     STAssertTrue([result count] == 4, @"total count of items must be 4");
     STAssertTrue([[result objectForKey:@"name"] isEqualToString:@"ayse"], @"");
@@ -51,9 +51,15 @@
 
 - (void)testMergeSelfDictionaryOverride
 {
-    NSDictionary *first = [NSDictionary dictionaryWithObjectsAndKeys:@"ali", @"name", @"engineer", @"title", nil];
-    NSDictionary *second = [NSDictionary dictionaryWithObjectsAndKeys:@"ayse", @"name", @"doctor", @"title", @"sm123", @"id", @"active", @"status", nil];
-    NSDictionary *result = [second dictionaryByMergingWith:first];
+    NSDictionary *overridden = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"ali", @"name",
+                                @"engineer", @"title", nil];
+    NSDictionary *overrides = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"ayse", @"name",
+                               @"doctor", @"title",
+                               @"sm123", @"id",
+                               @"active", @"status", nil];
+    NSDictionary *result = [overridden dictionaryByMergingWith:overrides];
     
     STAssertTrue([result count] == 4, @"total count of items must be 4");
     STAssertTrue([[result objectForKey:@"name"] isEqualToString:@"ayse"], @"");
@@ -102,6 +108,7 @@
 
 - (void)testMergeMultiDimensionalOverride
 {
+    // main appearances needs to be overridden by component appearances
     NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"ff0000", @"bg_color",
                                      
@@ -112,6 +119,7 @@
                                      
                                      nil];
     
+    // component appearances overrides main appearances
     NSDictionary *componentApperances =  [NSDictionary dictionaryWithObjectsAndKeys:
                                           @"444222", @"bg_color",
                                           
@@ -131,7 +139,7 @@
                                           //[NSDictionary dictionaryWithObjectsAndKeys:@"13", @"font_size", @"dddddd", @"color", nil], @"text",
                                           nil];
     
-    NSDictionary *result = [NSDictionary dictionaryByMerging:componentApperances with:mainAppearances];
+    NSDictionary *result = [NSDictionary dictionaryByMerging:mainAppearances with:componentApperances];
     
     STAssertTrue([result count] == 4, @"total count of items must be 4");
     STAssertTrue([[result objectForKey:@"bg_color"] isEqualToString:@"444222"], @"");

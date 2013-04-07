@@ -46,7 +46,7 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 150.0)];
+    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
     [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     

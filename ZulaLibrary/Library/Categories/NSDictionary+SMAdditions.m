@@ -7,27 +7,32 @@
 //
 
 #import "NSDictionary+SMAdditions.h"
+#import <objc/runtime.h>
 
 @implementation NSDictionary (SMAdditions)
 
-+ (NSDictionary *)dictionaryByMerging:(NSDictionary *)dict1 with:(NSDictionary *)dict2
+- (NSDictionary*)dictionaryByMergingDictionary:(NSDictionary*)dictToOverride
 {
-    NSMutableDictionary * result = [NSMutableDictionary dictionaryWithDictionary:dict1];
-    
-    [dict2 enumerateKeysAndObjectsUsingBlock: ^(id key, id obj, BOOL *stop) {
-        if (![dict1 objectForKey:key]) {
-            /*
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                NSDictionary * newVal = [[dict1 objectForKey: key] dictionaryByMergingWith:(NSDictionary *)obj];
-                [result setObject:newVal forKey:key];
-            } else {
-                [result setObject:obj forKey:key];
-            }*/
-            [result setObject:obj forKey:key];
+    NSDictionary* theResult = [self mutableCopy];
+    NSEnumerator* e = [dictToOverride keyEnumerator];
+    id theKey = nil;
+    while((theKey = [e nextObject]) != nil)
+    {
+        id theObject = [dictToOverride objectForKey:theKey];
+        if ([theObject isKindOfClass:[NSDictionary class]] && [[self valueForKey:theKey] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *nval = [[self valueForKey:theKey] dictionaryByMergingDictionary:theObject];
+            [theResult setValue:nval forKey:theKey];
+        } else {
+            [theResult setValue:theObject forKey:theKey];
         }
-    }];
-    
-    return (NSDictionary *)[result mutableCopy];
+    }
+    return theResult;
+}
+
+
++ (NSDictionary *)dictionaryByMerging:(NSDictionary *)overridden with:(NSDictionary *)overrides
+{
+    return [overridden dictionaryByMergingDictionary:overrides];
 }
 
 - (NSDictionary *)dictionaryByMergingWith:(NSDictionary *)dict {

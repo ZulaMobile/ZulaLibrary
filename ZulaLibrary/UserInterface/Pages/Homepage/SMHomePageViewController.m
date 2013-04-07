@@ -58,7 +58,6 @@
     [self fetchContents];
     
     // place links
-    
     SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
                                       CGRectMake(padding,
                                                  120 + padding,
