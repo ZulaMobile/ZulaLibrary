@@ -14,6 +14,8 @@
  
  Appearance options:
  * bg_color: hex code for rgb color (i.e. rrggbb).
+ * text_shadow: #FF0000;
+ 
  */
 @interface SMWebView : UIWebView <SMViewElement>
 
