@@ -11,5 +11,11 @@
 @implementation SMNavigationDescription
 @synthesize  componentSlugs = _componentSlugs;
 @synthesize type = _type;
+@synthesize data = _data;
+
+- (NSDictionary *)appearance
+{
+    return [self.data objectForKey:@"appearance"];
+}
 
 @end

@@ -89,6 +89,7 @@
         NSDictionary *navData = [response objectForKey:@"navigation"];
         _navigationDescription = [[SMNavigationDescription alloc] init];
         [_navigationDescription setType:[navData objectForKey:@"type"]];
+        [_navigationDescription setData:navData];
         [_navigationDescription setComponentSlugs:[navData objectForKey:@"components"]];
         
         if (completion) {

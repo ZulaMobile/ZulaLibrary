@@ -9,11 +9,12 @@
 #import "SMNavigationApperanceManager.h"
 #import "SMAppDescription.h"
 #import "UIColor+SSToolkitAdditions.h"
+#import "SMNavigationDescription.h"
 
 @interface SMNavigationApperanceManager()
 - (void)appearancesForNavBarBackgroundColor:(NSString *)hexColor;
-- (void)appearancesForNavBarTintColor:(NSString *)hexColor;
-//- (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl;
+- (void)appearancesForNavBarTextColor:(NSString *)hexColor;
+- (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl;
 //- (void)appearancesForNavBarIconSet:(NSString *)iconSet;
 @end
 
@@ -27,12 +28,24 @@
 - (void)applyAppearances:(NSDictionary *)appearances
 {
     SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    SMNavigationDescription *navDesc = [appDesc navigationDescription];
     
     // nav bar apperance
-    NSDictionary *navBarApperance = [appDesc.appearance objectForKey:@"navbar"];
+    NSDictionary *navApperance = [navDesc appearance];
+    NSDictionary *navBarApperance = [navApperance objectForKey:@"navbar"];
     if (navBarApperance) {
-        [self appearancesForNavBarBackgroundColor:[navBarApperance objectForKey:@"bg_color"]];
-        [self appearancesForNavBarTintColor:[navBarApperance objectForKey:@"tint_color"]];
+        NSDictionary *bg_img = [navBarApperance objectForKey:@"bg_image"];
+        if (bg_img) {
+            [self appearancesForNavBarBackgroundColor:[bg_img objectForKey:@"bg_color"]];
+        }
+        
+        [self appearancesForNavBarTextColor:[navBarApperance objectForKey:@"text_color"]];
+    }
+    
+    // nav bar data
+    NSString *navbarImageUrl = [navDesc.data objectForKey:@"navbar_bg_image"];
+    if (navbarImageUrl) {
+        [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
     }
 }
 
@@ -44,16 +57,46 @@
         return;
     }
     
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
 }
 
-- (void)appearancesForNavBarTintColor:(NSString *)hexColor
+- (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
+{
+    if (!imageUrl) {
+        return;
+    }
+    
+#warning load async images
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+    CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
+    if (screenScale != image.scale) {
+        image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+    }
+    
+    [[UINavigationBar appearance] setBackgroundImage:image
+                                       forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setContentScaleFactor:[UIScreen mainScreen].scale];
+}
+
+- (void)appearancesForNavBarTextColor:(NSString *)hexColor
 {
     if (!hexColor) {
         return;
     }
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithHex:hexColor], UITextAttributeTextColor,
+      nil]];
+    /*
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], UITextAttributeTextColor,
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Arial-Bold" size:0.0], UITextAttributeFont,
+      nil]];
+     */
 }
 
 @end

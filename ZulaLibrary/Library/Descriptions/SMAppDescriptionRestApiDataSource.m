@@ -29,11 +29,13 @@
         ![[data objectForKey:@"navigation"] isKindOfClass:[NSDictionary class]] ||
         ![[data objectForKey:@"appearance"] isKindOfClass:[NSDictionary class]] ||
         ![[data objectForKey:@"components"] isKindOfClass:[NSArray class]]) {
+        DDLogError(@"App description: title, navigation, appearance or components are missing.");
         return NO;
     }
     
     // check if navigation type exists
     if (![[data objectForKey:@"navigation"] objectForKey:@"type"]) {
+        DDLogError(@"App description: navigation type is missing. %@", data);
         return NO;
     }
     
