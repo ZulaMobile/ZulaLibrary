@@ -71,7 +71,7 @@
     if ([hexColor isEqualToString:@"clean"] || [hexColor isEqualToString:@""]) {
         
     } else {
-        _extraCss = [NSString stringWithFormat:@"<style>div{ text-shadow: 0 1px 0 #%@; }</style>", hexColor];
+        _extraCss = [NSString stringWithFormat:@"<style>div{ text-shadow: 0 1px 1px #%@ !important; }</style>", hexColor];
     }
 }
 

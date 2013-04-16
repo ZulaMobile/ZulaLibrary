@@ -13,7 +13,6 @@
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
-- (void)appearanceForBackgroundUrl:(NSString *)url;
 @end
 
 @implementation SMImageView
@@ -42,7 +41,6 @@
     // set appearances
     [self appearanceForAlignment:[appearances objectForKey:@"alignment"]];
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
-    [self appearanceForBackgroundUrl:[appearances objectForKey:@"url"]];
 }
 
 #pragma mark - appearance helpers
@@ -80,7 +78,7 @@
     }
 }
 
-- (void)appearanceForBackgroundUrl:(NSString *)url
+- (void)setImageWithUrlString:(NSString *)url
 {
     if (!url) {
         return;
@@ -93,6 +91,5 @@
     
     [self setImageWithURL:imageUrl];
 }
-
 
 @end

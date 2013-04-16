@@ -20,4 +20,6 @@
  */
 @interface SMImageView : UIImageView <SMViewElement>
 
+- (void)setImageWithUrlString:(NSString *)url;
+
 @end

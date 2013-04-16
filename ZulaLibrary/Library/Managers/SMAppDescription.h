@@ -36,6 +36,11 @@
 @property (nonatomic, strong) NSString *appTitle;
 
 /**
+ App background image url
+ */
+@property (nonatomic, strong) NSString *bgImageUrl;
+
+/**
  App wide appearance dictionary.
  @see [[App Wide Appearances]] wiki entry for available options
  */

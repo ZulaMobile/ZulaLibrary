@@ -42,10 +42,14 @@
     SMMainView *view = [[SMMainView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [view applyAppearances:self.componentDesciption.appearance];
     
+    // get the app description for background image
+    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    
     // set background image
     self.backgroundImageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
     [self.backgroundImageView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
     [self.backgroundImageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"bg_image"]];
+    [self.backgroundImageView setImageWithUrlString:appDescription.bgImageUrl];
     
     // navigation bar
     NSInteger displayNavBar = [[self.componentDesciption.appearance objectForKey:@"display_navbar"] integerValue];

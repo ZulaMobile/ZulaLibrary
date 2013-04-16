@@ -16,6 +16,7 @@
 @synthesize componentDescriptions = _components;
 @synthesize navigationDescription = _navigationDescription;
 @synthesize appTitle = _appTitle;
+@synthesize bgImageUrl = _bgImageUrl;
 @synthesize dataSource = _dataSource;
 @synthesize appearance = _appearance;
 
@@ -71,6 +72,9 @@
         
         // set the app title
         _appTitle = [response objectForKey:@"title"];
+        
+        // set the bg image
+        _bgImageUrl = [response objectForKey:@"bg_image"];
         
         // set appearances
         NSDictionary *appearances = [response objectForKey:@"appearance"];
