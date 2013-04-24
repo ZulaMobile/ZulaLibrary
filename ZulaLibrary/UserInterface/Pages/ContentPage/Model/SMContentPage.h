@@ -37,12 +37,12 @@
 /**
  Optional image to display on the page just above the title.
  */
-@property (nonatomic, readonly) NSURL *imageUrl;
+@property (nonatomic) NSURL *imageUrl;
 
 /**
  Optional background image
  */
-@property (nonatomic, readonly) NSURL *backgroundUrl;
+@property (nonatomic) NSURL *backgroundUrl;
 
 /**
  Content data for Content model

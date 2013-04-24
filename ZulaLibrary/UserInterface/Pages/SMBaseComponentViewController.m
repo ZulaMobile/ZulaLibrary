@@ -75,4 +75,9 @@
     // must be overridden
 }
 
+- (void)applyContents
+{
+    // must be overridden
+}
+
 @end

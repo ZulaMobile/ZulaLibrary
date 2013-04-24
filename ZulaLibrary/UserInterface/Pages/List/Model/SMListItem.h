@@ -10,8 +10,8 @@
 
 // data structure constants
 #define kModelListItemTitle @"title"
-#define kModelListItemImageUrl @"image_url"
 #define kModelListItemSubtitle @"subtitle"
+#define kModelListItemImageUrl @"image"
 #define kModelListItemContent @"content"
 #define kModelListItemTargetComponentUrl @"target_component_url"
 #define kModelListItemTargetComponentName @"target_component_type"

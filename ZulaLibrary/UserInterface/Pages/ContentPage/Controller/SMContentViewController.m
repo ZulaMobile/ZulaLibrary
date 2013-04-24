@@ -34,6 +34,7 @@
 @synthesize imageView = _imageView;
 @synthesize webView = _webView;
 @synthesize scrollView = _scrollView;
+@synthesize contentPage = _contentPage;
 
 - (void)loadView
 {
@@ -82,6 +83,12 @@
 
 - (void)fetchContents
 {
+    // if data is already set, no need to fetch contents
+    if (self.contentPage) {
+        [self applyContents];
+        return;
+    }
+    
     // start preloader
     [SMProgressHUD show];
     
@@ -99,27 +106,33 @@
             return;
         }
         
-        [_titleView setText:contentPage.title];
-        [_webView loadHTMLString:contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
-        if (contentPage.imageUrl)
-            [_imageView setImageWithURL:contentPage.imageUrl];
-        
-        if (contentPage.backgroundUrl)
-            [self.backgroundImageView setImageWithURL:contentPage.backgroundUrl];
-        
-        
-        // reposition elements
-        if (!contentPage.imageUrl) {
-            // move views up
-            CGRect imageViewFrame = _imageView.frame;
-            //CGRect titleViewFrame = _titleView.frame;
-            CGRect webViewFrame = _webView.frame;
-            //titleViewFrame.origin.y -= imageViewFrame.size.height;
-            webViewFrame.origin.y -= imageViewFrame.size.height;
-            //[_titleView setFrame:titleViewFrame];
-            [_webView setFrame:webViewFrame];
-        }
+        [self setContentPage:contentPage];
+        [self applyContents];
     }];
+}
+
+- (void)applyContents
+{
+    [_titleView setText:self.contentPage.title];
+    [_webView loadHTMLString:self.contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    
+    if (self.contentPage.imageUrl)
+        [_imageView setImageWithURL:self.contentPage.imageUrl];
+    
+    if (self.contentPage.backgroundUrl)
+        [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
+    
+    // reposition elements
+    if (!self.contentPage.imageUrl) {
+        // move views up
+        CGRect imageViewFrame = _imageView.frame;
+        //CGRect titleViewFrame = _titleView.frame;
+        CGRect webViewFrame = _webView.frame;
+        //titleViewFrame.origin.y -= imageViewFrame.size.height;
+        webViewFrame.origin.y -= imageViewFrame.size.height;
+        //[_titleView setFrame:titleViewFrame];
+        [_webView setFrame:webViewFrame];
+    }
 }
 
 #pragma mark - web view delegate

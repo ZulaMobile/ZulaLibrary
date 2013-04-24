@@ -8,7 +8,7 @@
 
 #import "SMBaseComponentViewController.h"
 
-@class SMListPage;
+@class SMListPage, SMListItem;
 
 /**
  List page corresponds to UITableViewController.
@@ -24,5 +24,12 @@
  Table view 
  */
 @property (nonatomic, strong) UITableView *tableView;
+
+/**
+ Returns the component from the data on the `listItem`.
+ If `target_component` data is set on the `listItem`, creates the component, sets its description objects and return it
+ If no `target_component` set, Creates a `ContentComponent` and use the data on `listitem`.
+ */
+- (SMBaseComponentViewController *)targetComponentByListItem:(SMListItem *)listItem;
 
 @end

@@ -46,4 +46,9 @@
  */
 - (void)fetchContents;
 
+/**
+ Sets fetched content data to the views
+ */
+- (void)applyContents;
+
 @end

@@ -9,6 +9,9 @@
 #import "SMListViewController.h"
 #import "SMListPage.h"
 #import "SMListItem.h"
+#import "SMContentPage.h"
+#import "SMContentViewController.h"
+#import "SMComponentDescription.h"
 
 @interface SMListViewController ()
 
@@ -99,12 +102,48 @@
 // display the detail row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMListItem *listItem = (SMListItem *)[self.listPage.items objectAtIndex:[indexPath row]];
+    SMBaseComponentViewController *ctrl = [self targetComponentByListItem:listItem];
+    
+    // display this page now
+    if (self.navigationController) {
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+}
+
+- (SMBaseComponentViewController *)targetComponentByListItem:(SMListItem *)listItem
+{
     // check if the item has custom component
     
     // if there is custom component, create the view controller
     // get view controller's appearances from main appearances
+    if ([listItem hasTargetComponent]) {
+        
+        return nil;
+    }
     
+    // if there is no target component, create a `ContentComponent`
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            listItem.title, kModelContentPageTitle,
+                            listItem.content, kModelContentPageText,
+                            //[listItem.imageUrl absoluteString], kModelContentPageImageUrl,
+                            //[self.listPage.backgroundUrl absoluteString], kModelContentPageBackgroundImageUrl,
+                            nil];
+    SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:params];
+    [contentPage setBackgroundUrl:self.listPage.backgroundUrl];
+    [contentPage setImageUrl:listItem.imageUrl];
     
+    NSDictionary *componentDescParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         listItem.title, @"title",
+                                         listItem.title, @"slug",  // fix this
+                                         @"ContentComponent", @"type",
+                                         [self.componentDesciption appearance], @"appearance",
+                                         @"", @"url",
+                                         nil];
+    SMComponentDescription *contentComponentDescription = [[SMComponentDescription alloc] initWithAttributes:componentDescParams];
+    SMContentViewController *ctrl = [[SMContentViewController alloc] initWithDescription:contentComponentDescription];
+    [ctrl setContentPage:contentPage];
+    return ctrl;
 }
 
 @end

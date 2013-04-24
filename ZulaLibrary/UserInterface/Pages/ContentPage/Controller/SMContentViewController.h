@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMBaseComponentViewController.h"
 
-@class SMImageView, SMLabel, SMWebView;
+@class SMImageView, SMLabel, SMWebView, SMContentPage;
 
 /**
  Content page is a simple page consist of title, text and image
@@ -21,6 +21,11 @@
  @see SMContentPage model class for the component data to fetch for this page
  */
 @interface SMContentViewController : SMBaseComponentViewController <UIWebViewDelegate>
+
+/**
+ Model attribute that holds the data 
+ */
+@property (nonatomic, strong) SMContentPage *contentPage;
 
 /**
  Title label
