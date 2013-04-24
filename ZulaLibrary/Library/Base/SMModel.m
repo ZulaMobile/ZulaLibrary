@@ -20,4 +20,13 @@
     return YES;
 }
 
+- (NSURL*)urlFromAttribute:(NSString *)urlString
+{
+    if (urlString && ![urlString isEqualToString:@""]) {
+        return [NSURL URLWithString:urlString];
+    }
+    
+    return nil;
+}
+
 @end

@@ -14,6 +14,9 @@
 		6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */; };
 		6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */; };
 		6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */; };
+		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
+		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
+		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -27,6 +30,7 @@
 		675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
 		675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */; };
 		675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */; };
+		67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -112,6 +116,12 @@
 		6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMAppDelegate.h; path = AppTypes/SMAppDelegate.h; sourceTree = "<group>"; };
 		6701BD8B16DFBEB9005A9BD3 /* SMHomePageLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageLinks.h; path = UserInterface/Elements/SMHomePageLinks.h; sourceTree = "<group>"; };
 		6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageLinks.m; path = UserInterface/Elements/SMHomePageLinks.m; sourceTree = "<group>"; };
+		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
+		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
+		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
+		6749EB7F17257C6F002219C8 /* SMListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListItem.m; path = UserInterface/Pages/List/Model/SMListItem.m; sourceTree = "<group>"; };
+		6749EB8117258519002219C8 /* SMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewController.h; path = UserInterface/Pages/List/Controller/SMListViewController.h; sourceTree = "<group>"; };
+		6749EB8217258519002219C8 /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewController.m; path = UserInterface/Pages/List/Controller/SMListViewController.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
@@ -136,6 +146,8 @@
 		675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationApperanceManager.m; path = UserInterface/Navigation/SMNavigationApperanceManager.m; sourceTree = "<group>"; };
 		675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentFactory.h; path = UserInterface/Pages/SMComponentFactory.h; sourceTree = "<group>"; };
 		675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentFactory.m; path = UserInterface/Pages/SMComponentFactory.m; sourceTree = "<group>"; };
+		67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewControllerTests.h; path = UserInterface/Components/List/Controller/SMListViewControllerTests.h; sourceTree = "<group>"; };
+		67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/Controller/SMListViewControllerTests.m; sourceTree = "<group>"; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
 		6772D44916D6831F00B36C0F /* SMNavigationDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavigationDescription.h; path = Library/Descriptions/SMNavigationDescription.h; sourceTree = "<group>"; };
@@ -255,6 +267,35 @@
 			name = Loggers;
 			sourceTree = "<group>";
 		};
+		6749EB7817257966002219C8 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				6749EB7917257978002219C8 /* Model */,
+				6749EB7A1725797E002219C8 /* Controller */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		6749EB7917257978002219C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6749EB7B172579B5002219C8 /* SMListPage.h */,
+				6749EB7C172579B5002219C8 /* SMListPage.m */,
+				6749EB7E17257C6F002219C8 /* SMListItem.h */,
+				6749EB7F17257C6F002219C8 /* SMListItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6749EB7A1725797E002219C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6749EB8117258519002219C8 /* SMListViewController.h */,
+				6749EB8217258519002219C8 /* SMListViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +316,7 @@
 		675BDD5E16DB776200B141F8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67723CBD1726F1A300BB51D7 /* List */,
 				675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */,
 				675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */,
 			);
@@ -313,6 +355,23 @@
 				6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		67723CBD1726F1A300BB51D7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				67723CBE1726F1A900BB51D7 /* Controller */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		67723CBE1726F1A900BB51D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */,
+				67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
@@ -437,6 +496,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6749EB7817257966002219C8 /* List */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
@@ -798,6 +858,9 @@
 				67890A3D16F0A475001AA909 /* SMServerError.m in Sources */,
 				67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */,
 				67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */,
+				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
+				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
+				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +874,7 @@
 				675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */,
 				675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */,
 				675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */,
+				67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

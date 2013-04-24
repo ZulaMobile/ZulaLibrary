@@ -13,7 +13,11 @@
 
 @interface SMComponentFactory : NSObject
 
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription;
+//+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription;
+
+/**
+ Returns the component for the given description
+ */
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription;
 
 @end

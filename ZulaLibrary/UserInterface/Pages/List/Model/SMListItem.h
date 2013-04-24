@@ -1,0 +1,66 @@
+//
+//  SMListItem.h
+//  ZulaLibrary
+//
+//  Created by Suleyman Melikoglu on 4/22/13.
+//  Copyright (c) 2013 laplacesdemon. All rights reserved.
+//
+
+#import "SMModel.h"
+
+// data structure constants
+#define kModelListItemTitle @"title"
+#define kModelListItemImageUrl @"image_url"
+#define kModelListItemSubtitle @"subtitle"
+#define kModelListItemContent @"content"
+#define kModelListItemTargetComponentUrl @"target_component_url"
+#define kModelListItemTargetComponentName @"target_component_type"
+
+/**
+ Listing item for "List Page". Each item corresponds to a table item
+ 
+ @see [[List Component]] wiki entry
+ */
+@interface SMListItem : SMModel
+
+/**
+ Header of the item.
+ */
+@property (nonatomic, strong) NSString *title;
+
+/**
+ Optional item image. If set, it will display on the left side of the item.
+ */
+@property (nonatomic, readonly) NSURL *imageUrl;
+
+/**
+ Optional subtitle or short description under the header(title) text
+ */
+@property (nonatomic, readonly) NSString *subtitle;
+
+/**
+ Content text, if item has not got a target component, this text becomes the content 
+ text for the detail page (which is a `ContentComponent`.
+*/
+@property (nonatomic, readonly) NSString *content;
+
+/**
+ Optional target component, if set it will be used as the target url
+ */
+@property (nonatomic, readonly) NSURL *targetComponentUrl;
+
+/**
+ The name of the target component, if nil, the `ContentComponent` is created with `content` attribute
+ */
+@property (nonatomic, readonly) NSString *targetComponentName;
+
+/**
+ Returns YES if the target component is a custom component
+ */
+- (BOOL)hasTargetComponent;
+
+/**
+ Returns the target component model instance
+ */
+
+@end

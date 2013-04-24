@@ -11,9 +11,11 @@
 // component imports
 #import "SMHomePageViewController.h"
 #import "SMContentViewController.h"
+#import "SMListViewController.h"
 
 @implementation SMComponentFactory
 
+/*
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
 {
     UIViewController *component;
@@ -24,9 +26,13 @@
     } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
         SMHomePageViewController *homePageComponent = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
         component = [[UINavigationController alloc] initWithRootViewController:homePageComponent];
+    } else if ([componentDescription.type isEqualToString:@"List"]) {
+        SMListViewController *listComponent = [[SMListViewController alloc] initWithDescription:componentDescription];
+        component = [[UINavigationController alloc] initWithRootViewController:listComponent];
     }
     return component;
 }
+ */
 
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
 {
@@ -36,6 +42,8 @@
         component = [[SMContentViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
         component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ListComponent"]) {
+        component = [[SMListViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {

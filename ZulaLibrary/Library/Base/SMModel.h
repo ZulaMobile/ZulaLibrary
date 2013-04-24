@@ -27,4 +27,10 @@
  */
 + (BOOL)isValidResponse:(id)response;
 
+/**
+ Helper method
+ Get the url string and return NSURL or nil
+ */
+- (NSURL*)urlFromAttribute:(NSString *)urlString;
+
 @end

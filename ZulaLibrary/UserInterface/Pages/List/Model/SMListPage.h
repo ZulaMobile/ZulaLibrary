@@ -1,0 +1,59 @@
+//
+//  SMListPage.h
+//  ZulaLibrary
+//
+//  Created by Suleyman Melikoglu on 4/22/13.
+//  Copyright (c) 2013 laplacesdemon. All rights reserved.
+//
+
+#import "SMModel.h"
+
+// data structure constants
+#define kModelListPageTitle @"title"
+#define kModelListPageBackgroundImageUrl @"bg_image"
+#define kModelListPageItemBackgroundImageUrl @"item_bg_image"
+#define kModelListPageListType @"list_type"
+
+
+/**
+ List Style Options that determines the display style
+ */
+typedef NS_ENUM(NSInteger, SMListingStyle) {
+    SMListingStyleTable,                  // regular table view
+    SMListingStyleBox,                    // preferences style table view
+    SMListingStyleGroup                     
+};
+
+/**
+ The model that provides data for `SMListComponent`
+ 
+ @see [[List Component]] wiki page
+ */
+@interface SMListPage : SMModel
+
+/**
+ Page title, Header title
+ */
+@property (nonatomic, strong) NSString *title;
+
+/**
+ Optional background image
+ */
+@property (nonatomic, readonly) NSURL *backgroundUrl;
+
+/**
+ Optional list item background image. Corresponds to table item background image.
+ */
+@property (nonatomic, readonly) NSURL *itemBackgroundUrl;
+
+/**
+ List Type, defaults to: `table`. Options are: `table`, `box`, `group`.
+ */
+@property (nonatomic, readonly) SMListingStyle listingStyle;
+
+/**
+ Listing Item collection. Stores `SMListItem` model objects.
+ */
+@property (nonatomic, readonly) NSArray *items;
+
+@end
