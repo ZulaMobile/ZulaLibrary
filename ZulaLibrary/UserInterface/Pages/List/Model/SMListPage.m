@@ -52,4 +52,9 @@ items = _items;
     return self;
 }
 
++ (void)fetchWithUrlString:(NSString *)urlString completion:(void (^)(SMListPage *, NSError *))completion
+{
+    
+}
+
 @end

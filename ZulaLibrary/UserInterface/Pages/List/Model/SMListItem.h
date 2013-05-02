@@ -12,6 +12,7 @@
 #define kModelListItemTitle @"title"
 #define kModelListItemSubtitle @"subtitle"
 #define kModelListItemImageUrl @"image"
+#define kModelListItemThumbnailUrl @"thumbnail"
 #define kModelListItemContent @"content"
 #define kModelListItemTargetComponentUrl @"target_component_url"
 #define kModelListItemTargetComponentName @"target_component_type"
@@ -29,9 +30,14 @@
 @property (nonatomic, strong) NSString *title;
 
 /**
- Optional item image. If set, it will display on the left side of the item.
+ Optional thumbnail image. If set, it will display on detail page.
  */
 @property (nonatomic, readonly) NSURL *imageUrl;
+
+/**
+ Optional thumbnail image. If set, it will display on the left side of the item.
+ */
+@property (nonatomic, readonly) NSURL *thumbnailUrl;
 
 /**
  Optional subtitle or short description under the header(title) text
@@ -58,9 +64,5 @@
  Returns YES if the target component is a custom component
  */
 - (BOOL)hasTargetComponent;
-
-/**
- Returns the target component model instance
- */
 
 @end

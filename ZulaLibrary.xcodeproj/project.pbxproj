@@ -30,6 +30,8 @@
 		675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
 		675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */; };
 		675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */; };
+		677207701732D80300E5CDC2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6772076F1732D80200E5CDC2 /* CoreImage.framework */; };
+		677207741732D83400E5CDC2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677207731732D83400E5CDC2 /* ImageIO.framework */; };
 		67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */; };
 		67723CC21727E8F000BB51D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 		67723CC31727E8F500BB51D7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
@@ -150,6 +152,8 @@
 		675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationApperanceManager.m; path = UserInterface/Navigation/SMNavigationApperanceManager.m; sourceTree = "<group>"; };
 		675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentFactory.h; path = UserInterface/Pages/SMComponentFactory.h; sourceTree = "<group>"; };
 		675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentFactory.m; path = UserInterface/Pages/SMComponentFactory.m; sourceTree = "<group>"; };
+		6772076F1732D80200E5CDC2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		677207731732D83400E5CDC2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewControllerTests.h; path = UserInterface/Components/List/Controller/SMListViewControllerTests.h; sourceTree = "<group>"; };
 		67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/Controller/SMListViewControllerTests.m; sourceTree = "<group>"; };
 		67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -232,6 +236,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				677207741732D83400E5CDC2 /* ImageIO.framework in Frameworks */,
+				677207701732D80300E5CDC2 /* CoreImage.framework in Frameworks */,
 				67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */,
 				67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */,
 				6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */,
@@ -396,7 +402,6 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
-				67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
@@ -417,6 +422,9 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				677207731732D83400E5CDC2 /* ImageIO.framework */,
+				6772076F1732D80200E5CDC2 /* CoreImage.framework */,
+				67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */,
 				67890A2D16EF868D001AA909 /* libz.dylib */,
 				67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */,
 				67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */,

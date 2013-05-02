@@ -12,6 +12,7 @@
 #import "SMContentPage.h"
 #import "SMContentViewController.h"
 #import "SMComponentDescription.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SMListViewController ()
 
@@ -51,16 +52,58 @@
     self.listPage = [[SMListPage alloc] initWithAttributes:
                      @{
                      @"title": @"My Cool List",
-                     @"bg_image": @"",
-                     @"item_bg_image": @"",
+                     @"bg_image": @"http://localhost:8000/media/cache/d0/0d/d00dac305398fcee38b48e24ccaca322.png",
+                     @"item_bg_image": @"http://localhost:8000/media/cache/6e/0c/6e0c55731aba01c848b1f28ddf9a63d9.png",
                      @"listing_style": @"table",
                      @"items": @[
-                     @{@"title": @"My news item 1", @"subtitle": @"my news subtitle 1", @"image": @"", @"content": @"Lorem ipsum", @"target_component_url": @"", @"target_component_type": @""},
-                     @{@"title": @"My news item 2", @"subtitle": @"my news subtitle 2", @"image": @"", @"content": @"Lorem ipsum", @"target_component_url": @"", @"target_component_type": @""},
-                     @{@"title": @"My news item 3", @"subtitle": @"my news subtitle 3", @"image": @"", @"content": @"Lorem ipsum", @"target_component_url": @"", @"target_component_type": @""},
-                     @{@"title": @"My news item 4", @"subtitle": @"my news subtitle 4", @"image": @"", @"content": @"Lorem ipsum", @"target_component_url": @"", @"target_component_type": @""},
+                     @{
+                     @"title": @"My news item 1",
+                     @"subtitle": @"my news subtitle 1",
+                     @"image": @"",
+                     @"content": @"Lorem ipsum",
+                     @"target_component_url": @"",
+                     @"target_component_type": @"",
+                     @"thumbnail": @"http://localhost:8000/media/cache/76/06/760695076cef82337ae13114e38633ab.png"
+                     },
+                     @{
+                     @"title": @"My news item 2",
+                     @"subtitle": @"my news subtitle 2",
+                     @"image": @"",
+                     @"content": @"Lorem ipsum",
+                     @"target_component_url": @"",
+                     @"target_component_type": @"",
+                     @"thumbnail": @"http://localhost:8000/media/cache/76/06/760695076cef82337ae13114e38633ab.png"
+                     },
+                     @{
+                     @"title": @"My news item 3",
+                     @"subtitle": @"my news subtitle 3",
+                     @"image": @"",
+                     @"content": @"Lorem ipsum",
+                     @"target_component_url": @"",
+                     @"target_component_type": @"",
+                     @"thumbnail": @"http://localhost:8000/media/cache/76/06/760695076cef82337ae13114e38633ab.png"
+                     },
+                     @{
+                     @"title": @"My news item 4",
+                     @"subtitle": @"my news subtitle 4",
+                     @"image": @"",
+                     @"content": @"Lorem ipsum",
+                     @"target_component_url": @"",
+                     @"target_component_type": @"",
+                     @"thumbnail": @"http://localhost:8000/media/cache/76/06/760695076cef82337ae13114e38633ab.png"
+                     },
                      ]
                      }];
+    
+    // ui changes
+    if (self.listPage.backgroundUrl) {
+        UIImageView *background = [[UIImageView alloc] init];
+        [background setImageWithURL:self.listPage.backgroundUrl];
+        [self.tableView setBackgroundView:background];
+    }
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     [self.tableView reloadData];
 }
 
@@ -87,12 +130,30 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
         // customize the cell
+        [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+        [cell.detailTextLabel setBackgroundColor:[UIColor clearColor]];
+        
+        // background image if exists
+        if (self.listPage.itemBackgroundUrl) {
+            UIImageView *itemBackground = [[UIImageView alloc] init];
+            [itemBackground setImageWithURL:self.listPage.itemBackgroundUrl];
+            [cell setBackgroundView:itemBackground];
+        }
     }
     
     // customize the cell data
     SMListItem *item = [self.listPage.items objectAtIndex:[indexPath row]];
     [cell.textLabel setText:item.title];
     [cell.detailTextLabel setText:item.subtitle];
+    
+    // left image if exists
+    if (item.thumbnailUrl) {
+        [cell.imageView setImageWithURL:item.thumbnailUrl
+                       placeholderImage:[UIImage imageNamed:@"Default"]];
+        [cell.imageView setFrame:CGRectMake(0,0,80,80)];
+        [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        //[cell.imageView setClipsToBounds:YES];
+    }
     
     return cell;
 }
@@ -110,6 +171,13 @@
         [self.navigationController pushViewController:ctrl animated:YES];
     }
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0;
+}
+
+#pragma mark - class methods
 
 - (SMBaseComponentViewController *)targetComponentByListItem:(SMListItem *)listItem
 {

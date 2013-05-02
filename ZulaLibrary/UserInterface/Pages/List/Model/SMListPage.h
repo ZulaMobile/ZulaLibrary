@@ -56,4 +56,10 @@ typedef NS_ENUM(NSInteger, SMListingStyle) {
  */
 @property (nonatomic, readonly) NSArray *items;
 
+/**
+ Fetches and validates the downloaded list page
+ For the format see [[GET List Page Service]]
+ */
++ (void)fetchWithUrlString:(NSString *)urlString completion:(void(^)(SMListPage *listPage, NSError *error))completion;
+
 @end

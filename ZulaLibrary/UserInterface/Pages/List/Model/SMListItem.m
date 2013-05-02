@@ -9,7 +9,7 @@
 #import "SMListItem.h"
 
 @implementation SMListItem
-@synthesize title, imageUrl=_imageUrl, subtitle=_subtitle, content=_content, targetComponentName=_targetComponentName, targetComponentUrl=_targetComponentUrl;
+@synthesize title, imageUrl=_imageUrl, subtitle=_subtitle, content=_content, targetComponentName=_targetComponentName, targetComponentUrl=_targetComponentUrl, thumbnailUrl=_thumbnailUrl;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -17,6 +17,7 @@
     if (self) {
         [self setTitle:[attributes objectForKey:kModelListItemTitle]];
         
+        _thumbnailUrl = [self urlFromAttribute:[attributes objectForKey:kModelListItemThumbnailUrl]];
         _imageUrl = [self urlFromAttribute:[attributes objectForKey:kModelListItemImageUrl]];
         _subtitle = [attributes objectForKey:kModelListItemSubtitle];
         _content = [attributes objectForKey:kModelListItemContent];
