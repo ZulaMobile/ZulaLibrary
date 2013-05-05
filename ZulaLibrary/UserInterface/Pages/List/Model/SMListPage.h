@@ -13,7 +13,7 @@
 #define kModelListPageBackgroundImageUrl @"bg_image"
 #define kModelListPageItemBackgroundImageUrl @"item_bg_image"
 #define kModelListPageListType @"list_type"
-
+#define kModelListPageItems @"items"
 
 /**
  List Style Options that determines the display style

@@ -8,6 +8,7 @@
 
 #import "SMListPage.h"
 #import "SMListItem.h"
+#import "SMApiClient.h"
 
 @implementation SMListPage
 @synthesize title = _title,
@@ -35,7 +36,7 @@ items = _items;
             _listingStyle = SMListingStyleGroup;
         }
         
-        NSArray *theItems = (NSArray *)[attributes objectForKey:@"items"];
+        NSArray *theItems = (NSArray *)[attributes objectForKey:kModelListPageItems];
         
         // items are initially an empty array
         if ([theItems count] == 0) {
@@ -52,9 +53,43 @@ items = _items;
     return self;
 }
 
++ (BOOL)isValidResponse:(id)response
+{
+    if (![response isKindOfClass:[NSDictionary class]]) {
+        return NO;
+    }
+    
+    return ([response objectForKey:kModelListPageTitle] &&
+            [response objectForKey:kModelListPageBackgroundImageUrl] &&
+            [response objectForKey:kModelListPageItemBackgroundImageUrl] &&
+            [response objectForKey:kModelListPageListType] &&
+            [response objectForKey:kModelListPageItems]);
+}
+
 + (void)fetchWithUrlString:(NSString *)urlString completion:(void (^)(SMListPage *, NSError *))completion
 {
-    
+    [[SMApiClient sharedClient] getPath:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // validate response
+        if (![SMListPage isValidResponse:responseObject]) {
+            SMServerError *err = [[SMServerError alloc] initWithDomain:@"zulamobile" code:502 userInfo:nil];
+            if (completion) {
+                completion(nil, err);
+            }
+            return;
+        }
+        
+        NSDictionary *response = (NSDictionary *)responseObject;
+        SMListPage *page = [[SMListPage alloc] initWithAttributes:response];
+        if (completion) {
+            completion(page, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // failure
+        SMServerError *err = [[SMServerError alloc] initWithOperation:operation];
+        if (completion) {
+            completion(nil, err);
+        }
+    }];
 }
 
 @end

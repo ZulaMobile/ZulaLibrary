@@ -32,6 +32,7 @@
 		675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */; };
 		677207701732D80300E5CDC2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6772076F1732D80200E5CDC2 /* CoreImage.framework */; };
 		677207741732D83400E5CDC2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677207731732D83400E5CDC2 /* ImageIO.framework */; };
+		6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 677207791733D37900E5CDC2 /* SMListCell.m */; };
 		67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */; };
 		67723CC21727E8F000BB51D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 		67723CC31727E8F500BB51D7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
@@ -154,6 +155,8 @@
 		675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentFactory.m; path = UserInterface/Pages/SMComponentFactory.m; sourceTree = "<group>"; };
 		6772076F1732D80200E5CDC2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		677207731732D83400E5CDC2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		677207781733D37900E5CDC2 /* SMListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListCell.h; path = UserInterface/Pages/List/View/SMListCell.h; sourceTree = "<group>"; };
+		677207791733D37900E5CDC2 /* SMListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListCell.m; path = UserInterface/Pages/List/View/SMListCell.m; sourceTree = "<group>"; };
 		67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewControllerTests.h; path = UserInterface/Components/List/Controller/SMListViewControllerTests.h; sourceTree = "<group>"; };
 		67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/Controller/SMListViewControllerTests.m; sourceTree = "<group>"; };
 		67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -285,6 +288,7 @@
 		6749EB7817257966002219C8 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				677207771733D34E00E5CDC2 /* View */,
 				6749EB7917257978002219C8 /* Model */,
 				6749EB7A1725797E002219C8 /* Controller */,
 			);
@@ -370,6 +374,15 @@
 				6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		677207771733D34E00E5CDC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				677207781733D37900E5CDC2 /* SMListCell.h */,
+				677207791733D37900E5CDC2 /* SMListCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		67723CBD1726F1A300BB51D7 /* List */ = {
@@ -879,6 +892,7 @@
 				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
+				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

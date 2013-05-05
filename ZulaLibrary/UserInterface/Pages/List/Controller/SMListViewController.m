@@ -10,9 +10,12 @@
 #import "SMListPage.h"
 #import "SMListItem.h"
 #import "SMContentPage.h"
+#import "SMListCell.h"
 #import "SMContentViewController.h"
 #import "SMComponentDescription.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SMProgressHUD.h"
+#import "UIViewController+SSToolkitAdditions.h"
 
 @interface SMListViewController ()
 
@@ -49,6 +52,7 @@
 
 - (void)fetchContents
 {
+    /*
     self.listPage = [[SMListPage alloc] initWithAttributes:
                      @{
                      @"title": @"My Cool List",
@@ -75,8 +79,8 @@
                      @"thumbnail": @"http://localhost:8000/media/cache/76/06/760695076cef82337ae13114e38633ab.png"
                      },
                      @{
-                     @"title": @"My news item 3",
-                     @"subtitle": @"my news subtitle 3",
+                     @"title": @"My news item 3 My news item 3 My news item 3 My news item 3",
+                     @"subtitle": @"my news subtitle 3 my news subtitle 3 my news subtitle 3",
                      @"image": @"",
                      @"content": @"Lorem ipsum",
                      @"target_component_url": @"",
@@ -94,7 +98,39 @@
                      },
                      ]
                      }];
+    */
     
+    // if data is already set, no need to fetch contents
+    if (self.listPage) {
+        [self applyContents];
+        return;
+    }
+    
+    // start preloader
+    [SMProgressHUD show];
+    
+    NSString *url = [self.componentDesciption url];
+    
+    [SMListPage fetchWithUrlString:url completion:^(SMListPage *theListPage, NSError *error) {
+        // end preloader
+        [SMProgressHUD dismiss];
+        
+        if (error) {
+            DDLogError(@"List page fetch contents error|%@", [error description]);
+            
+            // show error
+            [self displayErrorString:error.localizedDescription];
+            
+            return;
+        }
+        
+        [self setListPage:theListPage];
+        [self applyContents];
+    }];
+}
+
+- (void)applyContents
+{
     // ui changes
     if (self.listPage.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
@@ -124,10 +160,10 @@
 {
     static NSString* CellIdentifier = @"ListViewReuseIdentifier";
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SMListCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
         // customize the cell
         [cell.textLabel setBackgroundColor:[UIColor clearColor]];
@@ -148,11 +184,13 @@
     
     // left image if exists
     if (item.thumbnailUrl) {
-        [cell.imageView setImageWithURL:item.thumbnailUrl
+        UIImageView *cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 76, 76)];
+        [cellImage setImageWithURL:item.thumbnailUrl
                        placeholderImage:[UIImage imageNamed:@"Default"]];
-        [cell.imageView setFrame:CGRectMake(0,0,80,80)];
-        [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        //[cell.imageView setClipsToBounds:YES];
+        [cellImage setContentMode:UIViewContentModeScaleAspectFit];
+        [cellImage setClipsToBounds:YES];
+        [cellImage setTag:31];
+        [cell.contentView addSubview:cellImage];
     }
     
     return cell;
