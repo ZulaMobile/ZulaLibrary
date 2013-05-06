@@ -30,8 +30,6 @@
 {
     [super loadView];
     
-    [self.view setBackgroundColor:[UIColor blueColor]];
-    
     // screen size
     CGRect fullSize = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     
@@ -85,6 +83,8 @@
 
 - (void)applyContents
 {
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    
     // ui changes
     if (self.listPage.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
@@ -123,6 +123,7 @@
         // customize the cell
         [cell.textLabel setBackgroundColor:[UIColor clearColor]];
         [cell.detailTextLabel setBackgroundColor:[UIColor clearColor]];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         // background image if exists
         if (self.listPage.itemBackgroundUrl) {
@@ -130,6 +131,9 @@
             [itemBackground setImageWithURL:self.listPage.itemBackgroundUrl];
             [cell setBackgroundView:itemBackground];
         }
+        
+        // table item appearances
+        [cell applyAppearances:[self.componentDesciption.appearance objectForKey:@"item_bg_image"]];
         
         // accessory indicator
         if ([item hasDefaultTargetComponent] || [item hasCustomTargetComponent]) {

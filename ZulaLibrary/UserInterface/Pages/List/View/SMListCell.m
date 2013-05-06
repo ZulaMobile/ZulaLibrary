@@ -7,6 +7,11 @@
 //
 
 #import "SMListCell.h"
+#import "UIColor+SSToolkitAdditions.h"
+
+@interface SMListCell()
+- (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
+@end
 
 @implementation SMListCell
 
@@ -55,6 +60,33 @@
                                           CGRectGetHeight(subtitleFrame)
                                           );
         
+    }
+}
+
+- (void)applyAppearances:(NSDictionary *)appearances
+{
+    [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
+}
+
+- (void)appearanceForBackgroundColorHex:(NSString *)colorHex
+{
+    // default value
+    if (!colorHex) {
+        colorHex = @"clean";
+    }
+    
+    if ([colorHex isEqualToString:@"clean"] || [colorHex isEqualToString:@""]) {
+        //[self setBackgroundColor:[UIColor clearColor]];
+    } else {
+        UIView *backgroundImageView = [self backgroundView];
+        if (backgroundImageView) {
+            [backgroundImageView setBackgroundColor:[UIColor colorWithHex:colorHex]];
+        } else {
+            // create a new view for the background color
+            UIView *backgroundColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+            [backgroundColorView setBackgroundColor:[UIColor colorWithHex:colorHex]];
+            [self setBackgroundView:backgroundColorView];
+        }
     }
 }
 
