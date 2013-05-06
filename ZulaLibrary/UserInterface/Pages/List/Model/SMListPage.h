@@ -12,7 +12,7 @@
 #define kModelListPageTitle @"title"
 #define kModelListPageBackgroundImageUrl @"bg_image"
 #define kModelListPageItemBackgroundImageUrl @"item_bg_image"
-#define kModelListPageListType @"list_type"
+#define kModelListPageListType @"listing_style"
 #define kModelListPageItems @"items"
 
 /**

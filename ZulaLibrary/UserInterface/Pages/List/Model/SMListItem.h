@@ -14,7 +14,7 @@
 #define kModelListItemImageUrl @"image"
 #define kModelListItemThumbnailUrl @"thumbnail"
 #define kModelListItemContent @"content"
-#define kModelListItemTargetComponentUrl @"target_component_url"
+#define kModelListItemTargetComponentUrl @"target_component"
 #define kModelListItemTargetComponentName @"target_component_type"
 
 /**
@@ -63,6 +63,12 @@
 /**
  Returns YES if the target component is a custom component
  */
-- (BOOL)hasTargetComponent;
+- (BOOL)hasCustomTargetComponent;
+
+/**
+ Returns YES if the target component is created using the content and imageUrl properties of this class
+ The default component type is `ContentComponent`
+ */
+- (BOOL)hasDefaultTargetComponent;
 
 @end

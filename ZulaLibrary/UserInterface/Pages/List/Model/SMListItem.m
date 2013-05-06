@@ -27,9 +27,14 @@
     return self;
 }
 
-- (BOOL)hasTargetComponent
+- (BOOL)hasCustomTargetComponent
 {
-    return (self.targetComponentUrl == nil) ? NO : YES;
+    return !(self.targetComponentUrl == nil);
+}
+
+- (BOOL)hasDefaultTargetComponent
+{
+    return !(self.imageUrl == nil && [self.content isEqualToString:@""]);
 }
 
 @end

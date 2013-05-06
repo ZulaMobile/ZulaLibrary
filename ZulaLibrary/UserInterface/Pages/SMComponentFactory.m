@@ -15,26 +15,7 @@
 
 @implementation SMComponentFactory
 
-/*
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
-{
-    UIViewController *component;
-    if ([componentDescription.type isEqualToString:@"Content"]) {
-        // create the component
-        SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:contentComponent];
-    } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
-        SMHomePageViewController *homePageComponent = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:homePageComponent];
-    } else if ([componentDescription.type isEqualToString:@"List"]) {
-        SMListViewController *listComponent = [[SMListViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:listComponent];
-    }
-    return component;
-}
- */
-
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
 {
     UIViewController *component;
     if ([componentDescription.type isEqualToString:@"ContentComponent"]) {
@@ -49,6 +30,17 @@
     if (!component) {
         DDLogError(@"unknown component `%@`", componentDescription.type);
         assert(component);
+        return nil;
+    }
+    
+    return component;
+}
+
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
+{
+    UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
+    
+    if (!component) {
         return nil;
     }
     
