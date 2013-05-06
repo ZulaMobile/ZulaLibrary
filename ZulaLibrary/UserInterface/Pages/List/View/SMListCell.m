@@ -11,6 +11,8 @@
 
 @interface SMListCell()
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
+- (void)appearanceForTitleColor:(NSString *)hexColor;
+- (void)appearanceForSubtitleColor:(NSString *)hexColor;
 @end
 
 @implementation SMListCell
@@ -66,6 +68,8 @@
 - (void)applyAppearances:(NSDictionary *)appearances
 {
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
+    [self appearanceForTitleColor:[appearances objectForKey:@"title_color"]];
+    [self appearanceForSubtitleColor:[appearances objectForKey:@"subtitle_color"]];
 }
 
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex
@@ -87,6 +91,34 @@
             [backgroundColorView setBackgroundColor:[UIColor colorWithHex:colorHex]];
             [self setBackgroundView:backgroundColorView];
         }
+    }
+}
+
+- (void)appearanceForTitleColor:(NSString *)hexColor
+{
+    // default value
+    if (!hexColor) {
+        hexColor = @"333333";
+    }
+    
+    if ([hexColor isEqualToString:@"clean"]) {
+        [self setBackgroundColor:[UIColor clearColor]];
+    } else {
+        [self.textLabel setTextColor:[UIColor colorWithHex:hexColor]];
+    }
+}
+
+- (void)appearanceForSubtitleColor:(NSString *)hexColor
+{
+    // default value
+    if (!hexColor) {
+        hexColor = @"666666";
+    }
+    
+    if ([hexColor isEqualToString:@"clean"]) {
+        [self setBackgroundColor:[UIColor clearColor]];
+    } else {
+        [self.detailTextLabel setTextColor:[UIColor colorWithHex:hexColor]];
     }
 }
 
