@@ -8,6 +8,7 @@
 
 #import "SMListCell.h"
 #import "UIColor+SSToolkitAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SMListCell()
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
@@ -88,8 +89,15 @@
         } else {
             // create a new view for the background color
             UIView *backgroundColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-            [backgroundColorView setBackgroundColor:[UIColor colorWithHex:colorHex]];
+            
+            CAGradientLayer *gradient = [CAGradientLayer layer];
+            gradient.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), 80.0);
+            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithHex:colorHex] CGColor], nil];
+            [backgroundColorView.layer insertSublayer:gradient atIndex:0];
+            
+            //[backgroundColorView setBackgroundColor:[UIColor colorWithHex:colorHex]];
             [self setBackgroundView:backgroundColorView];
+            
         }
     }
 }
