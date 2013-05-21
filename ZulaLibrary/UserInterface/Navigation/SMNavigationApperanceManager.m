@@ -58,6 +58,7 @@
     }
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
 }
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
