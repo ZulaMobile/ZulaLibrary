@@ -16,6 +16,8 @@
 #import "SMSubMenuView.h"
 #import "SMContentViewController.h"
 
+#define contentViewTag 664
+
 @interface SMContentContainerViewController ()
 - (void)onButton:(SMSubMenuView *)submenu;
 @end
@@ -89,23 +91,35 @@
     [self setTitle:self.contentContainer.title];
     
     // set the content components
+    SMContentPage *firstContentPage;
     int i = 0;
     for (SMContentPage *contentPage in self.contentContainer.components) {
+        if (i == 0) {
+            firstContentPage = contentPage;
+        }
+        
         // add it to the menu
         [self.subMenu addButtonWithTitle:contentPage.title tag:i];
         i++;
     }
+    
+    // display the 1st one
+    
+    [self displayContentPage:firstContentPage];
 }
 
 #pragma mark - private methods
 
 - (void)onButton:(SMSubMenuView *)submenu
 {
-    int submenuTag = 666;
     SMContentPage *contentPage = [self.contentContainer.components objectAtIndex:subMenu.activeButton.tag];
-    
+    [self displayContentPage:contentPage];
+}
+
+- (void)displayContentPage:(SMContentPage *)contentPage
+{
     // remove the old view
-    UIView *currentView = [self.view viewWithTag:submenuTag];
+    UIView *currentView = [self.view viewWithTag:contentViewTag];
     [currentView removeFromSuperview];
     activeContentViewController = nil;
     
@@ -115,15 +129,15 @@
     
     // add controller's view to self.view
     [activeContentViewController.view setFrame:CGRectMake(0,
-                                                    CGRectGetHeight(self.subMenu.frame),
-                                                    CGRectGetWidth(self.view.frame),
-                                                    CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame))];
+                                                          CGRectGetHeight(self.subMenu.frame),
+                                                          CGRectGetWidth(self.view.frame),
+                                                          CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame))];
     [activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin    |
-                                                             UIViewAutoresizingFlexibleHeight       |
-                                                             UIViewAutoresizingFlexibleLeftMargin   |
-                                                             UIViewAutoresizingFlexibleRightMargin  |
-                                                             UIViewAutoresizingFlexibleWidth];
-    [activeContentViewController.view setTag:submenuTag];
+     UIViewAutoresizingFlexibleHeight       |
+     UIViewAutoresizingFlexibleLeftMargin   |
+     UIViewAutoresizingFlexibleRightMargin  |
+     UIViewAutoresizingFlexibleWidth];
+    [activeContentViewController.view setTag:contentViewTag];
     
     [self.view addSubview:activeContentViewController.view];
 }
