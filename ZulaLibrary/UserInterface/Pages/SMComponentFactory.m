@@ -12,6 +12,7 @@
 #import "SMHomePageViewController.h"
 #import "SMContentViewController.h"
 #import "SMListViewController.h"
+#import "SMContentContainerViewController.h"
 
 @implementation SMComponentFactory
 
@@ -25,6 +26,8 @@
         component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ListComponent"]) {
         component = [[SMListViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ContentContainerComponent"]) {
+        component = [[SMContentContainerViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {

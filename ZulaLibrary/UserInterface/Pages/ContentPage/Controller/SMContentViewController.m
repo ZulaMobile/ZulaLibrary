@@ -19,7 +19,6 @@
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
-#import "SMSubMenuView.h"
 
 @interface SMContentViewController ()
 
@@ -27,8 +26,6 @@
  scroll view as a wrapper for content view
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
-
-- (void)onSubMenu:(SMSubMenuView *)submenu;
 
 @end
 
@@ -67,17 +64,6 @@
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
-    
-    SMSubMenuView *submenu = [[SMSubMenuView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
-    [submenu setBackgroundColor:[UIColor yellowColor]];
-    [submenu addButtonWithTitle:@"my cool button" tag:1];
-    [submenu addButtonWithTitle:@"my cool button 2" tag:1];
-    [submenu addButtonWithTitle:@"my cool button 3" tag:2];
-    [submenu addButtonWithTitle:@"button 4" tag:3];
-    [submenu addButtonWithTitle:@"my cool button 5" tag:4];
-    [submenu addButtonWithTitle:@"my cool button 6" tag:5];
-    [submenu addTarget:self action:@selector(onSubMenu:) forControlEvents:UIControlEventValueChanged];
-    [self.scrollView addSubview:submenu];
     
     [self.scrollView addSubview:self.imageView];
     //[self.scrollView addSubview:self.titleView];
@@ -188,12 +174,6 @@
     }
     
     return YES;
-}
-
-#pragma mark - private methods
-
-- (void)onSubMenu:(SMSubMenuView *)submenu
-{
 }
 
 @end
