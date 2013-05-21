@@ -359,6 +359,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		674D6F37174B9D610007A4A1 /* ContentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				67D275A3174AB17500733E7A /* View */,
+			);
+			name = ContentContainer;
+			sourceTree = "<group>";
+		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +387,7 @@
 		675BDD5E16DB776200B141F8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				674D6F37174B9D610007A4A1 /* ContentContainer */,
 				67723CBD1726F1A300BB51D7 /* List */,
 				675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */,
 				675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */,
@@ -432,7 +441,6 @@
 		67723CBD1726F1A300BB51D7 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				67D275A3174AB17500733E7A /* View */,
 				67723CBE1726F1A900BB51D7 /* Controller */,
 			);
 			name = List;

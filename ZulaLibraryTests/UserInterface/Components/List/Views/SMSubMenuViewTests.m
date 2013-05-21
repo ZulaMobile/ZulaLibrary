@@ -10,7 +10,7 @@
 #import "SMSubMenuView.h"
 
 @implementation SMSubMenuViewTests
-
+/*
 - (void)testAddingButtons
 {
     float padding = 10.0;
@@ -53,5 +53,5 @@
 {
     
 }
-
+*/
 @end
