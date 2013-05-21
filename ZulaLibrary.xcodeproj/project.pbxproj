@@ -17,6 +17,7 @@
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
+		674D6F36174B975C0007A4A1 /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F35174B975C0007A4A1 /* SMContentContainer.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -73,6 +74,8 @@
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
+		67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A1174AADF000733E7A /* SMSubMenuView.m */; };
+		67D275A6174AB19100733E7A /* SMSubMenuViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */; };
 		67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */; };
 		67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */; };
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
@@ -129,6 +132,8 @@
 		6749EB7F17257C6F002219C8 /* SMListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListItem.m; path = UserInterface/Pages/List/Model/SMListItem.m; sourceTree = "<group>"; };
 		6749EB8117258519002219C8 /* SMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewController.h; path = UserInterface/Pages/List/Controller/SMListViewController.h; sourceTree = "<group>"; };
 		6749EB8217258519002219C8 /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewController.m; path = UserInterface/Pages/List/Controller/SMListViewController.m; sourceTree = "<group>"; };
+		674D6F34174B975C0007A4A1 /* SMContentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentContainer.h; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.h; sourceTree = "<group>"; };
+		674D6F35174B975C0007A4A1 /* SMContentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentContainer.m; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
@@ -220,6 +225,10 @@
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
+		67D275A0174AADF000733E7A /* SMSubMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuView.h; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.h; sourceTree = "<group>"; };
+		67D275A1174AADF000733E7A /* SMSubMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuView.m; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.m; sourceTree = "<group>"; };
+		67D275A4174AB19100733E7A /* SMSubMenuViewTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuViewTests.h; path = UserInterface/Components/List/Views/SMSubMenuViewTests.h; sourceTree = "<group>"; };
+		67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuViewTests.m; path = UserInterface/Components/List/Views/SMSubMenuViewTests.m; sourceTree = "<group>"; };
 		67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultAppDelegate.h; path = AppTypes/SMDefaultAppDelegate.h; sourceTree = "<group>"; };
 		67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultAppDelegate.m; path = AppTypes/SMDefaultAppDelegate.m; sourceTree = "<group>"; };
 		67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBaseComponentViewController.h; path = UserInterface/Pages/SMBaseComponentViewController.h; sourceTree = "<group>"; };
@@ -315,6 +324,41 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		674D6F30174B85E30007A4A1 /* ContentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F33174B86610007A4A1 /* Model */,
+				674D6F31174B86010007A4A1 /* View */,
+				674D6F32174B865B0007A4A1 /* Controller */,
+			);
+			name = ContentContainer;
+			sourceTree = "<group>";
+		};
+		674D6F31174B86010007A4A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67D275A0174AADF000733E7A /* SMSubMenuView.h */,
+				67D275A1174AADF000733E7A /* SMSubMenuView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		674D6F32174B865B0007A4A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		674D6F33174B86610007A4A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F34174B975C0007A4A1 /* SMContentContainer.h */,
+				674D6F35174B975C0007A4A1 /* SMContentContainer.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +432,7 @@
 		67723CBD1726F1A300BB51D7 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				67D275A3174AB17500733E7A /* View */,
 				67723CBE1726F1A900BB51D7 /* Controller */,
 			);
 			name = List;
@@ -530,6 +575,7 @@
 				6749EB7817257966002219C8 /* List */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
+				674D6F30174B85E30007A4A1 /* ContentContainer */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
 				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
@@ -735,6 +781,15 @@
 			name = Descriptions;
 			sourceTree = "<group>";
 		};
+		67D275A3174AB17500733E7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67D275A4174AB19100733E7A /* SMSubMenuViewTests.h */,
+				67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -893,6 +948,8 @@
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
+				67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */,
+				674D6F36174B975C0007A4A1 /* SMContentContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,6 +964,7 @@
 				675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */,
 				675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */,
 				67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */,
+				67D275A6174AB19100733E7A /* SMSubMenuViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1085,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1034,8 +1093,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
 				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = ZulaLibraryTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -1043,6 +1106,7 @@
 		6780DDFE16C02593005EDD1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1050,7 +1114,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
 				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = ZulaLibraryTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

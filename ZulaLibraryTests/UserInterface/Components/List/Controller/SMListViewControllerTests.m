@@ -132,7 +132,7 @@
     [ctrl setListPage:_listPage];
     
     SMBaseComponentViewController *targetComponent = [ctrl targetComponentByListItem:[_listPage.items objectAtIndex:1]];
-    STAssertTrue([targetComponent isKindOfClass:[SMListViewController class]], @"content component creation failed");
+    STAssertTrue([targetComponent isKindOfClass:[SMContentViewController class]], @"content component creation failed");
     STAssertTrue([targetComponent.title isEqualToString:@"My news item 2"], @"target component title is incorrect");
 }
 
