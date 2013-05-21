@@ -8,14 +8,18 @@
 
 #import "SMSubMenuView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SMTriangle.h"
+
+#define triangleSize 10.0
 
 @interface SMSubMenuView()
 - (void)onButton:(id)sender;
+- (void)activateTheButton:(UIButton *)button;
 @end
 
 @implementation SMSubMenuView
 
-@synthesize scrollView, activeButton;
+@synthesize scrollView, activeButton, activeButtonIndicator;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,15 +29,51 @@
         [self.scrollView setContentSize:CGSizeMake(0, frame.size.height)];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
         
+        // Add a bottomBorder.
+        /*CALayer *bottomBorder = [CALayer layer];
+        bottomBorder.frame = CGRectMake(0.0f, CGRectGetHeight(frame), CGRectGetWidth(frame), 1.0f);
+        bottomBorder.backgroundColor = [UIColor colorWithWhite:0.8f
+                                                         alpha:1.0f].CGColor;
+        
+        [self.layer addSublayer:bottomBorder];
+        */
+        
+        [self.scrollView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:self.scrollView];
     }
     return self;
 }
 
+- (void)changeBackgroundColor:(UIColor *)backgroundColor
+{
+    // indicator
+    self.activeButtonIndicator = [[SMTriangle alloc] initWithFrame:
+                                  CGRectMake(0, CGRectGetHeight(self.frame) - triangleSize - 4, triangleSize + 8, triangleSize)
+                                                             color:backgroundColor];
+    [(SMTriangle *)self.activeButtonIndicator setColor:backgroundColor];
+    [self.activeButtonIndicator setBackgroundColor:[UIColor clearColor]];
+    
+    // background
+    UIView *background = [[UIView alloc] initWithFrame:
+                          CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - triangleSize - 4)];
+    [background setBackgroundColor:backgroundColor];
+    [background.layer setShadowColor:[UIColor blackColor].CGColor];
+    background.layer.shadowOffset = CGSizeMake(0, 2);
+    background.layer.shadowRadius = 5;
+    background.layer.shadowOpacity = 0.5;
+    background.layer.masksToBounds = NO;
+    [background setClipsToBounds:NO];
+    
+    // add them to view
+    [self addSubview:background];
+    [self sendSubviewToBack:background];
+    [self addSubview:self.activeButtonIndicator];
+}
+
 - (void)addButtonWithTitle:(NSString *)title tag:(NSInteger)tag
 {
     float padding = 10.0;
-    NSString *fontName = @"HelveticaNeue-Medium";
+    NSString *fontName = @"HelveticaNeue-Bold";
     float fontSize = 13.0;
     
     CGSize contentSize = self.scrollView.contentSize;
@@ -47,15 +87,22 @@
     [btn setBackgroundColor:[UIColor clearColor]];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn.titleLabel setFont:[UIFont fontWithName:fontName size:fontSize]];
-    [btn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
-    [btn.layer setCornerRadius:10.0];
+    [btn.titleLabel setShadowColor:[UIColor blackColor]];
+    [btn.titleLabel setShadowOffset:CGSizeMake(1, 1)];
+    //[btn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+    //[btn.layer setCornerRadius:10.0];
     [btn setFrame:CGRectMake(scrollView.contentSize.width + padding,
                              padding / 2,
                              titleSize.width + padding * 2,
-                             self.frame.size.height - padding)];
+                             self.frame.size.height - padding - triangleSize)];
     [btn addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
     
     // @todo: apply appearances
+    
+    // activate the button if this is the 1st one
+    if (self.scrollView.contentSize.width == 0) {
+        [self activateTheButton:btn];
+    }
     
     [self.scrollView addSubview:btn];
     [self.scrollView setContentSize:CGSizeMake(contentSize.width + btn.frame.size.width + padding * 2, self.frame.size.height)];
@@ -85,7 +132,31 @@
 - (void)onButton:(id)sender
 {
     [self setActiveButton:sender];
+    [self activateTheButton:sender];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+- (void)activateTheButton:(UIButton *)button
+{
+    // normalize all buttons
+    for (UIView *btn in self.scrollView.subviews) {
+        if ([btn isKindOfClass:[UIButton class]]) {
+            //[btn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+        }
+    }
+    
+    // highlight current one
+    //[button setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    
+    // create the indicator
+    CGRect indicatorFrame = self.activeButtonIndicator.frame;
+    indicatorFrame.origin.x = button.frame.origin.x + button.frame.size.width / 2 - indicatorFrame.size.width / 2;
+ 
+    // animate the indicator movement
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.activeButtonIndicator setFrame:indicatorFrame];    
+    }];
+    
 }
 
 @end

@@ -29,6 +29,7 @@
 		674D6F53174B9F5E0007A4A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 		674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */; };
 		674D6F60174BA7510007A4A1 /* SMContentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5F174BA7510007A4A1 /* SMContentContainerViewController.m */; };
+		674D6F63174BBAB50007A4A1 /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F62174BBAB50007A4A1 /* SMTriangle.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -156,6 +157,8 @@
 		674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuApplicationTests.m; path = UserInterface/Components/ContentContainer/View/SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
 		674D6F5E174BA7510007A4A1 /* SMContentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentContainerViewController.h; path = UserInterface/Pages/ContentContainer/Controllers/SMContentContainerViewController.h; sourceTree = "<group>"; };
 		674D6F5F174BA7510007A4A1 /* SMContentContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentContainerViewController.m; path = UserInterface/Pages/ContentContainer/Controllers/SMContentContainerViewController.m; sourceTree = "<group>"; };
+		674D6F61174BBAB50007A4A1 /* SMTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTriangle.h; path = UserInterface/Pages/ContentContainer/View/SMTriangle.h; sourceTree = "<group>"; };
+		674D6F62174BBAB50007A4A1 /* SMTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTriangle.m; path = UserInterface/Pages/ContentContainer/View/SMTriangle.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 			children = (
 				67D275A0174AADF000733E7A /* SMSubMenuView.h */,
 				67D275A1174AADF000733E7A /* SMSubMenuView.m */,
+				674D6F61174BBAB50007A4A1 /* SMTriangle.h */,
+				674D6F62174BBAB50007A4A1 /* SMTriangle.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1099,6 +1104,7 @@
 				67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */,
 				674D6F36174B975C0007A4A1 /* SMContentContainer.m in Sources */,
 				674D6F60174BA7510007A4A1 /* SMContentContainerViewController.m in Sources */,
+				674D6F63174BBAB50007A4A1 /* SMTriangle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

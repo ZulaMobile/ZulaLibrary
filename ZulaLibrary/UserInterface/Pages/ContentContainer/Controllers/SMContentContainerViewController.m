@@ -37,8 +37,10 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
-    self.subMenu = [[SMSubMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 34)];
+    self.subMenu = [[SMSubMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
+    [self.subMenu changeBackgroundColor:[UIColor grayColor]];
+    [self.subMenu setClipsToBounds:NO];
     [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     
@@ -129,7 +131,7 @@
     
     // add controller's view to self.view
     [activeContentViewController.view setFrame:CGRectMake(0,
-                                                          CGRectGetHeight(self.subMenu.frame),
+                                                          CGRectGetHeight(self.subMenu.frame) - 10.0,
                                                           CGRectGetWidth(self.view.frame),
                                                           CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame))];
     [activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin    |
@@ -140,6 +142,10 @@
     [activeContentViewController.view setTag:contentViewTag];
     
     [self.view addSubview:activeContentViewController.view];
+    
+    // send subview to back
+    [self.subMenu removeFromSuperview];
+    [self.view addSubview:self.subMenu];
 }
 
 @end

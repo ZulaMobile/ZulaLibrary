@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Triangle : UIView
+@interface SMTriangle : UIView
+
+@property (nonatomic, strong) UIColor *color;
+
+- (id)initWithFrame:(CGRect)frame color:(UIColor *)theColor;
 
 @end

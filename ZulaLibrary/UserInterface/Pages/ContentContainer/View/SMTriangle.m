@@ -6,26 +6,45 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "Triangle.h"
+#import "SMTriangle.h"
 
-@implementation Triangle
+@implementation SMTriangle
+@synthesize color;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame color:(UIColor *)theColor
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setColor:theColor];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    // following is a triangle that looks down
+    CGContextBeginPath(ctx);
+    CGContextMoveToPoint   (ctx, CGRectGetMinX(rect), CGRectGetMinY(rect));  // top left
+    CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMaxY(rect));  // bottom middle
+    CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMinY(rect));  // top right
+    CGContextClosePath(ctx);
+
+    // folliwing triangle looks up
+    /*
+    CGContextBeginPath(ctx);
+    CGContextMoveToPoint   (ctx, CGRectGetMinX(rect), CGRectGetMaxY(rect));  // bottom left
+    CGContextAddLineToPoint(ctx, CGRectGetMidX(rect), CGRectGetMinY(rect));  // top middle
+    CGContextAddLineToPoint(ctx, CGRectGetMaxX(rect), CGRectGetMaxY(rect));  // bottom right
+    CGContextClosePath(ctx);
+    */
+    
+    if (!color) 
+        color = [UIColor blackColor];
+    
+    CGContextSetFillColorWithColor(ctx, [color CGColor]);
+    CGContextFillPath(ctx);
 }
-*/
 
 @end
