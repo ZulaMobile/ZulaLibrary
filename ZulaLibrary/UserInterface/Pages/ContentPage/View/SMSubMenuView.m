@@ -42,6 +42,7 @@
                              lineBreakMode:NSLineBreakByTruncatingTail];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTag:tag];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor clearColor]];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

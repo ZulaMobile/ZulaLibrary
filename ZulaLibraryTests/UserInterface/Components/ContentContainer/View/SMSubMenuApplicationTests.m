@@ -1,16 +1,16 @@
 //
-//  SMSubMenuViewTests.m
+//  SMSubMenuApplicationTests.m
 //  ZulaLibrary
 //
-//  Created by Suleyman Melikoglu on 5/20/13.
+//  Created by Suleyman Melikoglu on 5/21/13.
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMSubMenuViewTests.h"
+#import "SMSubMenuApplicationTests.h"
 #import "SMSubMenuView.h"
 
-@implementation SMSubMenuViewTests
-/*
+@implementation SMSubMenuApplicationTests
+
 - (void)testAddingButtons
 {
     float padding = 10.0;
@@ -21,7 +21,7 @@
     UIView *btn1 = [submenu buttonWithTag:1];
     STAssertTrue([btn1 isKindOfClass:[UIButton class]], @"new item must be a button");
     
-    CGSize btnTitleSize = CGSizeMake(58.0, 50);// [@"my btn 1" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14]];
+    CGSize btnTitleSize = [@"my btn 1" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:13]];
     STAssertEquals(btnTitleSize.width + padding * 2, btn1.frame.size.width, @"the btn size needs to fit");
     STAssertEquals(padding, btn1.frame.origin.x, @"btn x");
     
@@ -30,9 +30,9 @@
     UIView *btn2 = [submenu buttonWithTag:2];
     STAssertTrue([btn2 isKindOfClass:[UIButton class]], @"new item must be a button");
     
-    CGSize btnTitleSize2 = CGSizeMake(58.0, 50); //[@"my btn 2" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14]];
+    CGSize btnTitleSize2 = [@"my btn 2" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:13]];
     STAssertEquals(btnTitleSize2.width + padding * 2, btn2.frame.size.width, @"the btn size needs to fit");
-    STAssertEquals(btn1.frame.size.width + padding * 2, btn2.frame.origin.x, @"new buttons need to shift to the side");
+    STAssertEquals(btn1.frame.size.width + padding * 2 + padding, btn2.frame.origin.x, @"new buttons need to shift to the side");
 }
 
 - (void)testScrollViewContentFrameMustEnlargeByButtonFrames
@@ -49,9 +49,4 @@
     STAssertEquals(expectedScrollContentWidth, submenu.scrollView.contentSize.width, @"scroll view content size need to enlarge by the addedbuttons");
 }
 
-- (void)testHittestOfButtons
-{
-    
-}
-*/
 @end

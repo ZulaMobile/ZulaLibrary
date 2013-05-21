@@ -18,6 +18,16 @@
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
 		674D6F36174B975C0007A4A1 /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F35174B975C0007A4A1 /* SMContentContainer.m */; };
+		674D6F3E174B9DED0007A4A1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE616C02593005EDD1D /* SenTestingKit.framework */; };
+		674D6F3F174B9DED0007A4A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE816C02593005EDD1D /* UIKit.framework */; };
+		674D6F40174B9DED0007A4A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
+		674D6F46174B9DED0007A4A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 674D6F44174B9DED0007A4A1 /* InfoPlist.strings */; };
+		674D6F49174B9DED0007A4A1 /* ZulaLibraryLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */; };
+		674D6F4E174B9F340007A4A1 /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
+		674D6F50174B9F380007A4A1 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */; };
+		674D6F52174B9F4A0007A4A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F51174B9F4A0007A4A1 /* UIKit.framework */; };
+		674D6F53174B9F5E0007A4A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
+		674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
 		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
 		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
@@ -75,7 +85,6 @@
 		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
 		67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A1174AADF000733E7A /* SMSubMenuView.m */; };
-		67D275A6174AB19100733E7A /* SMSubMenuViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */; };
 		67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */; };
 		67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */; };
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
@@ -134,6 +143,16 @@
 		6749EB8217258519002219C8 /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewController.m; path = UserInterface/Pages/List/Controller/SMListViewController.m; sourceTree = "<group>"; };
 		674D6F34174B975C0007A4A1 /* SMContentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentContainer.h; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.h; sourceTree = "<group>"; };
 		674D6F35174B975C0007A4A1 /* SMContentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentContainer.m; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.m; sourceTree = "<group>"; };
+		674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZulaLibraryLogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		674D6F43174B9DED0007A4A1 /* ZulaLibraryLogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZulaLibraryLogicTests-Info.plist"; sourceTree = "<group>"; };
+		674D6F45174B9DED0007A4A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		674D6F47174B9DED0007A4A1 /* ZulaLibraryLogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryLogicTests.h; sourceTree = "<group>"; };
+		674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryLogicTests.m; sourceTree = "<group>"; };
+		674D6F4A174B9DED0007A4A1 /* ZulaLibraryLogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibraryLogicTests-Prefix.pch"; sourceTree = "<group>"; };
+		674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		674D6F51174B9F4A0007A4A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		674D6F5B174BA0B80007A4A1 /* SMSubMenuApplicationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuApplicationTests.h; path = UserInterface/Components/ContentContainer/View/SMSubMenuApplicationTests.h; sourceTree = "<group>"; };
+		674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuApplicationTests.m; path = UserInterface/Components/ContentContainer/View/SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
 		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
@@ -227,8 +246,6 @@
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
 		67D275A0174AADF000733E7A /* SMSubMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuView.h; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.h; sourceTree = "<group>"; };
 		67D275A1174AADF000733E7A /* SMSubMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuView.m; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.m; sourceTree = "<group>"; };
-		67D275A4174AB19100733E7A /* SMSubMenuViewTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuViewTests.h; path = UserInterface/Components/List/Views/SMSubMenuViewTests.h; sourceTree = "<group>"; };
-		67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuViewTests.m; path = UserInterface/Components/List/Views/SMSubMenuViewTests.m; sourceTree = "<group>"; };
 		67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultAppDelegate.h; path = AppTypes/SMDefaultAppDelegate.h; sourceTree = "<group>"; };
 		67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultAppDelegate.m; path = AppTypes/SMDefaultAppDelegate.m; sourceTree = "<group>"; };
 		67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBaseComponentViewController.h; path = UserInterface/Pages/SMBaseComponentViewController.h; sourceTree = "<group>"; };
@@ -244,6 +261,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		674D6F39174B9DED0007A4A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674D6F53174B9F5E0007A4A1 /* CoreGraphics.framework in Frameworks */,
+				674D6F52174B9F4A0007A4A1 /* UIKit.framework in Frameworks */,
+				674D6F50174B9F380007A4A1 /* libPods-ZulaLibrary.a in Frameworks */,
+				674D6F4E174B9F340007A4A1 /* libZulaLibrary.a in Frameworks */,
+				674D6F3E174B9DED0007A4A1 /* SenTestingKit.framework in Frameworks */,
+				674D6F3F174B9DED0007A4A1 /* UIKit.framework in Frameworks */,
+				674D6F40174B9DED0007A4A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6780DDD116C02593005EDD1D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +398,58 @@
 			name = ContentContainer;
 			sourceTree = "<group>";
 		};
+		674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F54174B9F6E0007A4A1 /* UserInterface */,
+				674D6F47174B9DED0007A4A1 /* ZulaLibraryLogicTests.h */,
+				674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */,
+				674D6F42174B9DED0007A4A1 /* Supporting Files */,
+			);
+			path = ZulaLibraryLogicTests;
+			sourceTree = "<group>";
+		};
+		674D6F42174B9DED0007A4A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F43174B9DED0007A4A1 /* ZulaLibraryLogicTests-Info.plist */,
+				674D6F44174B9DED0007A4A1 /* InfoPlist.strings */,
+				674D6F4A174B9DED0007A4A1 /* ZulaLibraryLogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		674D6F54174B9F6E0007A4A1 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F55174B9F860007A4A1 /* Components */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		674D6F55174B9F860007A4A1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F56174B9F910007A4A1 /* ContentContainer */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		674D6F56174B9F910007A4A1 /* ContentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				674D6F57174B9F9C0007A4A1 /* View */,
+			);
+			name = ContentContainer;
+			sourceTree = "<group>";
+		};
+		674D6F57174B9F9C0007A4A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +553,7 @@
 			children = (
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
+				674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
 				6780DDD516C02593005EDD1D /* Products */,
 				AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */,
@@ -481,6 +565,7 @@
 			children = (
 				6780DDD416C02593005EDD1D /* libZulaLibrary.a */,
 				6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */,
+				674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,6 +573,8 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				674D6F51174B9F4A0007A4A1 /* UIKit.framework */,
+				674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */,
 				677207731732D83400E5CDC2 /* ImageIO.framework */,
 				6772076F1732D80200E5CDC2 /* CoreImage.framework */,
 				67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */,
@@ -792,8 +879,8 @@
 		67D275A3174AB17500733E7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				67D275A4174AB19100733E7A /* SMSubMenuViewTests.h */,
-				67D275A5174AB19100733E7A /* SMSubMenuViewTests.m */,
+				674D6F5B174BA0B80007A4A1 /* SMSubMenuApplicationTests.h */,
+				674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -801,6 +888,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		674D6F3C174B9DED0007A4A1 /* ZulaLibraryLogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 674D6F4B174B9DED0007A4A1 /* Build configuration list for PBXNativeTarget "ZulaLibraryLogicTests" */;
+			buildPhases = (
+				674D6F38174B9DED0007A4A1 /* Sources */,
+				674D6F39174B9DED0007A4A1 /* Frameworks */,
+				674D6F3A174B9DED0007A4A1 /* Resources */,
+				674D6F3B174B9DED0007A4A1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZulaLibraryLogicTests;
+			productName = ZulaLibraryLogicTests;
+			productReference = 674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		6780DDD316C02593005EDD1D /* ZulaLibrary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6780DDF916C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibrary" */;
@@ -863,11 +968,20 @@
 			targets = (
 				6780DDD316C02593005EDD1D /* ZulaLibrary */,
 				6780DDE416C02593005EDD1D /* ZulaLibraryTests */,
+				674D6F3C174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		674D6F3A174B9DED0007A4A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674D6F46174B9DED0007A4A1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6780DDE216C02593005EDD1D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,6 +993,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		674D6F3B174B9DED0007A4A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		6780DDE316C02593005EDD1D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -909,6 +1036,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		674D6F38174B9DED0007A4A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674D6F49174B9DED0007A4A1 /* ZulaLibraryLogicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6780DDD016C02593005EDD1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -972,7 +1107,7 @@
 				675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */,
 				675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */,
 				67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */,
-				67D275A6174AB19100733E7A /* SMSubMenuViewTests.m in Sources */,
+				674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +1122,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		674D6F44174B9DED0007A4A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				674D6F45174B9DED0007A4A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		6780DDF116C02593005EDD1D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1000,6 +1143,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		674D6F4C174B9DED0007A4A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		674D6F4D174B9DED0007A4A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		6780DDF716C02593005EDD1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1093,7 +1268,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaPreview.app/ZulaPreview";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1114,7 +1289,7 @@
 		6780DDFE16C02593005EDD1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaPreview.app/ZulaPreview";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1135,6 +1310,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		674D6F4B174B9DED0007A4A1 /* Build configuration list for PBXNativeTarget "ZulaLibraryLogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				674D6F4C174B9DED0007A4A1 /* Debug */,
+				674D6F4D174B9DED0007A4A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "ZulaLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
