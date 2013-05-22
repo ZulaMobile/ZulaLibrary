@@ -94,11 +94,12 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    /*
     if ([viewController isKindOfClass:[SMHomePageViewController class]]) {
         [viewController.navigationController setNavigationBarHidden:YES];
     } else {
         [viewController.navigationController setNavigationBarHidden:NO];
-    }
+    }*/
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated

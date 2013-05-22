@@ -42,6 +42,8 @@
     [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
     
+    
+    
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
     
@@ -50,9 +52,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // By default, homepage doesn't have navigation bar
-    [self.navigationController setNavigationBarHidden:YES];
     
     // fetch the contents
     [self fetchContents];

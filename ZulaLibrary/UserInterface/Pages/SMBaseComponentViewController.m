@@ -36,6 +36,20 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // navbar enable/disable
+    NSDictionary *navbarIcon = [self.componentDesciption.appearance objectForKey:@"navbar_icon"];
+    if (navbarIcon && [navbarIcon objectForKey:@"disabled"]) {
+        BOOL disabled = [[navbarIcon objectForKey:@"disabled"] boolValue];
+        [self.navigationController setNavigationBarHidden:disabled];
+    } else {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+}
+
 - (void)loadView
 {
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
@@ -53,12 +67,13 @@
     [self.backgroundImageView setImageWithUrlString:appDescription.bgImageUrl];
     
     // navigation bar
+    /*
     NSInteger displayNavBar = [[self.componentDesciption.appearance objectForKey:@"display_navbar"] integerValue];
     if (displayNavBar == 1) {
         [self.navigationController setNavigationBarHidden:NO];
     } else {
         [self.navigationController setNavigationBarHidden:YES];
-    }
+    }*/
     
     // set view
     [view addSubview:self.backgroundImageView];
