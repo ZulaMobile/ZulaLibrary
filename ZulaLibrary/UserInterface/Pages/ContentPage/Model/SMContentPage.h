@@ -15,6 +15,7 @@
 #define kModelContentPageText @"text"
 #define kModelContentPageImageUrl @"image"
 #define kModelContentPageBackgroundImageUrl @"bg_image"
+#define kModelContentPageNavbarIcon @"navbar_icon"
 
 /**
  Model class to provide the data for the `Content Page` object.
@@ -43,6 +44,11 @@
  Optional background image
  */
 @property (nonatomic) NSURL *backgroundUrl;
+
+/**
+ Optional navigation bar image that replaces the title
+ */
+@property (nonatomic) NSURL *navbarIcon;
 
 /**
  Content data for Content model

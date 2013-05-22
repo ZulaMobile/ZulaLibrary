@@ -135,6 +135,11 @@
         //[_titleView setFrame:titleViewFrame];
         [_webView setFrame:webViewFrame];
     }
+    
+    // add navigation image if set
+    if (self.contentPage.navbarIcon) {
+        [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
+    }
 }
 
 #pragma mark - web view delegate

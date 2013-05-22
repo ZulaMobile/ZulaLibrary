@@ -12,6 +12,7 @@
 #import "SMMainView.h"
 #import "SMImageView.h"
 #import "UIViewController+SSToolkitAdditions.h"
+#import "UIImageView+WebCache.h"
 
 @interface SMBaseComponentViewController ()
 
@@ -91,6 +92,16 @@
 - (void)applyContents
 {
     // must be overridden
+}
+
+- (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
+{
+    UIImageView *navbarImage = [[UIImageView alloc] init];
+    [navbarImage setImageWithURL:navbarIconUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        // completed
+        self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    }];
+    self.navigationItem.titleView = navbarImage;
 }
 
 @end

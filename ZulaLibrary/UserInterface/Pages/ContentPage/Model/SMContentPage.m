@@ -15,6 +15,7 @@
 @synthesize text = _text;
 @synthesize imageUrl = _imageUrl;
 @synthesize backgroundUrl = _backgroundUrl;
+@synthesize navbarIcon = _navbarIcon;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -32,6 +33,11 @@
         if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
             _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
         }
+        
+        NSString *navbarIconUrlString = [attributes objectForKey:kModelContentPageNavbarIcon];
+        if (navbarIconUrlString && ![navbarIconUrlString isEqualToString:@""]) {
+            _navbarIcon = [NSURL URLWithString:navbarIconUrlString];
+        }
     }
     return self;
 }
@@ -45,7 +51,8 @@
     return ([response objectForKey:kModelContentPageTitle] &&
             [response objectForKey:kModelContentPageText] &&
             [response objectForKey:kModelContentPageImageUrl] &&
-            [response objectForKey:kModelContentPageBackgroundImageUrl]);
+            [response objectForKey:kModelContentPageBackgroundImageUrl] &&
+            [response objectForKey:kModelContentPageNavbarIcon]);
 }
 
 + (void)fetchWithURLString:(NSString *)urlString Completion:(void (^)(SMContentPage *, SMServerError *))completion

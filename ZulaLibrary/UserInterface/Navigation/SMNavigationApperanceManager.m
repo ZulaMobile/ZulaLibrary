@@ -27,6 +27,7 @@
 
 - (void)applyAppearances:(NSDictionary *)appearances
 {
+    
     SMAppDescription *appDesc = [SMAppDescription sharedInstance];
     SMNavigationDescription *navDesc = [appDesc navigationDescription];
     
@@ -44,7 +45,7 @@
     
     // nav bar data
     NSString *navbarImageUrl = [navDesc.data objectForKey:@"navbar_bg_image"];
-    if (navbarImageUrl) {
+    if (![navbarImageUrl isEqualToString:@""]) {
         [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
     }
 }
@@ -59,6 +60,7 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
+    
 }
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl

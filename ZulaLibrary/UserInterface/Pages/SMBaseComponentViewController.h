@@ -51,4 +51,9 @@
  */
 - (void)applyContents;
 
+/**
+ Sets navbar icon 
+ */
+- (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl;
+
 @end
