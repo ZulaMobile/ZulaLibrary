@@ -59,7 +59,7 @@
     [background setBackgroundColor:backgroundColor];
     [background.layer setShadowColor:[UIColor blackColor].CGColor];
     background.layer.shadowOffset = CGSizeMake(0, 2);
-    background.layer.shadowRadius = 5;
+    background.layer.shadowRadius = 9;
     background.layer.shadowOpacity = 0.5;
     background.layer.masksToBounds = NO;
     [background setClipsToBounds:NO];
@@ -67,7 +67,7 @@
     // add them to view
     [self addSubview:background];
     [self sendSubviewToBack:background];
-    [self addSubview:self.activeButtonIndicator];
+    [self.scrollView addSubview:self.activeButtonIndicator];
 }
 
 - (void)addButtonWithTitle:(NSString *)title tag:(NSInteger)tag
@@ -154,8 +154,18 @@
  
     // animate the indicator movement
     [UIView animateWithDuration:0.3 animations:^{
-        [self.activeButtonIndicator setFrame:indicatorFrame];    
+        [self.activeButtonIndicator setFrame:indicatorFrame];
+        
     }];
+    
+    CGRect toVisible;
+    if (button.frame.origin.x - self.scrollView.contentOffset.x >= self.frame.size.width / 2) {
+        toVisible = CGRectMake(button.frame.origin.x, button.frame.origin.y, CGRectGetWidth(button.frame) + 60, CGRectGetHeight(button.frame));
+    } else {
+        toVisible = CGRectMake(button.frame.origin.x - 60, button.frame.origin.y, CGRectGetWidth(button.frame), CGRectGetHeight(button.frame));
+    }
+    
+    [self.scrollView scrollRectToVisible:toVisible animated:YES];
     
 }
 

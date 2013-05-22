@@ -102,6 +102,7 @@
         
         // add it to the menu
         [self.subMenu addButtonWithTitle:contentPage.title tag:i];
+        [self.subMenu addButtonWithTitle:contentPage.title tag:i];
         i++;
     }
     
