@@ -28,16 +28,6 @@
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
         [self.scrollView setContentSize:CGSizeMake(0, frame.size.height)];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
-        
-        // Add a bottomBorder.
-        /*CALayer *bottomBorder = [CALayer layer];
-        bottomBorder.frame = CGRectMake(0.0f, CGRectGetHeight(frame), CGRectGetWidth(frame), 1.0f);
-        bottomBorder.backgroundColor = [UIColor colorWithWhite:0.8f
-                                                         alpha:1.0f].CGColor;
-        
-        [self.layer addSublayer:bottomBorder];
-        */
-        
         [self.scrollView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:self.scrollView];
     }
@@ -166,7 +156,6 @@
     }
     
     [self.scrollView scrollRectToVisible:toVisible animated:YES];
-    
 }
 
 @end
