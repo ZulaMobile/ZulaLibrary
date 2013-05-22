@@ -38,7 +38,7 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
+    self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
     
@@ -60,7 +60,7 @@
     // place links
     SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
                                       CGRectMake(padding,
-                                                 120 + padding,
+                                                 160 + 20 + padding,
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
     [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
@@ -68,7 +68,7 @@
     [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
     [self.scrollView addSubview:homePageLinks];
     
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + 120 + padding)];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + 160 + 20 + padding)];
     
     /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];

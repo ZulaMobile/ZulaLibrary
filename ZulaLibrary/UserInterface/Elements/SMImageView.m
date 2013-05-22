@@ -13,6 +13,7 @@
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
+- (void)appearanceForCaption:(NSString *)caption;
 @end
 
 @implementation SMImageView
@@ -41,6 +42,7 @@
     // set appearances
     [self appearanceForAlignment:[appearances objectForKey:@"alignment"]];
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
+    [self appearanceForCaption:[appearances objectForKey:@"caption"]];
 }
 
 #pragma mark - appearance helpers
@@ -90,6 +92,34 @@
     }
     
     [self setImageWithURL:imageUrl];
+}
+
+- (void)appearanceForCaption:(NSString *)caption
+{
+    // adds a caption text on image
+    if (!caption) {
+        return;
+    }
+    
+    NSString *fontName = @"Helvetica-Bold";
+    float fontSize = 16;
+    CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
+    UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
+                                                                      CGRectGetHeight(self.frame) / 2 - textSize.height / 2,
+                                                                      320,
+                                                                      textSize.height)];
+    
+    [captionLabel setText:caption];
+    [captionLabel setFont:[UIFont fontWithName:fontName size:fontSize]];
+    [captionLabel setBackgroundColor:[UIColor clearColor]];
+    [captionLabel setTextAlignment:NSTextAlignmentCenter];
+    [captionLabel setTextColor:[UIColor whiteColor]];
+    [captionLabel setShadowColor:[UIColor blackColor]];
+    [captionLabel setShadowOffset:CGSizeMake(1, 1)];
+    [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
+    [captionLabel setNumberOfLines:0];
+    [captionLabel sizeToFit];
+    [self addSubview:captionLabel];
 }
 
 @end
