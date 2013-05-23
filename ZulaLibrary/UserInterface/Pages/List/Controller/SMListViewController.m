@@ -31,7 +31,9 @@
     [super loadView];
     
     // screen size
-    CGRect fullSize = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    CGRect fullSize = CGRectMake(0, 0,
+                                 CGRectGetWidth(self.view.frame),
+                                 CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
     
     // create table view
     self.tableView = [[UITableView alloc] initWithFrame:fullSize style:UITableViewStylePlain];
