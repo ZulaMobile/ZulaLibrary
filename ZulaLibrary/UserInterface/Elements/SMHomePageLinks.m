@@ -11,6 +11,8 @@
 #import "SMAppDelegate.h"
 #import "SMNavigation.h"
 #import "SMButton.h"
+#import "SMAppDescription.h"
+#import "SMNavigationDescription.h"
 
 @interface SMHomePageLinks()
 - (void)appearanceForVisibility:(NSString *)visibility;
@@ -71,7 +73,19 @@
             [componentButton setTag:i];
             [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
             [componentButton setTitle:component.title forState:UIControlStateNormal];
-            [componentButton setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]]; // 27B3E6
+            
+            // get the navigation style
+            SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+            SMNavigationDescription *navDesc = [appDesc navigationDescription];
+            NSDictionary *navAppearance = [navDesc appearance];
+            NSString *navbarColor = [[[navAppearance objectForKey:@"navbar"] objectForKey:@"bg_image"] objectForKey:@"bg_color"];
+            if (navbarColor) {
+                [componentButton setBackgroundColor:[UIColor colorWithHex:navbarColor]]; // 27B3E6
+            } else {
+                [componentButton setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]]; // 27B3E6
+            }
+            
+            
             [self addSubview:componentButton];
             i++; j++;
         }
