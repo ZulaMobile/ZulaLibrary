@@ -8,6 +8,8 @@
 
 #import "SMSubMenuView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "SMTriangle.h"
 
 #define triangleSize 10.0
@@ -18,6 +20,11 @@
 @end
 
 @implementation SMSubMenuView
+{
+    // the background color that is set initially
+    UIColor *bgColor;
+    BOOL useStandardColoring;
+}
 
 @synthesize scrollView, activeButton, activeButtonIndicator;
 
@@ -25,6 +32,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        useStandardColoring = YES;
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
         [self.scrollView setContentSize:CGSizeMake(0, frame.size.height)];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
@@ -36,23 +44,43 @@
 
 - (void)changeBackgroundColor:(UIColor *)backgroundColor
 {
+    bgColor = (useStandardColoring) ? [UIColor colorWithHex:@"CCCCCC"] : backgroundColor;
+    UIColor *lighter = [bgColor lighterColor];
+    
     // indicator
     self.activeButtonIndicator = [[SMTriangle alloc] initWithFrame:
                                   CGRectMake(0, CGRectGetHeight(self.frame) - triangleSize - 4, triangleSize + 8, triangleSize)
-                                                             color:backgroundColor];
-    [(SMTriangle *)self.activeButtonIndicator setColor:backgroundColor];
+                                                             color:bgColor];
+    [(SMTriangle *)self.activeButtonIndicator setColor:bgColor];
     [self.activeButtonIndicator setBackgroundColor:[UIColor clearColor]];
     
     // background
     UIView *background = [[UIView alloc] initWithFrame:
                           CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - triangleSize - 4)];
-    [background setBackgroundColor:backgroundColor];
-    [background.layer setShadowColor:[UIColor blackColor].CGColor];
-    background.layer.shadowOffset = CGSizeMake(0, 2);
-    background.layer.shadowRadius = 9;
-    background.layer.shadowOpacity = 0.5;
+    [background setBackgroundColor:lighter];
+    if (useStandardColoring) {
+        [background.layer setShadowColor:[UIColor blackColor].CGColor];
+        background.layer.shadowOffset = CGSizeMake(0, 2);
+        background.layer.shadowRadius = 5;
+        background.layer.shadowOpacity = 0.1;
+    } else {
+        [background.layer setShadowColor:[UIColor whiteColor].CGColor];
+        background.layer.shadowOffset = CGSizeMake(0, 5);
+        background.layer.shadowRadius = 5;
+        background.layer.shadowOpacity = 0.8;
+    }
+    
     background.layer.masksToBounds = NO;
     [background setClipsToBounds:NO];
+    
+    // Draw a custom gradient
+    CAGradientLayer *btnGradient = [CAGradientLayer layer];
+    btnGradient.frame = background.bounds;
+    btnGradient.colors = [NSArray arrayWithObjects:
+                          (id)[lighter CGColor],
+                          (id)[bgColor CGColor],
+                          nil];
+    [self.layer insertSublayer:btnGradient atIndex:0];
     
     // add them to view
     [self addSubview:background];
@@ -75,10 +103,19 @@
     [btn setTag:tag];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor clearColor]];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn.titleLabel setFont:[UIFont fontWithName:fontName size:fontSize]];
-    [btn.titleLabel setShadowColor:[UIColor blackColor]];
-    [btn.titleLabel setShadowOffset:CGSizeMake(1, 1)];
+    
+    // set button color to proporional to the background
+    if (useStandardColoring) {
+        UIColor *btnColor = [bgColor darkerColor];
+        [btn setTitleColor:btnColor forState:UIControlStateNormal];
+        [btn setTitleShadowColor:[UIColor colorWithHex:@"FFFFFF"] forState:UIControlStateNormal];
+    } else {
+        [btn setTitleColor:[UIColor colorWithHex:@"EFEFEF"] forState:UIControlStateNormal];
+        [btn setTitleShadowColor:[UIColor colorWithHex:@"000000"] forState:UIControlStateNormal];
+    }
+    
+    [btn.titleLabel setShadowOffset:CGSizeMake(0, 1)];
     //[btn setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
     //[btn.layer setCornerRadius:10.0];
     [btn setFrame:CGRectMake(scrollView.contentSize.width + padding,

@@ -8,6 +8,8 @@
 
 #import "SMContentContainerViewController.h"
 #import "UIViewController+SSToolkitAdditions.h"
+#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "SMProgressHUD.h"
 
 #import "SMComponentDescription.h"
@@ -39,7 +41,12 @@
     
     self.subMenu = [[SMSubMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
-    [self.subMenu changeBackgroundColor:[UIColor grayColor]];
+    
+    UIColor *navBarBackgroundColor = self.navigationController.navigationBar.backgroundColor;
+    if (!navBarBackgroundColor) {
+        navBarBackgroundColor = [UIColor colorWithHex:@"CCCCCC"];
+    }
+    [self.subMenu changeBackgroundColor:[navBarBackgroundColor darkerColor]];
     [self.subMenu setClipsToBounds:NO];
     [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
@@ -130,10 +137,11 @@
     [activeContentViewController setContentPage:contentPage];
     
     // add controller's view to self.view
+    float pullUp = 10.0;
     [activeContentViewController.view setFrame:CGRectMake(0,
-                                                          CGRectGetHeight(self.subMenu.frame) - 10.0,
+                                                          CGRectGetHeight(self.subMenu.frame) - pullUp,
                                                           CGRectGetWidth(self.view.frame),
-                                                          CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame))];
+                                                          CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame) + pullUp)];
     [activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin    |
      UIViewAutoresizingFlexibleHeight       |
      UIViewAutoresizingFlexibleLeftMargin   |

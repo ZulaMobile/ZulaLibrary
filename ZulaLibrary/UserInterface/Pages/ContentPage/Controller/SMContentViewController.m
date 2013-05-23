@@ -47,7 +47,7 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
+    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
@@ -124,18 +124,6 @@
     if (self.contentPage.backgroundUrl)
         [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
     
-    // reposition elements
-    if (!self.contentPage.imageUrl) {
-        // move views up
-        CGRect imageViewFrame = _imageView.frame;
-        //CGRect titleViewFrame = _titleView.frame;
-        CGRect webViewFrame = _webView.frame;
-        //titleViewFrame.origin.y -= imageViewFrame.size.height;
-        webViewFrame.origin.y -= imageViewFrame.size.height;
-        //[_titleView setFrame:titleViewFrame];
-        [_webView setFrame:webViewFrame];
-    }
-    
     // add navigation image if set
     if (self.contentPage.navbarIcon) {
         [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
@@ -163,13 +151,19 @@
     frame.size = fittingSize;
     aWebView.frame = frame;
     
-    [self.webView setFrame:CGRectMake(padding,
-                                      padding + CGRectGetHeight(self.imageView.frame),
-                                      CGRectGetWidth(self.view.frame) - padding * 2,
-                                      fittingSize.height)];
+    // move views up if there is no image
+    CGRect imageViewFrame = _imageView.frame;
+    float imageHeightDiff = (!self.contentPage.imageUrl) ? CGRectGetHeight(imageViewFrame) : 0;
+    CGRect webViewFrame = CGRectMake(_webView.frame.origin.x,
+                                     _webView.frame.origin.y - imageHeightDiff,
+                                     CGRectGetWidth(self.view.frame) - padding * 2,
+                                     fittingSize.height);
+    [self.webView setFrame:webViewFrame];
+    
+    float imageHeight = (self.contentPage.imageUrl) ? CGRectGetHeight(imageViewFrame) : 0;
     [self.scrollView setContentSize:CGSizeMake(
                                                CGRectGetWidth(self.view.frame),
-                                               padding * 2 + CGRectGetHeight(self.imageView.frame) + fittingSize.height)];
+                                               padding * 2 + imageHeight + fittingSize.height)];
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
