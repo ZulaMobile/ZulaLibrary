@@ -115,7 +115,7 @@
     [captionLabel setTextAlignment:NSTextAlignmentCenter];
     [captionLabel setTextColor:[UIColor whiteColor]];
     [captionLabel setShadowColor:[UIColor blackColor]];
-    [captionLabel setShadowOffset:CGSizeMake(1, 1)];
+    [captionLabel setShadowOffset:CGSizeMake(0, -1)];
     [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
     [captionLabel setNumberOfLines:0];
     [captionLabel sizeToFit];

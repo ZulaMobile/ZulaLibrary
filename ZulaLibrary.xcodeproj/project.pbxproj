@@ -92,6 +92,7 @@
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
+		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
@@ -264,6 +265,8 @@
 		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
 		67D4C44816D918C900BCE927 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTextView.h; path = UserInterface/Elements/SMTextView.h; sourceTree = "<group>"; };
 		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
+		67E5F6A4174E0A0B006E1EEE /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMButton.h; path = UserInterface/Elements/SMButton.h; sourceTree = "<group>"; };
+		67E5F6A5174E0A0B006E1EEE /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMButton.m; path = UserInterface/Elements/SMButton.m; sourceTree = "<group>"; };
 		67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ZulaAdditions.h"; path = "Library/Categories/UI/UIColor+ZulaAdditions.h"; sourceTree = "<group>"; };
 		67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ZulaAdditions.m"; path = "Library/Categories/UI/UIColor+ZulaAdditions.m"; sourceTree = "<group>"; };
 		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
@@ -742,6 +745,8 @@
 				6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */,
 				67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */,
 				67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */,
+				67E5F6A4174E0A0B006E1EEE /* SMButton.h */,
+				67E5F6A5174E0A0B006E1EEE /* SMButton.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -1111,6 +1116,7 @@
 				674D6F60174BA7510007A4A1 /* SMContentContainerViewController.m in Sources */,
 				674D6F63174BBAB50007A4A1 /* SMTriangle.m in Sources */,
 				67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */,
+				67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

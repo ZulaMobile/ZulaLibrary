@@ -20,4 +20,14 @@
  */
 - (UIColor *)darkerColor;
 
+/**
+ Returns YES if the color is bright, No if it's dark
+ */
+- (BOOL)isBright;
+
+/**
+ Returns YES if the color is dark, No if it's bright
+ */
+- (BOOL)isDark;
+
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "SMHomePageLinks.h"
+#import "UIColor+SSToolkitAdditions.h"
 #import "SMAppDelegate.h"
 #import "SMNavigation.h"
+#import "SMButton.h"
 
 @interface SMHomePageLinks()
 - (void)appearanceForVisibility:(NSString *)visibility;
@@ -61,15 +63,15 @@
                 continue;
             }
             // place each component buttons
-            UIButton *componentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            SMButton *componentButton = [SMButton buttonWithType:UIButtonTypeCustom];
             [componentButton setFrame:CGRectMake(0,
                                                  j * (40 + self.padding),
                                                  CGRectGetWidth(self.frame),
                                                  40)];
             [componentButton setTag:i];
             [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
-            //DDLogVerbose(@"%d. component button: %f, %f, %f, %f", i, componentButton.frame.origin.x, componentButton.frame.origin.y, componentButton.frame.size.width, componentButton.frame.size.height);
             [componentButton setTitle:component.title forState:UIControlStateNormal];
+            [componentButton setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]]; // 27B3E6
             [self addSubview:componentButton];
             i++; j++;
         }

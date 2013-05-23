@@ -34,17 +34,18 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
 
-    self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
-    [self.scrollView applyAppearances:self.componentDesciption.appearance];
-    [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    
     self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
     
+    self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0,
+                                                                     CGRectGetHeight(self.logoView.frame) + padding,
+                                                                     screenRect.size.width,
+                                                                     screenRect.size.height - CGRectGetHeight(self.logoView.frame) - padding)];
+    [self.scrollView applyAppearances:self.componentDesciption.appearance];
+    [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    
-    [self.scrollView addSubview:self.logoView];
+    [self.view addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
     
 }
