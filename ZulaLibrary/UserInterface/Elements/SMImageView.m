@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "SMImageView.h"
 #import "UIColor+SSToolkitAdditions.h"
+#import "UILabel+SMAdditions.h"
 #import "SMAppearanceValidator.h"
+
 
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
@@ -119,6 +122,10 @@
     [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
     [captionLabel setNumberOfLines:0];
     [captionLabel sizeToFit];
+    
+    // add glow
+    [captionLabel addGlow:[UIColor blackColor]];
+    
     [self addSubview:captionLabel];
 }
 

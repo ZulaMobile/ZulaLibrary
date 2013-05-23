@@ -64,7 +64,7 @@
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
     [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [homePageLinks setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
     [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
     [self.scrollView addSubview:homePageLinks];
     

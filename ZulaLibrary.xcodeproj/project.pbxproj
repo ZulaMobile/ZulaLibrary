@@ -74,6 +74,8 @@
 		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
 		67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
+		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
+		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
 		67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD5B1516F31E9200FC503F /* SMTitleLabel.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -228,6 +230,10 @@
 		67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceValidator.h; path = UserInterface/Elements/SMAppearanceValidator.h; sourceTree = "<group>"; };
 		67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceValidator.m; path = UserInterface/Elements/SMAppearanceValidator.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+SMAdditions.h"; path = "Library/Categories/UI/UIButton+SMAdditions.h"; sourceTree = "<group>"; };
+		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
+		67B587B4174E49C300CF35D7 /* UILabel+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+SMAdditions.h"; path = "Library/Categories/UI/UILabel+SMAdditions.h"; sourceTree = "<group>"; };
+		67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+SMAdditions.m"; path = "Library/Categories/UI/UILabel+SMAdditions.m"; sourceTree = "<group>"; };
 		67BD5B0516F30B4600FC503F /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B0716F30B5200FC503F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B1416F31E9200FC503F /* SMTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTitleLabel.h; path = UserInterface/Elements/SMTitleLabel.h; sourceTree = "<group>"; };
@@ -473,6 +479,10 @@
 				675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */,
 				67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */,
 				67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */,
+				67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */,
+				67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */,
+				67B587B4174E49C300CF35D7 /* UILabel+SMAdditions.h */,
+				67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1117,6 +1127,8 @@
 				674D6F63174BBAB50007A4A1 /* SMTriangle.m in Sources */,
 				67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */,
 				67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */,
+				67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */,
+				67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

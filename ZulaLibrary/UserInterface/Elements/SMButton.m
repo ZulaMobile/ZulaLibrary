@@ -9,6 +9,7 @@
 #import "SMButton.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+ZulaAdditions.h"
+#import "UIButton+SMAdditions.h"
 
 @interface SMButton()
 
@@ -87,15 +88,6 @@
     // Drawing code
 }
 */
-
-- (void)addGlow:(UIColor *)glowColor
-{
-    self.titleLabel.layer.shadowColor = [glowColor CGColor];
-    self.titleLabel.layer.shadowRadius = 4.0f;
-    self.titleLabel.layer.shadowOpacity = .9;
-    self.titleLabel.layer.shadowOffset = CGSizeZero;
-    self.titleLabel.layer.masksToBounds = NO;
-}
 
 - (void)onTouchDown:(id)sender
 {
