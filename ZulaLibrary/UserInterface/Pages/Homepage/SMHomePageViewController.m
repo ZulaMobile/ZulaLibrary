@@ -39,13 +39,13 @@
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
     
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0,
-                                                                     CGRectGetHeight(self.logoView.frame) + padding,
+                                                                     0,
                                                                      screenRect.size.width,
-                                                                     screenRect.size.height - CGRectGetHeight(self.logoView.frame) - padding)];
+                                                                     screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    [self.view addSubview:self.logoView];
+    [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
     
 }
@@ -60,7 +60,7 @@
     // place links
     SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
                                       CGRectMake(padding,
-                                                 160 + 20 + padding,
+                                                 CGRectGetHeight(self.logoView.frame) + padding,
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
     [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
@@ -68,7 +68,7 @@
     [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
     [self.scrollView addSubview:homePageLinks];
     
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + 160 + 20 + padding)];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + CGRectGetHeight(self.logoView.frame) + padding)];
     
     /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
