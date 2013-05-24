@@ -17,8 +17,15 @@
 {
     self = [super init];
     if (self) {
-        _logoUrl = [NSURL URLWithString:[attributes objectForKey:kModelHomePageImageLogo]];
-        _backgroundUrl = [NSURL URLWithString:[attributes objectForKey:kModelHomePageBackgroundImageUrl]];
+        NSString *logoUrl = [attributes objectForKey:kModelHomePageImageLogo];
+        if (logoUrl && ![logoUrl isEqualToString:@""]) {
+            _logoUrl = [NSURL URLWithString:logoUrl];
+        }
+        
+        NSString *backgroundImageUrlString = [attributes objectForKey:kModelHomePageBackgroundImageUrl];
+        if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
+            _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
+        }
     }
     return self;
 }

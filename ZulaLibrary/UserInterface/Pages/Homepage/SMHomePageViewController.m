@@ -55,6 +55,7 @@
                                                                      screenRect.size.width,
                                                                      screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
+    [self.scrollView setBackgroundColor:[UIColor clearColor]];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     [self.scrollView addSubview:self.logoView];
@@ -78,6 +79,7 @@
     [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
     [homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
     [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
+    [homePageLinks setBackgroundColor:[UIColor clearColor]];
     [self.scrollView addSubview:homePageLinks];
     
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + CGRectGetHeight(self.logoView.frame) + padding)];
