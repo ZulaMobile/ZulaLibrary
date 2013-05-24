@@ -7,9 +7,10 @@
 //
 
 #import "SMHomePageViewController.h"
+#import "SMProgressHUD.h"
+#import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
-#import "SMProgressHUD.h"
 #import "SMHomePage.h"
 #import "UIViewController+SSToolkitAdditions.h"
 #import "SMHomePageLinks.h"
@@ -26,6 +27,17 @@
 @end
 
 @implementation SMHomePageViewController
+
+- (id)initWithDescription:(SMComponentDescription *)description
+{
+    self = [super initWithDescription:description];
+    if (self) {
+        // the homepage title is fixed to app title
+        SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+        [self setTitle:[appDesc appTitle]];
+    }
+    return self;
+}
 
 - (void)loadView
 {
