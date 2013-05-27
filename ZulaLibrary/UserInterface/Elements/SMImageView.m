@@ -104,14 +104,14 @@
         return;
     }
     
-    NSString *fontName = @"Helvetica-Bold";
+    NSString *fontName = @"Helvetica";
     float fontSize = 16;
     CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
+
     UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
-                                                                      CGRectGetHeight(self.frame) / 2 - textSize.height / 2,
+                                                                      CGRectGetHeight(self.frame) - textSize.height - 10.0,
                                                                       320,
                                                                       textSize.height)];
-    
     [captionLabel setText:caption];
     [captionLabel setFont:[UIFont fontWithName:fontName size:fontSize]];
     [captionLabel setBackgroundColor:[UIColor clearColor]];

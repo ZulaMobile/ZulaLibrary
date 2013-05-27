@@ -56,7 +56,7 @@
     
     if ([darker isBright]) {
         // normal state
-        titleColor = [darker darkerColor];
+        titleColor = [UIColor darkTextColor];
         shadowColor = [UIColor whiteColor];
         shadowOffset = CGSizeMake(0, 1);
     } else {

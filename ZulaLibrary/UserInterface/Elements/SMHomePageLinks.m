@@ -17,6 +17,7 @@
 @interface SMHomePageLinks()
 - (void)appearanceForVisibility:(NSString *)visibility;
 - (void)appearanceForStyle:(NSString *)style;
+- (void)appearanceForButtonColor:(NSString *)buttonColor;
 - (void)onComponentButton:(UIButton *)sender;
 @end
 
@@ -30,6 +31,7 @@
     }
     [self appearanceForVisibility:[appearances objectForKey:@"disable"]];
     [self appearanceForStyle:[appearances objectForKey:@"style"]];
+    [self appearanceForButtonColor:[appearances objectForKey:@"button_color"]];
 }
 
 #pragma mark - private methods
@@ -74,18 +76,6 @@
             [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
             [componentButton setTitle:component.title forState:UIControlStateNormal];
             
-            // get the navigation style
-            SMAppDescription *appDesc = [SMAppDescription sharedInstance];
-            SMNavigationDescription *navDesc = [appDesc navigationDescription];
-            NSDictionary *navAppearance = [navDesc appearance];
-            NSString *navbarColor = [[[navAppearance objectForKey:@"navbar"] objectForKey:@"bg_image"] objectForKey:@"bg_color"];
-            if (navbarColor) {
-                [componentButton setBackgroundColor:[UIColor colorWithHex:navbarColor]]; // 27B3E6
-            } else {
-                [componentButton setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]]; // 27B3E6
-            }
-            
-            
             [self addSubview:componentButton];
             i++; j++;
         }
@@ -97,6 +87,21 @@
     if ([style isEqualToString:@"grid"]) {
         // @todo
         DDLogError(@"Grid homepage links is not yet developed");
+    }
+}
+
+- (void)appearanceForButtonColor:(NSString *)buttonColor
+{
+    if (!buttonColor) {
+        buttonColor = @"CCCCCC";
+    }
+    
+    NSArray *subviews = [self subviews];
+    for (UIView *subview in subviews) {
+        if ([subview isKindOfClass:[SMButton class]]) {
+            // get the button colors if set
+            [(SMButton *)subview setBackgroundColor:[UIColor colorWithHex:buttonColor]];
+        }
     }
 }
 

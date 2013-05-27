@@ -8,6 +8,7 @@
 
 #import "SMListCell.h"
 #import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface SMListCell()
@@ -87,13 +88,30 @@
         if (backgroundImageView) {
             [backgroundImageView setBackgroundColor:[UIColor colorWithHex:colorHex]];
         } else {
+            
+            float height = 80.0;
+            
             // create a new view for the background color
             UIView *backgroundColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
             
+            UIColor *bgColor = [UIColor colorWithHex:colorHex];
+            
             CAGradientLayer *gradient = [CAGradientLayer layer];
-            gradient.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), 80.0);
-            gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithHex:colorHex] CGColor], nil];
+            gradient.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), height);
+            /*
+            if ([bgColor isWhite]) {
+                gradient.colors = [NSArray arrayWithObjects:(id)[bgColor CGColor], (id)[[bgColor darkerColor] CGColor], nil];
+            } else {
+                gradient.colors = [NSArray arrayWithObjects:(id)[[bgColor lighterColor] CGColor], (id)[bgColor CGColor], nil];
+            }*/
+            gradient.colors = [NSArray arrayWithObjects:(id)[[bgColor lighterColor] CGColor], (id)[bgColor CGColor], nil];
             [backgroundColorView.layer insertSublayer:gradient atIndex:0];
+            
+            // Add a bottomBorder.
+            CALayer *bottomBorder = [CALayer layer];
+            bottomBorder.frame = CGRectMake(0.0f, height - 1.0f, CGRectGetWidth(self.frame), 1.0f);
+            bottomBorder.backgroundColor = [[bgColor darkerColor] CGColor];
+            [self.layer addSublayer:bottomBorder];
             
             //[backgroundColorView setBackgroundColor:[UIColor colorWithHex:colorHex]];
             [self setBackgroundView:backgroundColorView];

@@ -77,6 +77,7 @@
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
 		67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */; };
+		67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */; };
 		67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD5B1516F31E9200FC503F /* SMTitleLabel.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -95,6 +96,7 @@
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
+		67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D79702175365240035313D /* UIColorSMAdditionsTests.m */; };
 		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
@@ -237,6 +239,8 @@
 		67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+SMAdditions.m"; path = "Library/Categories/UI/UILabel+SMAdditions.m"; sourceTree = "<group>"; };
 		67B6C690174F839C008E1EF0 /* SMHomePageViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewControllerTests.h; path = UserInterface/Components/Homepage/Controller/SMHomePageViewControllerTests.h; sourceTree = "<group>"; };
 		67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewControllerTests.m; path = UserInterface/Components/Homepage/Controller/SMHomePageViewControllerTests.m; sourceTree = "<group>"; };
+		67B6C699174F9E4C008E1EF0 /* SMBorderedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBorderedImage.h; path = UserInterface/Elements/SMBorderedImage.h; sourceTree = "<group>"; };
+		67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBorderedImage.m; path = UserInterface/Elements/SMBorderedImage.m; sourceTree = "<group>"; };
 		67BD5B0516F30B4600FC503F /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B0716F30B5200FC503F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B1416F31E9200FC503F /* SMTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTitleLabel.h; path = UserInterface/Elements/SMTitleLabel.h; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
 		67D4C44816D918C900BCE927 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTextView.h; path = UserInterface/Elements/SMTextView.h; sourceTree = "<group>"; };
 		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
+		67D79701175365240035313D /* UIColorSMAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorSMAdditionsTests.h; path = Library/Categories/UI/UIColorSMAdditionsTests.h; sourceTree = "<group>"; };
+		67D79702175365240035313D /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorSMAdditionsTests.m; path = Library/Categories/UI/UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
 		67E5F6A4174E0A0B006E1EEE /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMButton.h; path = UserInterface/Elements/SMButton.h; sourceTree = "<group>"; };
 		67E5F6A5174E0A0B006E1EEE /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMButton.m; path = UserInterface/Elements/SMButton.m; sourceTree = "<group>"; };
 		67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ZulaAdditions.h"; path = "Library/Categories/UI/UIColor+ZulaAdditions.h"; sourceTree = "<group>"; };
@@ -512,6 +518,7 @@
 		675BDD6B16DB966600B141F8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				67D79700175364F50035313D /* UI */,
 				675BDD6C16DB968A00B141F8 /* NSDictionarySSAdditionsTests.h */,
 				675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */,
 			);
@@ -784,6 +791,8 @@
 				67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */,
 				67E5F6A4174E0A0B006E1EEE /* SMButton.h */,
 				67E5F6A5174E0A0B006E1EEE /* SMButton.m */,
+				67B6C699174F9E4C008E1EF0 /* SMBorderedImage.h */,
+				67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -940,6 +949,15 @@
 				674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		67D79700175364F50035313D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				67D79701175365240035313D /* UIColorSMAdditionsTests.h */,
+				67D79702175365240035313D /* UIColorSMAdditionsTests.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1156,6 +1174,7 @@
 				67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */,
 				67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */,
 				67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */,
+				67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,6 +1191,7 @@
 				67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */,
 				674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */,
 				67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */,
+				67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

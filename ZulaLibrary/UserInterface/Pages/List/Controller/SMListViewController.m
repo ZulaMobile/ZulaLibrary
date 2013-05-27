@@ -18,6 +18,8 @@
 #import "UIViewController+SSToolkitAdditions.h"
 #import "SMComponentFactory.h"
 #import "SMAppDescription.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIColor+ZulaAdditions.h"
 
 @interface SMListViewController ()
 
@@ -123,8 +125,6 @@
         cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
         // customize the cell
-        [cell.textLabel setBackgroundColor:[UIColor clearColor]];
-        [cell.detailTextLabel setBackgroundColor:[UIColor clearColor]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         // background image if exists
@@ -149,12 +149,18 @@
     
     // left image if exists
     if (item.thumbnailUrl) {
-        UIImageView *cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 76, 76)];
+        UIImageView *cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 70, 70)];
         [cellImage setImageWithURL:item.thumbnailUrl
                        placeholderImage:[UIImage imageNamed:@"Default"]];
-        [cellImage setContentMode:UIViewContentModeScaleAspectFit];
+        [cellImage setContentMode:UIViewContentModeScaleAspectFill];
         [cellImage setClipsToBounds:YES];
         [cellImage setTag:31];
+        
+        // add borders
+        //UIColor *bgColor = [cell backgroundColor];
+        [cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        [cellImage.layer setBorderWidth:0.5];
+        
         [cell.contentView addSubview:cellImage];
     }
     

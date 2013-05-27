@@ -30,4 +30,14 @@
  */
 - (BOOL)isDark;
 
+/**
+ Returns YES if the color is white
+ */
+- (BOOL)isWhite;
+
+/**
+ Returns YES if the color is black
+ */
+- (BOOL)isBlack;
+
 @end
