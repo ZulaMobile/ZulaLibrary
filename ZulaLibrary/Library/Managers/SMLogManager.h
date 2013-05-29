@@ -11,8 +11,8 @@
 
 @interface SMLogManager : NSObject
 {
-    @private
-    SMFileLogger *fileLogger;
+    //@private
+    //SMFileLogger *fileLogger;
 }
 - (void)start;
 

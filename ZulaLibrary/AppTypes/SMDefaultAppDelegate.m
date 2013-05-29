@@ -7,6 +7,9 @@
 //
 
 #import "SMDefaultAppDelegate.h"
+#import <CoreText/CoreText.h>
+#import "DTCoreText.h"
+
 #import "SMAppDescription.h"
 #import "SMAppDescriptionDummyDataSource.h"
 #import "SMAppDescriptionRestApiDataSource.h"
@@ -23,6 +26,7 @@
 
 @interface SMDefaultAppDelegate()
 - (void)launchApp;
+- (void)coreTextWorkaround;
 @end
 
 @implementation SMDefaultAppDelegate
@@ -64,6 +68,9 @@
 
 - (void)launchApp
 {
+    // DTCoreText workaround
+    [self coreTextWorkaround];
+    
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
     
@@ -103,6 +110,26 @@
         }];
         
     }];
+}
+
+/**
+ Loading of DTCoreText library takes more than a second. 
+ This workaround is for loading the lib on background to speed up the process
+ See: http://www.cocoanetics.com/2011/04/coretext-loading-performance/
+ */
+- (void)coreTextWorkaround
+{
+    dispatch_queue_t queue = dispatch_queue_create("com.swatch.worker", NULL);
+    dispatch_async(queue, ^(void) {
+        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+        [attributes setObject:@"HelveticaNeue" forKey:(id)kCTFontFamilyNameAttribute];
+        [attributes setObject:[NSNumber numberWithFloat:36.0f] forKey:(id)kCTFontSizeAttribute];
+        CTFontDescriptorRef fontDesc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attributes);
+        CTFontRef matchingFont = CTFontCreateWithFontDescriptor(fontDesc, 36.0f, NULL);
+        CFRelease(matchingFont);
+        CFRelease(fontDesc);
+    });
+    dispatch_release(queue);
 }
 
 #pragma mark - preloader delegate
