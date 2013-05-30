@@ -14,6 +14,8 @@
 		6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */; };
 		6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */; };
 		6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */; };
+		670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44A1757480400B154F0 /* SMProductDetailViewController.m */; };
+		670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44E1757482700B154F0 /* SMProductDetail.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -144,6 +146,10 @@
 		6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMAppDelegate.h; path = AppTypes/SMAppDelegate.h; sourceTree = "<group>"; };
 		6701BD8B16DFBEB9005A9BD3 /* SMHomePageLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageLinks.h; path = UserInterface/Elements/SMHomePageLinks.h; sourceTree = "<group>"; };
 		6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageLinks.m; path = UserInterface/Elements/SMHomePageLinks.m; sourceTree = "<group>"; };
+		670DA4491757480400B154F0 /* SMProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProductDetailViewController.h; path = UserInterface/Pages/ProductDetail/Controller/SMProductDetailViewController.h; sourceTree = "<group>"; };
+		670DA44A1757480400B154F0 /* SMProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProductDetailViewController.m; path = UserInterface/Pages/ProductDetail/Controller/SMProductDetailViewController.m; sourceTree = "<group>"; };
+		670DA44D1757482700B154F0 /* SMProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProductDetail.h; path = UserInterface/Pages/ProductDetail/Model/SMProductDetail.h; sourceTree = "<group>"; };
+		670DA44E1757482700B154F0 /* SMProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProductDetail.m; path = UserInterface/Pages/ProductDetail/Model/SMProductDetail.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -349,6 +355,33 @@
 				6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */,
 			);
 			name = Loggers;
+			sourceTree = "<group>";
+		};
+		670DA447175747B400B154F0 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				670DA44C1757480900B154F0 /* Model */,
+				670DA448175747BE00B154F0 /* Controller */,
+			);
+			name = ProductDetail;
+			sourceTree = "<group>";
+		};
+		670DA448175747BE00B154F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				670DA4491757480400B154F0 /* SMProductDetailViewController.h */,
+				670DA44A1757480400B154F0 /* SMProductDetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		670DA44C1757480900B154F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				670DA44D1757482700B154F0 /* SMProductDetail.h */,
+				670DA44E1757482700B154F0 /* SMProductDetail.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		6749EB7817257966002219C8 /* List */ = {
@@ -731,6 +764,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				670DA447175747B400B154F0 /* ProductDetail */,
 				6749EB7817257966002219C8 /* List */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
@@ -1175,6 +1209,8 @@
 				67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */,
 				67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */,
 				67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */,
+				670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */,
+				670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

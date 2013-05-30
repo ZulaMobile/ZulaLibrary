@@ -194,13 +194,10 @@
     if ([listItem hasCustomTargetComponent]) {
         // if there is custom component, fetch information
         
-        // get view controller's appearances from main appearances
-        
         // create the view controller
-        //SMAppDescription *appDescription = [SMAppDescription sharedInstance];
-        //SMComponentFactory componentWithDescription:[appDescription.componentDescriptions] forNavigation:<#(SMNavigationDescription *)#>
-        
-        return nil;
+        SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+        return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:listItem.targetComponentDescription
+                                                                               forNavigation:appDescription.navigationDescription];
     }
  
     // check if no component link

@@ -86,7 +86,7 @@
     
     if ([style isEqualToString:@"grid"]) {
         // @todo
-        DDLogError(@"Grid homepage links is not yet developed");
+        DDLogError(@"Grid homepage links is not yet developed. %@", [self class]);
     }
 }
 

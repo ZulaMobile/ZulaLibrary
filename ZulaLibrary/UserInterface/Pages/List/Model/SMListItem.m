@@ -7,9 +7,10 @@
 //
 
 #import "SMListItem.h"
+#import "SMComponentDescription.h"
 
 @implementation SMListItem
-@synthesize title, imageUrl=_imageUrl, subtitle=_subtitle, content=_content, targetComponentName=_targetComponentName, targetComponentUrl=_targetComponentUrl, thumbnailUrl=_thumbnailUrl;
+@synthesize title, imageUrl=_imageUrl, subtitle=_subtitle, content=_content, targetComponentName=_targetComponentName, targetComponentDescription=_targetComponentDescription, thumbnailUrl=_thumbnailUrl;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -21,7 +22,9 @@
         _imageUrl = [self urlFromAttribute:[attributes objectForKey:kModelListItemImageUrl]];
         _subtitle = [attributes objectForKey:kModelListItemSubtitle];
         _content = [attributes objectForKey:kModelListItemContent];
-        _targetComponentUrl = [self urlFromAttribute:[attributes objectForKey:kModelListItemTargetComponentUrl]];
+        if ([[attributes objectForKey:kModelListItemTargetComponent] isKindOfClass:[NSDictionary class]]) {
+            _targetComponentDescription = [[SMComponentDescription alloc] initWithAttributes:[attributes objectForKey:kModelListItemTargetComponent]];
+        }
         _targetComponentName = [attributes objectForKey:kModelListItemTargetComponentName];
     }
     return self;
@@ -29,7 +32,7 @@
 
 - (BOOL)hasCustomTargetComponent
 {
-    return !(self.targetComponentUrl == nil);
+    return !(self.targetComponentDescription == nil);
 }
 
 - (BOOL)hasDefaultTargetComponent

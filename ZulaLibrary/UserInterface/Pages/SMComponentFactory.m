@@ -7,12 +7,14 @@
 //
 
 #import "SMComponentFactory.h"
+#import <DDLog.h>
 
 // component imports
 #import "SMHomePageViewController.h"
 #import "SMContentViewController.h"
 #import "SMListViewController.h"
 #import "SMContentContainerViewController.h"
+#import "SMProductDetailViewController.h"
 
 @implementation SMComponentFactory
 
@@ -28,10 +30,12 @@
         component = [[SMListViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContentContainerComponent"]) {
         component = [[SMContentContainerViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ProductDetailComponent"]) {
+        component = [[SMProductDetailViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {
-        DDLogError(@"unknown component `%@`", componentDescription.type);
+        DDLogError(@"unknown component %@", componentDescription.type);
         assert(component);
         return nil;
     }
