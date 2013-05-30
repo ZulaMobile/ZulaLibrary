@@ -8,7 +8,7 @@
 
 #import "SMBaseComponentViewController.h"
 
-@class SMProductDetail, SMLabel, SMWebView;
+@class SMProductDetail, SMLabel, SMWebView, SMMultipleImageView;
 
 @interface SMProductDetailViewController : SMBaseComponentViewController <UIWebViewDelegate>
 
@@ -23,10 +23,10 @@
 @property (nonatomic, strong) SMWebView *webView;
 
 /**
- The 320x150 image view.
+ The 320x160 image view.
  If there is no image set, this view will disappear
  */
-@property (nonatomic, strong) SMImageView *imageView;
+@property (nonatomic, strong) SMMultipleImageView *imageView;
 
 
 @end

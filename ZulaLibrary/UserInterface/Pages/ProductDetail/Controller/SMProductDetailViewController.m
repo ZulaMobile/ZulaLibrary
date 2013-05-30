@@ -15,7 +15,7 @@
 
 #import "SMProductDetail.h"
 #import "SMComponentDescription.h"
-#import "SMImageView.h"
+#import "SMMultipleImageView.h"
 #import "SMLabel.h"
 #import "SMTitleLabel.h"
 #import "SMTextView.h"
@@ -46,7 +46,7 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
+    self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
@@ -109,12 +109,11 @@
 
 - (void)applyContents
 {
+    [self setTitle:self.productDetail.title];
+    
     [self.webView loadHTMLString:self.productDetail.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
-    NSInteger imageCount = [self.productDetail.images count];
-    if (imageCount == 1) {
-        [self.imageView setImageWithURL:[self.productDetail.images objectAtIndex:0]];
-    }
+    [self.imageView addImagesWithArray:self.productDetail.images];
     
     if (self.productDetail.backgroundUrl)
         [self.backgroundImageView setImageWithURL:self.productDetail.backgroundUrl];
