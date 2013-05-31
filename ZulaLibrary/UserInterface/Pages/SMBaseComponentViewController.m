@@ -111,6 +111,9 @@
 
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
 {
+    if (!navbarIconUrl) {
+        return;
+    }
     UIImageView *navbarImage = [[UIImageView alloc] init];
     [navbarImage setImageWithURL:navbarIconUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         // completed

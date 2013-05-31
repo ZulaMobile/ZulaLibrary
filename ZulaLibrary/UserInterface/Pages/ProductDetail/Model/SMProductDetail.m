@@ -32,8 +32,16 @@
             _images = [NSArray arrayWithArray:imagesArr];
         }
         
-        _backgroundUrl = [attributes objectForKey:kModelProductDetailBackgroundImage];
-        _navbarIcon = [attributes objectForKey:kModelProductDetailNavbarIcon];
+        NSString *backgroundImageUrlString = [attributes objectForKey:kModelProductDetailBackgroundImage];
+        if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
+            _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
+        }
+        
+        NSString *navbarIconUrlString = [attributes objectForKey:kModelProductDetailNavbarIcon];
+        if (navbarIconUrlString && ![navbarIconUrlString isEqualToString:@""]) {
+            _navbarIcon = [NSURL URLWithString:navbarIconUrlString];
+        }
+        
     }
     return self;
 }

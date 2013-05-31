@@ -27,6 +27,7 @@
 @end
 
 @implementation SMHomePageViewController
+@synthesize homePage, logoView, homePageLinks;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -49,6 +50,7 @@
     self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
+    [self.logoView setHidden:YES];
     
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0,
                                                                      0,
@@ -71,18 +73,18 @@
     [self fetchContents];
     
     // place links
-    SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
+    self.homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
                                       CGRectMake(padding,
-                                                 CGRectGetHeight(self.logoView.frame) + padding,
+                                                 padding,
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
-    [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
-    [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
-    [homePageLinks setBackgroundColor:[UIColor clearColor]];
-    [self.scrollView addSubview:homePageLinks];
+    [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [self.homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+    [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
+    [self.homePageLinks setBackgroundColor:[UIColor clearColor]];
+    [self.scrollView addSubview:self.homePageLinks];
     
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + CGRectGetHeight(self.logoView.frame) + padding)];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
     
     /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
@@ -112,7 +114,7 @@
 {
     [SMProgressHUD show];
     NSString *url = [self.componentDesciption url];
-    [SMHomePage fetchWithURLString:url completion:^(SMHomePage *homePage, SMServerError *error) {
+    [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
         [SMProgressHUD dismiss];
         if (error) {
             DDLogError(@"Home page fetch contents error|%@", [error description]);
@@ -121,12 +123,31 @@
             return;
         }
         
-        if (homePage.logoUrl)
-            [self.logoView setImageWithURL:homePage.logoUrl];
-        
-        if (homePage.backgroundUrl)
-            [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
+        self.homePage = _homePage;
+        [self applyContents];
     }];
+}
+
+- (void)applyContents
+{
+    if (self.homePage.logoUrl) {
+        [self.logoView setHidden:NO];
+        [self.logoView setImageWithURL:homePage.logoUrl];
+    }
+    
+    if (homePage.backgroundUrl)
+        [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
+    
+    // rearrange positions
+    if (self.homePage.logoUrl) {
+        CGRect linksFrame = self.homePageLinks.frame;
+        linksFrame.origin.y += CGRectGetHeight(self.logoView.frame);
+        [self.homePageLinks setFrame:linksFrame];
+        
+        CGSize scrollContentSize = self.scrollView.contentSize;
+        scrollContentSize.height += CGRectGetHeight(self.logoView.frame);
+        [self.scrollView setContentSize:scrollContentSize];
+    }
 }
 
 #pragma mark - private methods
