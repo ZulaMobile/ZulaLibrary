@@ -99,6 +99,15 @@
     [self setImageWithURL:imageUrl];
 }
 
+-(NSString *) stringByStrippingHTML:(NSString *)html {
+    NSRange r;
+    //NSString *s = [[self copy] autorelease];
+    NSString *s = [NSString stringWithString:html];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
+}
+
 - (void)appearanceForCaption:(NSString *)caption
 {
     // adds a caption text on image
@@ -107,7 +116,8 @@
     }
     
     NSString *fontName = @"Helvetica";
-    float fontSize = 12;
+    float fontSize = 10;
+    
     CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
     /*
     UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
@@ -131,14 +141,16 @@
     [self addSubview:captionLabel];
     */
     
-    NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {text-align: center;font-family: Helvetica, sans-serif; color: white; text-shadow: black 1px 1px; font-weight:bold; }</style><div class='image-caption'>%@</div>", caption];
+    NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {font-family: Helvetica, sans-serif; text-shadow: black 1px 1px; font-weight:bold; width:320px; height:160px;}</style><div class='image-element'><div class='image-caption'>%@</div>", caption];
     NSData *data = [styledCaption dataUsingEncoding:NSUTF8StringEncoding];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data documentAttributes:nil];
+    
     
     DTAttributedLabel *captionLabel = [[DTAttributedLabel alloc] initWithFrame:CGRectMake(0,
                                                                                           CGRectGetHeight(self.frame) - textSize.height,
                                                                                           320,
                                                                                           textSize.height)];
+    NSLog(@"%f, %f", CGRectGetHeight(self.frame), textSize.height);
     [captionLabel setAttributedString:attributedString];
     [captionLabel setBackgroundColor:[UIColor clearColor]];
     [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
