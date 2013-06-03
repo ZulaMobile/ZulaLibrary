@@ -7,26 +7,30 @@
 //
 
 #import "SMListViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SMProgressHUD.h"
+
+#import "UIColor+ZulaAdditions.h"
+#import "UIViewController+SSToolkitAdditions.h"
+
+#import "SMComponentFactory.h"
+#import "SMAppDescription.h"
+#import "SMComponentDescription.h"
+#import "SMContentViewController.h"
 #import "SMListPage.h"
 #import "SMListItem.h"
 #import "SMContentPage.h"
 #import "SMListCell.h"
-#import "SMContentViewController.h"
-#import "SMComponentDescription.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import "SMProgressHUD.h"
-#import "UIViewController+SSToolkitAdditions.h"
-#import "SMComponentFactory.h"
-#import "SMAppDescription.h"
-#import <QuartzCore/QuartzCore.h>
-#import "UIColor+ZulaAdditions.h"
+#import "SMMultipleImageView.h"
+
 
 @interface SMListViewController ()
 
 @end
 
 @implementation SMListViewController
-@synthesize listPage, tableView;
+@synthesize listPage, tableView, images;
 
 - (void)loadView
 {
@@ -88,6 +92,7 @@
 - (void)applyContents
 {
     [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     // ui changes
     if (self.listPage.backgroundUrl) {
@@ -96,7 +101,17 @@
         [self.tableView setBackgroundView:background];
     }
     
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    // add images view if exists
+    if ([[self.listPage images] count] > 0) {
+        self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
+        [self.images addImagesWithArray:self.listPage.images];
+        [self.view addSubview:self.images];
+        
+        CGRect tableViewFrame = self.tableView.frame;
+        tableViewFrame.origin.y += CGRectGetHeight(self.images.frame);
+        tableViewFrame.size.height -= CGRectGetHeight(self.images.frame);
+        [self.tableView setFrame:tableViewFrame];
+    }
     
     [self.tableView reloadData];
 }

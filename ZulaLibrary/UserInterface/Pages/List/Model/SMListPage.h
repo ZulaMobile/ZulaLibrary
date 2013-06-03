@@ -14,6 +14,7 @@
 #define kModelListPageItemBackgroundImageUrl @"item_bg_image"
 #define kModelListPageListType @"listing_style"
 #define kModelListPageItems @"items"
+#define kModelListPageImages @"images"
 
 /**
  List Style Options that determines the display style
@@ -35,6 +36,12 @@ typedef NS_ENUM(NSInteger, SMListingStyle) {
  Page title, Header title
  */
 @property (nonatomic, strong) NSString *title;
+
+/**
+ Multiple images to display on top of the page. Swipable.
+ The array consists of NSURL objects that are image urls.
+ */
+@property (nonatomic, readonly) NSArray *images;
 
 /**
  Optional background image

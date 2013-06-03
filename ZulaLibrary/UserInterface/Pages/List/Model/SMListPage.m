@@ -15,7 +15,8 @@
 backgroundUrl = _backgroundUrl,
 itemBackgroundUrl = _itemBackgroundUrl,
 listingStyle = _listingStyle,
-items = _items;
+items = _items,
+images = _images;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -49,6 +50,16 @@ items = _items;
             }
             _items = [NSArray arrayWithArray:itemsArr];
         }
+        
+        // images
+        if ([[attributes objectForKey:kModelListPageImages] isKindOfClass:[NSArray class]]) {
+            NSArray *imagesFetched = [attributes objectForKey:kModelListPageImages];
+            NSMutableArray *imagesArr = [NSMutableArray arrayWithCapacity:[imagesFetched count]];
+            for (NSString *imageUrl in imagesFetched) {
+                [imagesArr addObject:[NSURL URLWithString:imageUrl]];
+            }
+            _images = [NSArray arrayWithArray:imagesArr];
+        }
     }
     return self;
 }
@@ -63,6 +74,7 @@ items = _items;
             [response objectForKey:kModelListPageBackgroundImageUrl] &&
             [response objectForKey:kModelListPageItemBackgroundImageUrl] &&
             [response objectForKey:kModelListPageListType] &&
+            [response objectForKey:kModelListPageImages] &&
             [response objectForKey:kModelListPageItems]);
 }
 

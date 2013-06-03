@@ -8,7 +8,7 @@
 
 #import "SMBaseComponentViewController.h"
 
-@class SMListPage, SMListItem;
+@class SMListPage, SMListItem, SMMultipleImageView;
 
 /**
  List page corresponds to UITableViewController.
@@ -24,6 +24,11 @@
  Table view 
  */
 @property (nonatomic, strong) UITableView *tableView;
+
+/**
+ Swipable image gallery
+ */
+@property (nonatomic, strong) SMMultipleImageView *images;
 
 /**
  Returns the component from the data on the `listItem`.

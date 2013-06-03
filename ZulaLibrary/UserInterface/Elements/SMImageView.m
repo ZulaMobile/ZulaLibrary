@@ -150,7 +150,7 @@
                                                                                           CGRectGetHeight(self.frame) - textSize.height,
                                                                                           320,
                                                                                           textSize.height)];
-    NSLog(@"%f, %f", CGRectGetHeight(self.frame), textSize.height);
+    
     [captionLabel setAttributedString:attributedString];
     [captionLabel setBackgroundColor:[UIColor clearColor]];
     [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
