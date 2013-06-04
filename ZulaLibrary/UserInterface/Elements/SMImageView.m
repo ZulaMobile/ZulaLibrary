@@ -19,6 +19,7 @@
 - (void)appearanceForAlignment:(NSString *)alignment;
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
 - (void)appearanceForCaption:(NSString *)caption;
+- (void)rescaleImage;
 @end
 
 @implementation SMImageView
@@ -159,6 +160,46 @@
     //[captionLabel sizeToFit];
     
     [self addSubview:captionLabel];
+}
+
+#pragma mark - image methods
+
+- (void)addFrame
+{
+    CALayer *layer = self.layer;
+    [layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [layer setBorderWidth:4.0f];
+    [layer setShadowColor: [[UIColor colorWithHex:@"333333"] CGColor]];
+    [layer setShadowOpacity:0.5f];
+    [layer setShadowOffset: CGSizeMake(1, 1)];
+    [layer setShadowRadius:0.5];
+    [self setClipsToBounds:NO];
+    
+    [self rescaleImage];
+}
+
+- (void)rescaleImage
+{
+    UIImage* scaledImage = self.image;
+    
+    CALayer* layer = self.layer;
+    CGFloat borderWidth = layer.borderWidth;
+    
+    //if border is defined
+    if (borderWidth > 0)
+    {
+        //rectangle in which we want to draw the image.
+        CGRect imageRect = CGRectMake(0.0, 0.0, self.bounds.size.width - 2 * borderWidth,self.bounds.size.height - 2 * borderWidth);
+        //Only draw image if its size is bigger than the image rect size.
+        if (self.image.size.width > imageRect.size.width || self.image.size.height > imageRect.size.height)
+        {
+            UIGraphicsBeginImageContext(imageRect.size);
+            [self.image drawInRect:imageRect];
+            scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
+    }
+    self.image = scaledImage;
 }
 
 @end

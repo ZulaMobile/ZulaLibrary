@@ -22,4 +22,9 @@
 
 - (void)setImageWithUrlString:(NSString *)url;
 
+/**
+ Adds a white frame around the image.
+ */
+- (void)addFrame;
+
 @end

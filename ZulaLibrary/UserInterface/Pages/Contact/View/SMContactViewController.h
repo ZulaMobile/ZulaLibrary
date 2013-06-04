@@ -8,17 +8,18 @@
 
 #import "SMBaseComponentViewController.h"
 #import <MapKit/MapKit.h>
+#import "SMMapView.h"
 
 @class SMContact, SMWebView;
 
 /**
  Contact controller to display maps, address info and a form
  */
-@interface SMContactViewController : SMBaseComponentViewController <UIWebViewDelegate, MKMapViewDelegate>
+@interface SMContactViewController : SMBaseComponentViewController <UIWebViewDelegate, MKMapViewDelegate, SMMapViewDelegate>
 
 @property (nonatomic, strong) SMContact *contact;
 
-@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) SMMapView *mapView;
 
 @property (nonatomic, strong) SMWebView *textView;
 

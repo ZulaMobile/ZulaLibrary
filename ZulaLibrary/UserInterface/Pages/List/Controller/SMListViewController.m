@@ -23,6 +23,7 @@
 #import "SMContentPage.h"
 #import "SMListCell.h"
 #import "SMMultipleImageView.h"
+#import "SMImageView.h"
 
 
 @interface SMListViewController ()
@@ -164,19 +165,34 @@
     
     // left image if exists
     if (item.thumbnailUrl) {
-        UIImageView *cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 70, 70)];
+        SMImageView *cellImage = [[SMImageView alloc] initWithFrame:CGRectMake(5, 10, 60, 60)];
         [cellImage setImageWithURL:item.thumbnailUrl
-                       placeholderImage:[UIImage imageNamed:@"Default"]];
+                       placeholderImage:[UIImage imageNamed:@"Default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                           [cellImage addFrame];
+                           // move text label and title to the side
+                           CGRect textLabelFrame = cell.textLabel.frame;
+                           textLabelFrame.origin.x += 5;
+                           textLabelFrame.size.width -= 20;
+                           [cell.textLabel setFrame:textLabelFrame];
+                           
+                           CGRect textDetailFrame = cell.detailTextLabel.frame;
+                           textDetailFrame.origin.x += 5;
+                           textDetailFrame.size.width -= 20;
+                           [cell.detailTextLabel setFrame:textDetailFrame];
+                       }];
         [cellImage setContentMode:UIViewContentModeScaleAspectFill];
         [cellImage setClipsToBounds:YES];
         [cellImage setTag:31];
         
         // add borders
         //UIColor *bgColor = [cell backgroundColor];
-        [cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
-        [cellImage.layer setBorderWidth:0.5];
+        //[cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        //[cellImage.layer setBorderWidth:0.5];
+        
         
         [cell.contentView addSubview:cellImage];
+        
+        
     }
     
     return cell;

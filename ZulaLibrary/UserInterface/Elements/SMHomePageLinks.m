@@ -15,7 +15,7 @@
 #import "SMNavigationDescription.h"
 
 @interface SMHomePageLinks()
-- (void)appearanceForVisibility:(NSString *)visibility;
+- (void)appearanceForVisibility:(BOOL)visibility;
 - (void)appearanceForStyle:(NSString *)style;
 - (void)appearanceForButtonColor:(NSString *)buttonColor;
 - (void)onComponentButton:(UIButton *)sender;
@@ -29,22 +29,16 @@
     if (!padding) {
         padding = 10.0;
     }
-    [self appearanceForVisibility:[appearances objectForKey:@"disable"]];
+    [self appearanceForVisibility:[[appearances objectForKey:@"disable"] boolValue]];
     [self appearanceForStyle:[appearances objectForKey:@"style"]];
     [self appearanceForButtonColor:[appearances objectForKey:@"button_color"]];
 }
 
 #pragma mark - private methods
 
-- (void)appearanceForVisibility:(NSString *)visibility
+- (void)appearanceForVisibility:(BOOL)visibility
 {
-    if ([visibility isEqualToString:@"1"]) {
-        [self setHidden:NO];
-    }
-    
-    if ([visibility isEqualToString:@"0"]) {
-        [self setHidden:YES];
-    }
+    [self setHidden:visibility];
 }
 
 - (void)appearanceForStyle:(NSString *)style

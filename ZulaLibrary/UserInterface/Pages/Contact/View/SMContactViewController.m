@@ -7,16 +7,19 @@
 //
 
 #import "SMContactViewController.h"
+#import <AddressBook/AddressBook.h>
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
 
+#import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
 #import "SMContact.h"
 #import "SMWebView.h"
 #import "SMImageView.h"
 #import "SMAnnotation.h"
+#import "SMMapView.h"
 
 @interface SMContactViewController ()
 
@@ -112,9 +115,11 @@
     // maps
     if ([self.contact hasCoordinates])
     {
-        self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
+        self.mapView = [[SMMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
         [self.mapView setDelegate:self];
+        [self.mapView setRouteButtonDelegate:self];
         [self.mapView setCenterCoordinate:self.contact.coordinates animated:NO];
+        [self.mapView applyAppearances:[self.componentDesciption.appearance objectForKey:@"maps"]];
         
         [self.scrollView addSubview:mapView];
         
@@ -126,7 +131,9 @@
         scrollSize.height += CGRectGetHeight(self.mapView.frame);
         [self.scrollView setContentSize:scrollSize];
      
-        [self addRegionAndAnnotationLatitude:self.contact.coordinates.latitude longitude:self.contact.coordinates.longitude annotationName:self.contact.title];
+        // fetch app title to display in annotation
+        NSString *appTitle = [[SMAppDescription sharedInstance] appTitle];
+        [self addRegionAndAnnotationLatitude:self.contact.coordinates.latitude longitude:self.contact.coordinates.longitude annotationName:appTitle];
     }
     
     // rearrange contents if maps is set
@@ -195,6 +202,33 @@
     }
     
     return YES;
+}
+
+#pragma mark - smwebview route button delegate
+
+- (void)onRouteButton:(SMMapView *)mapView
+{
+    NSString *os_version = [[UIDevice currentDevice] systemVersion];
+    float os_v = [os_version floatValue];
+    
+    CLLocationDegrees latitude = self.contact.coordinates.latitude;
+    CLLocationDegrees longitude = self.contact.coordinates.longitude;
+    NSString* name = self.contact.title;
+    
+    if (os_v >= 6.0) {
+        MKPlacemark* placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude, longitude)
+                                                       addressDictionary:[NSDictionary dictionaryWithObjectsAndKeys:name,kABPersonAddressStreetKey, nil]];
+        MKMapItem* mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        
+        NSArray* mapItems = [NSArray arrayWithObjects:
+                             mapItem,
+                             nil];
+        NSDictionary* launchOptions = [NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving, MKLaunchOptionsDirectionsModeKey, nil];
+        [MKMapItem openMapsWithItems:mapItems launchOptions:launchOptions];
+    } else {
+        UIApplication *app = [UIApplication sharedApplication];
+        [app openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.google.com/maps?saddr=Current+Location&daddr=%f,%f", latitude, longitude]]];
+    }
 }
 
 @end

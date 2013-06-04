@@ -21,6 +21,7 @@
 		670DA45C175CE67800B154F0 /* SMContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA45B175CE67800B154F0 /* SMContactViewController.m */; };
 		670DA45E175CEB5900B154F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670DA45D175CEB5800B154F0 /* MapKit.framework */; };
 		670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA463175D053A00B154F0 /* SMAnnotation.m */; };
+		670DA467175DCE7C00B154F0 /* SMMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA466175DCE7B00B154F0 /* SMMapView.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -164,6 +165,8 @@
 		670DA45D175CEB5800B154F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		670DA462175D053A00B154F0 /* SMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAnnotation.h; path = UserInterface/Elements/Helpers/SMAnnotation.h; sourceTree = "<group>"; };
 		670DA463175D053A00B154F0 /* SMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAnnotation.m; path = UserInterface/Elements/Helpers/SMAnnotation.m; sourceTree = "<group>"; };
+		670DA465175DCE7B00B154F0 /* SMMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMMapView.h; path = UserInterface/Elements/SMMapView.h; sourceTree = "<group>"; };
+		670DA466175DCE7B00B154F0 /* SMMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMapView.m; path = UserInterface/Elements/SMMapView.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -891,6 +894,8 @@
 				67E5F6A5174E0A0B006E1EEE /* SMButton.m */,
 				67B6C699174F9E4C008E1EF0 /* SMBorderedImage.h */,
 				67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */,
+				670DA465175DCE7B00B154F0 /* SMMapView.h */,
+				670DA466175DCE7B00B154F0 /* SMMapView.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -1279,6 +1284,7 @@
 				670DA459175CE31500B154F0 /* SMContact.m in Sources */,
 				670DA45C175CE67800B154F0 /* SMContactViewController.m in Sources */,
 				670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */,
+				670DA467175DCE7C00B154F0 /* SMMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
