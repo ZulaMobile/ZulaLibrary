@@ -17,6 +17,10 @@
 		670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44A1757480400B154F0 /* SMProductDetailViewController.m */; };
 		670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44E1757482700B154F0 /* SMProductDetail.m */; };
 		670DA4521757A8E800B154F0 /* SMMultipleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA4511757A8E800B154F0 /* SMMultipleImageView.m */; };
+		670DA459175CE31500B154F0 /* SMContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA458175CE31500B154F0 /* SMContact.m */; };
+		670DA45C175CE67800B154F0 /* SMContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA45B175CE67800B154F0 /* SMContactViewController.m */; };
+		670DA45E175CEB5900B154F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670DA45D175CEB5800B154F0 /* MapKit.framework */; };
+		670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA463175D053A00B154F0 /* SMAnnotation.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -153,6 +157,13 @@
 		670DA44E1757482700B154F0 /* SMProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProductDetail.m; path = UserInterface/Pages/ProductDetail/Model/SMProductDetail.m; sourceTree = "<group>"; };
 		670DA4501757A8E800B154F0 /* SMMultipleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMMultipleImageView.h; path = UserInterface/Elements/SMMultipleImageView.h; sourceTree = "<group>"; };
 		670DA4511757A8E800B154F0 /* SMMultipleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMultipleImageView.m; path = UserInterface/Elements/SMMultipleImageView.m; sourceTree = "<group>"; };
+		670DA457175CE31500B154F0 /* SMContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContact.h; path = UserInterface/Pages/Contact/Model/SMContact.h; sourceTree = "<group>"; };
+		670DA458175CE31500B154F0 /* SMContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContact.m; path = UserInterface/Pages/Contact/Model/SMContact.m; sourceTree = "<group>"; };
+		670DA45A175CE67800B154F0 /* SMContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContactViewController.h; path = UserInterface/Pages/Contact/View/SMContactViewController.h; sourceTree = "<group>"; };
+		670DA45B175CE67800B154F0 /* SMContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContactViewController.m; path = UserInterface/Pages/Contact/View/SMContactViewController.m; sourceTree = "<group>"; };
+		670DA45D175CEB5800B154F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		670DA462175D053A00B154F0 /* SMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAnnotation.h; path = UserInterface/Elements/Helpers/SMAnnotation.h; sourceTree = "<group>"; };
+		670DA463175D053A00B154F0 /* SMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAnnotation.m; path = UserInterface/Elements/Helpers/SMAnnotation.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -314,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				670DA45E175CEB5900B154F0 /* MapKit.framework in Frameworks */,
 				677207741732D83400E5CDC2 /* ImageIO.framework in Frameworks */,
 				677207701732D80300E5CDC2 /* CoreImage.framework in Frameworks */,
 				67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */,
@@ -385,6 +397,50 @@
 				670DA44E1757482700B154F0 /* SMProductDetail.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		670DA453175CE2D500B154F0 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				670DA454175CE2E100B154F0 /* Model */,
+				670DA456175CE2EE00B154F0 /* Controller */,
+				670DA455175CE2E700B154F0 /* View */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		670DA454175CE2E100B154F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				670DA457175CE31500B154F0 /* SMContact.h */,
+				670DA458175CE31500B154F0 /* SMContact.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		670DA455175CE2E700B154F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		670DA456175CE2EE00B154F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				670DA45A175CE67800B154F0 /* SMContactViewController.h */,
+				670DA45B175CE67800B154F0 /* SMContactViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		670DA461175D051100B154F0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				670DA462175D053A00B154F0 /* SMAnnotation.h */,
+				670DA463175D053A00B154F0 /* SMAnnotation.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		6749EB7817257966002219C8 /* List */ = {
@@ -625,6 +681,7 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
+				670DA45D175CEB5800B154F0 /* MapKit.framework */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
@@ -767,6 +824,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				670DA453175CE2D500B154F0 /* Contact */,
 				670DA447175747B400B154F0 /* ProductDetail */,
 				6749EB7817257966002219C8 /* List */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
@@ -805,6 +863,7 @@
 		67CCC9D916C1579D000EBC0B /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				670DA461175D051100B154F0 /* Helpers */,
 				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
 				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
 				67D4C44416D903A900BCE927 /* SMViewElement.h */,
@@ -1217,6 +1276,9 @@
 				670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */,
 				670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */,
 				670DA4521757A8E800B154F0 /* SMMultipleImageView.m in Sources */,
+				670DA459175CE31500B154F0 /* SMContact.m in Sources */,
+				670DA45C175CE67800B154F0 /* SMContactViewController.m in Sources */,
+				670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
