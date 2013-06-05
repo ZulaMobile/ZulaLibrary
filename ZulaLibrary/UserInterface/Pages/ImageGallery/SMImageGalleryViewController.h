@@ -9,6 +9,8 @@
 #import "SMBaseComponentViewController.h"
 #import "MWPhotoBrowser.h"
 
+@class SMImageGallery;
+
 /**
  Photo Gallery Component. 
  All photos are displayed as grid. When one photo is selected, the fullscreen
@@ -16,7 +18,10 @@
  */
 @interface SMImageGalleryViewController : SMBaseComponentViewController <MWPhotoBrowserDelegate>
 
-@property (nonatomic, strong) NSArray *photoUrls;
+/**
+ The model class that includes title, images, bg_image and navbar_image
+ */
+@property (nonatomic, strong) SMImageGallery *imageGallery;
 
 /**
  The array of `MWPhoto` objects.

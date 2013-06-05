@@ -7,8 +7,13 @@
 //
 
 #import "SMImageGalleryViewController.h"
+#import "SMProgressHUD.h"
+#import "UIViewController+SSToolkitAdditions.h"
+
+#import "SMComponentDescription.h"
 #import "MWPhoto.h"
 #import "SMImageView.h"
+#import "SMImageGallery.h"
 
 @interface SMImageGalleryViewController ()
 
@@ -19,60 +24,13 @@
 @end
 
 @implementation SMImageGalleryViewController
-@synthesize photos, photoUrls, scrollView;
+@synthesize photos, imageGallery, scrollView;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
     self = [super initWithDescription:description];
     if (self) {
-        self.photoUrls = [NSArray arrayWithObjects:
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          @"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg",
-                          @"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg",
-                          @"http://farm8.staticflickr.com/7036/6816418388_a771f3d599_o.jpg",
-                          @"http://farm8.staticflickr.com/7046/6812073540_7642101577_c.jpg",
-                          @"http://farm8.staticflickr.com/7054/6952857223_d117581db2_b.jpg",
-                          nil];
-        
         self.photos = [NSMutableArray array];
-        for (NSString *urlString in self.photoUrls) {
-            [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:urlString]]];
-        }
     }
     return self;
 }
@@ -84,6 +42,55 @@
     // scroll view
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    
+    [self.view addSubview:self.scrollView];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // fetch the data and load the model
+    [self fetchContents];
+}
+
+#pragma mark - overridden methods
+
+- (void)fetchContents
+{
+    // if data is already set, no need to fetch contents
+    if (self.imageGallery) {
+        [self applyContents];
+        return;
+    }
+    
+    // start preloader
+    [SMProgressHUD show];
+    
+    NSString *url = [self.componentDesciption url];
+    [SMImageGallery fetchWithURLString:url completion:^(SMImageGallery *_imageGallery, SMServerError *error) {
+        // end preloader
+        [SMProgressHUD dismiss];
+        
+        if (error) {
+            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            
+            // show error
+            [self displayErrorString:error.localizedDescription];
+            
+            return;
+        }
+        
+        [self setImageGallery:_imageGallery];
+        [self applyContents];
+    }];
+}
+
+- (void)applyContents
+{
+    for (NSURL *url in self.imageGallery.images) {
+        [photos addObject:[MWPhoto photoWithURL:url]];
+    }
     
     // thumbnail container
     UIView *thumbnailContainer = [[UIView alloc] initWithFrame:CGRectMake(padding,
@@ -112,9 +119,11 @@
                                                                  height)];
         // create the thumbnail view
         image = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(imageButton.frame), CGRectGetHeight(imageButton.frame))];
-        [image setImageWithURL:[NSURL URLWithString:[self.photoUrls objectAtIndex:i]]];
+        [image setImageWithURL:[self.imageGallery.images objectAtIndex:i]];
+        [image setClipsToBounds:YES];
+        [image setContentMode:UIViewContentModeScaleToFill];
         [image addFrame];
-
+        
         [imageButton addSubview:image];
         [imageButton setTag:i];
         [imageButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,7 +139,6 @@
     [self.scrollView addSubview:thumbnailContainer];
     
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(thumbnailContainer.frame), CGRectGetHeight(thumbnailContainer.frame))];
-    [self.view addSubview:self.scrollView];
 }
 
 #pragma mark - private methods

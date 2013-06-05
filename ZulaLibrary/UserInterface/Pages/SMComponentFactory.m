@@ -35,7 +35,8 @@
     } else if ([componentDescription.type isEqualToString:@"ProductDetailComponent"]) {
         component = [[SMProductDetailViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContactComponent"]) {
-        //component = [[SMContactViewController alloc] initWithDescription:componentDescription];
+        component = [[SMContactViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ImageGalleryComponent"]) {
         component = [[SMImageGalleryViewController alloc] initWithDescription:componentDescription];
     }
     
