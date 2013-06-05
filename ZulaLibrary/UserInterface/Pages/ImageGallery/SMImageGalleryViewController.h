@@ -16,6 +16,8 @@
  */
 @interface SMImageGalleryViewController : SMBaseComponentViewController <MWPhotoBrowserDelegate>
 
+@property (nonatomic, strong) NSArray *photoUrls;
+
 /**
  The array of `MWPhoto` objects.
  */
