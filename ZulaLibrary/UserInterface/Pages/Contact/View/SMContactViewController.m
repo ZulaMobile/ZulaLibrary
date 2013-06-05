@@ -11,6 +11,7 @@
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
+#import "UIColor+SSToolkitAdditions.h"
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
@@ -20,6 +21,7 @@
 #import "SMImageView.h"
 #import "SMAnnotation.h"
 #import "SMMapView.h"
+#import "SMButton.h"
 
 @interface SMContactViewController ()
 
@@ -55,6 +57,8 @@
     [self.scrollView addSubview:self.textView];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),
                                                CGRectGetWidth(self.textView.frame))];
+    
+    
     
     [self.view addSubview:self.scrollView];
 }
@@ -135,6 +139,12 @@
         // fetch app title to display in annotation
         NSString *appTitle = [[SMAppDescription sharedInstance] appTitle];
         [self addRegionAndAnnotationLatitude:self.contact.coordinates.latitude longitude:self.contact.coordinates.longitude annotationName:appTitle];
+        
+        
+        
+        
+        
+        
     }
     
     // rearrange contents if maps is set
@@ -194,6 +204,31 @@
     
     self.textView.frame = textViewFrame;
     [self.scrollView setContentSize:scrollSize];
+    
+    
+    // TEMP FORM
+    UITextField *name = [[UITextField alloc] initWithFrame:CGRectMake(10, scrollSize.height, 300, 31)];
+    UITextField *email = [[UITextField alloc] initWithFrame:CGRectMake(10, name.frame.origin.y + CGRectGetHeight(name.frame) + 10, 300, 31)];
+    UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(10, email.frame.origin.y + CGRectGetHeight(email.frame) + 10, 300, 120)];
+    SMButton *submit = [[SMButton alloc] initWithFrame:CGRectMake(10, text.frame.origin.y + CGRectGetHeight(text.frame) + 10, 300, 31)];
+    
+    [name setPlaceholder:@"İsim Soyisim"];
+    [email setPlaceholder:@"Eposta"];
+    [text setPlaceholder:@"Mesajiniz"];
+    [name setBorderStyle:UITextBorderStyleRoundedRect];
+    [email setBorderStyle:UITextBorderStyleRoundedRect];
+    [text setBorderStyle:UITextBorderStyleRoundedRect];
+    [submit setTitle:@"Gönder" forState:UIControlStateNormal];
+    [submit setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]];
+    
+    [self.scrollView addSubview:name];
+    [self.scrollView addSubview:email];
+    [self.scrollView addSubview:text];
+    [self.scrollView addSubview:submit];
+    scrollSize = self.scrollView.contentSize;
+    scrollSize.height = submit.frame.origin.y + CGRectGetHeight(submit.frame) + 10;
+    [self.scrollView setContentSize:scrollSize];
+    // ENDTEMP FORM
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
