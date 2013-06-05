@@ -16,6 +16,7 @@
 #import "SMContentContainerViewController.h"
 #import "SMProductDetailViewController.h"
 #import "SMContactViewController.h"
+#import "SMImageGalleryViewController.h"
 
 @implementation SMComponentFactory
 
@@ -34,7 +35,8 @@
     } else if ([componentDescription.type isEqualToString:@"ProductDetailComponent"]) {
         component = [[SMProductDetailViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContactComponent"]) {
-        component = [[SMContactViewController alloc] initWithDescription:componentDescription];
+        //component = [[SMContactViewController alloc] initWithDescription:componentDescription];
+        component = [[SMImageGalleryViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {
