@@ -172,7 +172,7 @@
     [layer setShadowColor: [[UIColor colorWithHex:@"333333"] CGColor]];
     [layer setShadowOpacity:0.5f];
     [layer setShadowOffset: CGSizeMake(1, 1)];
-    [layer setShadowRadius:0.5];
+    [layer setShadowRadius:1.0];
     [self setClipsToBounds:NO];
     
     [self rescaleImage];

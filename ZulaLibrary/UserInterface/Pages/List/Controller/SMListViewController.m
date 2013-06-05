@@ -166,20 +166,21 @@
     // left image if exists
     if (item.thumbnailUrl) {
         SMImageView *cellImage = [[SMImageView alloc] initWithFrame:CGRectMake(5, 10, 60, 60)];
-        [cellImage setImageWithURL:item.thumbnailUrl
-                       placeholderImage:[UIImage imageNamed:@"Default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                           
-                           // move text label and title to the side
-                           CGRect textLabelFrame = cell.textLabel.frame;
-                           textLabelFrame.origin.x += 5;
-                           textLabelFrame.size.width -= 20;
-                           [cell.textLabel setFrame:textLabelFrame];
-                           
-                           CGRect textDetailFrame = cell.detailTextLabel.frame;
-                           textDetailFrame.origin.x += 5;
-                           textDetailFrame.size.width -= 20;
-                           [cell.detailTextLabel setFrame:textDetailFrame];
-                       }];
+        [cellImage setImageWithURL:item.thumbnailUrl placeholderImage:[UIImage imageNamed:@"Default"] success:^(UIImage *image, BOOL cached) {
+            // move text label and title to the side
+            CGRect textLabelFrame = cell.textLabel.frame;
+            textLabelFrame.origin.x += 5;
+            textLabelFrame.size.width -= 20;
+            [cell.textLabel setFrame:textLabelFrame];
+            
+            CGRect textDetailFrame = cell.detailTextLabel.frame;
+            textDetailFrame.origin.x += 5;
+            textDetailFrame.size.width -= 20;
+            [cell.detailTextLabel setFrame:textDetailFrame];
+        } failure:^(NSError *error) {
+            //
+        }];
+        
         [cellImage setContentMode:UIViewContentModeScaleAspectFill];
         [cellImage setClipsToBounds:YES];
         [cellImage setTag:31];
