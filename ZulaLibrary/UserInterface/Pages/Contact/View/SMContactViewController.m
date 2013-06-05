@@ -50,6 +50,7 @@
     [self.textView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.textView setDelegate:self];
     [self.textView disableScrollBounce];
+    [self.textView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
     
     [self.scrollView addSubview:self.textView];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),

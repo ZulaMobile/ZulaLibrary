@@ -168,7 +168,7 @@
         SMImageView *cellImage = [[SMImageView alloc] initWithFrame:CGRectMake(5, 10, 60, 60)];
         [cellImage setImageWithURL:item.thumbnailUrl
                        placeholderImage:[UIImage imageNamed:@"Default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                           [cellImage addFrame];
+                           
                            // move text label and title to the side
                            CGRect textLabelFrame = cell.textLabel.frame;
                            textLabelFrame.origin.x += 5;
@@ -183,6 +183,7 @@
         [cellImage setContentMode:UIViewContentModeScaleAspectFill];
         [cellImage setClipsToBounds:YES];
         [cellImage setTag:31];
+        [cellImage addFrame];
         
         // add borders
         //UIColor *bgColor = [cell backgroundColor];

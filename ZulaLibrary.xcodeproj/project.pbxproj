@@ -827,13 +827,13 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				670DA453175CE2D500B154F0 /* Contact */,
-				670DA447175747B400B154F0 /* ProductDetail */,
-				6749EB7817257966002219C8 /* List */,
-				6772D44D16D686D300B36C0F /* SplashPreLoader */,
-				67CCC9FE16C16B44000EBC0B /* Content */,
-				674D6F30174B85E30007A4A1 /* ContentContainer */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
+				67CCC9FE16C16B44000EBC0B /* Content */,
+				6749EB7817257966002219C8 /* List */,
+				670DA447175747B400B154F0 /* ProductDetail */,
+				670DA453175CE2D500B154F0 /* Contact */,
+				674D6F30174B85E30007A4A1 /* ContentContainer */,
+				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
 				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
 				675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */,
