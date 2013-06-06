@@ -7,6 +7,7 @@
 //
 
 #import "SMBaseComponentViewController.h"
+#import "SDSegmentedControl.h"
 
 @class SMContentContainer, SMSubMenuView;
 
@@ -26,6 +27,6 @@
 /**
  Submenu view contains the buttons for sub-components
  */
-@property (nonatomic, strong) SMSubMenuView *subMenu;
+@property (nonatomic, strong) SDSegmentedControl *subMenu;
 
 @end

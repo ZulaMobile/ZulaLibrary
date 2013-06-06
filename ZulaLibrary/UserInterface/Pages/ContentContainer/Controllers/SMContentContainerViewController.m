@@ -21,7 +21,7 @@
 #define contentViewTag 664
 
 @interface SMContentContainerViewController ()
-- (void)onButton:(SMSubMenuView *)submenu;
+- (void)onButton:(id)submenu;
 @end
 
 @implementation SMContentContainerViewController
@@ -39,17 +39,27 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
-    self.subMenu = [[SMSubMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
+    self.subMenu = [[SDSegmentedControl alloc] initWithItems:[NSArray array]];
+    [self.subMenu setFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
+    self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
+    [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
+    //self.subMenu.arrowHeightFactor *= -1.0;
     
+    /*
     UIColor *navBarBackgroundColor = self.navigationController.navigationBar.backgroundColor;
     if (!navBarBackgroundColor) {
         navBarBackgroundColor = [UIColor colorWithHex:@"CCCCCC"];
-    }
+    }*/
+    
+    /*
     [self.subMenu changeBackgroundColor:[navBarBackgroundColor darkerColor]];
     [self.subMenu setClipsToBounds:NO];
     [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
+    */
+    
+    
     
     [self.view addSubview:self.subMenu];
 }
@@ -108,20 +118,21 @@
         }
         
         // add it to the menu
-        [self.subMenu addButtonWithTitle:contentPage.title tag:i];
+        [self.subMenu insertSegmentWithTitle:contentPage.title atIndex:i animated:YES];
         i++;
     }
     
     // display the 1st one
-    
     [self displayContentPage:firstContentPage];
+    self.subMenu.selectedSegmentIndex = 0;
 }
 
 #pragma mark - private methods
 
-- (void)onButton:(SMSubMenuView *)submenu
+- (void)onButton:(id)submenu
 {
-    SMContentPage *contentPage = [self.contentContainer.components objectAtIndex:subMenu.activeButton.tag];
+    NSInteger selectedIndex = [(SDSegmentedControl *)subMenu selectedSegmentIndex];
+    SMContentPage *contentPage = [self.contentContainer.components objectAtIndex:selectedIndex];
     [self displayContentPage:contentPage];
 }
 

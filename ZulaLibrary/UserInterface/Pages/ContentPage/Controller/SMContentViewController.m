@@ -49,7 +49,7 @@
     
     self.webView = [[SMWebView alloc] initWithFrame:
                     CGRectMake(padding,
-                               0,
+                               padding,
                                CGRectGetWidth(self.view.frame) - padding * 2,
                                600)];
     [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
