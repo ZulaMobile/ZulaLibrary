@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMBaseComponentViewController.h"
 
-@class SMImageView, SMLabel, SMWebView, SMContentPage;
+@class SMImageView, SMLabel, SMMultipleImageView, SMContentPage, SMWebView;
 
 /**
  Content page is a simple page consist of title, text and image
@@ -28,20 +28,14 @@
 @property (nonatomic, strong) SMContentPage *contentPage;
 
 /**
- Title label
- See label appearance attributes
- */
-@property (nonatomic, strong) SMLabel *titleView;
-
-/**
  web view to show html content
  */
 @property (nonatomic, strong) SMWebView *webView;
 
 /**
- The 320x150 image view.
+ The 320x160 image view.
  If there is no image set, this view will disappear
  */
-@property (nonatomic, strong) SMImageView *imageView;
+@property (nonatomic, strong) SMMultipleImageView *imageView;
 
 @end

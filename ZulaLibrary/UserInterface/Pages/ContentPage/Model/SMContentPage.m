@@ -13,7 +13,7 @@
 @implementation SMContentPage
 @synthesize title = _title;
 @synthesize text = _text;
-@synthesize imageUrl = _imageUrl;
+@synthesize images = _images;
 @synthesize backgroundUrl = _backgroundUrl;
 @synthesize navbarIcon = _navbarIcon;
 
@@ -24,9 +24,13 @@
         _title = [attributes objectForKey:kModelContentPageTitle];
         _text = [attributes objectForKey:kModelContentPageText];
         
-        NSString *imageUrlString = [attributes objectForKey:kModelContentPageImageUrl];
-        if (imageUrlString && ![imageUrlString isEqualToString:@""]) {
-            _imageUrl = [NSURL URLWithString:imageUrlString];
+        if ([[attributes objectForKey:kModelContentPageImages] isKindOfClass:[NSArray class]]) {
+            NSArray *imagesFetched = [attributes objectForKey:kModelContentPageImages];
+            NSMutableArray *imagesArr = [NSMutableArray arrayWithCapacity:[imagesFetched count]];
+            for (NSString *imageUrl in imagesFetched) {
+                [imagesArr addObject:[NSURL URLWithString:imageUrl]];
+            }
+            _images = [NSArray arrayWithArray:imagesArr];
         }
         
         NSString *backgroundImageUrlString = [attributes objectForKey:kModelContentPageBackgroundImageUrl];
@@ -50,7 +54,7 @@
     
     return ([response objectForKey:kModelContentPageTitle] &&
             [response objectForKey:kModelContentPageText] &&
-            [response objectForKey:kModelContentPageImageUrl] &&
+            [response objectForKey:kModelContentPageImages] &&
             [response objectForKey:kModelContentPageBackgroundImageUrl] &&
             [response objectForKey:kModelContentPageNavbarIcon]);
 }

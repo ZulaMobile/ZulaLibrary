@@ -247,7 +247,7 @@
                             nil];
     SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:params];
     [contentPage setBackgroundUrl:self.listPage.backgroundUrl];
-    [contentPage setImageUrl:listItem.imageUrl];
+    [contentPage setImages:[NSArray arrayWithObject:listItem.imageUrl]];
     
     NSDictionary *componentDescParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                          listItem.title, @"title",

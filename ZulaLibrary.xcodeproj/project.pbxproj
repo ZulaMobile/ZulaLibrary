@@ -717,7 +717,6 @@
 		6780DDCB16C02592005EDD1D = {
 			isa = PBXGroup;
 			children = (
-				670DA45D175CEB5800B154F0 /* MapKit.framework */,
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
 				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
 				674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
@@ -740,6 +739,7 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				670DA45D175CEB5800B154F0 /* MapKit.framework */,
 				674D6F51174B9F4A0007A4A1 /* UIKit.framework */,
 				674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */,
 				677207731732D83400E5CDC2 /* ImageIO.framework */,
