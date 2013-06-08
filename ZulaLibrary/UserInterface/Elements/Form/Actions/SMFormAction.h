@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class SMFormDescription;
+
 /**
  Executes and operation after the form is submitted
  */
 @interface SMFormAction : NSObject
 
 /**
- Sends the form data to the server
+ An action supposed to happen when tapping on a field, this can be submitting the form, or just some ui operation 
  */
-- (void)executeWithCompletion:(void(^)(NSError *))completion;
+- (void)executeActionWithDescription:(SMFormDescription *)description
+                          completion:(void(^)(NSError *error))completion;
 
 @end

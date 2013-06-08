@@ -26,6 +26,9 @@
 
 #import "SMFormDescription.h"
 #import "SMFormTextField.h"
+#import "SMFormSection.h"
+#import "SMFormPasswordField.h"
+#import "SMFormButtonField.h"
 
 @interface SMContactViewController ()
 @property (nonatomic, strong) SMScrollView *scrollView;
@@ -66,9 +69,16 @@
     // form
     NSArray *fields = [NSArray arrayWithObjects:
                        [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
-                       [[SMFormTextField alloc] initWithAttributes:@{@"name": @"password"}],
+                       [[SMFormPasswordField alloc] initWithAttributes:@{@"name": @"password"}],
                        nil];
-    SMFormDescription *formDescription = [[SMFormDescription alloc] initWithFields:fields];
+    NSArray *buttons = [NSArray arrayWithObjects:
+                       [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
+                       nil];
+    SMFormSection *section = [[SMFormSection alloc] initWithTitle:@"Login Form" fields:fields];
+    SMFormSection *buttonSection = [[SMFormSection alloc] initWithTitle:@"" fields:buttons];
+    NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
+    
+    SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
     self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription];
     self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
     [self.contactFormView setDelegate:self.formStrategy];

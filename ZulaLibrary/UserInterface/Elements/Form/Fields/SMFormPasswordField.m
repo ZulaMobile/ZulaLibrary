@@ -1,34 +1,18 @@
 //
-//  SMFormTextField.m
+//  SMFormPasswordField.m
 //  ZulaLibrary
 //
-//  Created by Suleyman Melikoglu on 6/7/13.
+//  Created by Suleyman Melikoglu on 6/8/13.
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMFormTextField.h"
+#import "SMFormPasswordField.h"
 
-@implementation SMFormTextField
-@synthesize labelWidth;
-
-- (id)initWithAttributes:(NSDictionary *)attributes
-{
-    self = [super initWithAttributes:attributes];
-    if (self) {
-        [self setHeight:44.0f];
-        self.labelWidth = 0;
-    }
-    return self;
-}
-
-- (BOOL)isValid
-{
-    return YES;
-}
+@implementation SMFormPasswordField
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView
 {
-    static NSString* CellIdentifier = @"FormTextFieldReuseIdentifier";
+    static NSString* CellIdentifier = @"FormPasswordFieldReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     UITextField *textField;
@@ -44,6 +28,7 @@
         // text field
         
         textField = [[UITextField alloc] init];
+        [textField setSecureTextEntry:YES];
         textField.tag = 661;
         [cell.contentView addSubview:textField];
     }
@@ -52,8 +37,8 @@
         textField = (UITextField *)[cell.contentView viewWithTag:661];
     
     [textField setFrame:CGRectMake(padding + self.labelWidth,
-                                  padding,
-                                  CGRectGetWidth(tableView.frame) - 40,
+                                   padding,
+                                   CGRectGetWidth(tableView.frame) - 40,
                                    30)];
     
     // label

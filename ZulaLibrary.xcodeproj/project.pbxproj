@@ -115,6 +115,14 @@
 		67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBAD176251B4002AC981 /* SMFormTextField.m */; };
 		67F9CBB4176322F6002AC981 /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */; };
 		67F9CBB81763260F002AC981 /* SMFormDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBB71763260F002AC981 /* SMFormDescription.m */; };
+		67F9CBBB176351B4002AC981 /* SMFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBBA176351B2002AC981 /* SMFormSection.m */; };
+		67F9CBBE176354B2002AC981 /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */; };
+		67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */; };
+		67F9CBC517635D7F002AC981 /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */; };
+		67F9CBC8176362BA002AC981 /* SMFormPasswordField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */; };
+		67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCA1763635C002AC981 /* SMFormButtonField.m */; };
+		67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */; };
+		67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
 
@@ -330,6 +338,22 @@
 		67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldTests.m; sourceTree = "<group>"; };
 		67F9CBB61763260F002AC981 /* SMFormDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormDescription.h; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.h; sourceTree = "<group>"; };
 		67F9CBB71763260F002AC981 /* SMFormDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescription.m; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.m; sourceTree = "<group>"; };
+		67F9CBB9176351B2002AC981 /* SMFormSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormSection.h; path = UserInterface/Elements/Form/Fields/SMFormSection.h; sourceTree = "<group>"; };
+		67F9CBBA176351B2002AC981 /* SMFormSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormSection.m; path = UserInterface/Elements/Form/Fields/SMFormSection.m; sourceTree = "<group>"; };
+		67F9CBBC176354B1002AC981 /* SMFormFieldFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldFactoryTests.h; path = UserInterface/UIElements/Form/Fields/SMFormFieldFactoryTests.h; sourceTree = "<group>"; };
+		67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactoryTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
+		67F9CBBF176355A3002AC981 /* SMFormFieldFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldFactory.h; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.h; sourceTree = "<group>"; };
+		67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactory.m; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.m; sourceTree = "<group>"; };
+		67F9CBC317635D7F002AC981 /* SMFormDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormDescriptionTests.h; path = UserInterface/UIElements/Form/Descriptions/SMFormDescriptionTests.h; sourceTree = "<group>"; };
+		67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/Descriptions/SMFormDescriptionTests.m; sourceTree = "<group>"; };
+		67F9CBC6176362B4002AC981 /* SMFormPasswordField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormPasswordField.h; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.h; sourceTree = "<group>"; };
+		67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormPasswordField.m; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.m; sourceTree = "<group>"; };
+		67F9CBC91763635A002AC981 /* SMFormButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormButtonField.h; path = UserInterface/Elements/Form/Fields/SMFormButtonField.h; sourceTree = "<group>"; };
+		67F9CBCA1763635C002AC981 /* SMFormButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormButtonField.m; path = UserInterface/Elements/Form/Fields/SMFormButtonField.m; sourceTree = "<group>"; };
+		67F9CBCC17636A31002AC981 /* SMFormSubmitAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormSubmitAction.h; path = UserInterface/Elements/Form/Actions/SMFormSubmitAction.h; sourceTree = "<group>"; };
+		67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormSubmitAction.m; path = UserInterface/Elements/Form/Actions/SMFormSubmitAction.m; sourceTree = "<group>"; };
+		67F9CBCF17636E77002AC981 /* NSString+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SMAdditions.h"; path = "Library/Categories/NSString+SMAdditions.h"; sourceTree = "<group>"; };
+		67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SMAdditions.m"; path = "Library/Categories/NSString+SMAdditions.m"; sourceTree = "<group>"; };
 		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -983,6 +1007,8 @@
 				675BDD5916DB73E600B141F8 /* UI */,
 				675BDD6816DB955800B141F8 /* NSDictionary+SMAdditions.h */,
 				675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */,
+				67F9CBCF17636E77002AC981 /* NSString+SMAdditions.h */,
+				67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1140,10 +1166,18 @@
 		67F9CBA317623000002AC981 /* Fields */ = {
 			isa = PBXGroup;
 			children = (
+				67F9CBB9176351B2002AC981 /* SMFormSection.h */,
+				67F9CBBA176351B2002AC981 /* SMFormSection.m */,
+				67F9CBBF176355A3002AC981 /* SMFormFieldFactory.h */,
+				67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */,
 				67F9CBA417623034002AC981 /* SMFormField.h */,
 				67F9CBA517623034002AC981 /* SMFormField.m */,
 				67F9CBAC176251B3002AC981 /* SMFormTextField.h */,
 				67F9CBAD176251B4002AC981 /* SMFormTextField.m */,
+				67F9CBC6176362B4002AC981 /* SMFormPasswordField.h */,
+				67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */,
+				67F9CBC91763635A002AC981 /* SMFormButtonField.h */,
+				67F9CBCA1763635C002AC981 /* SMFormButtonField.m */,
 			);
 			name = Fields;
 			sourceTree = "<group>";
@@ -1153,6 +1187,8 @@
 			children = (
 				67F9CBA817623269002AC981 /* SMFormAction.h */,
 				67F9CBA917623269002AC981 /* SMFormAction.m */,
+				67F9CBCC17636A31002AC981 /* SMFormSubmitAction.h */,
+				67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -1168,6 +1204,7 @@
 		67F9CBB0176322C4002AC981 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				67F9CBC217635D62002AC981 /* Descriptions */,
 				67F9CBB1176322D2002AC981 /* Fields */,
 			);
 			name = Form;
@@ -1178,6 +1215,8 @@
 			children = (
 				67F9CBB2176322F6002AC981 /* SMFormFieldTests.h */,
 				67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */,
+				67F9CBBC176354B1002AC981 /* SMFormFieldFactoryTests.h */,
+				67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */,
 			);
 			name = Fields;
 			sourceTree = "<group>";
@@ -1187,6 +1226,15 @@
 			children = (
 				67F9CBB61763260F002AC981 /* SMFormDescription.h */,
 				67F9CBB71763260F002AC981 /* SMFormDescription.m */,
+			);
+			name = Descriptions;
+			sourceTree = "<group>";
+		};
+		67F9CBC217635D62002AC981 /* Descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				67F9CBC317635D7F002AC981 /* SMFormDescriptionTests.h */,
+				67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */,
 			);
 			name = Descriptions;
 			sourceTree = "<group>";
@@ -1420,6 +1468,12 @@
 				67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */,
 				67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */,
 				67F9CBB81763260F002AC981 /* SMFormDescription.m in Sources */,
+				67F9CBBB176351B4002AC981 /* SMFormSection.m in Sources */,
+				67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */,
+				67F9CBC8176362BA002AC981 /* SMFormPasswordField.m in Sources */,
+				67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */,
+				67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */,
+				67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1438,6 +1492,8 @@
 				67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */,
 				67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */,
 				67F9CBB4176322F6002AC981 /* SMFormFieldTests.m in Sources */,
+				67F9CBBE176354B2002AC981 /* SMFormFieldFactoryTests.m in Sources */,
+				67F9CBC517635D7F002AC981 /* SMFormDescriptionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

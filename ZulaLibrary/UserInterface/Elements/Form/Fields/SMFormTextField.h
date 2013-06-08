@@ -11,8 +11,14 @@
 /**
  The type identifier
  */
-#define kFormTextFieldType @"text_field"
+#define kFormTextFieldType @"text"
 
 @interface SMFormTextField : SMFormField
+
+/**
+ Set if you want to display a label view.
+ Default is 0, that is no label, use placeholder text.
+ */
+@property (nonatomic) float labelWidth;
 
 @end

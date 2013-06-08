@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SMFormDescription;
+
 /**
  Configuration attribute keys
  */
@@ -40,12 +42,6 @@
  *********************************************************/
 
 /**
- Set if you want to display a label view.
- Default is 0, that is no label, use placeholder text.
- */
-@property (nonatomic) float labelWidth;
-
-/**
  The ui field that holds the data.
  */
 @property (nonatomic) UIView *field;
@@ -59,6 +55,10 @@
  The height of the field
  */
 @property (nonatomic) float height;
+
+/*********************************************************
+ Messages
+ *********************************************************/
 
 /**
  Initialize a form element using a dict configuration
@@ -75,5 +75,16 @@
  Returns reused table view cell with data modifications
  */
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView;
+
+/**
+ Returns YES if there is an attached action to this field
+ */
+- (BOOL)hasAction;
+
+/**
+ Executes the attached action and returns in the completion block
+ */
+- (void)executeActionWithDescription:(SMFormDescription *)description
+                   completion:(void(^)(NSError *error))completion;
 
 @end

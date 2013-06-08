@@ -7,15 +7,17 @@
 //
 
 #import "SMFormAction.h"
+#import "SMFormDescription.h"
 
 /**
  Executes and operation after the form is submitted
  */
 @implementation SMFormAction
 
-- (void)executeWithCompletion:(void(^)(NSError *))completion
+- (void)executeActionWithDescription:(SMFormDescription *)description
+                          completion:(void(^)(NSError *error))completion
 {
-    
+    // must be overridden
 }
 
 @end

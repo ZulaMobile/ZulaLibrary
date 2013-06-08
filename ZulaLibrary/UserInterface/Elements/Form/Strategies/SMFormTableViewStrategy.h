@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SMFormDelegate;
 @class SMFormAction, SMFormDescription;
 
 /**
@@ -15,6 +16,11 @@
  The strategy stores the fields list that used for creating the form
  */
 @interface SMFormTableViewStrategy : NSObject <UITableViewDataSource, UITableViewDelegate>
+
+/**
+ Delegates the result of the form
+ */
+@property (nonatomic, weak) id<SMFormDelegate> delegate;
 
 /**
  Form configuration class that holds fields and configurations (appearance data etc)
@@ -36,5 +42,16 @@
  Initialize with configuration dictionary
  */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+@end
+
+/******
+ Delegate
+ *******/
+
+@protocol SMFormDelegate <NSObject>
+
+- (void)formDidFail:(SMFormTableViewStrategy *)strategy;
+- (void)formDidSuccess:(SMFormTableViewStrategy *)strategy;
 
 @end

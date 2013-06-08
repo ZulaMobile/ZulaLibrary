@@ -7,12 +7,14 @@
 //
 
 #import "SMFormField.h"
+#import "SMFormDescription.h"
+#import "NSString+SMAdditions.h"
 
 @implementation SMFormField
 {
     NSString *_label;
 }
-@synthesize name, labelWidth, field, validators, height;
+@synthesize name, field, validators, height;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -20,7 +22,6 @@
     if (self) {
         self.name = [attributes objectForKey:kFormFieldName];
         self.label = [attributes objectForKey:kFormFieldLabel];
-        self.labelWidth = 0;
     }
     return self;
 }
@@ -36,7 +37,7 @@
 {
     // if label is empty or not set, return the name
     if (!_label || [_label isEqualToString:@""])
-        return self.name;
+        return [self.name titleCaseString];
     
     return _label;
 }
@@ -55,6 +56,18 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
+}
+
+// override if there is an action
+- (BOOL)hasAction
+{
+    return NO;
+}
+
+- (void)executeActionWithDescription:(SMFormDescription *)description
+                          completion:(void(^)(NSError *error))completion
+{
+    // override if there is an action
 }
 
 @end

@@ -11,14 +11,9 @@
 #import "SMFormAction.h"
 #import "SMFormField.h"
 #import "SMFormDescription.h"
+#import "SMFormSection.h"
 
 @interface SMFormTableViewStrategy()
-
-/**
- Runs when the submit button is tapped.
- Calls the actions to do post business.
- */
-- (void)onSubmit;
 
 @end
 
@@ -49,7 +44,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // get the field object
-    SMFormField *field = [self.description.fields objectAtIndex:[indexPath row]];
+    SMFormField *field = [self.description fieldWithIndexPath:indexPath];
     
     // get the reuses tableViewCell from the field with necessary data modifications
     UITableViewCell *cell = [field cellForTableView:tableView];
@@ -59,13 +54,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.description.fields.count;
+    SMFormSection *formSection = [self.description.sections objectAtIndex:section];
+    
+    return [formSection.fields count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // in this version, only one section is allowed
-    return 1;
+    return [self.description.sections count];
 }
 
 #pragma mark - table view delegate
@@ -73,31 +69,31 @@
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // get the field
-    SMFormField *field = [self.description.fields objectAtIndex:[indexPath row]];
+    SMFormField *field = [self.description fieldWithIndexPath:indexPath];
     return [field height];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // if it is the submit button, run the action
-    if ([indexPath row] == 2) {
-        [self onSubmit];
-    }
+    SMFormField *field = [self.description fieldWithIndexPath:indexPath];
     
-}
-
-#pragma mark - private methods
-
-- (void)onSubmit
-{
-    /*
-     // run the action
-    [self.action executeWithCompletion:^(NSError *error) {
-        if (error) {
-            //[self.delegate forDidFail:self];
-        }
-        //[self.delegate forDidSuccess:self];
-    }];*/
+    // if field has an action, execute it
+    if ([field hasAction]) {
+        
+        // field actions delegate the job to the `SMFormAction` objects
+        [field executeActionWithDescription:self.description completion:^(NSError *error) {
+            if (error) {
+                if ([self.delegate respondsToSelector:@selector(formDidFail:)]) {
+                    [self.delegate formDidFail:self];
+                }
+                return;
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(formDidSuccess:)]) {
+                [self.delegate formDidSuccess:self];
+            }
+        }];
+    }
 }
 
 @end

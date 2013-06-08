@@ -7,39 +7,60 @@
 //
 
 #import "SMFormDescription.h"
+#import "SMFormSection.h"
 #import "SMFormField.h"
+#import "SMFormFieldFactory.h"
 
 @implementation SMFormDescription
-@synthesize fields;
+@synthesize sections;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
-        NSArray *raw_fields = [dictionary objectForKey:@"fields"];
-        if (![raw_fields isKindOfClass:[NSArray class]]) {
+        NSArray *raw_sections = [dictionary objectForKey:@"sections"];
+        if (![raw_sections isKindOfClass:[NSArray class]]) {
             // raise an exception?
             return self;
         }
         
-        NSMutableArray *fieldsArray = [NSMutableArray arrayWithCapacity:[raw_fields count]];
-        for (NSDictionary *raw_field in raw_fields) {
-            // create field instance
-            //SMFormField *field = [SMFormFieldFactory createFormFieldFromDictionary:raw_field];
-            //[fieldsArray addObject:field];
+        NSMutableArray *sectionsArr = [NSMutableArray arrayWithCapacity:[raw_sections count]];
+        for (NSDictionary *raw_section in raw_sections) {
+            SMFormSection *section = [[SMFormSection alloc] init];
+            
+            NSArray *raw_fields = [raw_section objectForKey:@"fields"];
+            if ([raw_fields isKindOfClass:[NSArray class]]) {
+                NSMutableArray *fieldsArr = [NSMutableArray arrayWithCapacity:[raw_fields count]];
+                for (NSDictionary *raw_field in raw_fields) {
+                    // create field instance
+                    SMFormField *field = [SMFormFieldFactory createFieldWithDictionary:raw_field];
+                    if (field)
+                        [fieldsArr addObject:field];
+                }
+                [section setFields:[NSArray arrayWithArray:fieldsArr]];
+            }
+            
+            [section setTitle:[raw_section objectForKey:@"title"]];
+            [sectionsArr addObject:section];
         }
-        [self setFields:[NSArray arrayWithArray:fieldsArray]];
+        [self setSections:[NSArray arrayWithArray:sectionsArr]];
     }
     return self;
 }
 
-- (id)initWithFields:(NSArray *)formFields
+- (id)initWithSections:(NSArray *)formSections
 {
     self = [super init];
     if (self) {
-        [self setFields:formFields];
+        [self setSections:formSections];
     }
     return self;
+}
+
+- (SMFormField *)fieldWithIndexPath:(NSIndexPath *)indexPath
+{
+    SMFormSection *section = [self.sections objectAtIndex:[indexPath section]];
+    return [section.fields objectAtIndex:[indexPath row]];
 }
 
 - (id)initWithJSONFile:(NSString *)file

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SMFormAction;
+@class SMFormAction, SMFormField;
 
 /**
  The encapsulator around the configuration data.
@@ -18,10 +18,9 @@
 @interface SMFormDescription : NSObject
 
 /**
- Fields array stores the registered form fields that are subclasses of `SMFormField`
- A field renders the ui and stores the data in its ui object.
+ Array of `SMFormSection` objects. Each section has its fields and an optional title.
  */
-@property (nonatomic, strong) NSArray *fields;
+@property (nonatomic, strong) NSArray *sections;
 
 /**
  Loads data from the dictionary. The dictionary must 
@@ -30,13 +29,15 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 /**
- Initialize with already created `SMFormField` subclasses.
+ Initialize with already created `SMFormSection` subclasses.
  */
-- (id)initWithFields:(NSArray *)formFields;
+- (id)initWithSections:(NSArray *)formSections;
 
 // Not Yet Implemented Methods
 - (id)initWithJSONString:(NSString *)json;
 - (id)initWithJSONFile:(NSString *)file;
 - (id)initwithPlistFile:(NSString *)plistFile;
+
+- (SMFormField *)fieldWithIndexPath:(NSIndexPath *)indexPath;
 
 @end
