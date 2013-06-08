@@ -23,4 +23,6 @@
 
 @property (nonatomic, strong) SMWebView *textView;
 
+@property (nonatomic, strong) UITableView *contactFormView;
+
 @end

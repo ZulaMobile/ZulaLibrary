@@ -15,6 +15,7 @@
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
+#import "SMFormTableViewStrategy.h"
 #import "SMScrollView.h"
 #import "SMContact.h"
 #import "SMWebView.h"
@@ -23,14 +24,17 @@
 #import "SMMapView.h"
 #import "SMButton.h"
 
-@interface SMContactViewController ()
+#import "SMFormDescription.h"
+#import "SMFormTextField.h"
 
+@interface SMContactViewController ()
 @property (nonatomic, strong) SMScrollView *scrollView;
+@property (nonatomic, strong) SMFormTableViewStrategy *formStrategy;
 - (void)addRegionAndAnnotationLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude annotationName:(NSString *)name;
 @end
 
 @implementation SMContactViewController
-@synthesize textView, mapView, scrollView;
+@synthesize textView, mapView, scrollView, contactFormView, formStrategy;
 
 - (void)loadView
 {
@@ -57,8 +61,21 @@
     [self.scrollView addSubview:self.textView];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),
                                                CGRectGetWidth(self.textView.frame))];
+
     
-    
+    // form
+    NSArray *fields = [NSArray arrayWithObjects:
+                       [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
+                       [[SMFormTextField alloc] initWithAttributes:@{@"name": @"password"}],
+                       nil];
+    SMFormDescription *formDescription = [[SMFormDescription alloc] initWithFields:fields];
+    self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription];
+    self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
+    [self.contactFormView setDelegate:self.formStrategy];
+    [self.contactFormView setDataSource:self.formStrategy];
+    [self.contactFormView setBackgroundView:nil];
+    [self.contactFormView setBackgroundColor:[UIColor clearColor]];
+    [self.scrollView addSubview:self.contactFormView];
     
     [self.view addSubview:self.scrollView];
 }
@@ -207,6 +224,7 @@
     
     
     // TEMP FORM
+    /*
     UITextField *name = [[UITextField alloc] initWithFrame:CGRectMake(10, scrollSize.height, 300, 31)];
     UITextField *email = [[UITextField alloc] initWithFrame:CGRectMake(10, name.frame.origin.y + CGRectGetHeight(name.frame) + 10, 300, 31)];
     UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(10, email.frame.origin.y + CGRectGetHeight(email.frame) + 10, 300, 120)];
@@ -229,6 +247,10 @@
     scrollSize.height = submit.frame.origin.y + CGRectGetHeight(submit.frame) + 10;
     [self.scrollView setContentSize:scrollSize];
     // ENDTEMP FORM
+    */
+    scrollSize = self.scrollView.contentSize;
+    scrollSize.height += 2000;
+    [self.scrollView setContentSize:scrollSize];
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
