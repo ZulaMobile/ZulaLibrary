@@ -51,6 +51,7 @@
 
 @protocol SMFormDelegate <NSObject>
 
+- (void)formDidStartAction:(SMFormTableViewStrategy *)strategy;
 - (void)formDidFail:(SMFormTableViewStrategy *)strategy;
 - (void)formDidSuccess:(SMFormTableViewStrategy *)strategy;
 

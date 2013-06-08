@@ -80,6 +80,10 @@
     // if field has an action, execute it
     if ([field hasAction]) {
         
+        if ([self.delegate respondsToSelector:@selector(formDidStartAction:)]) {
+            [self.delegate formDidStartAction:self];
+        }
+        
         // field actions delegate the job to the `SMFormAction` objects
         [field executeActionWithDescription:self.description completion:^(NSError *error) {
             if (error) {

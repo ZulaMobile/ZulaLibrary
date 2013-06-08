@@ -123,6 +123,8 @@
 		67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCA1763635C002AC981 /* SMFormButtonField.m */; };
 		67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */; };
 		67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */; };
+		67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD31763706A002AC981 /* SMFormEmailField.m */; };
+		67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD6176370CB002AC981 /* SMFormTextArea.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
 
@@ -354,6 +356,10 @@
 		67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormSubmitAction.m; path = UserInterface/Elements/Form/Actions/SMFormSubmitAction.m; sourceTree = "<group>"; };
 		67F9CBCF17636E77002AC981 /* NSString+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SMAdditions.h"; path = "Library/Categories/NSString+SMAdditions.h"; sourceTree = "<group>"; };
 		67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SMAdditions.m"; path = "Library/Categories/NSString+SMAdditions.m"; sourceTree = "<group>"; };
+		67F9CBD217637068002AC981 /* SMFormEmailField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormEmailField.h; path = UserInterface/Elements/Form/Fields/SMFormEmailField.h; sourceTree = "<group>"; };
+		67F9CBD31763706A002AC981 /* SMFormEmailField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormEmailField.m; path = UserInterface/Elements/Form/Fields/SMFormEmailField.m; sourceTree = "<group>"; };
+		67F9CBD5176370C7002AC981 /* SMFormTextArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTextArea.h; path = UserInterface/Elements/Form/Fields/SMFormTextArea.h; sourceTree = "<group>"; };
+		67F9CBD6176370CB002AC981 /* SMFormTextArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormTextArea.m; path = UserInterface/Elements/Form/Fields/SMFormTextArea.m; sourceTree = "<group>"; };
 		AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibrary.xcconfig"; path = "../Pods/Pods-ZulaLibrary.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -1178,6 +1184,10 @@
 				67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */,
 				67F9CBC91763635A002AC981 /* SMFormButtonField.h */,
 				67F9CBCA1763635C002AC981 /* SMFormButtonField.m */,
+				67F9CBD217637068002AC981 /* SMFormEmailField.h */,
+				67F9CBD31763706A002AC981 /* SMFormEmailField.m */,
+				67F9CBD5176370C7002AC981 /* SMFormTextArea.h */,
+				67F9CBD6176370CB002AC981 /* SMFormTextArea.m */,
 			);
 			name = Fields;
 			sourceTree = "<group>";
@@ -1474,6 +1484,8 @@
 				67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */,
 				67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */,
 				67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */,
+				67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */,
+				67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

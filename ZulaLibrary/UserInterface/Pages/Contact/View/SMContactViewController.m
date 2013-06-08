@@ -29,6 +29,8 @@
 #import "SMFormSection.h"
 #import "SMFormPasswordField.h"
 #import "SMFormButtonField.h"
+#import "SMFormEmailField.h"
+#import "SMFormTextArea.h"
 
 @interface SMContactViewController ()
 @property (nonatomic, strong) SMScrollView *scrollView;
@@ -69,7 +71,7 @@
     // form
     NSArray *fields = [NSArray arrayWithObjects:
                        [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
-                       [[SMFormPasswordField alloc] initWithAttributes:@{@"name": @"password"}],
+                       [[SMFormEmailField alloc] initWithAttributes:@{@"name": @"email"}],
                        nil];
     NSArray *buttons = [NSArray arrayWithObjects:
                        [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
