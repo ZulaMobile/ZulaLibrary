@@ -13,7 +13,7 @@
  */
 #define kFormTextFieldType @"text"
 
-@interface SMFormTextField : SMFormField
+@interface SMFormTextField : SMFormField <UITextFieldDelegate>
 
 /**
  Set if you want to display a label view.

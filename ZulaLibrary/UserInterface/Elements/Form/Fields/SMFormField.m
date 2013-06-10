@@ -14,7 +14,7 @@
 {
     NSString *_label;
 }
-@synthesize name, field, validators, height;
+@synthesize name, field, validators, height, delegate;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {

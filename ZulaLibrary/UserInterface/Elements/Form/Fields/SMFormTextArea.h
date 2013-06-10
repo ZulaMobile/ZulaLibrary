@@ -8,6 +8,6 @@
 
 #import "SMFormField.h"
 
-@interface SMFormTextArea : SMFormField
+@interface SMFormTextArea : SMFormField <UITextViewDelegate>
 
 @end

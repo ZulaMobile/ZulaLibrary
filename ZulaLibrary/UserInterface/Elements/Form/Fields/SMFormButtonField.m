@@ -7,7 +7,10 @@
 //
 
 #import "SMFormButtonField.h"
+#import <QuartzCore/QuartzCore.h>
+
 #import "SMFormSubmitAction.h"
+#import "UIColor+SSToolkitAdditions.h"
 
 @implementation SMFormButtonField
 
@@ -27,7 +30,7 @@
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView
 {
-    static NSString* CellIdentifier = @"FormPasswordFieldReuseIdentifier";
+    static NSString* CellIdentifier = @"FormButtonFieldReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -35,9 +38,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         // cell appearances
-        [cell setBackgroundColor:[UIColor lightGrayColor]];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        //[cell setBackgroundColor:[UIColor colorWithHex:@"CCCCCC"]];
+        [cell.textLabel setTextColor:[UIColor colorWithHex:@"666666"]];
         
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
         [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     }
     

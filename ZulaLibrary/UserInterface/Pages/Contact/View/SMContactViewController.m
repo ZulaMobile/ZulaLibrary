@@ -72,6 +72,7 @@
     NSArray *fields = [NSArray arrayWithObjects:
                        [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
                        [[SMFormEmailField alloc] initWithAttributes:@{@"name": @"email"}],
+                       [[SMFormTextArea alloc] initWithAttributes:@{@"name": @"Message"}],
                        nil];
     NSArray *buttons = [NSArray arrayWithObjects:
                        [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
@@ -81,7 +82,8 @@
     NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
     
     SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
-    self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription];
+    self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription scrollView:self.scrollView];
+    
     self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
     [self.contactFormView setDelegate:self.formStrategy];
     [self.contactFormView setDataSource:self.formStrategy];
@@ -261,7 +263,7 @@
     // ENDTEMP FORM
     */
     scrollSize = self.scrollView.contentSize;
-    scrollSize.height += 2000;
+    scrollSize.height += 330;
     [self.scrollView setContentSize:scrollSize];
 }
 

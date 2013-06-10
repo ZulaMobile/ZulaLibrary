@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SMFormFieldDelegate;
 @class SMFormDescription;
 
 /**
@@ -38,7 +39,7 @@
 @property (nonatomic, strong) NSString *label;
 
 /*********************************************************
- Properties that are not bound to data
+ Properties
  *********************************************************/
 
 /**
@@ -50,6 +51,11 @@
  An array consists of objects that subclass `SMFormValidator`.
  */
 @property (nonatomic, strong) NSArray *validators;
+
+/**
+ Delegate
+ */
+@property (nonatomic, weak) id<SMFormFieldDelegate> delegate;
 
 /**
  The height of the field
@@ -86,5 +92,25 @@
  */
 - (void)executeActionWithDescription:(SMFormDescription *)description
                    completion:(void(^)(NSError *error))completion;
+
+@end
+
+/*********************************************************
+ Delegate
+ *********************************************************/
+
+@protocol SMFormFieldDelegate <NSObject>
+
+@optional
+
+/**
+ Fired when the field become first responder
+ */
+- (void)fieldDidBecameActive:(SMFormField *)field;
+
+/**
+ Fired when the field resigns being first responder
+ */
+- (void)fieldDidBecameInactive:(SMFormField *)field;
 
 @end

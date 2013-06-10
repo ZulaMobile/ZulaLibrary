@@ -7,6 +7,7 @@
 //
 
 #import "SMFormTextArea.h"
+#import "SSTextView.h"
 
 @implementation SMFormTextArea
 
@@ -21,11 +22,10 @@
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView
 {
-    static NSString* CellIdentifier = @"FormTextFieldReuseIdentifier";
+    static NSString* CellIdentifier = @"FormTextAreaReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    UITextView *textView;
-    
+    SSTextView *textView;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
@@ -35,31 +35,41 @@
         
         // text field
         
-        textView = [[UITextView alloc] init];
+        textView = [[SSTextView alloc] init];
         textView.tag = 661;
-        textView.keyboardType = UIKeyboardTypeEmailAddress;
+        textView.keyboardType = UIKeyboardTypeDefault;
+        [textView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+        [(SSTextView *)textView setDelegate:self];
         
         [cell.contentView addSubview:textView];
     }
-    /*
-    if (!textField)
-        textField = (UITextField *)[cell.contentView viewWithTag:661];
     
-    [textField setFrame:CGRectMake(padding + self.labelWidth,
-                                   padding,
+    if (!textView)
+        textView = (SSTextView *)[cell.contentView viewWithTag:661];
+    
+    [textView setFrame:CGRectMake(0,
+                                   0,
                                    CGRectGetWidth(tableView.frame) - 40,
-                                   30)];
-    
-    // label
-    if (self.labelWidth == 0) {
-        [cell.textLabel setText:@""];
-        [textField setPlaceholder:self.label];
-    } else if (self.label) {
-        [cell.textLabel setText:self.label];
-        [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
-    }*/
+                                   self.height - 14)];
+    [textView setPlaceholder:self.label];
     
     return cell;
+}
+
+#pragma mark - delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([self.delegate respondsToSelector:@selector(fieldDidBecameActive:)]) {
+        [self.delegate fieldDidBecameActive:self];
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([self.delegate respondsToSelector:@selector(fieldDidBecameInactive:)]) {
+        [self.delegate fieldDidBecameInactive:self];
+    }
 }
 
 @end

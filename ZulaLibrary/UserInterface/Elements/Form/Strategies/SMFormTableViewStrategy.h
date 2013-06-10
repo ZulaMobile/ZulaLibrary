@@ -15,7 +15,7 @@
  Form strategy that manages the form table's data source and delegate
  The strategy stores the fields list that used for creating the form
  */
-@interface SMFormTableViewStrategy : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface SMFormTableViewStrategy : NSObject <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 /**
  Delegates the result of the form
@@ -34,14 +34,34 @@
 @property (nonatomic, strong) SMFormAction *action;
 
 /**
- Initialize with a description class that holds configuration
+ Initialize with a description class that holds configuration. Table delegate and strategy will
+ create a form for the tableView.
  */
 - (id)initWithDescription:(SMFormDescription *)formDescription;
 
 /**
- Initialize with configuration dictionary
+ Initialize with configuration dictionary. Table delegate and strategy will
+ create a form for the tableView.
  */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+/**
+ Initialize with a description class that holds configuration. Table delegate and strategy will
+ create a form for the tableView.
+ 
+ If scroll view (which contains the tableView) is added, this class will adjust
+ the content positions automatically.
+ */
+- (id)initWithDictionary:(NSDictionary *)dictionary scrollView:(UIScrollView *)scrollView;
+
+/**
+ Initialize with configuration dictionary. Table delegate and strategy will
+ create a form for the tableView.
+ 
+ If scroll view (which contains the tableView) is added, this class will adjust
+ the content positions automatically.
+ */
+- (id)initWithDescription:(SMFormDescription *)formDescription scrollView:(UIScrollView *)scrollView;
 
 @end
 
@@ -51,6 +71,7 @@
 
 @protocol SMFormDelegate <NSObject>
 
+@optional
 - (void)formDidStartAction:(SMFormTableViewStrategy *)strategy;
 - (void)formDidFail:(SMFormTableViewStrategy *)strategy;
 - (void)formDidSuccess:(SMFormTableViewStrategy *)strategy;

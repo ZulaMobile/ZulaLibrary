@@ -7,20 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMFormField.h"
 
-@class SMFormAction, SMFormField;
+@class SMFormAction;
 
 /**
  The encapsulator around the configuration data.
  Takes the data and creates objects from it.
  Holds the data and acts like a data-source
  */
-@interface SMFormDescription : NSObject
+@interface SMFormDescription : NSObject <SMFormFieldDelegate>
 
 /**
  Array of `SMFormSection` objects. Each section has its fields and an optional title.
  */
 @property (nonatomic, strong) NSArray *sections;
+
+/**
+ Holds a pointer to the active field
+ */
+@property (nonatomic, weak) SMFormField *activeField;
 
 /**
  Loads data from the dictionary. The dictionary must 

@@ -34,8 +34,10 @@
                 for (NSDictionary *raw_field in raw_fields) {
                     // create field instance
                     SMFormField *field = [SMFormFieldFactory createFieldWithDictionary:raw_field];
-                    if (field)
+                    if (field) {
+                        [field setDelegate:self];
                         [fieldsArr addObject:field];
+                    }
                 }
                 [section setFields:[NSArray arrayWithArray:fieldsArr]];
             }
@@ -53,6 +55,13 @@
     self = [super init];
     if (self) {
         [self setSections:formSections];
+        
+        // set delegates
+        for (SMFormSection *section in self.sections) {
+            for (SMFormField *field in section.fields) {
+                [field setDelegate:self];
+            }
+        }
     }
     return self;
 }
@@ -82,6 +91,18 @@
     @throw [NSException exceptionWithName:@"Not Yet Implemented"
                                    reason:@"This class is not implemented yet"
                                  userInfo:nil];
+}
+
+#pragma mark - field delegate
+
+- (void)fieldDidBecameActive:(SMFormField *)field
+{
+    [self setActiveField:field];
+}
+
+- (void)fieldDidBecameInactive:(SMFormField *)field
+{
+    [self setActiveField:nil];
 }
 
 @end

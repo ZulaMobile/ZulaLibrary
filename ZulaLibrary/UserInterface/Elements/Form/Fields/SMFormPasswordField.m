@@ -15,7 +15,6 @@
     static NSString* CellIdentifier = @"FormPasswordFieldReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    UITextField *textField;
     float padding = 10.0f;
     
     if (cell == nil) {
@@ -27,16 +26,17 @@
         
         // text field
         
-        textField = [[UITextField alloc] init];
-        [textField setSecureTextEntry:YES];
-        textField.tag = 661;
-        [cell.contentView addSubview:textField];
+        self.field = [[UITextField alloc] init];
+        [(UITextField *)self.field setSecureTextEntry:YES];
+        [(UITextField *)self.field setDelegate:self];
+        self.field.tag = 661;
+        [cell.contentView addSubview:self.field];
     }
     
-    if (!textField)
-        textField = (UITextField *)[cell.contentView viewWithTag:661];
+    if (!self.field)
+        self.field = (UITextField *)[cell.contentView viewWithTag:661];
     
-    [textField setFrame:CGRectMake(padding + self.labelWidth,
+    [self.field setFrame:CGRectMake(padding + self.labelWidth,
                                    padding,
                                    CGRectGetWidth(tableView.frame) - 40,
                                    30)];
@@ -44,7 +44,7 @@
     // label
     if (self.labelWidth == 0) {
         [cell.textLabel setText:@""];
-        [textField setPlaceholder:self.label];
+        [(UITextField *)self.field setPlaceholder:self.label];
     } else if (self.label) {
         [cell.textLabel setText:self.label];
         [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:14]];
