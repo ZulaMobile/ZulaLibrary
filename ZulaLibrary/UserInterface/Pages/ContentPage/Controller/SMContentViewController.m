@@ -71,6 +71,11 @@
     [self fetchContents];
 }
 
+- (void)dealloc
+{
+    NSLog(@"deallocced %@", self.componentDesciption.title);
+}
+
 #pragma mark - overridden methods
 
 - (void)fetchContents

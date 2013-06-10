@@ -75,6 +75,7 @@
 {
     // remove notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    scrollView = nil;
 }
 
 #pragma mark - private methods

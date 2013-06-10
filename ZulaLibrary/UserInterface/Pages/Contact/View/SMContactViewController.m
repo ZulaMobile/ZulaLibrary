@@ -102,6 +102,12 @@
     [self fetchContents];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.contactFormView = nil;
+}
+
 #pragma mark - overridden methods
 
 - (void)fetchContents

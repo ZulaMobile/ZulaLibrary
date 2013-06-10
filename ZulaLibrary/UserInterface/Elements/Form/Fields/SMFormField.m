@@ -36,8 +36,11 @@
 - (NSString *)label
 {
     // if label is empty or not set, return the name
-    if (!_label || [_label isEqualToString:@""])
-        return [self.name titleCaseString];
+    if (!_label || [_label isEqualToString:@""]) {
+        NSString *tmp = [self.name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+        tmp = [tmp stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+        return [tmp titleCaseString];
+    }
     
     return _label;
 }

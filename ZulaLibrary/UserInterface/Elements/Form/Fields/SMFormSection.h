@@ -17,7 +17,7 @@
  Fields array stores the registered form fields that are subclasses of `SMFormField`
  A field renders the ui and stores the data in its ui object.
  */
-@property (nonatomic, strong) NSArray *fields;
+@property (nonatomic) NSArray *fields;
 
 /**
  Optional section title

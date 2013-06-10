@@ -19,20 +19,19 @@
     STAssertTrue([field.label isEqualToString:@"My Good Field"], @"label should have returned name instead");
 }
 
-- (void)testLabelShouldReturnNameIfEmpty
-{
-    SMFormField *field = [[SMFormField alloc] initWithAttributes:
-                          @{@"name": @"my-field"}];
-    STAssertTrue([field.label isEqualToString:@"my-field"], @"label should have returned name instead");
-}
-
-/*
 - (void)testLabelShouldReturnNameIfEmptyPretty
 {
     SMFormField *field = [[SMFormField alloc] initWithAttributes:
                           @{@"name": @"my-field"}];
     STAssertTrue([field.label isEqualToString:@"My Field"], @"label should have returned name instead");
+    
+    field = [[SMFormField alloc] initWithAttributes:
+                          @{@"name": @"my_field"}];
+    STAssertTrue([field.label isEqualToString:@"My Field"], @"label should have returned name instead");
+    
+    field = [[SMFormField alloc] initWithAttributes:
+                          @{@"name": @"my field"}];
+    STAssertTrue([field.label isEqualToString:@"My Field"], @"label should have returned name instead");
 }
-*/
 
 @end
