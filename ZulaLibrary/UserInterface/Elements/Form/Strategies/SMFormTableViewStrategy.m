@@ -19,7 +19,7 @@
 - (void)commonInit;
 - (void)keyboardWasShown:(NSNotification *)notification;
 - (void)keyboardWillHide:(NSNotification *)notification;
-- (void)dismissKeyboard;
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender;
 @end
 
 @implementation SMFormTableViewStrategy
@@ -71,13 +71,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    // remove notifications
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    scrollView = nil;
-}
-
 #pragma mark - private methods
 
 - (void)commonInit
@@ -97,7 +90,8 @@
     
     // tap recognizer to dismiss keyboard when tapping anywhere
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(dismissKeyboard)];
+                                                                                 action:@selector(dismissKeyboard:)];
+    [tapGesture setCancelsTouchesInView:NO];
     [scrollView addGestureRecognizer:tapGesture];
 }
 
@@ -143,8 +137,15 @@
     scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-- (void)dismissKeyboard
+- (void)handleTap:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded)     {         // handling code
+    }
+}
+
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender
 {
+    if (sender.state != UIGestureRecognizerStateEnded) return;
+    
     if ([self.description.activeField.field respondsToSelector:@selector(endEditing:)]) {
         [self.description.activeField.field endEditing:YES];
     }

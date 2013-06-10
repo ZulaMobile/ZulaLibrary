@@ -15,7 +15,6 @@
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
-#import "SMFormTableViewStrategy.h"
 #import "SMScrollView.h"
 #import "SMContact.h"
 #import "SMWebView.h"
@@ -83,7 +82,7 @@
     
     SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
     self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription scrollView:self.scrollView];
-    
+    [self.formStrategy setDelegate:self];
     self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
     [self.contactFormView setDelegate:self.formStrategy];
     [self.contactFormView setDataSource:self.formStrategy];
@@ -100,12 +99,6 @@
     
     // fetch the data and load the model
     [self fetchContents];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    self.contactFormView = nil;
 }
 
 #pragma mark - overridden methods
@@ -307,6 +300,16 @@
         UIApplication *app = [UIApplication sharedApplication];
         [app openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://maps.google.com/maps?saddr=Current+Location&daddr=%f,%f", latitude, longitude]]];
     }
+}
+
+#pragma mark - form delegate
+
+- (void)form:(SMFormTableViewStrategy *)strategy didStartActionFromField:(SMFormField *)field
+{
+    DDLogInfo(@"push to the server");
+    [SMProgressHUD show];
+    
+    
 }
 
 @end

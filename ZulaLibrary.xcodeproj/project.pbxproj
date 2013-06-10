@@ -108,6 +108,7 @@
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
 		67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D79702175365240035313D /* UIColorSMAdditionsTests.m */; };
 		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
+		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
 		67F9CBA21762289F002AC981 /* SMFormTableViewStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA11762289F002AC981 /* SMFormTableViewStrategy.m */; };
 		67F9CBA617623034002AC981 /* SMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA517623034002AC981 /* SMFormField.m */; };
@@ -326,6 +327,8 @@
 		67D79702175365240035313D /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorSMAdditionsTests.m; path = Library/Categories/UI/UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
 		67E5F6A4174E0A0B006E1EEE /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMButton.h; path = UserInterface/Elements/SMButton.h; sourceTree = "<group>"; };
 		67E5F6A5174E0A0B006E1EEE /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMButton.m; path = UserInterface/Elements/SMButton.m; sourceTree = "<group>"; };
+		67EE109217661FE9007D7116 /* SMFormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormModel.h; path = UserInterface/Elements/Form/Model/SMFormModel.h; sourceTree = "<group>"; };
+		67EE109317661FE9007D7116 /* SMFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormModel.m; path = UserInterface/Elements/Form/Model/SMFormModel.m; sourceTree = "<group>"; };
 		67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ZulaAdditions.h"; path = "Library/Categories/UI/UIColor+ZulaAdditions.h"; sourceTree = "<group>"; };
 		67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ZulaAdditions.m"; path = "Library/Categories/UI/UIColor+ZulaAdditions.m"; sourceTree = "<group>"; };
 		67F9CBA01762289F002AC981 /* SMFormTableViewStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTableViewStrategy.h; path = UserInterface/Elements/Form/Strategies/SMFormTableViewStrategy.h; sourceTree = "<group>"; };
@@ -1149,9 +1152,19 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		67EE109117661FAE007D7116 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67EE109217661FE9007D7116 /* SMFormModel.h */,
+				67EE109317661FE9007D7116 /* SMFormModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		67F9CB9E176227F8002AC981 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				67EE109117661FAE007D7116 /* Model */,
 				67F9CBB5176325EB002AC981 /* Descriptions */,
 				67F9CBA71762321C002AC981 /* Actions */,
 				67F9CBA317623000002AC981 /* Fields */,
@@ -1486,6 +1499,7 @@
 				67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */,
 				67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */,
 				67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */,
+				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
