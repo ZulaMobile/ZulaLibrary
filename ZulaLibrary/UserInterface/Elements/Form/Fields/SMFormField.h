@@ -62,6 +62,12 @@
  */
 @property (nonatomic) float height;
 
+/**
+ Form field's data, this is usually filled by the user. For example, 
+ if it is a text field, the text fields text value will be returned.
+ */
+@property (nonatomic) NSString *data;
+
 /*********************************************************
  Messages
  *********************************************************/
@@ -86,11 +92,6 @@
  Returns YES is field can store data
  */
 - (BOOL)isDataField;
-
-/**
- Returns field's data
- */
-- (NSString *)data;
 
 /**
  Returns YES if there is an attached action to this field

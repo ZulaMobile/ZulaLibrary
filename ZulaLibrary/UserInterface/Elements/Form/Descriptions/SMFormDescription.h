@@ -29,6 +29,12 @@
 @property (nonatomic, weak) SMFormField *activeField;
 
 /**
+ Extra key-value pairs to add the form data.
+ It is helpful to add some hidden data to the submitted form
+ */
+@property (nonatomic, strong) NSDictionary *extraData;
+
+/**
  Loads data from the dictionary. The dictionary must 
  include at least `fields` set.
  */
@@ -38,6 +44,7 @@
  Initialize with already created `SMFormSection` subclasses.
  */
 - (id)initWithSections:(NSArray *)formSections;
+
 
 // Not Yet Implemented Methods
 - (id)initWithJSONString:(NSString *)json;

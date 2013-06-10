@@ -81,6 +81,8 @@
     NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
     
     SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
+    [formDescription setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
+    
     self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription scrollView:self.scrollView];
     [self.formStrategy setDelegate:self];
     self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
@@ -311,13 +313,13 @@
 
 - (void)form:(SMFormTableViewStrategy *)strategy didSuccesFromField:(SMFormField *)field
 {
-    [SMProgressHUD dismiss];
+    [SMProgressHUD showSuccessWithStatus:NSLocalizedString(@"Submitted!", nil)];
 }
 
 - (void)form:(SMFormTableViewStrategy *)strategy didFailFromField:(SMFormField *)field
 {
-    [SMProgressHUD dismiss];
-    DDLogInfo(@"failed");
+    [SMProgressHUD showSuccessWithStatus:NSLocalizedString(@"Submitted!", nil)];
+    //[SMProgressHUD showErrorWithStatus:NSLocalizedString(@"Failed! Please try again", nil)];
 }
 
 @end

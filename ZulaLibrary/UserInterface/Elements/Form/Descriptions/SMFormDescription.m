@@ -12,12 +12,14 @@
 #import "SMFormFieldFactory.h"
 
 @implementation SMFormDescription
-@synthesize sections;
+@synthesize sections, extraData;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
+        self.extraData = [NSDictionary dictionary];
+        
         NSArray *raw_sections = [dictionary objectForKey:@"sections"];
         if (![raw_sections isKindOfClass:[NSArray class]]) {
             // raise an exception?
@@ -94,7 +96,10 @@
 }
 - (NSDictionary *)formData
 {
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    // add any extra data to the form data
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:self.extraData];
+    
+    // add all the form field datas
     for (SMFormSection *section in self.sections) {
         for (SMFormField *field in section.fields) {
             if ([field isDataField]) {
@@ -102,6 +107,7 @@
             }
         }
     }
+    
     return [NSDictionary dictionaryWithDictionary:data];
 }
 

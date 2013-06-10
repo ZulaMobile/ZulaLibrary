@@ -25,7 +25,6 @@
     static NSString* CellIdentifier = @"FormTextAreaReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SSTextView *textView;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
@@ -35,23 +34,22 @@
         
         // text field
         
-        textView = [[SSTextView alloc] init];
-        textView.tag = 661;
-        textView.keyboardType = UIKeyboardTypeDefault;
-        [textView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
-        [(SSTextView *)textView setDelegate:self];
+        self.field = [[SSTextView alloc] init];
+        self.field.tag = 661;
+        [(SSTextView *)self.field setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+        [(SSTextView *)self.field setDelegate:self];
         
-        [cell.contentView addSubview:textView];
+        [cell.contentView addSubview:self.field];
     }
     
-    if (!textView)
-        textView = (SSTextView *)[cell.contentView viewWithTag:661];
+    if (!self.field)
+        self.field = (SSTextView *)[cell.contentView viewWithTag:661];
     
-    [textView setFrame:CGRectMake(0,
+    [self.field setFrame:CGRectMake(0,
                                    0,
                                    CGRectGetWidth(tableView.frame) - 40,
                                    self.height - 14)];
-    [textView setPlaceholder:self.label];
+    [(SSTextView *)self.field setPlaceholder:self.label];
     
     return cell;
 }
@@ -65,7 +63,14 @@
 - (NSString *)data
 {
     NSString *text = [(UITextView *)self.field text];
-    return (text) ? text : @"";
+    return (text) ? text : [super data];
+}
+
+- (void)setData:(NSString *)data
+{
+    [super setData:data];
+    
+    [(UITextView *)self.field setText:data];
 }
 
 #pragma mark - delegate

@@ -13,6 +13,7 @@
 @implementation SMFormField
 {
     NSString *_label;
+    NSString *_data;
 }
 @synthesize name, field, validators, height, delegate;
 
@@ -45,6 +46,18 @@
     return _label;
 }
 
+- (void)setData:(NSString *)data
+{
+    _data = data;
+}
+
+// override if the field has data
+- (NSString *)data
+{
+    // if there is data, return it
+    return (_data) ? _data : @"";
+}
+
 #pragma mark - methods
 
 // should be overridden
@@ -65,12 +78,6 @@
 - (BOOL)isDataField
 {
     return NO;
-}
-
-// override if the field has data
-- (NSString *)data
-{
-    return nil;
 }
 
 // override if there is an action

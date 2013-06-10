@@ -75,7 +75,14 @@
 - (NSString *)data
 {
     NSString *text = [(UITextField *)self.field text];
-    return (text) ? text : @"";
+    return (text) ? text : [super data];
+}
+
+- (void)setData:(NSString *)data
+{
+    [super setData:data];
+    
+    [(UITextField *)self.field setText:data];
 }
 
 #pragma mark - text view delegate
