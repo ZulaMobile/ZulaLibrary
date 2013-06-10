@@ -44,6 +44,14 @@
 - (id)initWithJSONFile:(NSString *)file;
 - (id)initwithPlistFile:(NSString *)plistFile;
 
+/**
+ Returns the field in a section
+ */
 - (SMFormField *)fieldWithIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ Returns the data in dictionary, ready to post to server
+ */
+- (NSDictionary *)formData;
 
 @end

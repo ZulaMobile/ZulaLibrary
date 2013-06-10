@@ -61,6 +61,18 @@
                                  userInfo:nil];
 }
 
+// override if the field stores data
+- (BOOL)isDataField
+{
+    return NO;
+}
+
+// override if the field has data
+- (NSString *)data
+{
+    return nil;
+}
+
 // override if there is an action
 - (BOOL)hasAction
 {

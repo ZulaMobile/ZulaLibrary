@@ -67,6 +67,17 @@
     return cell;
 }
 
+- (BOOL)isDataField
+{
+    return YES;
+}
+
+- (NSString *)data
+{
+    NSString *text = [(UITextField *)self.field text];
+    return (text) ? text : @"";
+}
+
 #pragma mark - text view delegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField

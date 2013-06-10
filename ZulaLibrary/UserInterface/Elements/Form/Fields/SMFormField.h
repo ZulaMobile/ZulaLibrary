@@ -83,6 +83,16 @@
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView;
 
 /**
+ Returns YES is field can store data
+ */
+- (BOOL)isDataField;
+
+/**
+ Returns field's data
+ */
+- (NSString *)data;
+
+/**
  Returns YES if there is an attached action to this field
  */
 - (BOOL)hasAction;

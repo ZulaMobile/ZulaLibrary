@@ -7,15 +7,13 @@
 //
 
 #import "SMFormSubmitAction.h"
+#import "SMFormModel.h"
 
 @implementation SMFormSubmitAction
 
 - (void)executeActionWithDescription:(SMFormDescription *)description completion:(void (^)(NSError *))completion
 {
-    DDLogInfo(@"action happened");
-    if (completion) {
-        completion(nil);
-    }
+    [SMFormModel submitFormDescription:description toUrlString:@"http://localhost:8000/api/v1/form/" completion:completion];
 }
 
 @end;

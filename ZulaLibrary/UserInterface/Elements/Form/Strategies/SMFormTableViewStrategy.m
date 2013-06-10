@@ -137,11 +137,6 @@
     scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-- (void)handleTap:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded)     {         // handling code
-    }
-}
-
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender
 {
     if (sender.state != UIGestureRecognizerStateEnded) return;

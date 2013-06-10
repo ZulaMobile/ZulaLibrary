@@ -92,6 +92,19 @@
                                    reason:@"This class is not implemented yet"
                                  userInfo:nil];
 }
+- (NSDictionary *)formData
+{
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    for (SMFormSection *section in self.sections) {
+        for (SMFormField *field in section.fields) {
+            if ([field isDataField]) {
+                [data setObject:[field data] forKey:field.name];
+            }
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary:data];
+}
+
 
 #pragma mark - field delegate
 

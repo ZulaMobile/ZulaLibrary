@@ -19,6 +19,7 @@
  submits the form to the default back-end
  */
 + (void)submitFormDescription:(SMFormDescription *)formDescription
+                  toUrlString:(NSString *)urlString
                    completion:(void(^)(NSError *error))completion;
 
 @end

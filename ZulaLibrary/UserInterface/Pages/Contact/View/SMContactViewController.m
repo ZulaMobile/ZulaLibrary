@@ -306,10 +306,18 @@
 
 - (void)form:(SMFormTableViewStrategy *)strategy didStartActionFromField:(SMFormField *)field
 {
-    DDLogInfo(@"push to the server");
     [SMProgressHUD show];
-    
-    
+}
+
+- (void)form:(SMFormTableViewStrategy *)strategy didSuccesFromField:(SMFormField *)field
+{
+    [SMProgressHUD dismiss];
+}
+
+- (void)form:(SMFormTableViewStrategy *)strategy didFailFromField:(SMFormField *)field
+{
+    [SMProgressHUD dismiss];
+    DDLogInfo(@"failed");
 }
 
 @end
