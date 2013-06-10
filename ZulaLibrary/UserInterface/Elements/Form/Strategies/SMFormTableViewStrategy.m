@@ -19,6 +19,7 @@
 - (void)commonInit;
 - (void)keyboardWasShown:(NSNotification *)notification;
 - (void)keyboardWillHide:(NSNotification *)notification;
+- (void)dismissKeyboard;
 @end
 
 @implementation SMFormTableViewStrategy
@@ -92,6 +93,11 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    // tap recognizer to dismiss keyboard when tapping anywhere
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(dismissKeyboard)];
+    [scrollView addGestureRecognizer:tapGesture];
 }
 
 - (void)keyboardWasShown:(NSNotification *)notification
@@ -134,6 +140,13 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void)dismissKeyboard
+{
+    if ([self.description.activeField.field respondsToSelector:@selector(endEditing:)]) {
+        [self.description.activeField.field endEditing:YES];
+    }
 }
 
 #pragma mark - table view data source
@@ -180,21 +193,21 @@
     // if field has an action, execute it
     if ([field hasAction]) {
         
-        if ([self.delegate respondsToSelector:@selector(formDidStartAction:)]) {
-            [self.delegate formDidStartAction:self];
+        if ([self.delegate respondsToSelector:@selector(form:didStartActionFromField:)]) {
+            [self.delegate form:self didStartActionFromField:field];
         }
         
         // field actions delegate the job to the `SMFormAction` objects
         [field executeActionWithDescription:self.description completion:^(NSError *error) {
             if (error) {
-                if ([self.delegate respondsToSelector:@selector(formDidFail:)]) {
-                    [self.delegate formDidFail:self];
+                if ([self.delegate respondsToSelector:@selector(form:didFailFromField:)]) {
+                    [self.delegate form:self didFailFromField:field];
                 }
                 return;
             }
             
-            if ([self.delegate respondsToSelector:@selector(formDidSuccess:)]) {
-                [self.delegate formDidSuccess:self];
+            if ([self.delegate respondsToSelector:@selector(form:didSuccesFromField:)]) {
+                [self.delegate form:self didSuccesFromField:field];
             }
         }];
     }

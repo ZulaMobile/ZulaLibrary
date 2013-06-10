@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol SMFormDelegate;
-@class SMFormAction, SMFormDescription;
+@class SMFormAction, SMFormDescription, SMFormField;
 
 /**
  Form strategy that manages the form table's data source and delegate
@@ -72,8 +72,8 @@
 @protocol SMFormDelegate <NSObject>
 
 @optional
-- (void)formDidStartAction:(SMFormTableViewStrategy *)strategy;
-- (void)formDidFail:(SMFormTableViewStrategy *)strategy;
-- (void)formDidSuccess:(SMFormTableViewStrategy *)strategy;
+- (void)form:(SMFormTableViewStrategy *)strategy didStartActionFromField:(SMFormField *)field;
+- (void)form:(SMFormTableViewStrategy *)strategy didFailFromField:(SMFormField *)field;
+- (void)form:(SMFormTableViewStrategy *)strategy didSuccesFromField:(SMFormField *)field;
 
 @end
