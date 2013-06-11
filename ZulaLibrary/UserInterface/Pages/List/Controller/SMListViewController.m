@@ -243,6 +243,11 @@
     SMListItem *listItem = (SMListItem *)[self.listPage.items objectAtIndex:row];
     SMBaseComponentViewController *ctrl = [self targetComponentByListItem:listItem];
     
+    // make delegate know about the navigation
+    if (ctrl && [self.componentNavigationDelegate respondsToSelector:@selector(component:willShowViewController:animated:)]) {
+        [self.componentNavigationDelegate component:self willShowViewController:ctrl animated:YES];
+    }
+    
     // display this page now
     if (self.navigationController && ctrl) {
         [self.navigationController pushViewController:ctrl animated:YES];
@@ -285,7 +290,9 @@
                             nil];
     SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:params];
     [contentPage setBackgroundUrl:self.listPage.backgroundUrl];
-    [contentPage setImages:[NSArray arrayWithObject:listItem.imageUrl]];
+    if (listItem.imageUrl) {
+        [contentPage setImages:[NSArray arrayWithObject:listItem.imageUrl]];
+    }
     
     NSDictionary *componentDescParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                          listItem.title, @"title",

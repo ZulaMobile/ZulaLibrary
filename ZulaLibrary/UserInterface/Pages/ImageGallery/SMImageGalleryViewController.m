@@ -153,6 +153,11 @@
     browser.displayActionButton = NO;
     [browser setInitialPageIndex:sender.tag];
     
+    // make delegator know about this navigation
+    if ([self.componentNavigationDelegate respondsToSelector:@selector(component:willShowViewController:animated:)]) {
+        [self.componentNavigationDelegate component:self willShowViewController:browser animated:YES];
+    }
+    
     // present
     [self.navigationController pushViewController:browser animated:YES];
 }

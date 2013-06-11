@@ -16,7 +16,7 @@
  
  It displays a menu to choose between them. 
  */
-@interface SMContainerViewController : SMBaseComponentViewController
+@interface SMContainerViewController : SMBaseComponentViewController <SMComponentNavigationDelegate>
 
 /**
  Model class

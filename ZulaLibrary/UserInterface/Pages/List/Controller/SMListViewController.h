@@ -13,7 +13,7 @@
 /**
  List page corresponds to UITableViewController.
  */
-@interface SMListViewController : SMBaseComponentViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SMListViewController : SMBaseComponentViewController <UITableViewDataSource, UITableViewDelegate, SMComponentNavigationDelegate>
 
 /**
  The model instance, it stores the items to display

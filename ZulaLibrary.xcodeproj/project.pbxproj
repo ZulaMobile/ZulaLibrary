@@ -953,13 +953,13 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				67B916B6176762CE006AF55C /* Container */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
 				6749EB7817257966002219C8 /* List */,
 				670DA447175747B400B154F0 /* ProductDetail */,
 				670DA453175CE2D500B154F0 /* Contact */,
 				674D6F30174B85E30007A4A1 /* ContentContainer */,
+				67B916B6176762CE006AF55C /* Container */,
 				6767B633175F4838001A20F8 /* ImageGallery */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,

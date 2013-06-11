@@ -16,6 +16,8 @@
 #import "SMComponentFactory.h"
 #import "SMContainer.h"
 
+#define subViewTag 665
+
 @interface SMContainerViewController ()
 
 - (void)onButton:(id)submenu;
@@ -122,10 +124,8 @@
 
 - (void)displayComponentWithDescription:(SMComponentDescription *)description
 {
-    NSInteger viewTag = 665;
-    
     // remove the old view
-    UIView *currentView = [self.view viewWithTag:viewTag];
+    UIView *currentView = [self.view viewWithTag:subViewTag];
     [currentView removeFromSuperview];
     activeContentViewController = nil;
     
@@ -133,6 +133,7 @@
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
     activeContentViewController = [SMComponentFactory componentWithDescription:description
                                                                  forNavigation:appDescription.navigationDescription];
+    [(SMBaseComponentViewController *)activeContentViewController setComponentNavigationDelegate:self];
     
     // add controller's view to self.view
     float pullUp = 5.0;
@@ -145,13 +146,22 @@
      UIViewAutoresizingFlexibleLeftMargin   |
      UIViewAutoresizingFlexibleRightMargin  |
      UIViewAutoresizingFlexibleWidth];
-    [activeContentViewController.view setTag:viewTag];
+    [activeContentViewController.view setTag:subViewTag];
     
     [self.view addSubview:activeContentViewController.view];
     
     // send subview to back
     [self.subMenu removeFromSuperview];
     [self.view addSubview:self.subMenu];
+}
+
+#pragma mark - component navigation delegate
+
+- (void)component:(SMBaseComponentViewController *)component
+willShowViewController:(UIViewController *)controller
+         animated:(BOOL)animated
+{
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

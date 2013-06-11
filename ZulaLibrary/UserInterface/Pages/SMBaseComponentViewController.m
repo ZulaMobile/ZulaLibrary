@@ -20,6 +20,7 @@
 
 @implementation SMBaseComponentViewController
 @synthesize componentDesciption = _componentDesciption;
+@synthesize componentNavigationDelegate;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {

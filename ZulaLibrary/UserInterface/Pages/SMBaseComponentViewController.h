@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SMComponentNavigationDelegate;
 @class SMComponentDescription, SMImageView;
 
 /**
@@ -36,6 +37,11 @@
 @property (nonatomic, strong) SMImageView *backgroundImageView;
 
 /**
+ Component navigation delegate fires event when navigation changes
+ */
+@property (nonatomic, weak) id<SMComponentNavigationDelegate> componentNavigationDelegate;
+
+/**
  Initializer (constructor) that must be used to initialize a component instance
  */
 - (id)initWithDescription:(SMComponentDescription *)description;
@@ -55,5 +61,16 @@
  Sets navbar icon 
  */
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl;
+
+@end
+
+/**
+ Component navigation delegate controls when a navigation happens
+ This delegate will be used by components who requires sub navigation
+ */
+@protocol SMComponentNavigationDelegate <NSObject>
+
+@optional
+- (void)component:(SMBaseComponentViewController *)component willShowViewController:(UIViewController *)controller animated:(BOOL)animated;
 
 @end
