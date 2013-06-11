@@ -88,6 +88,7 @@
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
 		67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */; };
 		67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */; };
+		67B916BC1767630E006AF55C /* SMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BB1767630E006AF55C /* SMContainer.m */; };
 		67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD5B1516F31E9200FC503F /* SMTitleLabel.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
@@ -287,6 +288,8 @@
 		67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewControllerTests.m; path = UserInterface/Components/Homepage/Controller/SMHomePageViewControllerTests.m; sourceTree = "<group>"; };
 		67B6C699174F9E4C008E1EF0 /* SMBorderedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBorderedImage.h; path = UserInterface/Elements/SMBorderedImage.h; sourceTree = "<group>"; };
 		67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBorderedImage.m; path = UserInterface/Elements/SMBorderedImage.m; sourceTree = "<group>"; };
+		67B916BA1767630E006AF55C /* SMContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContainer.h; path = UserInterface/Pages/Container/Model/SMContainer.h; sourceTree = "<group>"; };
+		67B916BB1767630E006AF55C /* SMContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContainer.m; path = UserInterface/Pages/Container/Model/SMContainer.m; sourceTree = "<group>"; };
 		67BD5B0516F30B4600FC503F /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B0716F30B5200FC503F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B1416F31E9200FC503F /* SMTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTitleLabel.h; path = UserInterface/Elements/SMTitleLabel.h; sourceTree = "<group>"; };
@@ -899,6 +902,39 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		67B916B6176762CE006AF55C /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				67B916B7176762D5006AF55C /* Model */,
+				67B916B9176762E6006AF55C /* Controller */,
+				67B916B8176762D9006AF55C /* View */,
+			);
+			name = Container;
+			sourceTree = "<group>";
+		};
+		67B916B7176762D5006AF55C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67B916BA1767630E006AF55C /* SMContainer.h */,
+				67B916BB1767630E006AF55C /* SMContainer.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67B916B8176762D9006AF55C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		67B916B9176762E6006AF55C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +948,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67B916B6176762CE006AF55C /* Container */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
 				6749EB7817257966002219C8 /* List */,
@@ -1500,6 +1537,7 @@
 				67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */,
 				67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */,
 				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
+				67B916BC1767630E006AF55C /* SMContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
