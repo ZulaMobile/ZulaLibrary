@@ -40,12 +40,12 @@
     
     self.subMenu = [[SDSegmentedControl alloc] initWithItems:[NSArray array]];
     [self.subMenu setFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
-    //[self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+    [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
     self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
-        
+    
     [self.view addSubview:self.subMenu];
 }
 
@@ -135,7 +135,7 @@
                                                                  forNavigation:appDescription.navigationDescription];
     
     // add controller's view to self.view
-    float pullUp = 10.0;
+    float pullUp = 5.0;
     [activeContentViewController.view setFrame:CGRectMake(0,
                                                           CGRectGetHeight(self.subMenu.frame) - pullUp,
                                                           CGRectGetWidth(self.view.frame),

@@ -103,6 +103,7 @@
     }
     
     // add images view if exists
+    /*
     if ([[self.listPage images] count] > 0) {
         self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
         [self.images addImagesWithArray:self.listPage.images];
@@ -112,7 +113,7 @@
         tableViewFrame.origin.y += CGRectGetHeight(self.images.frame);
         tableViewFrame.size.height -= CGRectGetHeight(self.images.frame);
         [self.tableView setFrame:tableViewFrame];
-    }
+    }*/
     
     [self.tableView reloadData];
 }
@@ -121,6 +122,9 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([[self.listPage images] count] > 0) 
+        return [self.listPage.items count] + 1;
+    
     return [self.listPage.items count];
 }
 
@@ -130,12 +134,35 @@
     return 1;
 }
 
+- (UITableViewCell *)cellForImageInTableView:(UITableView *)aTableView
+{
+    static NSString* CellIdentifier = @"ListImageReuseIdentifier";
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
+        [cell.contentView addSubview:self.images];
+    }
+    
+    [self.images addImagesWithArray:self.listPage.images];
+    
+    return cell;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger row = [indexPath row];
+    if ([[self.listPage images] count] > 0) {
+        if ([indexPath row] == 0) {
+            return [self cellForImageInTableView:aTableView];
+        }
+        row -= 1;
+    }
+    
     static NSString* CellIdentifier = @"ListViewReuseIdentifier";
     
     SMListCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SMListItem *item = [self.listPage.items objectAtIndex:[indexPath row]];
+    SMListItem *item = [self.listPage.items objectAtIndex:row];
     
     if (cell == nil) {
         cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -205,7 +232,15 @@
 // display the detail row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SMListItem *listItem = (SMListItem *)[self.listPage.items objectAtIndex:[indexPath row]];
+    NSInteger row = [indexPath row];
+    if ([[self.listPage images] count] > 0) {
+        if ([indexPath row] == 0) {
+            return;
+        }
+        row -= 1;
+    }
+    
+    SMListItem *listItem = (SMListItem *)[self.listPage.items objectAtIndex:row];
     SMBaseComponentViewController *ctrl = [self targetComponentByListItem:listItem];
     
     // display this page now
@@ -216,6 +251,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([[self.listPage images] count] > 0 && [indexPath row] == 0)
+        return 160.0;
+    
     return 80.0;
 }
 
