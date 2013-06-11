@@ -66,32 +66,6 @@
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),
                                                CGRectGetWidth(self.textView.frame))];
 
-    
-    // form
-    NSArray *fields = [NSArray arrayWithObjects:
-                       [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
-                       [[SMFormEmailField alloc] initWithAttributes:@{@"name": @"email"}],
-                       [[SMFormTextArea alloc] initWithAttributes:@{@"name": @"Message"}],
-                       nil];
-    NSArray *buttons = [NSArray arrayWithObjects:
-                       [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
-                       nil];
-    SMFormSection *section = [[SMFormSection alloc] initWithTitle:@"Login Form" fields:fields];
-    SMFormSection *buttonSection = [[SMFormSection alloc] initWithTitle:@"" fields:buttons];
-    NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
-    
-    SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
-    [formDescription setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
-    
-    self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:formDescription scrollView:self.scrollView];
-    [self.formStrategy setDelegate:self];
-    self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 400) style:UITableViewStyleGrouped];
-    [self.contactFormView setDelegate:self.formStrategy];
-    [self.contactFormView setDataSource:self.formStrategy];
-    [self.contactFormView setBackgroundView:nil];
-    [self.contactFormView setBackgroundColor:[UIColor clearColor]];
-    [self.scrollView addSubview:self.contactFormView];
-    
     [self.view addSubview:self.scrollView];
 }
 
@@ -122,7 +96,7 @@
         [SMProgressHUD dismiss];
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            DDLogError(@"Contact page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];
@@ -171,15 +145,37 @@
         // fetch app title to display in annotation
         NSString *appTitle = [[SMAppDescription sharedInstance] appTitle];
         [self addRegionAndAnnotationLatitude:self.contact.coordinates.latitude longitude:self.contact.coordinates.longitude annotationName:appTitle];
-        
-        
-        
-        
-        
-        
     }
     
-    // rearrange contents if maps is set
+    // form
+    if ([self.contact form]) {
+        /*
+        NSArray *fields = [NSArray arrayWithObjects:
+                           [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
+                           [[SMFormEmailField alloc] initWithAttributes:@{@"name": @"email"}],
+                           [[SMFormTextArea alloc] initWithAttributes:@{@"name": @"Message"}],
+                           nil];
+        NSArray *buttons = [NSArray arrayWithObjects:
+                            [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
+                            nil];
+        SMFormSection *section = [[SMFormSection alloc] initWithTitle:@"Login Form" fields:fields];
+        SMFormSection *buttonSection = [[SMFormSection alloc] initWithTitle:@"" fields:buttons];
+        NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
+        
+        SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
+         */
+        [self.contact.form setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
+        
+        self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:self.contact.form scrollView:self.scrollView];
+        [self.formStrategy setDelegate:self];
+        self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 0) style:UITableViewStyleGrouped];
+        [self.contactFormView setDelegate:self.formStrategy];
+        [self.contactFormView setDataSource:self.formStrategy];
+        [self.contactFormView setBackgroundView:nil];
+        [self.contactFormView setBackgroundColor:[UIColor clearColor]];
+        [self.scrollView addSubview:self.contactFormView];
+    }
+    
 }
 
 #pragma mark - private methods
@@ -237,35 +233,20 @@
     self.textView.frame = textViewFrame;
     [self.scrollView setContentSize:scrollSize];
     
+    if (self.contactFormView) {
+        // get the height of the table
+        [self.contactFormView layoutIfNeeded];
+        float height = [self.contactFormView contentSize].height;
+        
+        // adjust table size
+        [self.contactFormView setFrame:CGRectMake(0, self.textView.frame.origin.y + CGRectGetHeight(self.textView.frame), 320, height)];
+        
+        // adjust the scroll view after the form
+        scrollSize = self.scrollView.contentSize;
+        scrollSize.height += height;// 330;
+        [self.scrollView setContentSize:scrollSize];
+    }
     
-    // TEMP FORM
-    /*
-    UITextField *name = [[UITextField alloc] initWithFrame:CGRectMake(10, scrollSize.height, 300, 31)];
-    UITextField *email = [[UITextField alloc] initWithFrame:CGRectMake(10, name.frame.origin.y + CGRectGetHeight(name.frame) + 10, 300, 31)];
-    UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(10, email.frame.origin.y + CGRectGetHeight(email.frame) + 10, 300, 120)];
-    SMButton *submit = [[SMButton alloc] initWithFrame:CGRectMake(10, text.frame.origin.y + CGRectGetHeight(text.frame) + 10, 300, 31)];
-    
-    [name setPlaceholder:@"İsim Soyisim"];
-    [email setPlaceholder:@"Eposta"];
-    [text setPlaceholder:@"Mesajiniz"];
-    [name setBorderStyle:UITextBorderStyleRoundedRect];
-    [email setBorderStyle:UITextBorderStyleRoundedRect];
-    [text setBorderStyle:UITextBorderStyleRoundedRect];
-    [submit setTitle:@"Gönder" forState:UIControlStateNormal];
-    [submit setBackgroundColor:[UIColor colorWithHex:@"27B3E6"]];
-    
-    [self.scrollView addSubview:name];
-    [self.scrollView addSubview:email];
-    [self.scrollView addSubview:text];
-    [self.scrollView addSubview:submit];
-    scrollSize = self.scrollView.contentSize;
-    scrollSize.height = submit.frame.origin.y + CGRectGetHeight(submit.frame) + 10;
-    [self.scrollView setContentSize:scrollSize];
-    // ENDTEMP FORM
-    */
-    scrollSize = self.scrollView.contentSize;
-    scrollSize.height += 330;
-    [self.scrollView setContentSize:scrollSize];
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {

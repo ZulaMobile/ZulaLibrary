@@ -18,7 +18,6 @@
                   toUrlString:(NSString *)urlString
                    completion:(void (^)(NSError *))completion
 {
-    DDLogInfo(@"form data: %@", [formDescription formData]);
     [[SMApiClient sharedClient] postPath:urlString parameters:[formDescription formData] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (completion) {
             completion(nil);

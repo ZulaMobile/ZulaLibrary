@@ -8,13 +8,15 @@
 
 #import "SMContact.h"
 #import "SMApiClient.h"
+#import "SMFormDescription.h"
 
 @implementation SMContact
 @synthesize title=_title,
 text=_text,
 coordinates=_coordinates,
 backgroundUrl=_backgroundUrl,
-navbarIcon=_navbarIcon;
+navbarIcon=_navbarIcon,
+form=_form;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -24,8 +26,13 @@ navbarIcon=_navbarIcon;
         _text = [attributes objectForKey:kModelContactPageText];
         
         NSArray *maps = [attributes objectForKey:kModelContactPageCoordinates];
-        if ([maps count] == 2) {
+        if ([maps isKindOfClass:[NSArray class]] && [maps count] == 2) {
             _coordinates = CLLocationCoordinate2DMake([[maps objectAtIndex:0] floatValue], [[maps objectAtIndex:1] floatValue]);
+        }
+        
+        NSDictionary *formDict = [attributes objectForKey:kModelContactFormDescription];
+        if ([formDict isKindOfClass:[NSDictionary class]]) {
+            _form = [[SMFormDescription alloc] initWithDictionary:formDict];
         }
         
         NSString *backgroundImageUrlString = [attributes objectForKey:kModelContactPageBackgroundImageUrl];
@@ -43,22 +50,27 @@ navbarIcon=_navbarIcon;
 
 - (BOOL)hasCoordinates
 {
+    if (self.coordinates.latitude == 0 && self.coordinates.longitude == 0) 
+        return NO;
+    
     return (self.coordinates.latitude >= -90.0f && self.coordinates.latitude <= 90.0f && self.coordinates.longitude >= -180.0f && self.coordinates.longitude <= 180.0f);
 }
 
 + (BOOL)isValidResponse:(id)response
 {
     if (![response isKindOfClass:[NSDictionary class]]) {
+        DDLogInfo(@"Contact response needs to be a dictionary");
         return NO;
     }
     
-    if ([response objectForKey:kModelContactPageCoordinates] && ![[response objectForKey:kModelContactPageCoordinates] isKindOfClass:[NSArray class]]) {
+    /*if ([response objectForKey:kModelContactPageCoordinates] && ![[response objectForKey:kModelContactPageCoordinates] isKindOfClass:[NSArray class]]) {
         return NO;
-    }
+    }*/
     
     return ([response objectForKey:kModelContactPageTitle] &&
             [response objectForKey:kModelContactPageText] &&
             [response objectForKey:kModelContactPageCoordinates] &&
+            [response objectForKey:kModelContactFormDescription] &&
             [response objectForKey:kModelContactPageBackgroundImageUrl] &&
             [response objectForKey:kModelContactPageNavbarIcon]);
 }

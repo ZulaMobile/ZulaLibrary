@@ -11,6 +11,8 @@
 #import "SMFormTextField.h"
 #import "SMFormPasswordField.h"
 #import "SMFormButtonField.h"
+#import "SMFormTextArea.h"
+#import "SMFormEmailField.h"
 
 @implementation SMFormFieldFactory
 
@@ -24,10 +26,14 @@
     SMFormField *field = nil;
     if ([type isEqualToString:kFormTextFieldType]) {
         field = [[SMFormTextField alloc] initWithAttributes:dictionary];
-    } else if ([type isEqualToString:@"password"]) {
+    } else if ([type isEqualToString:kFormPasswordFieldType]) {
         field = [[SMFormPasswordField alloc] initWithAttributes:dictionary];
-    } else if ([type isEqualToString:@"button"]) {
+    } else if ([type isEqualToString:kFormButtonFieldType]) {
         field = [[SMFormButtonField alloc] initWithAttributes:dictionary];
+    } else if ([type isEqualToString:kFormEmailFieldType]) {
+        field = [[SMFormEmailField alloc] initWithAttributes:dictionary];
+    } else if ([type isEqualToString:kFormTextareaFieldType]) {
+        field = [[SMFormTextArea alloc] initWithAttributes:dictionary];
     }
 
     return field;

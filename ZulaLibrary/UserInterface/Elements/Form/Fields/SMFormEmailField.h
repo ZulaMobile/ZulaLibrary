@@ -8,6 +8,11 @@
 
 #import "SMFormTextField.h"
 
+/**
+ The type identifier
+ */
+#define kFormEmailFieldType @"email"
+
 @interface SMFormEmailField : SMFormTextField
 
 @end

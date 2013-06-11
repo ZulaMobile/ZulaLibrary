@@ -156,7 +156,7 @@
     webViewFrame.size.height = fittingSize.height;
     if (self.imageView) {
         webViewFrame.origin.y = CGRectGetHeight(self.imageView.frame);
-        webViewFrame.size.height += CGRectGetHeight(self.imageView.frame);
+        //webViewFrame.size.height += CGRectGetHeight(self.imageView.frame);
     }
     [self.webView setFrame:webViewFrame];
     

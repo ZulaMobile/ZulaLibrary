@@ -122,6 +122,7 @@
     dispatch_queue_t queue = dispatch_queue_create("com.swatch.worker", NULL);
     dispatch_async(queue, ^(void) {
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+        [attributes setObject:@"Helvetica" forKey:(id)kCTFontFamilyNameAttribute];
         [attributes setObject:@"HelveticaNeue" forKey:(id)kCTFontFamilyNameAttribute];
         [attributes setObject:[NSNumber numberWithFloat:36.0f] forKey:(id)kCTFontSizeAttribute];
         CTFontDescriptorRef fontDesc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attributes);

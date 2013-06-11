@@ -7,6 +7,10 @@
 //
 
 #import "SMFormField.h"
+/**
+ The type identifier
+ */
+#define kFormTextareaFieldType @"textarea"
 
 @interface SMFormTextArea : SMFormField <UITextViewDelegate>
 

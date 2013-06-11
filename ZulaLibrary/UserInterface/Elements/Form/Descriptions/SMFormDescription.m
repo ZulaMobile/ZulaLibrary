@@ -22,6 +22,7 @@
         
         NSArray *raw_sections = [dictionary objectForKey:@"sections"];
         if (![raw_sections isKindOfClass:[NSArray class]]) {
+            DDLogError(@"Malformed form description, missing `sections`. Dictionary: %@", dictionary);
             // raise an exception?
             return self;
         }

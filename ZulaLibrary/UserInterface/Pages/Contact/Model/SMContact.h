@@ -15,6 +15,9 @@
 #define kModelContactPageCoordinates @"maps"
 #define kModelContactPageBackgroundImageUrl @"bg_image"
 #define kModelContactPageNavbarIcon @"navbar_icon"
+#define kModelContactFormDescription @"form"
+
+@class SMFormDescription;
 
 /**
  Contact component's data model
@@ -36,6 +39,12 @@
  Latitude and Longitude of the map
  */
 @property (nonatomic) CLLocationCoordinate2D coordinates;
+
+/**
+ The form description to create and display a form. 
+ Form description stores all sections and fields in it.
+ */
+@property (nonatomic, readonly) SMFormDescription *form;
 
 /**
  Optional background image
