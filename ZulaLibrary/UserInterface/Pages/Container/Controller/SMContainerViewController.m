@@ -1,37 +1,35 @@
 //
-//  SMContentContainerViewController.m
+//  SMContainerViewController.m
 //  ZulaLibrary
 //
-//  Created by Suleyman Melikoglu on 5/21/13.
+//  Created by Suleyman Melikoglu on 6/11/13.
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMContentContainerViewController.h"
+#import "SMContainerViewController.h"
 #import "SDSegmentedControl.h"
-#import "UIViewController+SSToolkitAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
-#import "UIColor+ZulaAdditions.h"
 #import "SMProgressHUD.h"
+#import "UIViewController+SSToolkitAdditions.h"
 
+#import "SMAppDescription.h"
 #import "SMComponentDescription.h"
-#import "SMContentContainer.h"
-#import "SMContentPage.h"
-#import "SMSubMenuView.h"
-#import "SMContentViewController.h"
+#import "SMComponentFactory.h"
+#import "SMContainer.h"
 
-#define contentViewTag 664
+@interface SMContainerViewController ()
 
-@interface SMContentContainerViewController ()
 - (void)onButton:(id)submenu;
+- (void)displayComponentWithDescription:(SMComponentDescription *)description;
+
 @end
 
-@implementation SMContentContainerViewController
+@implementation SMContainerViewController
 {
     // active content controller
-    SMContentViewController *activeContentViewController;
+    UIViewController *activeContentViewController;
 }
-@synthesize subMenu;
-@synthesize contentContainer;
+@synthesize container, subMenu;
+
 
 - (void)loadView
 {
@@ -42,27 +40,12 @@
     
     self.subMenu = [[SDSegmentedControl alloc] initWithItems:[NSArray array]];
     [self.subMenu setFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
-    [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+    //[self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
     self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
-    
-    /*
-    UIColor *navBarBackgroundColor = self.navigationController.navigationBar.backgroundColor;
-    if (!navBarBackgroundColor) {
-        navBarBackgroundColor = [UIColor colorWithHex:@"CCCCCC"];
-    }*/
-    
-    /*
-    [self.subMenu changeBackgroundColor:[navBarBackgroundColor darkerColor]];
-    [self.subMenu setClipsToBounds:NO];
-    [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
-    */
-    
-    
-    
+        
     [self.view addSubview:self.subMenu];
 }
 
@@ -79,7 +62,7 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.contentContainer) {
+    if (self.container) {
         [self applyContents];
         return;
     }
@@ -88,7 +71,7 @@
     [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
-    [SMContentContainer fetchWithURLString:url completion:^(SMContentContainer *theContentContainer, SMServerError *error) {
+    [SMContainer fetchWithURLString:url completion:^(SMContainer *theContainer, SMServerError *error) {
         // end preloader
         [SMProgressHUD dismiss];
         
@@ -101,31 +84,30 @@
             return;
         }
         
-        [self setContentContainer:theContentContainer];
+        [self setContainer:theContainer];
         [self applyContents];
-        
     }];
+    
 }
 
 - (void)applyContents
 {
-    [self setTitle:self.contentContainer.title];
+    [self setTitle:self.container.title];
     
     // set the content components
-    SMContentPage *firstContentPage;
+    SMComponentDescription *firstComponentDesc;
     int i = 0;
-    for (SMContentPage *contentPage in self.contentContainer.components) {
+    for (SMComponentDescription *desc in self.container.components) {
         if (i == 0) {
-            firstContentPage = contentPage;
+            firstComponentDesc = desc;
         }
         
-        // add it to the menu
-        [self.subMenu insertSegmentWithTitle:contentPage.title atIndex:i animated:YES];
+        [self.subMenu insertSegmentWithTitle:desc.title atIndex:i animated:YES];
         i++;
     }
     
     // display the 1st one
-    [self displayContentPage:firstContentPage];
+    [self displayComponentWithDescription:firstComponentDesc];
     self.subMenu.selectedSegmentIndex = 0;
 }
 
@@ -134,20 +116,23 @@
 - (void)onButton:(id)submenu
 {
     NSInteger selectedIndex = [(SDSegmentedControl *)subMenu selectedSegmentIndex];
-    SMContentPage *contentPage = [self.contentContainer.components objectAtIndex:selectedIndex];
-    [self displayContentPage:contentPage];
+    SMComponentDescription *thedesc = [self.container.components objectAtIndex:selectedIndex];
+    [self displayComponentWithDescription:thedesc];
 }
 
-- (void)displayContentPage:(SMContentPage *)contentPage
+- (void)displayComponentWithDescription:(SMComponentDescription *)description
 {
+    NSInteger viewTag = 665;
+    
     // remove the old view
-    UIView *currentView = [self.view viewWithTag:contentViewTag];
+    UIView *currentView = [self.view viewWithTag:viewTag];
     [currentView removeFromSuperview];
     activeContentViewController = nil;
     
-    // create a controller for this
-    activeContentViewController = [[SMContentViewController alloc] initWithDescription:self.componentDesciption];
-    [activeContentViewController setContentPage:contentPage];
+    // create component
+    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    activeContentViewController = [SMComponentFactory componentWithDescription:description
+                                                                 forNavigation:appDescription.navigationDescription];
     
     // add controller's view to self.view
     float pullUp = 10.0;
@@ -160,7 +145,7 @@
      UIViewAutoresizingFlexibleLeftMargin   |
      UIViewAutoresizingFlexibleRightMargin  |
      UIViewAutoresizingFlexibleWidth];
-    [activeContentViewController.view setTag:contentViewTag];
+    [activeContentViewController.view setTag:viewTag];
     
     [self.view addSubview:activeContentViewController.view];
     

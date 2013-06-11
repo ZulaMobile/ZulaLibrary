@@ -7,9 +7,8 @@
 //
 
 #import "SMBaseComponentViewController.h"
-#import "SDSegmentedControl.h"
 
-@class SMContentContainer, SMSubMenuView;
+@class SMContentContainer, SMSubMenuView, SDSegmentedControl;
 
 /**
  Content Container page is a container of Content Pages. It displays a menu to choose between them. 
