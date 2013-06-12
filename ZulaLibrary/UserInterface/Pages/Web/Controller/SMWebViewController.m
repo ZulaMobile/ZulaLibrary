@@ -18,11 +18,11 @@
 #import "SMWebView.h"
 
 @interface SMWebViewController ()
-@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+
 @end
 
 @implementation SMWebViewController
-@synthesize web=_web, webView=_webView, indicatorView=_indicatorView;
+@synthesize web=_web, webView=_webView;
 
 - (void)loadView
 {
@@ -33,7 +33,7 @@
                                 0,
                                 CGRectGetWidth(self.view.frame),
                                 CGRectGetHeight(self.view.frame))];
-    [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.webView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.webView setDelegate:self];
     [self.webView setBackgroundColor:[UIColor whiteColor]];
     [self.webView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
@@ -45,12 +45,7 @@
         [self.webView applyAppearances:appearance];
     }
     
-    self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [self.indicatorView setFrame:CGRectMake(CGRectGetWidth(self.view.frame) / 2 - 20, CGRectGetHeight(self.view.frame) / 2 - 20, 20, 20)];
-    [self.indicatorView setHidesWhenStopped:YES];
-    
     [self.view addSubview:self.webView];
-    [self.view addSubview:self.indicatorView];
 }
 
 - (void)viewDidLoad
@@ -112,17 +107,18 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [self.indicatorView startAnimating];
+    [SMProgressHUD show];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.indicatorView stopAnimating];
+    //[self.indicatorView stopAnimating];
+    [SMProgressHUD dismiss];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [self.indicatorView stopAnimating];
+    [SMProgressHUD dismiss];
     
     [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                 message:NSLocalizedString(@"The web page could not be loaded!", nil)
