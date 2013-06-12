@@ -83,6 +83,8 @@
 		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
 		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
 		67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
+		6791C67117686707005D64A0 /* SMWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C67017686707005D64A0 /* SMWeb.m */; };
+		6791C674176879F6005D64A0 /* SMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C673176879F6005D64A0 /* SMWebViewController.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
@@ -280,6 +282,10 @@
 		67890A3C16F0A475001AA909 /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMServerError.m; path = Library/Errors/SMServerError.m; sourceTree = "<group>"; };
 		67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceValidator.h; path = UserInterface/Elements/SMAppearanceValidator.h; sourceTree = "<group>"; };
 		67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceValidator.m; path = UserInterface/Elements/SMAppearanceValidator.m; sourceTree = "<group>"; };
+		6791C66F17686707005D64A0 /* SMWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWeb.h; path = UserInterface/Pages/Web/Model/SMWeb.h; sourceTree = "<group>"; };
+		6791C67017686707005D64A0 /* SMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWeb.m; path = UserInterface/Pages/Web/Model/SMWeb.m; sourceTree = "<group>"; };
+		6791C672176879F6005D64A0 /* SMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWebViewController.h; path = UserInterface/Pages/Web/Controller/SMWebViewController.h; sourceTree = "<group>"; };
+		6791C673176879F6005D64A0 /* SMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWebViewController.m; path = UserInterface/Pages/Web/Controller/SMWebViewController.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+SMAdditions.h"; path = "Library/Categories/UI/UIButton+SMAdditions.h"; sourceTree = "<group>"; };
 		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
@@ -879,6 +885,33 @@
 			name = Errors;
 			sourceTree = "<group>";
 		};
+		6791C66C176866C0005D64A0 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				6791C66D176866CF005D64A0 /* Model */,
+				6791C66E176866D5005D64A0 /* Controller */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		6791C66D176866CF005D64A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6791C66F17686707005D64A0 /* SMWeb.h */,
+				6791C67017686707005D64A0 /* SMWeb.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6791C66E176866D5005D64A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6791C672176879F6005D64A0 /* SMWebViewController.h */,
+				6791C673176879F6005D64A0 /* SMWebViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		67B6C68D174F8342008E1EF0 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,6 +994,7 @@
 				674D6F30174B85E30007A4A1 /* ContentContainer */,
 				67B916B6176762CE006AF55C /* Container */,
 				6767B633175F4838001A20F8 /* ImageGallery */,
+				6791C66C176866C0005D64A0 /* Web */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
 				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
 				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
@@ -1544,6 +1578,8 @@
 				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
 				67B916BC1767630E006AF55C /* SMContainer.m in Sources */,
 				67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */,
+				6791C67117686707005D64A0 /* SMWeb.m in Sources */,
+				6791C674176879F6005D64A0 /* SMWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

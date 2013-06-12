@@ -9,6 +9,7 @@
 #import "SMContact.h"
 #import "SMApiClient.h"
 #import "SMFormDescription.h"
+#import "SMServerError.h"
 
 @implementation SMContact
 @synthesize title=_title,

@@ -17,7 +17,7 @@
 #define kModelContactPageNavbarIcon @"navbar_icon"
 #define kModelContactFormDescription @"form"
 
-@class SMFormDescription;
+@class SMFormDescription, SMServerError;
 
 /**
  Contact component's data model

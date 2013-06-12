@@ -52,8 +52,6 @@
     //[self.subMenu setBorderColor:[UIColor lightGrayColor]];
     //[self.subMenu setTintColor:[UIColor greenColor]];
     
-    self.subMenu.arrowHeightFactor *= -1.0;
-    
     [self.view addSubview:self.subMenu];
 }
 
