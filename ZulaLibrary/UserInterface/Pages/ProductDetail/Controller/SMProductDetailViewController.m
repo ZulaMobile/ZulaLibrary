@@ -63,8 +63,6 @@
     [self.scrollView addSubview:self.imageView];
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
-    
-    
 }
 
 - (void)viewDidLoad
@@ -143,23 +141,15 @@
     aWebView.frame = frame;
     CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
     frame.size = fittingSize;
-    aWebView.frame = frame;
+    [aWebView setFrame:frame];
     
-    /*
     // move views up if there is no image
     CGRect imageViewFrame = _imageView.frame;
-    float imageHeightDiff = (!self.productDetail.images) ? CGRectGetHeight(imageViewFrame) : 0;
-    CGRect webViewFrame = CGRectMake(_webView.frame.origin.x,
-                                     _webView.frame.origin.y - imageHeightDiff,
-                                     CGRectGetWidth(self.view.frame) - padding * 2,
-                                     fittingSize.height);
-    [self.webView setFrame:webViewFrame];
-    
-    float imageHeight = (self.productDetail.imageUrl) ? CGRectGetHeight(imageViewFrame) : 0;
+    float imageHeight = (self.productDetail.images) ? CGRectGetHeight(imageViewFrame) : 0;
     [self.scrollView setContentSize:CGSizeMake(
                                                CGRectGetWidth(self.view.frame),
                                                padding * 2 + imageHeight + fittingSize.height)];
-     */
+     
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
