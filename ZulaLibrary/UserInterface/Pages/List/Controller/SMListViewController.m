@@ -46,7 +46,9 @@
     self.tableView = [[UITableView alloc] initWithFrame:fullSize style:UITableViewStylePlain];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.tableView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+    [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     // add views to main view
     [self.view addSubview:self.tableView];
@@ -92,8 +94,6 @@
 
 - (void)applyContents
 {
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     // ui changes
     if (self.listPage.backgroundUrl) {
@@ -140,7 +140,7 @@
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
+        self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160)];
         [cell.contentView addSubview:self.images];
     }
     

@@ -48,6 +48,12 @@
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
     
+    //[self.subMenu setBackgroundColor:[UIColor blackColor]];
+    //[self.subMenu setBorderColor:[UIColor lightGrayColor]];
+    //[self.subMenu setTintColor:[UIColor greenColor]];
+    
+    self.subMenu.arrowHeightFactor *= -1.0;
+    
     [self.view addSubview:self.subMenu];
 }
 
@@ -141,11 +147,16 @@
                                                           CGRectGetHeight(self.subMenu.frame) - pullUp,
                                                           CGRectGetWidth(self.view.frame),
                                                           CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.subMenu.frame) + pullUp)];
-    [activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin    |
+    /*[activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin    |
      UIViewAutoresizingFlexibleHeight       |
      UIViewAutoresizingFlexibleLeftMargin   |
      UIViewAutoresizingFlexibleRightMargin  |
-     UIViewAutoresizingFlexibleWidth];
+     UIViewAutoresizingFlexibleWidth];*/
+    [activeContentViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    
+    [activeContentViewController.view setBackgroundColor:[UIColor yellowColor]];
+    [activeContentViewController.view setClipsToBounds:YES];
+    
     [activeContentViewController.view setTag:subViewTag];
     
     [self.view addSubview:activeContentViewController.view];
