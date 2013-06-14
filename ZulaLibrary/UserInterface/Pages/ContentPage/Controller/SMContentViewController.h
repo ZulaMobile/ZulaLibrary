@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
 
 @class SMImageView, SMLabel, SMMultipleImageView, SMContentPage, SMWebView;
 
@@ -20,7 +20,7 @@
  
  @see SMContentPage model class for the component data to fetch for this page
  */
-@interface SMContentViewController : SMBaseComponentViewController <UIWebViewDelegate>
+@interface SMContentViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate>
 
 /**
  Model attribute that holds the data 

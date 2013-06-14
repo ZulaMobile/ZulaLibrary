@@ -15,6 +15,7 @@
 - (id) initWithScrollView:(UIScrollView *)scrollView delegate:(id <SMPullToRefreshDelegate>)delegate;
 - (void) endRefresh;
 - (void) startRefresh;
+- (BOOL) isRefreshing;
 
 @end
 

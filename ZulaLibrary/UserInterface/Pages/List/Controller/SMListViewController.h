@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
+#import "SMPullToRefresh.h"
 
 @class SMListPage, SMListItem, SMMultipleImageView;
 
 /**
  List page corresponds to UITableViewController.
  */
-@interface SMListViewController : SMBaseComponentViewController <UITableViewDataSource, UITableViewDelegate, SMComponentNavigationDelegate>
+@interface SMListViewController : SMPullToRefreshComponentViewController <UITableViewDataSource, UITableViewDelegate, SMComponentNavigationDelegate>
 
 /**
  The model instance, it stores the items to display

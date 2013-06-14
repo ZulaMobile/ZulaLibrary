@@ -28,14 +28,6 @@
 @end
 
 @implementation SMHomePageViewController
-{
-    id<SMPullToRefresh> pullToRefresh;
-    
-    // a temporary solution for view position rearrangement
-    // after each refresh, the rearrangement shouldn't occur
-    // if it happened once
-    //BOOL viewsDidRearrange;
-}
 @synthesize homePage, logoView, homePageLinks;
 
 - (id)initWithDescription:(SMComponentDescription *)description
@@ -123,7 +115,9 @@
 
 - (void)fetchContents
 {
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
+    
     NSString *url = [self.componentDesciption url];
     [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
         [SMProgressHUD dismiss];
@@ -173,13 +167,6 @@
     UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
-}
-
-#pragma mark - pull to refresh delegfate
-
-- (void)pullToRefreshShouldRefresh:(id<SMPullToRefresh>)thePullToRefresh
-{
-    [self fetchContents];
 }
 
 @end

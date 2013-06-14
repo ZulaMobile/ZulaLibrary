@@ -14,6 +14,7 @@
 #import "MWPhoto.h"
 #import "SMImageView.h"
 #import "SMImageGallery.h"
+#import "SMPullToRefreshFactory.h"
 
 @interface SMImageGalleryViewController ()
 
@@ -43,6 +44,8 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    
     [self.view addSubview:self.scrollView];
 }
 
@@ -59,13 +62,15 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.imageGallery) {
+    /*if (self.imageGallery) {
         [self applyContents];
         return;
-    }
+    }*/
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing]) 
+        [SMProgressHUD show];
+    
     
     NSString *url = [self.componentDesciption url];
     [SMImageGallery fetchWithURLString:url completion:^(SMImageGallery *_imageGallery, SMServerError *error) {
@@ -88,6 +93,12 @@
 
 - (void)applyContents
 {
+    UIView *thumbnailViewToDelete = [self.scrollView viewWithTag:443];
+    [thumbnailViewToDelete removeFromSuperview];
+    thumbnailViewToDelete = nil;
+    
+    self.photos = [NSMutableArray array];
+    
     for (NSURL *url in self.imageGallery.images) {
         MWPhoto *ph = [MWPhoto photoWithURL:url];
         //[ph setCaption:@"Buraya aciklamalar gelecek"];
@@ -136,11 +147,14 @@
     // expand the container size
     CGRect contanerFrame = thumbnailContainer.frame;
     contanerFrame.size.height = ((count/imagesPerRow + 1) * height) + (padding * (count/imagesPerRow + 1)) + padding;
+    [thumbnailContainer setTag:443];
     [thumbnailContainer setFrame:contanerFrame];
     
     [self.scrollView addSubview:thumbnailContainer];
     
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(thumbnailContainer.frame), CGRectGetHeight(thumbnailContainer.frame))];
+    
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - private methods

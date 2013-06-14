@@ -9,10 +9,14 @@
 #import "SMRainboxPullToRefresh.h"
 
 @implementation SMRainboxPullToRefresh
+{
+    BOOL _isRefreshing;
+}
 
 - (id) initWithScrollView:(UIScrollView *)scrollView delegate:(id<SMPullToRefreshDelegate>)delegate {
     self = [super init];
     if (self) {
+        _isRefreshing = NO;
         _delegate = delegate;
         _scrollView = scrollView;
         [_scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
@@ -68,10 +72,17 @@
     _arrowBot.transform  = CGAffineTransformMakeRotation(M_PI);
     _arrowTop.hidden = NO;
     _arrowTop.transform = CGAffineTransformIdentity;
+    _isRefreshing = NO;
 }
 
 - (void) startRefresh {
+    _isRefreshing = YES;
     [_pullToRefresh startRefreshingDirection:MSRefreshDirectionTop];
+}
+
+- (BOOL)isRefreshing
+{
+    return _isRefreshing;
 }
 
 #pragma mark - pull to refresh delegate
@@ -117,6 +128,7 @@
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
+    _isRefreshing = YES;
     _arrowTop.hidden = YES;
     _arrowBot.hidden = YES;
     [_rainbowTop startAnimating];
