@@ -156,7 +156,7 @@
 {
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
-    UIViewController *component = (UIViewController *)[[navigation components] objectAtIndex:sender.selectedIndex];
+    UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
 }

@@ -89,7 +89,9 @@
 - (void)applyContents
 {
     for (NSURL *url in self.imageGallery.images) {
-        [photos addObject:[MWPhoto photoWithURL:url]];
+        MWPhoto *ph = [MWPhoto photoWithURL:url];
+        //[ph setCaption:@"Buraya aciklamalar gelecek"];
+        [photos addObject:ph];
     }
     
     // thumbnail container

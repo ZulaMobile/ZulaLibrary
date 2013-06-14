@@ -8,16 +8,17 @@
 
 #import "SMNavbarNavigationViewController.h"
 #import "SMHomePageViewController.h"
+#import "SMBaseComponentViewController.h"
+#import "SMAppDescription.h"
+#import "SMComponentDescription.h"
+#import "SMComponentFactory.h"
 
 @interface SMNavbarNavigationViewController ()
 
 @end
 
 @implementation SMNavbarNavigationViewController
-{
-    NSArray *components_;
-}
-@synthesize apperanceManager = appearanceManager_;
+@synthesize apperanceManager = appearanceManager_, componentDescriptions=_componentDescriptions;
 
 - (id)init
 {
@@ -31,29 +32,46 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // set the 1st component as the root controller
-    UIViewController *firstComponent = [self.components objectAtIndex:0];
+    UIViewController *firstComponent = [self componentAtIndex:0];
     [self presentViewController:firstComponent animated:NO completion:^{
         // nothing
     }];
 }
 
-#pragma mark - getters/setters
-
-- (NSArray *)components
-{
-    return components_;
-}
-
-/**
- Set components and view controllers for the tabbarcontroller
- */
-- (void)setComponents:(NSArray *)components
-{
-    components_ = components;
-}
-
 #pragma mark - methods
 
+- (void)addChildComponentDescription:(SMComponentDescription *)componentDescription
+{
+    // add component to the self.components
+    NSMutableArray *tmpComponents;
+    if (self.componentDescriptions) {
+        tmpComponents = [NSMutableArray arrayWithArray:self.componentDescriptions];
+    } else {
+        tmpComponents = [NSMutableArray array];
+    }
+    [tmpComponents addObject:componentDescription];
+    [self setComponentDescriptions:[NSArray arrayWithArray:tmpComponents]];
+ 
+    // if it's homepage component, add the navigation delegate to this class
+    //if ([component isKindOfClass:[UINavigationController class]]) {
+    //    [(UINavigationController *)component setDelegate:self];
+    //}
+}
+
+
+- (SMBaseComponentViewController *)componentAtIndex:(NSInteger)index
+{
+    SMComponentDescription *compDesc = [self.componentDescriptions objectAtIndex:index];
+    
+    if (!compDesc) {
+        raise(1);
+    }
+ 
+    SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:compDesc forNavigation:appDesc.navigationDescription];
+}
+
+/*
 - (void)addChildComponent:(UIViewController *)component
 {
     // add component to the self.components
@@ -70,7 +88,7 @@
     if ([component isKindOfClass:[UINavigationController class]]) {
         [(UINavigationController *)component setDelegate:self];
     }
-}
+}*/
 
 - (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent
 {

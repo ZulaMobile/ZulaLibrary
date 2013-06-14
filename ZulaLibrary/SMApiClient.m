@@ -28,14 +28,16 @@
     
 #ifdef DEBUG_APP
     //return [NSURL URLWithString:@"http://localhost:8000/"];
-    return [NSURL URLWithString:@"http://192.168.0.12:8000/"];
+    return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
+    //return [NSURL URLWithString:@"http://192.168.0.12:8000/"];
 #else
     /*
      NSDictionary* serverInfo = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"rest server"];
      NSString* baseUrl = [serverInfo objectForKey:@"url"];
      return [NSURL URLWithString:baseUrl];
      */
-    return [NSURL URLWithString:@"http://www.zulamobile.com/"];
+    
+    return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
 #endif
     
     

@@ -95,12 +95,11 @@
         self.navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
         [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
-        // create component instances
+        //DDLogInfo(@"component descs: %@", appDescription.componentDescriptions);
+        
+        // add component descriptions to the navigation
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
-            UIViewController *component = [SMComponentFactory componentWithDescription:componentDesc forNavigation:appDescription.navigationDescription];
-            if (component) {
-                [self.navigationComponent addChildComponent:component];
-            }
+            [self.navigationComponent addChildComponentDescription:componentDesc];
         }
         
         // show the main window

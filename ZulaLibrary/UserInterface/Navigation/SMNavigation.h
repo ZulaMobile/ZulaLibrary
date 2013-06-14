@@ -8,14 +8,39 @@
 
 #import <Foundation/Foundation.h>
 #import "SMNavigationApperanceManager.h"
+#import "SMBaseComponentViewController.h"
 
 @protocol SMNavigation <NSObject>
 
-@property(nonatomic, strong) NSArray *components;
+@property (nonatomic, strong) SMNavigationApperanceManager *apperanceManager;
 
-@property(nonatomic, strong) SMNavigationApperanceManager *apperanceManager;
+/**
+ Component Descriptions array, avoid to use it directly. Rather use messages in this protocol.
+ */
+@property (nonatomic, strong) NSArray *componentDescriptions;
 
-- (void)addChildComponent:(UIViewController *)component;
+// @deprecated
+//@property (nonatomic, strong) NSArray *components;
+
+// Deprecated
+//- (void)addChildComponent:(UIViewController *)component;
+
+/**
+ Adds the component description to the navigation stack. These component descriptions
+ are going to be used for creating component instances, and displaying component buttons.
+ 
+ The navigation class should add only components who are available for navigation, 
+ i.e. navbar component shouldn't add HomePageComponent
+ */
+- (void)addChildComponentDescription:(SMComponentDescription *)componentDescription;
+
+/**
+ Gets the component description from AppDescription, 
+ create its component and returns it
+ 
+ Raises an exception if component is not found at index
+ */
+- (SMBaseComponentViewController *)componentAtIndex:(NSInteger)index;
 
 /**
  Present the component using an approptiate way. Using the optional fromCompoonent if needed.

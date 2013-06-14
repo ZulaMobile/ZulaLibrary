@@ -13,6 +13,7 @@
 #import "SMButton.h"
 #import "SMAppDescription.h"
 #import "SMNavigationDescription.h"
+#import "SMComponentDescription.h"
 
 @interface SMHomePageLinks()
 - (void)appearanceForVisibility:(BOOL)visibility;
@@ -51,15 +52,18 @@
         // place links
         UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
         UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
+        
         int i = 0, j = 0;
-        for (UIViewController *component in navigation.components) {
+        for (SMComponentDescription *componentDescription in navigation.componentDescriptions) {
+            
             // if it is a navigation controller, we disable them to show up in the homepage links
             // this will prevent the error of pushing navigation controller
             // also this will allow us to disable menu in tabbar navigation
-            if ([component isKindOfClass:[UINavigationController class]]) {
+            if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
                 i++;
                 continue;
             }
+            
             // place each component buttons
             SMButton *componentButton = [SMButton buttonWithType:UIButtonTypeCustom];
             [componentButton setFrame:CGRectMake(0,
@@ -68,7 +72,7 @@
                                                  40)];
             [componentButton setTag:i];
             [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
-            [componentButton setTitle:component.title forState:UIControlStateNormal];
+            [componentButton setTitle:[componentDescription title] forState:UIControlStateNormal];
             
             [self addSubview:componentButton];
             i++; j++;
