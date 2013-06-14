@@ -16,6 +16,7 @@
 #import "SMHomePageLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
+#import "SMPullToRefreshFactory.h"
 
 @interface SMHomePageViewController ()
 
@@ -27,6 +28,14 @@
 @end
 
 @implementation SMHomePageViewController
+{
+    id<SMPullToRefresh> pullToRefresh;
+    
+    // a temporary solution for view position rearrangement
+    // after each refresh, the rearrangement shouldn't occur
+    // if it happened once
+    //BOOL viewsDidRearrange;
+}
 @synthesize homePage, logoView, homePageLinks;
 
 - (id)initWithDescription:(SMComponentDescription *)description
@@ -59,6 +68,8 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
     
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
@@ -130,6 +141,7 @@
 
 - (void)applyContents
 {
+    BOOL logoWasHidden = [self.logoView isHidden];
     if (self.homePage.logoUrl) {
         [self.logoView setHidden:NO];
         [self.logoView setImageWithURL:homePage.logoUrl];
@@ -139,7 +151,7 @@
         [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
     
     // rearrange positions
-    if (self.homePage.logoUrl) {
+    if (self.homePage.logoUrl && logoWasHidden) {
         CGRect linksFrame = self.homePageLinks.frame;
         linksFrame.origin.y += CGRectGetHeight(self.logoView.frame);
         [self.homePageLinks setFrame:linksFrame];
@@ -148,6 +160,8 @@
         scrollContentSize.height += CGRectGetHeight(self.logoView.frame);
         [self.scrollView setContentSize:scrollContentSize];
     }
+    
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - private methods
@@ -159,6 +173,13 @@
     UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
+}
+
+#pragma mark - pull to refresh delegfate
+
+- (void)pullToRefreshShouldRefresh:(id<SMPullToRefresh>)thePullToRefresh
+{
+    [self fetchContents];
 }
 
 @end

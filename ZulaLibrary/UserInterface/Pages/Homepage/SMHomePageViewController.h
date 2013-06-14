@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SMBaseComponentViewController.h"
+#import "SMPullToRefresh.h"
 
 #import "SMImageView.h"
 
@@ -17,7 +18,7 @@
  Home Page Component automatically displays all registered components 
  in order (if menu is not hidden)
  */
-@interface SMHomePageViewController : SMBaseComponentViewController
+@interface SMHomePageViewController : SMBaseComponentViewController <SMPullToRefreshDelegate>
 
 /**
  Model class
