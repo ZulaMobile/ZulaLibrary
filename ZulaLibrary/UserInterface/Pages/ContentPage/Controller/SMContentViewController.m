@@ -20,6 +20,7 @@
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
 #import "SMMultipleImageView.h"
+#import "SMPullToRefreshFactory.h"
 
 @interface SMContentViewController ()
 
@@ -57,6 +58,8 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
     
@@ -76,13 +79,14 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.contentPage) {
+    /*if (self.contentPage) {
         [self applyContents];
         return;
-    }
+    }*/
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
@@ -123,6 +127,8 @@
     if (self.contentPage.navbarIcon) {
         [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
     }
+    
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - web view delegate

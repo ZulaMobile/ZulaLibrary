@@ -85,6 +85,10 @@
 		67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
 		6791C67117686707005D64A0 /* SMWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C67017686707005D64A0 /* SMWeb.m */; };
 		6791C674176879F6005D64A0 /* SMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C673176879F6005D64A0 /* SMWebViewController.m */; };
+		679EC15F176B904F00D32228 /* SMRainboxPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */; };
+		679EC166176B934D00D32228 /* SMPullToRefreshFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */; };
+		679EC1BB176B9B7900D32228 /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */; };
+		679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
@@ -287,6 +291,15 @@
 		6791C67017686707005D64A0 /* SMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWeb.m; path = UserInterface/Pages/Web/Model/SMWeb.m; sourceTree = "<group>"; };
 		6791C672176879F6005D64A0 /* SMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWebViewController.h; path = UserInterface/Pages/Web/Controller/SMWebViewController.h; sourceTree = "<group>"; };
 		6791C673176879F6005D64A0 /* SMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWebViewController.m; path = UserInterface/Pages/Web/Controller/SMWebViewController.m; sourceTree = "<group>"; };
+		679EC15D176B904F00D32228 /* SMRainboxPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMRainboxPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMRainboxPullToRefresh.h; sourceTree = "<group>"; };
+		679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMRainboxPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMRainboxPullToRefresh.m; sourceTree = "<group>"; };
+		679EC163176B92D100D32228 /* SMPullToRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMPullToRefresh.h; sourceTree = "<group>"; };
+		679EC164176B934D00D32228 /* SMPullToRefreshFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPullToRefreshFactory.h; path = UserInterface/Elements/PullToRefresh/SMPullToRefreshFactory.h; sourceTree = "<group>"; };
+		679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshFactory.m; path = UserInterface/Elements/PullToRefresh/SMPullToRefreshFactory.m; sourceTree = "<group>"; };
+		679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPullToRefreshComponentViewController.h; path = UserInterface/Pages/SMPullToRefreshComponentViewController.h; sourceTree = "<group>"; };
+		679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshComponentViewController.m; path = UserInterface/Pages/SMPullToRefreshComponentViewController.m; sourceTree = "<group>"; };
+		679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.h; sourceTree = "<group>"; };
+		679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+SMAdditions.h"; path = "Library/Categories/UI/UIButton+SMAdditions.h"; sourceTree = "<group>"; };
 		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
@@ -916,6 +929,20 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		679EC15C176B901D00D32228 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				679EC163176B92D100D32228 /* SMPullToRefresh.h */,
+				679EC15D176B904F00D32228 /* SMRainboxPullToRefresh.h */,
+				679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */,
+				679EC164176B934D00D32228 /* SMPullToRefreshFactory.h */,
+				679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */,
+				679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */,
+				679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */,
+			);
+			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
 		67B6C68D174F8342008E1EF0 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1004,6 +1031,8 @@
 				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
 				675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */,
 				675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */,
+				679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */,
+				679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1032,6 +1061,7 @@
 		67CCC9D916C1579D000EBC0B /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				679EC15C176B901D00D32228 /* PullToRefresh */,
 				67F9CB9E176227F8002AC981 /* Form */,
 				670DA461175D051100B154F0 /* Helpers */,
 				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
@@ -1593,6 +1623,10 @@
 				67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */,
 				6791C67117686707005D64A0 /* SMWeb.m in Sources */,
 				6791C674176879F6005D64A0 /* SMWebViewController.m in Sources */,
+				679EC15F176B904F00D32228 /* SMRainboxPullToRefresh.m in Sources */,
+				679EC166176B934D00D32228 /* SMPullToRefreshFactory.m in Sources */,
+				679EC1BB176B9B7900D32228 /* SMPullToRefreshComponentViewController.m in Sources */,
+				679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

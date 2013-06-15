@@ -30,6 +30,7 @@
 #import "SMFormButtonField.h"
 #import "SMFormEmailField.h"
 #import "SMFormTextArea.h"
+#import "SMPullToRefreshFactory.h"
 
 @interface SMContactViewController ()
 @property (nonatomic, strong) SMScrollView *scrollView;
@@ -62,6 +63,8 @@
     [self.textView disableScrollBounce];
     [self.textView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
     
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    
     [self.scrollView addSubview:self.textView];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),
                                                CGRectGetWidth(self.textView.frame))];
@@ -82,13 +85,14 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.contact) {
+    /*if (self.contact) {
         [self applyContents];
         return;
-    }
+    }*/
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     [SMContact fetchWithURLString:url Completion:^(SMContact *contactPage, SMServerError *error) {
@@ -124,7 +128,7 @@
     }
     
     // maps
-    if ([self.contact hasCoordinates])
+    if ([self.contact hasCoordinates] && !self.mapView)
     {
         self.mapView = [[SMMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
         [self.mapView setDelegate:self];
@@ -148,7 +152,7 @@
     }
     
     // form
-    if ([self.contact form]) {
+    if ([self.contact form] && !self.contactFormView) {
         /*
         NSArray *fields = [NSArray arrayWithObjects:
                            [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
@@ -176,6 +180,7 @@
         [self.scrollView addSubview:self.contactFormView];
     }
     
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - private methods

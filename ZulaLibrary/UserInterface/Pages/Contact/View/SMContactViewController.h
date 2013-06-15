@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
 #import <MapKit/MapKit.h>
 #import "SMMapView.h"
 #import "SMFormTableViewStrategy.h"
@@ -16,7 +16,7 @@
 /**
  Contact controller to display maps, address info and a form
  */
-@interface SMContactViewController : SMBaseComponentViewController <UIWebViewDelegate, MKMapViewDelegate, SMMapViewDelegate, SMFormDelegate>
+@interface SMContactViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate, MKMapViewDelegate, SMMapViewDelegate, SMFormDelegate>
 
 @property (nonatomic, strong) SMContact *contact;
 

@@ -24,7 +24,7 @@
 #import "SMListCell.h"
 #import "SMMultipleImageView.h"
 #import "SMImageView.h"
-
+#import "SMPullToRefreshFactory.h"
 
 @interface SMListViewController ()
 
@@ -50,6 +50,8 @@
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.tableView delegate:self];
+    
     // add views to main view
     [self.view addSubview:self.tableView];
 }
@@ -64,13 +66,14 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.listPage) {
+    /*if (self.listPage) {
         [self applyContents];
         return;
-    }
+    }*/
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     
@@ -115,6 +118,7 @@
         [self.tableView setFrame:tableViewFrame];
     }*/
     
+    [pullToRefresh endRefresh];
     [self.tableView reloadData];
 }
 
@@ -306,5 +310,6 @@
     [ctrl setContentPage:contentPage];
     return ctrl;
 }
+
 
 @end

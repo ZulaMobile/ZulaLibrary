@@ -22,7 +22,7 @@
 #import "SMMainView.h"
 #import "SMWebView.h"
 #import "SMScrollView.h"
-
+#import "SMPullToRefreshFactory.h"
 
 @interface SMProductDetailViewController ()
 
@@ -60,6 +60,8 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    
     [self.scrollView addSubview:self.imageView];
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
@@ -78,13 +80,14 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    if (self.productDetail) {
+    /*if (self.productDetail) {
         [self applyContents];
         return;
-    }
+    }*/
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     [SMProductDetail fetchWithURLString:url completion:^(SMProductDetail *productDetail, SMServerError *error) {
@@ -120,6 +123,8 @@
     if (self.productDetail.navbarIcon) {
         [self applyNavbarIconWithUrl:self.productDetail.navbarIcon];
     }
+    
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - web view delegate

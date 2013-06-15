@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
 
 @class SMProductDetail, SMLabel, SMWebView, SMMultipleImageView;
 
-@interface SMProductDetailViewController : SMBaseComponentViewController <UIWebViewDelegate>
+@interface SMProductDetailViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate>
 
 /**
  Model instance
