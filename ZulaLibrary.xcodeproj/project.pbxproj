@@ -88,6 +88,7 @@
 		679EC15F176B904F00D32228 /* SMRainboxPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */; };
 		679EC166176B934D00D32228 /* SMPullToRefreshFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */; };
 		679EC1BB176B9B7900D32228 /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */; };
+		679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
@@ -297,6 +298,8 @@
 		679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshFactory.m; path = UserInterface/Elements/PullToRefresh/SMPullToRefreshFactory.m; sourceTree = "<group>"; };
 		679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPullToRefreshComponentViewController.h; path = UserInterface/Pages/SMPullToRefreshComponentViewController.h; sourceTree = "<group>"; };
 		679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshComponentViewController.m; path = UserInterface/Pages/SMPullToRefreshComponentViewController.m; sourceTree = "<group>"; };
+		679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.h; sourceTree = "<group>"; };
+		679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+SMAdditions.h"; path = "Library/Categories/UI/UIButton+SMAdditions.h"; sourceTree = "<group>"; };
 		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
@@ -934,6 +937,8 @@
 				679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */,
 				679EC164176B934D00D32228 /* SMPullToRefreshFactory.h */,
 				679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */,
+				679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */,
+				679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */,
 			);
 			name = PullToRefresh;
 			sourceTree = "<group>";
@@ -1621,6 +1626,7 @@
 				679EC15F176B904F00D32228 /* SMRainboxPullToRefresh.m in Sources */,
 				679EC166176B934D00D32228 /* SMPullToRefreshFactory.m in Sources */,
 				679EC1BB176B9B7900D32228 /* SMPullToRefreshComponentViewController.m in Sources */,
+				679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
