@@ -51,6 +51,7 @@
     if (![response isKindOfClass:[NSDictionary class]]) {
         return NO;
     }
+    DDLogInfo(@"response: %@", response);
     
     return ([response objectForKey:kModelContentPageTitle] &&
             [response objectForKey:kModelContentPageText] &&

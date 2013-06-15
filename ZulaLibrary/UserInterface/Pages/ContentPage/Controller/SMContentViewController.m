@@ -79,10 +79,10 @@
 - (void)fetchContents
 {
     // if data is already set, no need to fetch contents
-    /*if (self.contentPage) {
+    if (self.contentPage) {
         [self applyContents];
         return;
-    }*/
+    }
     
     // start preloader
     if (![pullToRefresh isRefreshing])
