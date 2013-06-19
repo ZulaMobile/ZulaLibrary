@@ -110,13 +110,11 @@
 
 - (void)appearanceForCaption:(NSString *)caption
 {
-    return;
-    /*
     // adds a caption text on image
     if (!caption) {
         return;
     }
-    
+    /*
     NSString *fontName = @"Helvetica";
     float fontSize = 10;
     
@@ -140,8 +138,19 @@
     // add glow
     [captionLabel addGlow:[UIColor blackColor]];
     
-    [self addSubview:captionLabel];
+    //[self addSubview:captionLabel];
     */
+    
+    UIWebView *captionWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0,
+                                                                            0,
+                                                                            CGRectGetWidth(self.frame),
+                                                                            CGRectGetHeight(self.frame))];
+    [captionWebView setOpaque:NO];
+    [captionWebView setBackgroundColor:[UIColor clearColor]];
+    
+    [captionWebView loadHTMLString:caption baseURL:[NSURL URLWithString:@"http://www.zulamobile.com"]];
+    [captionWebView setDelegate:self];
+    [self addSubview:captionWebView];
     
     /*
     NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {font-family: Helvetica, sans-serif; text-shadow: black 1px 1px; font-weight:bold; width:320px; height:160px;}</style><div class='image-element'><div class='image-caption'>%@</div>", caption];
@@ -163,6 +172,19 @@
     
     [self addSubview:captionLabel];
      */
+}
+
+#pragma mark - web view delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    frame.origin.y = CGRectGetHeight(self.frame) - fittingSize.height;
+    webView.frame = frame;
 }
 
 #pragma mark - image methods

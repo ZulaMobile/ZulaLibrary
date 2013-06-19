@@ -18,7 +18,7 @@
      * bg_color: hex code for rgb color (i.e. rrggbb).
      * url: background image set by user (warning: this only can be set by the app wide settings)
  */
-@interface SMImageView : UIImageView <SMViewElement>
+@interface SMImageView : UIImageView <SMViewElement, UIWebViewDelegate>
 
 - (void)setImageWithUrlString:(NSString *)url;
 
