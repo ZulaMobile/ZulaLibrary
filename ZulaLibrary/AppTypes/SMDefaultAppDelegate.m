@@ -8,7 +8,6 @@
 
 #import "SMDefaultAppDelegate.h"
 #import <CoreText/CoreText.h>
-#import "DTCoreText.h"
 
 #import "SMAppDescription.h"
 #import "SMAppDescriptionDummyDataSource.h"
@@ -26,7 +25,6 @@
 
 @interface SMDefaultAppDelegate()
 - (void)launchApp;
-- (void)coreTextWorkaround;
 @end
 
 @implementation SMDefaultAppDelegate
@@ -51,15 +49,17 @@
     preloader = [[SMPreloaderComponentViewController alloc] init];
     [preloader setDelegate:self];
     
-    // launch the app
-    [self launchApp];
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
     
     // show the modal preloader
-    [rootViewController presentViewController:preloader animated:NO completion:nil];
+    [rootViewController presentViewController:preloader animated:NO completion:^{
+        // launch the app
+        [self launchApp];
+    }];
     
     return YES;
 }
@@ -68,9 +68,6 @@
 
 - (void)launchApp
 {
-    // DTCoreText workaround
-    [self coreTextWorkaround];
-    
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
     
@@ -102,34 +99,15 @@
             [self.navigationComponent addChildComponentDescription:componentDesc];
         }
         
+        [self.window addSubview:self.navigationComponent.view];
+        
         // show the main window
-        [rootViewController dismissViewControllerAnimated:NO completion:^{
-            [self.window addSubview:self.navigationComponent.view];
-            [rootViewController.view removeFromSuperview];
-        }];
+        //[rootViewController dismissViewControllerAnimated:YES completion:^{
+        //    [rootViewController.view removeFromSuperview];
+        //}];
+        [rootViewController.view removeFromSuperview];
         
     }];
-}
-
-/**
- Loading of DTCoreText library takes more than a second. 
- This workaround is for loading the lib on background to speed up the process
- See: http://www.cocoanetics.com/2011/04/coretext-loading-performance/
- */
-- (void)coreTextWorkaround
-{
-    dispatch_queue_t queue = dispatch_queue_create("com.swatch.worker", NULL);
-    dispatch_async(queue, ^(void) {
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        [attributes setObject:@"Helvetica" forKey:(id)kCTFontFamilyNameAttribute];
-        [attributes setObject:@"HelveticaNeue" forKey:(id)kCTFontFamilyNameAttribute];
-        [attributes setObject:[NSNumber numberWithFloat:36.0f] forKey:(id)kCTFontSizeAttribute];
-        CTFontDescriptorRef fontDesc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attributes);
-        CTFontRef matchingFont = CTFontCreateWithFontDescriptor(fontDesc, 36.0f, NULL);
-        CFRelease(matchingFont);
-        CFRelease(fontDesc);
-    });
-    dispatch_release(queue);
 }
 
 #pragma mark - preloader delegate

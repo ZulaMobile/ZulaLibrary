@@ -11,7 +11,6 @@
 
 #import "UIColor+SSToolkitAdditions.h"
 #import <CoreText/CoreText.h>
-#import "DTCoreText.h"
 #import "UILabel+SMAdditions.h"
 #import "SMAppearanceValidator.h"
 
@@ -200,7 +199,7 @@
     NSString *fontName = @"Helvetica";
     float fontSize = 12;
     CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
-    /*
+    
      UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
      CGRectGetHeight(self.frame) - textSize.height - 10.0,
      320,
@@ -220,24 +219,7 @@
      [captionLabel addGlow:[UIColor blackColor]];
      
      [self addSubview:captionLabel];
-     */
-    
-    NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {text-align: center;font-family: Helvetica, sans-serif; color: white; text-shadow: black 1px 1px; font-weight:bold; }</style><div class='image-caption'>%@</div>", caption];
-    NSData *data = [styledCaption dataUsingEncoding:NSUTF8StringEncoding];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data documentAttributes:nil];
-    
-    DTAttributedLabel *captionLabel = [[DTAttributedLabel alloc] initWithFrame:CGRectMake(0,
-                                                                                          CGRectGetHeight(self.frame) - textSize.height,
-                                                                                          320,
-                                                                                          textSize.height)];
-    [captionLabel setAttributedString:attributedString];
-    [captionLabel setBackgroundColor:[UIColor clearColor]];
-    [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
-    [captionLabel setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin];
-    //[captionLabel setNumberOfLines:0];
-    //[captionLabel sizeToFit];
-    
-    [self addSubview:captionLabel];
+     
 }
 
 
