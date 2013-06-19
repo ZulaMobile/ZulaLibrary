@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+SSToolkitAdditions.h"
 #import <CoreText/CoreText.h>
-#import "DTCoreText.h"
 
 #import "UILabel+SMAdditions.h"
 #import "SMImageView.h"
@@ -111,6 +110,8 @@
 
 - (void)appearanceForCaption:(NSString *)caption
 {
+    return;
+    /*
     // adds a caption text on image
     if (!caption) {
         return;
@@ -120,7 +121,7 @@
     float fontSize = 10;
     
     CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
-    /*
+    
     UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
                                                                       CGRectGetHeight(self.frame) - textSize.height - 10.0,
                                                                       320,
@@ -142,6 +143,7 @@
     [self addSubview:captionLabel];
     */
     
+    /*
     NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {font-family: Helvetica, sans-serif; text-shadow: black 1px 1px; font-weight:bold; width:320px; height:160px;}</style><div class='image-element'><div class='image-caption'>%@</div>", caption];
     NSData *data = [styledCaption dataUsingEncoding:NSUTF8StringEncoding];
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data documentAttributes:nil];
@@ -160,6 +162,7 @@
     //[captionLabel sizeToFit];
     
     [self addSubview:captionLabel];
+     */
 }
 
 #pragma mark - image methods

@@ -27,8 +27,8 @@
 {
     
 #ifdef DEBUG_APP
-    return [NSURL URLWithString:@"http://localhost:8000/"];
-    //return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
+    //return [NSURL URLWithString:@"http://localhost:8000/"];
+    return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
     //return [NSURL URLWithString:@"http://192.168.0.12:8000/"];
 #else
     /*
