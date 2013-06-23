@@ -28,6 +28,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setClipsToBounds:YES];
+        
+        [self setUserInteractionEnabled:YES];
     }
     return self;
 }
@@ -48,6 +50,17 @@
     [self appearanceForAlignment:[appearances objectForKey:@"alignment"]];
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
     [self appearanceForCaption:[appearances objectForKey:@"caption"]];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    
+    if ([touch view] == self) {
+        if ([self.delegate respondsToSelector:@selector(imageDidTouch:)]) {
+            [self.delegate imageDidTouch:self];
+        }
+    }
 }
 
 #pragma mark - appearance helpers
@@ -114,32 +127,6 @@
     if (!caption) {
         return;
     }
-    /*
-    NSString *fontName = @"Helvetica";
-    float fontSize = 10;
-    
-    CGSize textSize = [caption sizeWithFont:[UIFont fontWithName:fontName size:fontSize] constrainedToSize:self.frame.size lineBreakMode:NSLineBreakByTruncatingTail];
-    
-    UILabel *captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - textSize.width / 2,
-                                                                      CGRectGetHeight(self.frame) - textSize.height - 10.0,
-                                                                      320,
-                                                                      textSize.height)];
-    [captionLabel setText:caption];
-    [captionLabel setFont:[UIFont fontWithName:fontName size:fontSize]];
-    [captionLabel setBackgroundColor:[UIColor clearColor]];
-    [captionLabel setTextAlignment:NSTextAlignmentCenter];
-    [captionLabel setTextColor:[UIColor whiteColor]];
-    [captionLabel setShadowColor:[UIColor blackColor]];
-    [captionLabel setShadowOffset:CGSizeMake(0, -1)];
-    [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
-    [captionLabel setNumberOfLines:0];
-    [captionLabel sizeToFit];
-    
-    // add glow
-    [captionLabel addGlow:[UIColor blackColor]];
-    
-    //[self addSubview:captionLabel];
-    */
     
     UIWebView *captionWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0,
                                                                             0,
@@ -147,31 +134,11 @@
                                                                             CGRectGetHeight(self.frame))];
     [captionWebView setOpaque:NO];
     [captionWebView setBackgroundColor:[UIColor clearColor]];
+    [captionWebView setUserInteractionEnabled:NO];
     
     [captionWebView loadHTMLString:caption baseURL:[NSURL URLWithString:@"http://www.zulamobile.com"]];
     [captionWebView setDelegate:self];
     [self addSubview:captionWebView];
-    
-    /*
-    NSString *styledCaption = [NSString stringWithFormat:@"<style>.image-caption {font-family: Helvetica, sans-serif; text-shadow: black 1px 1px; font-weight:bold; width:320px; height:160px;}</style><div class='image-element'><div class='image-caption'>%@</div>", caption];
-    NSData *data = [styledCaption dataUsingEncoding:NSUTF8StringEncoding];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data documentAttributes:nil];
-    
-    
-    DTAttributedLabel *captionLabel = [[DTAttributedLabel alloc] initWithFrame:CGRectMake(0,
-                                                                                          CGRectGetHeight(self.frame) - textSize.height,
-                                                                                          320,
-                                                                                          textSize.height)];
-    
-    [captionLabel setAttributedString:attributedString];
-    [captionLabel setBackgroundColor:[UIColor clearColor]];
-    [captionLabel setLineBreakMode:NSLineBreakByTruncatingTail];
-    [captionLabel setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin];
-    //[captionLabel setNumberOfLines:0];
-    //[captionLabel sizeToFit];
-    
-    [self addSubview:captionLabel];
-     */
 }
 
 #pragma mark - web view delegate

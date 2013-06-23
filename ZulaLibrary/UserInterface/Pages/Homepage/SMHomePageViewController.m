@@ -18,6 +18,8 @@
 #import "SMAppDelegate.h"
 #import "SMPullToRefreshFactory.h"
 
+#import "SMImageComponentDelegate.h"
+
 @interface SMHomePageViewController ()
 
 /**
@@ -28,6 +30,9 @@
 @end
 
 @implementation SMHomePageViewController
+{
+    SMImageComponentDelegate *imageComponentDelegate;
+}
 @synthesize homePage, logoView, homePageLinks;
 
 - (id)initWithDescription:(SMComponentDescription *)description
@@ -139,6 +144,9 @@
     if (self.homePage.logoUrl) {
         [self.logoView setHidden:NO];
         [self.logoView setImageWithURL:homePage.logoUrl];
+        
+        imageComponentDelegate = [[SMImageComponentDelegate alloc] initWithComponent:self];
+        [self.logoView setDelegate:imageComponentDelegate];
     }
     
     if (homePage.backgroundUrl)

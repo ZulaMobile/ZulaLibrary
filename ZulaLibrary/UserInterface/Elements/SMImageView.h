@@ -10,6 +10,8 @@
 #import "SMViewElement.h"
 #import "UIImageView+AFNetworking.h"
 
+@protocol SMImageViewDelegate;
+
 /**
  Standard image view
  
@@ -20,6 +22,8 @@
  */
 @interface SMImageView : UIImageView <SMViewElement, UIWebViewDelegate>
 
+@property (nonatomic, weak) id<SMImageViewDelegate> delegate;
+
 - (void)setImageWithUrlString:(NSString *)url;
 
 /**
@@ -27,4 +31,14 @@
  */
 - (void)addFrame;
 
+@end
+
+/**
+ Image view delegate handles the image related events
+ */
+@protocol SMImageViewDelegate <NSObject>
+
+@optional
+- (void)imageDidTouch:(SMImageView *)image;
+- (void)imageDidTouch:(SMImageView *)image inImages:(NSArray *)images;
 @end

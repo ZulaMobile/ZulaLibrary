@@ -106,7 +106,7 @@
         //    [rootViewController.view removeFromSuperview];
         //}];
         [rootViewController.view removeFromSuperview];
-        
+        rootViewController.view = nil;
     }];
 }
 
