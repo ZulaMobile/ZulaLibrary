@@ -100,11 +100,18 @@
 {
     [self setTitle:self.container.title];
     
+    // get the initial sub component index
+    NSDictionary *itemsAppearance = [self.componentDesciption.appearance objectForKey:@"items"];
+    NSInteger initial = 0;
+    if (itemsAppearance) {
+        initial = [[itemsAppearance objectForKey:@"initial"] integerValue];
+    }
+    
     // set the content components
     SMComponentDescription *firstComponentDesc;
     int i = 0;
     for (SMComponentDescription *desc in self.container.components) {
-        if (i == 0) {
+        if (i == initial) {
             firstComponentDesc = desc;
         }
         
@@ -114,7 +121,7 @@
     
     // display the 1st one
     [self displayComponentWithDescription:firstComponentDesc];
-    self.subMenu.selectedSegmentIndex = 0;
+    self.subMenu.selectedSegmentIndex = initial;
 }
 
 #pragma mark - private methods
