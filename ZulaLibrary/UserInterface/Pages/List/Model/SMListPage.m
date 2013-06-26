@@ -16,7 +16,8 @@ backgroundUrl = _backgroundUrl,
 itemBackgroundUrl = _itemBackgroundUrl,
 listingStyle = _listingStyle,
 items = _items,
-images = _images;
+images = _images,
+navbarIcon = _navbarIcon;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -59,6 +60,12 @@ images = _images;
                 [imagesArr addObject:[NSURL URLWithString:imageUrl]];
             }
             _images = [NSArray arrayWithArray:imagesArr];
+        }
+        
+        // navbar icon
+        NSString *navbarIconUrlString = [attributes objectForKey:kModelListNavbarIcon];
+        if (navbarIconUrlString && ![navbarIconUrlString isEqualToString:@""]) {
+            _navbarIcon = [NSURL URLWithString:navbarIconUrlString];
         }
     }
     return self;

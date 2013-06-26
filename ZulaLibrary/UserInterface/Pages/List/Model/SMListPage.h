@@ -15,6 +15,7 @@
 #define kModelListPageListType @"listing_style"
 #define kModelListPageItems @"items"
 #define kModelListPageImages @"images"
+#define kModelListNavbarIcon @"navbar_icon"
 
 /**
  List Style Options that determines the display style
@@ -47,6 +48,11 @@ typedef NS_ENUM(NSInteger, SMListingStyle) {
  Optional background image
  */
 @property (nonatomic, readonly) NSURL *backgroundUrl;
+
+/**
+ Optional navigation bar image that replaces the title
+ */
+@property (nonatomic) NSURL *navbarIcon;
 
 /**
  Optional list item background image. Corresponds to table item background image.

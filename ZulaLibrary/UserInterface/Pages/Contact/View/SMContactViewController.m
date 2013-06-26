@@ -123,9 +123,7 @@
         [self.backgroundImageView setImageWithURL:self.contact.backgroundUrl];
     
     // add navigation image if set
-    if (self.contact.navbarIcon) {
-        [self applyNavbarIconWithUrl:self.contact.navbarIcon];
-    }
+    [self applyNavbarIconWithUrl:self.contact.navbarIcon];
     
     // maps
     if ([self.contact hasCoordinates] && !self.mapView)

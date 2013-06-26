@@ -78,12 +78,6 @@
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.contentContainer) {
-        [self applyContents];
-        return;
-    }
-    
     // start preloader
     [SMProgressHUD show];
     

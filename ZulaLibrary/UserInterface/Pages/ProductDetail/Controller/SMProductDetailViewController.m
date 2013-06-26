@@ -120,9 +120,7 @@
         [self.backgroundImageView setImageWithURL:self.productDetail.backgroundUrl];
     
     // add navigation image if set
-    if (self.productDetail.navbarIcon) {
-        [self applyNavbarIconWithUrl:self.productDetail.navbarIcon];
-    }
+    [self applyNavbarIconWithUrl:self.productDetail.navbarIcon];
     
     [pullToRefresh endRefresh];
 }

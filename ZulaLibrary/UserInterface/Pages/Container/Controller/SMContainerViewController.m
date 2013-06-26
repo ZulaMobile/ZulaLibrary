@@ -119,6 +119,9 @@
         i++;
     }
     
+    // add navigation image if set
+    [self applyNavbarIconWithUrl:self.container.navbarIcon];
+    
     // display the 1st one
     [self displayComponentWithDescription:firstComponentDesc];
     self.subMenu.selectedSegmentIndex = initial;

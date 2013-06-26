@@ -96,6 +96,9 @@
     [thumbnailViewToDelete removeFromSuperview];
     thumbnailViewToDelete = nil;
     
+    // add navigation image if set
+    [self applyNavbarIconWithUrl:self.imageGallery.navbarIcon];
+    
     self.photos = [NSMutableArray array];
     
     for (NSURL *url in self.imageGallery.images) {

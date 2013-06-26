@@ -60,12 +60,6 @@
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.web) {
-        [self applyContents];
-        return;
-    }
-    
     // start preloader
     [SMProgressHUD show];
     
@@ -97,9 +91,7 @@
     }
     
     // add navigation image if set
-    if (self.web.navbarIcon) {
-        [self applyNavbarIconWithUrl:self.web.navbarIcon];
-    }
+    [self applyNavbarIconWithUrl:self.web.navbarIcon];
     
 }
 

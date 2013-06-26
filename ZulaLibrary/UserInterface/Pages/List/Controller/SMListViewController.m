@@ -118,6 +118,9 @@
         [self.tableView setFrame:tableViewFrame];
     }*/
     
+    // add navigation image if set
+    [self applyNavbarIconWithUrl:self.listPage.navbarIcon];
+    
     [pullToRefresh endRefresh];
     [self.tableView reloadData];
 }
