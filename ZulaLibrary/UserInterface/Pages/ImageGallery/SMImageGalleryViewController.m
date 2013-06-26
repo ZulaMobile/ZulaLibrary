@@ -12,7 +12,6 @@
 
 #import "SMComponentDescription.h"
 #import "MWPhoto.h"
-#import "SMImageView.h"
 #import "SMImageGallery.h"
 #import "SMPullToRefreshFactory.h"
 
@@ -119,30 +118,23 @@
     float width = (320 - (padding * (imagesPerRow + 1))) / imagesPerRow; // thumbnail width
     float height = width; // thumbnail height
     
-    UIButton *imageButton;
     SMImageView *image;
     for (int i = 0; i < count; i++) {
         int row = i / imagesPerRow;
         int column = i % imagesPerRow;
         
-        // image button
-        imageButton = [[UIButton alloc] initWithFrame:CGRectMake((padding * column) + (column * width),
-                                                                 (padding * row) + (row * height),
-                                                                 width,
-                                                                 height)];
         // create the thumbnail view
-        image = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(imageButton.frame), CGRectGetHeight(imageButton.frame))];
+        image = [[SMImageView alloc] initWithFrame:CGRectMake((padding * column) + (column * width),
+                                                              (padding * row) + (row * height),
+                                                              width,
+                                                              height)];
         [image setImageWithURL:[self.imageGallery.images objectAtIndex:i]];
-        [image setClipsToBounds:YES];
         [image setContentMode:UIViewContentModeScaleToFill];
+        [image setTouchDelegate:self];
+        [image setTag:i];
         [image addFrame];
         
-        [imageButton addSubview:image];
-        [imageButton setTag:i];
-        [imageButton setUserInteractionEnabled:YES];
-        [imageButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchDown];
-        
-        [thumbnailContainer addSubview:imageButton];
+        [thumbnailContainer addSubview:image];
     }
     
     // expand the container size
@@ -160,7 +152,7 @@
 
 #pragma mark - private methods
 
-- (void)onButton:(UIView *)sender
+- (void)imageDidTouch:(SMImageView *)image
 {
     // create the image browser
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
@@ -168,7 +160,7 @@
     // settings
     browser.wantsFullScreenLayout = YES;
     browser.displayActionButton = NO;
-    [browser setInitialPageIndex:sender.tag];
+    [browser setInitialPageIndex:image.tag];
     
     // make delegator know about this navigation
     if ([self.componentNavigationDelegate respondsToSelector:@selector(component:willShowViewController:animated:)]) {

@@ -22,7 +22,7 @@
  */
 @interface SMImageView : UIImageView <SMViewElement, UIWebViewDelegate>
 
-@property (nonatomic, weak) id<SMImageViewDelegate> delegate;
+@property (nonatomic, weak) id<SMImageViewDelegate> touchDelegate;
 
 - (void)setImageWithUrlString:(NSString *)url;
 

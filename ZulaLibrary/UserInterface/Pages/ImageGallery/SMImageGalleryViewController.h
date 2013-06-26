@@ -8,6 +8,7 @@
 
 #import "SMPullToRefreshComponentViewController.h"
 #import "MWPhotoBrowser.h"
+#import "SMImageView.h"
 
 @class SMImageGallery;
 
@@ -16,7 +17,7 @@
  All photos are displayed as grid. When one photo is selected, the fullscreen
  Image gallery starts.
  */
-@interface SMImageGalleryViewController : SMPullToRefreshComponentViewController <MWPhotoBrowserDelegate>
+@interface SMImageGalleryViewController : SMPullToRefreshComponentViewController <MWPhotoBrowserDelegate, SMImageViewDelegate>
 
 /**
  The model class that includes title, images, bg_image and navbar_image

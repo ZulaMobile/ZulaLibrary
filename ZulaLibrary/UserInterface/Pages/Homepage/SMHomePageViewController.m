@@ -147,7 +147,7 @@
         [self.logoView setImageWithURL:homePage.logoUrl];
         
         imageComponentDelegate = [[SMImageComponentDelegate alloc] initWithComponent:self];
-        [self.logoView setDelegate:imageComponentDelegate];
+        [self.logoView setTouchDelegate:imageComponentDelegate];
     }
     
     if (homePage.backgroundUrl)

@@ -8,7 +8,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+SSToolkitAdditions.h"
-#import <CoreText/CoreText.h>
 
 #import "UILabel+SMAdditions.h"
 #import "SMImageView.h"
@@ -22,6 +21,7 @@
 @end
 
 @implementation SMImageView
+@synthesize touchDelegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -57,10 +57,12 @@
     UITouch *touch = [touches anyObject];
     
     if ([touch view] == self) {
-        if ([self.delegate respondsToSelector:@selector(imageDidTouch:)]) {
-            [self.delegate imageDidTouch:self];
+        if ([self.touchDelegate respondsToSelector:@selector(imageDidTouch:)]) {
+            [self.touchDelegate imageDidTouch:self];
         }
     }
+    
+    [super touchesEnded:touches withEvent:event];
 }
 
 #pragma mark - appearance helpers
@@ -100,14 +102,10 @@
 
 - (void)setImageWithUrlString:(NSString *)url
 {
-    if (!url) {
-        return;
-    }
+    if (!url) return;
     
     NSURL *imageUrl = [NSURL URLWithString:url];
-    if (!imageUrl) {
-        return;
-    }
+    if (!imageUrl) return;
     
     [self setImageWithURL:imageUrl];
 }
