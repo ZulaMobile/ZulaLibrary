@@ -121,12 +121,12 @@
 
 - (void)fetchContents
 {
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    //if (![pullToRefresh isRefreshing])
+    //    [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
-        [SMProgressHUD dismiss];
+        //[SMProgressHUD dismiss];
         if (error) {
             DDLogError(@"Home page fetch contents error|%@", [error description]);
             // show error
@@ -165,6 +165,14 @@
     }
     
     [pullToRefresh endRefresh];
+}
+
+- (void)pullToRefreshShouldRefresh:(id<SMPullToRefresh>)thePullToRefresh
+{
+    [self fetchContents];
+    
+    SMDefaultAppDelegate *appDelegate = (SMDefaultAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate refreshApp];
 }
 
 #pragma mark - private methods

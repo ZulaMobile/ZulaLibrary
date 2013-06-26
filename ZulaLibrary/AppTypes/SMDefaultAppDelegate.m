@@ -49,8 +49,6 @@
     preloader = [[SMPreloaderComponentViewController alloc] init];
     [preloader setDelegate:self];
     
-    
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
@@ -99,57 +97,33 @@
             [self.navigationComponent addChildComponentDescription:componentDesc];
         }
         
-        [self.window addSubview:self.navigationComponent.view];
+        //[self.window addSubview:self.navigationComponent.view];
+        [self.window setRootViewController:self.navigationComponent];
         
-        // show the main window
-        //[rootViewController dismissViewControllerAnimated:YES completion:^{
-        //    [rootViewController.view removeFromSuperview];
-        //}];
-        [rootViewController.view removeFromSuperview];
-        rootViewController.view = nil;
+        rootViewController = nil;
+        preloader = nil;
     }];
 }
 
 - (void)refreshApp
 {
+    [self launchApp];
+    
+    /*
     // root view controller
     rootViewController = [[UIViewController alloc] init];
+    
+    // init the preloader screen
+    preloader = [[SMPreloaderComponentViewController alloc] init];
+    [preloader setDelegate:self];
+    
     [self.window setRootViewController:rootViewController];
     
-    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
-    SMAppDescriptionRestApiDataSource *restApiDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
-    [appDescription setDataSource:restApiDataSource];
-    
-    [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
-        if (error) {
-            DDLogError(@"app description could not be fetched: %@", error);
-            // show an error alert
-            [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
-            [preloader onAppFail];
-            return;
-        }
-        
-        /* app description is fetched */
-        
-        // create navigation
-        self.navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
-        [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
-        
-        //DDLogInfo(@"component descs: %@", appDescription.componentDescriptions);
-        
-        // add component descriptions to the navigation
-        for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
-            [self.navigationComponent addChildComponentDescription:componentDesc];
-        }
-        
-        [rootViewController.view addSubview:self.navigationComponent.view];
-        
-        
-        // show the main window
-        //[rootViewController dismissViewControllerAnimated:YES completion:^{
-        //    [rootViewController.view removeFromSuperview];
-        //}];
+    [rootViewController presentViewController:preloader animated:NO completion:^{
+        // launch the app
+        [self launchApp];
     }];
+    */
 }
 
 #pragma mark - preloader delegate
