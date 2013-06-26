@@ -9,12 +9,13 @@
 #import "SMPullToRefreshFactory.h"
 #import "SMRainboxPullToRefresh.h"
 #import "SMDefaultPullToRefresh.h"
+#import "SMPlainPullToRefresh.h"
 
 @implementation SMPullToRefreshFactory
 
 + (id<SMPullToRefresh>)pullToRefreshWithScrollView:(UIScrollView *)scrollView delegate:(id<SMPullToRefreshDelegate>)delegate
 {
-    return [[SMDefaultPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
+    return [[SMPlainPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
 }
 
 @end

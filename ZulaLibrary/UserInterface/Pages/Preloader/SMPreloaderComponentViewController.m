@@ -33,8 +33,9 @@
     [self.activityIndicatorView startAnimating];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
-    [self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash.png"]];
+    [self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash"]];
     [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     errButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [errButton setHidden:YES];
