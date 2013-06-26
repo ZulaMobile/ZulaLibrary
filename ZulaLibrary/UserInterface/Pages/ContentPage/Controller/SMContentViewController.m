@@ -78,8 +78,8 @@
 
 - (void)fetchContents
 {
-    // if data is already set, no need to fetch contents
-    if (self.contentPage) {
+    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
+    if (![pullToRefresh isRefreshing] && self.contentPage) {
         [self applyContents];
         return;
     }
@@ -118,15 +118,24 @@
         [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
         [self.imageView addImagesWithArray:self.contentPage.images];
         [self.scrollView addSubview:self.imageView];
+    } else {
+        // unset images if set before
+        if (self.imageView) {
+            [self.imageView removeFromSuperview];
+            self.imageView = nil;
+        }
     }
     
-    if (self.contentPage.backgroundUrl)
+    if (self.contentPage.backgroundUrl) {
+        // set background
         [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
+    } else if (self.backgroundImageView) {
+        // unset background
+        [self.backgroundImageView setImage:nil];
+    }
     
     // add navigation image if set
-    if (self.contentPage.navbarIcon) {
-        [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
-    }
+    [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
     
     [pullToRefresh endRefresh];
 }

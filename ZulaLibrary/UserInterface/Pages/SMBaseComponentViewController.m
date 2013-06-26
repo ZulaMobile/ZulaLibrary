@@ -113,6 +113,8 @@
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
 {
     if (!navbarIconUrl) {
+        if (self.navigationItem.titleView)
+            self.navigationItem.titleView = nil;
         return;
     }
     UIImageView *navbarImage = [[UIImageView alloc] init];

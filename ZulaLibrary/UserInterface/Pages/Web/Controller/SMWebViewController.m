@@ -60,8 +60,8 @@
 
 - (void)fetchContents
 {
-    // if data is already set, no need to fetch contents
-    if (self.web) {
+    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
+    if (![pullToRefresh isRefreshing] && self.web) {
         [self applyContents];
         return;
     }

@@ -79,11 +79,11 @@
 
 - (void)fetchContents
 {
-    // if data is already set, no need to fetch contents
-    /*if (self.productDetail) {
+    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
+    if (![pullToRefresh isRefreshing] && self.productDetail) {
         [self applyContents];
         return;
-    }*/
+    }
     
     // start preloader
     if (![pullToRefresh isRefreshing])

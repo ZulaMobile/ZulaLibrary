@@ -108,22 +108,6 @@
 - (void)refreshApp
 {
     [self launchApp];
-    
-    /*
-    // root view controller
-    rootViewController = [[UIViewController alloc] init];
-    
-    // init the preloader screen
-    preloader = [[SMPreloaderComponentViewController alloc] init];
-    [preloader setDelegate:self];
-    
-    [self.window setRootViewController:rootViewController];
-    
-    [rootViewController presentViewController:preloader animated:NO completion:^{
-        // launch the app
-        [self launchApp];
-    }];
-    */
 }
 
 #pragma mark - preloader delegate
