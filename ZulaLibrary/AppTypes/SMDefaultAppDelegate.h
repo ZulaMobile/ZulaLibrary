@@ -17,5 +17,5 @@
 @interface SMDefaultAppDelegate : UIResponder <UIApplicationDelegate, SMAppDelegate, SMPreloaderComponentDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+- (void)refreshApp;
 @end

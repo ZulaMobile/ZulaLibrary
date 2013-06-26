@@ -139,7 +139,8 @@
         
         [imageButton addSubview:image];
         [imageButton setTag:i];
-        [imageButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
+        [imageButton setUserInteractionEnabled:YES];
+        [imageButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchDown];
         
         [thumbnailContainer addSubview:imageButton];
     }

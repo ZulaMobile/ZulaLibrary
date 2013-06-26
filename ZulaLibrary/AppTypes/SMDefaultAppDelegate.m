@@ -110,6 +110,48 @@
     }];
 }
 
+- (void)refreshApp
+{
+    // root view controller
+    rootViewController = [[UIViewController alloc] init];
+    [self.window setRootViewController:rootViewController];
+    
+    SMAppDescription *appDescription = [SMAppDescription sharedInstance];
+    SMAppDescriptionRestApiDataSource *restApiDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
+    [appDescription setDataSource:restApiDataSource];
+    
+    [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
+        if (error) {
+            DDLogError(@"app description could not be fetched: %@", error);
+            // show an error alert
+            [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
+            [preloader onAppFail];
+            return;
+        }
+        
+        /* app description is fetched */
+        
+        // create navigation
+        self.navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
+        [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
+        
+        //DDLogInfo(@"component descs: %@", appDescription.componentDescriptions);
+        
+        // add component descriptions to the navigation
+        for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
+            [self.navigationComponent addChildComponentDescription:componentDesc];
+        }
+        
+        [rootViewController.view addSubview:self.navigationComponent.view];
+        
+        
+        // show the main window
+        //[rootViewController dismissViewControllerAnimated:YES completion:^{
+        //    [rootViewController.view removeFromSuperview];
+        //}];
+    }];
+}
+
 #pragma mark - preloader delegate
 
 - (void)preloaderOnErrButton

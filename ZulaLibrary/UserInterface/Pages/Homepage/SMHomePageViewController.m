@@ -19,6 +19,7 @@
 #import "SMPullToRefreshFactory.h"
 
 #import "SMImageComponentDelegate.h"
+#import "SMDefaultAppDelegate.h"
 
 @interface SMHomePageViewController ()
 
