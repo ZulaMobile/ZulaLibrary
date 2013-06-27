@@ -62,8 +62,6 @@
     
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
-    
-
 }
 
 - (void)viewDidLoad

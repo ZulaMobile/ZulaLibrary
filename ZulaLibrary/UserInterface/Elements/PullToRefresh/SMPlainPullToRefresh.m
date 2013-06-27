@@ -13,6 +13,7 @@
     BOOL _isRefreshing;
     UIActivityIndicatorView *_indicator;
 }
+@synthesize delegate=_delegate;
 
 - (id) initWithScrollView:(UIScrollView *)scrollView delegate:(id <SMPullToRefreshDelegate>)delegate
 {

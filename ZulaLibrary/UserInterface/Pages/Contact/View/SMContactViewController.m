@@ -151,21 +151,6 @@
     
     // form
     if ([self.contact form] && !self.contactFormView) {
-        /*
-        NSArray *fields = [NSArray arrayWithObjects:
-                           [[SMFormTextField alloc] initWithAttributes:@{@"name": @"username"}],
-                           [[SMFormEmailField alloc] initWithAttributes:@{@"name": @"email"}],
-                           [[SMFormTextArea alloc] initWithAttributes:@{@"name": @"Message"}],
-                           nil];
-        NSArray *buttons = [NSArray arrayWithObjects:
-                            [[SMFormButtonField alloc] initWithAttributes:@{@"name": @"submit"}],
-                            nil];
-        SMFormSection *section = [[SMFormSection alloc] initWithTitle:@"Login Form" fields:fields];
-        SMFormSection *buttonSection = [[SMFormSection alloc] initWithTitle:@"" fields:buttons];
-        NSArray *sections = [NSArray arrayWithObjects:section, buttonSection, nil];
-        
-        SMFormDescription *formDescription = [[SMFormDescription alloc] initWithSections:sections];
-         */
         [self.contact.form setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
         
         self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:self.contact.form scrollView:self.scrollView];

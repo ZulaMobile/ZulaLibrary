@@ -13,6 +13,10 @@
 #import "SMImageView.h"
 #import "SMAppearanceValidator.h"
 
+
+
+#import "SDWebImageManager.h"
+
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
@@ -21,6 +25,9 @@
 @end
 
 @implementation SMImageView
+{
+    UIActivityIndicatorView *indicator;
+}
 @synthesize touchDelegate;
 
 - (id)initWithFrame:(CGRect)frame
@@ -100,14 +107,51 @@
     }
 }
 
-- (void)setImageWithUrlString:(NSString *)url
+- (void)setImageWithURL:(NSURL *)url usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style
 {
     if (!url) return;
+    
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
+    float width = 20.0f, height = 20.0f;
+    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
+    [indicator setHidesWhenStopped:YES];
+    [indicator startAnimating];
+    [indicator setTag:45];
+    [self addSubview:indicator];
+    
+     __block UIActivityIndicatorView *blockIndicator = indicator;
+     [self setImageWithURL:url success:^(UIImage *image, BOOL cached) {
+     // success
+     [blockIndicator stopAnimating];
+     } failure:^(NSError *error) {
+     // fail
+     [blockIndicator stopAnimating];
+     }];
+}
+
+- (void)setImageWithUrlString:(NSString *)url
+{
+    if (!url || [url isEqualToString:@""]) return;
     
     NSURL *imageUrl = [NSURL URLWithString:url];
     if (!imageUrl) return;
     
-    [self setImageWithURL:imageUrl];
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    float width = 20.0f, height = 20.0f;
+    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
+    [indicator setHidesWhenStopped:YES];
+    [indicator startAnimating];
+    [indicator setTag:45];
+    [self addSubview:indicator];
+    
+    __block UIActivityIndicatorView *blockIndicator = indicator;
+    [self setImageWithURL:imageUrl success:^(UIImage *image, BOOL cached) {
+        // success
+        [blockIndicator stopAnimating];
+    } failure:^(NSError *error) {
+        // fail
+        [blockIndicator stopAnimating];
+    }];
 }
 
 -(NSString *) stringByStrippingHTML:(NSString *)html {

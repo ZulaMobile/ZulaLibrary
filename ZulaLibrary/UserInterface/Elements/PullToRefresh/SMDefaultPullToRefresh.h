@@ -18,8 +18,8 @@
     
     UIScrollView *_scrollView;
     MSPullToRefreshController *_pullToRefresh;
-    
-    id<SMPullToRefreshDelegate> _delegate;
 }
+
+@property (nonatomic, weak) id<SMPullToRefreshDelegate> delegate;
 
 @end

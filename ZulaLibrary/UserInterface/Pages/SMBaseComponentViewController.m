@@ -21,6 +21,7 @@
 @implementation SMBaseComponentViewController
 @synthesize componentDesciption = _componentDesciption;
 @synthesize componentNavigationDelegate;
+@synthesize swipeStrategy;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -80,6 +81,9 @@
     [view addSubview:self.backgroundImageView];
     [view sendSubviewToBack:self.backgroundImageView];
     [self setView:view];
+    
+    swipeStrategy = [[SMSwipeComponentStrategy alloc] initWithComponent:self];
+    [swipeStrategy setDelegate:self];
 }
 
 - (void)viewDidLoad
@@ -97,7 +101,6 @@
                                                                   target:nil
                                                                   action:nil];
     self.navigationItem.backBarButtonItem = backButton;
-    
 }
 
 - (void)fetchContents
@@ -124,6 +127,20 @@
         //
     }];
     self.navigationItem.titleView = navbarImage;
+}
+
+// override this behavior
+- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+// override this behavior
+- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
+{
+    
 }
 
 @end

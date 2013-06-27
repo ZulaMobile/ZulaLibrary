@@ -11,6 +11,7 @@
 
 @interface SMPullToRefreshFactory : NSObject
 
-+ (id<SMPullToRefresh>)pullToRefreshWithScrollView:(UIScrollView *)scrollView delegate:(id <SMPullToRefreshDelegate>)delegate;
++ (id<SMPullToRefresh>)pullToRefreshWithScrollView:(UIScrollView *)scrollView
+                                          delegate:(id<SMPullToRefreshDelegate>)delegate;
 
 @end

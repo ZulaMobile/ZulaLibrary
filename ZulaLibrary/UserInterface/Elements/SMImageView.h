@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SMViewElement.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 
 @protocol SMImageViewDelegate;
 
@@ -25,6 +25,8 @@
 @property (nonatomic, weak) id<SMImageViewDelegate> touchDelegate;
 
 - (void)setImageWithUrlString:(NSString *)url;
+
+- (void)setImageWithURL:(NSURL *)url usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
 
 /**
  Adds a white frame around the image.

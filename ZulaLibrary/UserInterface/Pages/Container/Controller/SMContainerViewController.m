@@ -22,6 +22,7 @@
 
 - (void)onButton:(id)submenu;
 - (void)displayComponentWithDescription:(SMComponentDescription *)description;
+- (void)swipeToDeltaIndex:(NSInteger)deltaIndex;
 
 @end
 
@@ -29,9 +30,13 @@
 {
     // active content controller
     UIViewController *activeContentViewController;
+    
+    /**
+     Swipe strategy to control swiping gestures
+     */
+    //SMSwipeComponentStrategy *swipeStrategy;
 }
 @synthesize container, subMenu;
-
 
 - (void)loadView
 {
@@ -47,11 +52,7 @@
     self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
-    
-    //[self.subMenu setBackgroundColor:[UIColor blackColor]];
-    //[self.subMenu setBorderColor:[UIColor lightGrayColor]];
-    //[self.subMenu setTintColor:[UIColor greenColor]];
-    
+
     [self.view addSubview:self.subMenu];
 }
 
@@ -129,9 +130,9 @@
 
 #pragma mark - private methods
 
-- (void)onButton:(id)submenu
+- (void)onButton:(id)theSubmenu
 {
-    NSInteger selectedIndex = [(SDSegmentedControl *)subMenu selectedSegmentIndex];
+    NSInteger selectedIndex = [(SDSegmentedControl *)theSubmenu selectedSegmentIndex];
     SMComponentDescription *thedesc = [self.container.components objectAtIndex:selectedIndex];
     [self displayComponentWithDescription:thedesc];
 }
@@ -172,6 +173,32 @@
     // send subview to back
     [self.subMenu removeFromSuperview];
     [self.view addSubview:self.subMenu];
+    
+    // disable its swipe functions, we override them here
+    [(SMBaseComponentViewController *)activeContentViewController setSwipeStrategy:nil];
+}
+
+- (void)swipeToDeltaIndex:(NSInteger)deltaIndex
+{
+    NSInteger selectedIndex = [self.subMenu selectedSegmentIndex];
+    NSInteger toSelectedIndex = selectedIndex + deltaIndex;
+    if (toSelectedIndex >= 0 && toSelectedIndex < [self.container.components count]) {
+        [self.subMenu setSelectedSegmentIndex:toSelectedIndex];
+        SMComponentDescription *thedesc = [self.container.components objectAtIndex:toSelectedIndex];
+        [self displayComponentWithDescription:thedesc];
+    }
+}
+
+#pragma mark - swipe gestures
+
+- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self swipeToDeltaIndex:1];
+}
+
+- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self swipeToDeltaIndex:-1];
 }
 
 #pragma mark - component navigation delegate
