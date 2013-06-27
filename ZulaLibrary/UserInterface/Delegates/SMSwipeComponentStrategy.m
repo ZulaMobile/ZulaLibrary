@@ -43,6 +43,12 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [self.component.view removeGestureRecognizer:swipeGestureToLeft];
+    [self.component.view removeGestureRecognizer:swipeGestureToRight];
+}
+
 #pragma mark - swipe gestures
 
 - (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer

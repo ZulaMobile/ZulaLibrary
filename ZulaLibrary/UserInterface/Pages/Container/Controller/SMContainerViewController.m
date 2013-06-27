@@ -34,7 +34,7 @@
     /**
      Swipe strategy to control swiping gestures
      */
-    SMSwipeComponentStrategy *swipeStrategy;
+    //SMSwipeComponentStrategy *swipeStrategy;
 }
 @synthesize container, subMenu;
 
@@ -62,9 +62,6 @@
     
     // fetch the data and load the model
     [self fetchContents];
-    
-    swipeStrategy = [[SMSwipeComponentStrategy alloc] initWithComponent:self];
-    [swipeStrategy setDelegate:self];
 }
 
 #pragma mark - overridden methods
@@ -176,6 +173,9 @@
     // send subview to back
     [self.subMenu removeFromSuperview];
     [self.view addSubview:self.subMenu];
+    
+    // disable its swipe functions, we override them here
+    [(SMBaseComponentViewController *)activeContentViewController setSwipeStrategy:nil];
 }
 
 - (void)swipeToDeltaIndex:(NSInteger)deltaIndex

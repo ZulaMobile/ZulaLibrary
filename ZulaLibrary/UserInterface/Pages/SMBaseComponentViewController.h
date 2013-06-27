@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMSwipeComponentStrategy.h"
 
 @protocol SMComponentNavigationDelegate;
 @class SMComponentDescription, SMImageView;
@@ -15,7 +16,7 @@
  Base component provides the common functionality for all components.
  Concrete components must derive from this class
  */
-@interface SMBaseComponentViewController : UIViewController
+@interface SMBaseComponentViewController : UIViewController <SMSwipeComponentStrategyDelegate>
 {
     /**
      Default padding for the main view
@@ -47,7 +48,12 @@
 - (id)initWithDescription:(SMComponentDescription *)description;
 
 /**
- Downloads the contents from the server and set the view files. 
+ Swipe strategy to control swiping gestures
+ */
+@property (nonatomic, strong) SMSwipeComponentStrategy *swipeStrategy;
+
+/**
+ Downloads the contents from the server and set the view files.
  Must be overridden by the subclasses
  */
 - (void)fetchContents;
