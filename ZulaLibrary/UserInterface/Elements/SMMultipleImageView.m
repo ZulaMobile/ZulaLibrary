@@ -114,6 +114,7 @@
                                    0,
                                    CGRectGetWidth(self.frame),
                                    CGRectGetHeight(self.frame))];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.scrollView addSubview:imageView];
     
     // expand the content size of the scroll view
