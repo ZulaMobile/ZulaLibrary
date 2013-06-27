@@ -12,6 +12,7 @@
 {
     BOOL _isRefreshing;
 }
+@synthesize delegate=_delegate;
 
 - (id) initWithScrollView:(UIScrollView *)scrollView delegate:(id <SMPullToRefreshDelegate>)delegate
 {
