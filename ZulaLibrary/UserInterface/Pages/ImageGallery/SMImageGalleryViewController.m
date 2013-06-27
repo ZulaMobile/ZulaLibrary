@@ -129,7 +129,7 @@
                                                               (padding * row) + (row * height),
                                                               width,
                                                               height)];
-        [image setImageWithURL:[self.imageGallery.images objectAtIndex:i]];
+        [image setImageWithURL:[self.imageGallery.images objectAtIndex:i] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [image setContentMode:UIViewContentModeScaleToFill];
         [image setTouchDelegate:self];
         [image setTag:i];

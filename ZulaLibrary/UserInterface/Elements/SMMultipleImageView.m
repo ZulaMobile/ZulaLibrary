@@ -35,6 +35,7 @@
 @implementation SMMultipleImageView
 {
     BOOL pageControlUsed;
+    UIActivityIndicatorView *indicator;
 }
 @synthesize scrollView, pageControl;
 
@@ -85,8 +86,23 @@
 
 - (void)pushImageUrl:(NSURL *)imageUrl
 {
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    float width = 20.0f, height = 20.0f;
+    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
+    [indicator setHidesWhenStopped:YES];
+    [indicator startAnimating];
+    [indicator setTag:45];
+    
+    __block UIActivityIndicatorView *blockIndicator = indicator;
+    
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [imageView setImageWithURL:imageUrl];
+    [imageView addSubview:indicator];
+    
+    [imageView setImageWithURL:imageUrl success:^(UIImage *image, BOOL cached) {
+        [blockIndicator stopAnimating];
+    } failure:^(NSError *error) {
+        [blockIndicator stopAnimating];
+    }];
     [self pushImageView:imageView];
 }
 
