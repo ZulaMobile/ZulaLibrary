@@ -54,6 +54,7 @@
         UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
         
         int i = 0, j = 0;
+        
         for (SMComponentDescription *componentDescription in navigation.componentDescriptions) {
             
             // if it is a navigation controller, we disable them to show up in the homepage links

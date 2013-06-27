@@ -37,6 +37,7 @@
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
+    
     UIColor *darker = [backgroundColor darkerColor];
     UIColor *lighter = [backgroundColor lighterColor];
     
@@ -68,7 +69,9 @@
     
     [self setTitleColor:titleColor forState:UIControlStateNormal];
     [self setTitleShadowColor:shadowColor forState:UIControlStateNormal];
+    //self.layer.shadowPath = [[UIBezierPath bezierPathWithRect:self.bounds] CGPath];
     [self.titleLabel setShadowOffset:shadowOffset];
+    [self setOpaque:YES];
     
     [self.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:18]];
     
@@ -77,7 +80,8 @@
     [self.layer setBorderColor:[darker CGColor]];
     
     // Apply initial glow
-    [self onTouchUp:self];
+    //[self onTouchUp:self];
+     
 }
 
 /*
@@ -92,14 +96,23 @@
 - (void)onTouchDown:(id)sender
 {
     // add glow
-    UIColor *color = self.currentTitleColor;
-    [self addGlow:color];
+    //UIColor *color = self.currentTitleColor;
+    //[self addGlow:color];
+    CGRect fr = self.frame;
+    fr.origin.y += 1;
+    fr.size.height -= 1;
+    [self setFrame:fr];
 }
 
 - (void)onTouchUp:(id)sender
 {
-    UIColor *color = self.currentTitleShadowColor;
-    [self addGlow:color];
+    //UIColor *color = self.currentTitleShadowColor;
+    //[self addGlow:color];
+    
+    CGRect fr = self.frame;
+    fr.origin.y -= 1;
+    fr.size.height += 1;
+    [self setFrame:fr];
 }
 
 @end

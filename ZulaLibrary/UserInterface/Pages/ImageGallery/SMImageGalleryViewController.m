@@ -19,8 +19,6 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-- (void)onButton:(UIView *)sender;
-
 @end
 
 @implementation SMImageGalleryViewController
