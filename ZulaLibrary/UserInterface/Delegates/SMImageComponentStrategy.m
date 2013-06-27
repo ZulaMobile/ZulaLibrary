@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMImageComponentDelegate.h"
+#import "SMImageComponentStrategy.h"
+#import "SMBaseComponentViewController.h"
 
-@implementation SMImageComponentDelegate
+@implementation SMImageComponentStrategy
 {
     NSArray *images;
 }

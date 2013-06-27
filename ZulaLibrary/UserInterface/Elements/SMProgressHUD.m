@@ -13,7 +13,8 @@
 
 + (void)show
 {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    //[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD show];
 }
 
 + (void)showWithStatus:(NSString*)status

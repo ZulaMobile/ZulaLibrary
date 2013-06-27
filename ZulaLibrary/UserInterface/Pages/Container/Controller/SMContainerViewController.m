@@ -22,8 +22,6 @@
 
 - (void)onButton:(id)submenu;
 - (void)displayComponentWithDescription:(SMComponentDescription *)description;
-- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer;
-- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer;
 - (void)swipeToDeltaIndex:(NSInteger)deltaIndex;
 
 @end
@@ -33,9 +31,10 @@
     // active content controller
     UIViewController *activeContentViewController;
     
-    // swipe gestures to switch between subpages
-    UISwipeGestureRecognizer *swipeGestureToLeft;
-    UISwipeGestureRecognizer *swipeGestureToRight;
+    /**
+     Swipe strategy to control swiping gestures
+     */
+    SMSwipeComponentStrategy *swipeStrategy;
 }
 @synthesize container, subMenu;
 
@@ -54,17 +53,6 @@
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
 
-    // swipe gesture
-    swipeGestureToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToLeft:)];
-    [swipeGestureToLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [swipeGestureToLeft setNumberOfTouchesRequired:1];
-    [self.view addGestureRecognizer:swipeGestureToLeft];
-    
-    swipeGestureToRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToRight:)];
-    [swipeGestureToRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    [swipeGestureToRight setNumberOfTouchesRequired:1];
-    [self.view addGestureRecognizer:swipeGestureToRight];
-    
     [self.view addSubview:self.subMenu];
 }
 
@@ -74,6 +62,9 @@
     
     // fetch the data and load the model
     [self fetchContents];
+    
+    swipeStrategy = [[SMSwipeComponentStrategy alloc] initWithComponent:self];
+    [swipeStrategy setDelegate:self];
 }
 
 #pragma mark - overridden methods
@@ -197,6 +188,8 @@
         [self displayComponentWithDescription:thedesc];
     }
 }
+
+#pragma mark - swipe gestures
 
 - (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
 {

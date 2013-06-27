@@ -97,7 +97,6 @@
                                                                   target:nil
                                                                   action:nil];
     self.navigationItem.backBarButtonItem = backButton;
-    
 }
 
 - (void)fetchContents
