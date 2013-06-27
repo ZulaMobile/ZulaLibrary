@@ -22,6 +22,9 @@
 
 - (void)onButton:(id)submenu;
 - (void)displayComponentWithDescription:(SMComponentDescription *)description;
+- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer;
+- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer;
+- (void)swipeToDeltaIndex:(NSInteger)deltaIndex;
 
 @end
 
@@ -29,9 +32,12 @@
 {
     // active content controller
     UIViewController *activeContentViewController;
+    
+    // swipe gestures to switch between subpages
+    UISwipeGestureRecognizer *swipeGestureToLeft;
+    UISwipeGestureRecognizer *swipeGestureToRight;
 }
 @synthesize container, subMenu;
-
 
 - (void)loadView
 {
@@ -47,10 +53,17 @@
     self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
+
+    // swipe gesture
+    swipeGestureToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToLeft:)];
+    [swipeGestureToLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [swipeGestureToLeft setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:swipeGestureToLeft];
     
-    //[self.subMenu setBackgroundColor:[UIColor blackColor]];
-    //[self.subMenu setBorderColor:[UIColor lightGrayColor]];
-    //[self.subMenu setTintColor:[UIColor greenColor]];
+    swipeGestureToRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToRight:)];
+    [swipeGestureToRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [swipeGestureToRight setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:swipeGestureToRight];
     
     [self.view addSubview:self.subMenu];
 }
@@ -129,9 +142,9 @@
 
 #pragma mark - private methods
 
-- (void)onButton:(id)submenu
+- (void)onButton:(id)theSubmenu
 {
-    NSInteger selectedIndex = [(SDSegmentedControl *)subMenu selectedSegmentIndex];
+    NSInteger selectedIndex = [(SDSegmentedControl *)theSubmenu selectedSegmentIndex];
     SMComponentDescription *thedesc = [self.container.components objectAtIndex:selectedIndex];
     [self displayComponentWithDescription:thedesc];
 }
@@ -172,6 +185,27 @@
     // send subview to back
     [self.subMenu removeFromSuperview];
     [self.view addSubview:self.subMenu];
+}
+
+- (void)swipeToDeltaIndex:(NSInteger)deltaIndex
+{
+    NSInteger selectedIndex = [self.subMenu selectedSegmentIndex];
+    NSInteger toSelectedIndex = selectedIndex + deltaIndex;
+    if (toSelectedIndex >= 0 && toSelectedIndex < [self.container.components count]) {
+        [self.subMenu setSelectedSegmentIndex:toSelectedIndex];
+        SMComponentDescription *thedesc = [self.container.components objectAtIndex:toSelectedIndex];
+        [self displayComponentWithDescription:thedesc];
+    }
+}
+
+- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self swipeToDeltaIndex:1];
+}
+
+- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self swipeToDeltaIndex:-1];
 }
 
 #pragma mark - component navigation delegate

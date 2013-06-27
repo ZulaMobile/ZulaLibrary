@@ -980,9 +980,9 @@
 		67B916B6176762CE006AF55C /* Container */ = {
 			isa = PBXGroup;
 			children = (
+				67B916B8176762D9006AF55C /* View */,
 				67B916B7176762D5006AF55C /* Model */,
 				67B916B9176762E6006AF55C /* Controller */,
-				67B916B8176762D9006AF55C /* View */,
 			);
 			name = Container;
 			sourceTree = "<group>";
