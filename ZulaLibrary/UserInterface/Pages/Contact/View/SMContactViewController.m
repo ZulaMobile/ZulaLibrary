@@ -54,7 +54,7 @@
     
     self.textView = [[SMWebView alloc] initWithFrame:
                     CGRectMake(0,
-                               0,
+                               padding,
                                CGRectGetWidth(self.view.frame),
                                CGRectGetHeight(self.view.frame))];
     [self.textView setAutoresizesSubviews:UIViewAutoresizingDefault];
@@ -232,6 +232,9 @@
             //textViewFrame.origin.y += CGRectGetHeight(self.mapView.frame);
             scrollSize.height += CGRectGetHeight(self.mapView.frame);
         }
+        
+        // add the initial padding of the text view
+        scrollSize.height += padding;
         
         self.textView.frame = textViewFrame;
         [self.scrollView setContentSize:scrollSize];
