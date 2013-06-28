@@ -39,7 +39,7 @@
 @end
 
 @implementation SMContactViewController
-@synthesize textView, mapView, scrollView, contactFormView, formStrategy;
+@synthesize textView, mapView, scrollView, contactFormView, formStrategy, extraView;
 
 - (void)loadView
 {
@@ -53,19 +53,32 @@
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     self.textView = [[SMWebView alloc] initWithFrame:
-                    CGRectMake(padding,
-                               padding,
-                               CGRectGetWidth(self.view.frame) - padding * 2,
-                               CGRectGetHeight(self.view.frame) - padding * 2)];
+                    CGRectMake(0,
+                               0,
+                               CGRectGetWidth(self.view.frame),
+                               CGRectGetHeight(self.view.frame))];
     [self.textView setAutoresizesSubviews:UIViewAutoresizingDefault];
     [self.textView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.textView setDelegate:self];
     [self.textView disableScrollBounce];
     [self.textView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
+    [self.textView setTag:401];
+    
+    self.extraView = [[SMWebView alloc] initWithFrame:CGRectMake(0,
+                                                                  0,
+                                                                  CGRectGetWidth(self.view.frame),
+                                                                  CGRectGetHeight(self.view.frame))];
+    [self.extraView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.extraView applyAppearances:[self.componentDesciption.appearance objectForKey:@"extra"]];
+    [self.extraView setDelegate:self];
+    [self.extraView disableScrollBounce];
+    [self.extraView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
+    [self.extraView setTag:402];
     
     pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
     
     [self.scrollView addSubview:self.textView];
+    [self.scrollView addSubview:self.extraView];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame),
                                                CGRectGetWidth(self.textView.frame))];
 
@@ -118,6 +131,7 @@
     [self setTitle:self.contact.title];
     
     [self.textView loadHTMLString:self.contact.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    [self.extraView loadHTMLString:self.contact.extra baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
     if (self.contact.backgroundUrl)
         [self.backgroundImageView setImageWithURL:self.contact.backgroundUrl];
@@ -206,34 +220,51 @@
     frame.size = fittingSize;
     aWebView.frame = frame;
     
-    CGRect textViewFrame = self.textView.frame;
-    textViewFrame.size.height = fittingSize.height;
-    
-    CGSize scrollSize = self.scrollView.contentSize;
-    scrollSize.height = CGRectGetHeight(self.textView.frame);
-    
-    // shift the text view if we have map view
-    if ([self.contact hasCoordinates]) {
-        //textViewFrame.origin.y += CGRectGetHeight(self.mapView.frame);
-        scrollSize.height += CGRectGetHeight(self.mapView.frame) + padding * 2;
-    }
-    
-    self.textView.frame = textViewFrame;
-    [self.scrollView setContentSize:scrollSize];
-    
-    if (self.contactFormView) {
-        // get the height of the table
-        [self.contactFormView layoutIfNeeded];
-        float height = [self.contactFormView contentSize].height;
+    if (aWebView.tag == 401) {
+        CGRect textViewFrame = self.textView.frame;
+        textViewFrame.size.height = fittingSize.height;
         
-        // adjust table size
-        [self.contactFormView setFrame:CGRectMake(0, self.textView.frame.origin.y + CGRectGetHeight(self.textView.frame), 320, height)];
+        CGSize scrollSize = self.scrollView.contentSize;
+        scrollSize.height = CGRectGetHeight(self.textView.frame);
         
-        // adjust the scroll view after the form
-        scrollSize = self.scrollView.contentSize;
-        scrollSize.height += height;// 330;
+        // shift the text view if we have map view
+        if ([self.contact hasCoordinates]) {
+            //textViewFrame.origin.y += CGRectGetHeight(self.mapView.frame);
+            scrollSize.height += CGRectGetHeight(self.mapView.frame);
+        }
+        
+        self.textView.frame = textViewFrame;
+        [self.scrollView setContentSize:scrollSize];
+        
+        if (self.contactFormView) {
+            // get the height of the table
+            [self.contactFormView layoutIfNeeded];
+            float height = [self.contactFormView contentSize].height;
+            
+            // adjust table size
+            [self.contactFormView setFrame:CGRectMake(0, self.textView.frame.origin.y + CGRectGetHeight(self.textView.frame), 320, height)];
+            
+            // adjust the scroll view after the form
+            scrollSize = self.scrollView.contentSize;
+            scrollSize.height += height;// 330;
+            [self.scrollView setContentSize:scrollSize];
+        }
+    } else if (aWebView.tag == 402) {
+        CGRect extraViewFrame = self.extraView.frame;
+        extraViewFrame.size.height = fittingSize.height;
+        if (self.contactFormView) {
+            extraViewFrame.origin.y = self.contactFormView.frame.origin.y + CGRectGetHeight(self.contactFormView.frame);
+        } else {
+            extraViewFrame.origin.y = self.textView.frame.origin.y + CGRectGetHeight(self.textView.frame);
+        }
+        
+        CGSize scrollSize = self.scrollView.contentSize;
+        scrollSize.height += CGRectGetHeight(self.extraView.frame);
+        
+        self.extraView.frame = extraViewFrame;
         [self.scrollView setContentSize:scrollSize];
     }
+    
     
 }
 

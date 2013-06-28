@@ -16,6 +16,7 @@
 #define kModelContactPageBackgroundImageUrl @"bg_image"
 #define kModelContactPageNavbarIcon @"navbar_icon"
 #define kModelContactFormDescription @"form"
+#define kModelContactPageExtra @"extra"
 
 @class SMFormDescription, SMServerError;
 
@@ -45,6 +46,11 @@
  Form description stores all sections and fields in it.
  */
 @property (nonatomic, readonly) SMFormDescription *form;
+
+/**
+ Extra text field to be displayed after form
+ */
+@property (nonatomic, readonly) NSString *extra;
 
 /**
  Optional background image

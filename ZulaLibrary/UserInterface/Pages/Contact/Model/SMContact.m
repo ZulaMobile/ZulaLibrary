@@ -36,6 +36,8 @@ form=_form;
             _form = [[SMFormDescription alloc] initWithDictionary:formDict];
         }
         
+        _extra = [attributes objectForKey:kModelContactPageExtra];
+        
         NSString *backgroundImageUrlString = [attributes objectForKey:kModelContactPageBackgroundImageUrl];
         if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
             _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
@@ -72,6 +74,7 @@ form=_form;
             [response objectForKey:kModelContactPageText] &&
             [response objectForKey:kModelContactPageCoordinates] &&
             [response objectForKey:kModelContactFormDescription] &&
+            [response objectForKey:kModelContactPageExtra] &&
             [response objectForKey:kModelContactPageBackgroundImageUrl] &&
             [response objectForKey:kModelContactPageNavbarIcon]);
 }
