@@ -10,6 +10,7 @@
 #import "SMAppDescription.h"
 #import "UIColor+SSToolkitAdditions.h"
 #import "SMNavigationDescription.h"
+#import "SDWebImageManager.h"
 
 @interface SMNavigationApperanceManager()
 - (void)appearancesForNavBarBackgroundColor:(NSString *)hexColor;
@@ -65,20 +66,24 @@
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
 {
-    if (!imageUrl) {
+    if (!imageUrl || [imageUrl isEqualToString:@""]) {
         return;
     }
-    
-#warning load async images
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
-    CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
-    if (screenScale != image.scale) {
-        image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
-    }
-    
-    [[UINavigationBar appearance] setBackgroundImage:image
-                                       forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setContentScaleFactor:[UIScreen mainScreen].scale];
+    /*
+    NSLog(@"url: %@", imageUrl);
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadWithURL:[NSURL URLWithString:imageUrl] delegate:nil options:0 success:^(UIImage *image, BOOL cached) {
+        CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
+        if (screenScale != image.scale) {
+            image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+        }
+        
+        [[UINavigationBar appearance] setBackgroundImage:image
+                                           forBarMetrics:UIBarMetricsDefault];
+    } failure:^(NSError *error) {
+        DDLogError(@"navigation bar background url download is failed");
+    }];
+    */
 }
 
 - (void)appearancesForNavBarTextColor:(NSString *)hexColor
@@ -102,4 +107,16 @@
      */
 }
 
+#pragma mark - web image delegate
+/*
+- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
+{
+    DDLogInfo(@"finished");
+}
+
+- (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error
+{
+    DDLogError(@"image not downloaded");
+}
+*/
 @end
