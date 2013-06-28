@@ -121,10 +121,8 @@
         return;
     }
     UIImageView *navbarImage = [[UIImageView alloc] init];
-    [navbarImage setImageWithURL:navbarIconUrl success:^(UIImage *image, BOOL cached) {
+    [navbarImage setImageWithURL:navbarIconUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    } failure:^(NSError *error) {
-        //
     }];
     self.navigationItem.titleView = navbarImage;
 }

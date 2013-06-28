@@ -98,11 +98,10 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     [imageView addSubview:indicator];
     
-    [imageView setImageWithURL:imageUrl success:^(UIImage *image, BOOL cached) {
-        [blockIndicator stopAnimating];
-    } failure:^(NSError *error) {
+    [imageView setImageWithURL:imageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         [blockIndicator stopAnimating];
     }];
+    
     [self pushImageView:imageView];
 }
 

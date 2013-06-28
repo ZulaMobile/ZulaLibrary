@@ -69,19 +69,37 @@
     if (!imageUrl || [imageUrl isEqualToString:@""]) {
         return;
     }
+#warning load async
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+    CGFloat screenScale = 2; //[UIScreen mainScreen].scale;  
+    if (screenScale != image.scale) {  
+        image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+    }
+    
+    [[UINavigationBar appearance] setBackgroundImage:image
+                                       forBarMetrics:UIBarMetricsDefault];
+    
     /*
     NSLog(@"url: %@", imageUrl);
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    [manager downloadWithURL:[NSURL URLWithString:imageUrl] delegate:nil options:0 success:^(UIImage *image, BOOL cached) {
-        CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
-        if (screenScale != image.scale) {
-            image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
-        }
+    [manager downloadWithURL:[NSURL URLWithString:imageUrl] options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
+        //progress
+        DDLogInfo(@"size: %d", receivedSize);
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+        // completed
         
-        [[UINavigationBar appearance] setBackgroundImage:image
-                                           forBarMetrics:UIBarMetricsDefault];
-    } failure:^(NSError *error) {
-        DDLogError(@"navigation bar background url download is failed");
+        if (finished && !error) {
+            DDLogInfo(@"completed");
+            CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
+            if (screenScale != image.scale) {
+                image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+            }
+            
+            [[UINavigationBar appearance] setBackgroundImage:image
+                                               forBarMetrics:UIBarMetricsDefault];
+        } else {
+            DDLogInfo(@"not finished");
+        }
     }];
     */
 }

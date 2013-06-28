@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SMViewElement.h"
-//#import "SDWebImageManagerDelegate.h"
 
 @interface SMNavigationApperanceManager : NSObject <SMViewElement>
 

@@ -119,14 +119,10 @@
     [indicator setTag:45];
     [self addSubview:indicator];
     
-     __block UIActivityIndicatorView *blockIndicator = indicator;
-     [self setImageWithURL:url success:^(UIImage *image, BOOL cached) {
-     // success
-     [blockIndicator stopAnimating];
-     } failure:^(NSError *error) {
-     // fail
-     [blockIndicator stopAnimating];
-     }];
+    __block UIActivityIndicatorView *blockIndicator = indicator;
+    [self setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        [blockIndicator stopAnimating];
+    }];
 }
 
 - (void)setImageWithUrlString:(NSString *)url
@@ -145,11 +141,7 @@
     [self addSubview:indicator];
     
     __block UIActivityIndicatorView *blockIndicator = indicator;
-    [self setImageWithURL:imageUrl success:^(UIImage *image, BOOL cached) {
-        // success
-        [blockIndicator stopAnimating];
-    } failure:^(NSError *error) {
-        // fail
+    [self setImageWithURL:imageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         [blockIndicator stopAnimating];
     }];
 }
