@@ -8,14 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+SSToolkitAdditions.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "UIImageView+ProgressView.h"
 
 #import "UILabel+SMAdditions.h"
 #import "SMImageView.h"
 #import "SMAppearanceValidator.h"
 
-
-
-#import "SDWebImageManager.h"
 
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
@@ -26,7 +25,7 @@
 
 @implementation SMImageView
 {
-    UIActivityIndicatorView *indicator;
+    UIProgressView *progressView;
 }
 @synthesize touchDelegate;
 
@@ -107,22 +106,31 @@
     }
 }
 
-- (void)setImageWithURL:(NSURL *)url usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style
+- (void)setImageWithURL:(NSURL *)url activityIndicatorStyle:(UIActivityIndicatorViewStyle)style
 {
-    if (!url) return;
+    [self setImageWithURL:url usingActivityIndicatorStyle:style];
+}
+
+- (void)setImageWithProgressBarAndUrl:(NSURL *)url
+{
+    float progressWidth = 100.0f; float progressHeight = 9.0f;
+    progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    [progressView setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - progressWidth / 2,
+                                      CGRectGetHeight(self.frame) / 2 - progressHeight / 2,
+                                      progressWidth,
+                                      progressHeight)];
     
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
-    float width = 20.0f, height = 20.0f;
-    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
-    [indicator setHidesWhenStopped:YES];
-    [indicator startAnimating];
-    [indicator setTag:45];
-    [self addSubview:indicator];
+    UIImage *track = [[UIImage imageNamed:@"zularesources.bundle/progress_track"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 0, 1)];
+    [progressView setTrackImage:track];
     
-    __block UIActivityIndicatorView *blockIndicator = indicator;
-    [self setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        [blockIndicator stopAnimating];
-    }];
+    UIImage *bar = [[UIImage imageNamed:@"zularesources.bundle/progress_bar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 0, 1)];
+    [progressView setProgressImage:bar];
+    
+    [progressView.layer setBorderColor:[UIColor colorWithHex:@"CCCCCC"].CGColor];
+    [progressView.layer setBorderWidth:1.0f];
+    
+    [self setImageWithURL:url
+        usingProgressView:progressView];
 }
 
 - (void)setImageWithUrlString:(NSString *)url
@@ -132,18 +140,7 @@
     NSURL *imageUrl = [NSURL URLWithString:url];
     if (!imageUrl) return;
     
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    float width = 20.0f, height = 20.0f;
-    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
-    [indicator setHidesWhenStopped:YES];
-    [indicator startAnimating];
-    [indicator setTag:45];
-    [self addSubview:indicator];
-    
-    __block UIActivityIndicatorView *blockIndicator = indicator;
-    [self setImageWithURL:imageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        [blockIndicator stopAnimating];
-    }];
+    [self setImageWithURL:imageUrl];
 }
 
 -(NSString *) stringByStrippingHTML:(NSString *)html {

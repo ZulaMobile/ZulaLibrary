@@ -26,7 +26,9 @@
 
 - (void)setImageWithUrlString:(NSString *)url;
 
-- (void)setImageWithURL:(NSURL *)url usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
+- (void)setImageWithURL:(NSURL *)url activityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
+
+- (void)setImageWithProgressBarAndUrl:(NSURL *)url;
 
 /**
  Adds a white frame around the image.

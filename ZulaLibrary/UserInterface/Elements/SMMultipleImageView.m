@@ -10,9 +10,9 @@
 #import "UIImageView+WebCache.h"
 
 #import "UIColor+SSToolkitAdditions.h"
-#import <CoreText/CoreText.h>
 #import "UILabel+SMAdditions.h"
 #import "SMAppearanceValidator.h"
+#import "SMImageView.h"
 
 @interface SMMultipleImageView()
 
@@ -35,7 +35,6 @@
 @implementation SMMultipleImageView
 {
     BOOL pageControlUsed;
-    UIActivityIndicatorView *indicator;
 }
 @synthesize scrollView, pageControl;
 
@@ -86,22 +85,13 @@
 
 - (void)pushImageUrl:(NSURL *)imageUrl
 {
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    float width = 20.0f, height = 20.0f;
-    [indicator setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - width / 2, CGRectGetHeight(self.frame) / 2 - height / 2, width, height)];
-    [indicator setHidesWhenStopped:YES];
-    [indicator startAnimating];
-    [indicator setTag:45];
-    
-    __block UIActivityIndicatorView *blockIndicator = indicator;
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [imageView addSubview:indicator];
-    
-    [imageView setImageWithURL:imageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        [blockIndicator stopAnimating];
-    }];
-    
+    // resize the image to fit into this view
+    // add the image at the end of the scroll view
+    SMImageView *imageView = [[SMImageView alloc] initWithFrame:CGRectMake(self.scrollView.contentSize.width,
+                                                                           0,
+                                                                           CGRectGetWidth(self.frame),
+                                                                           CGRectGetHeight(self.frame))];
+    [imageView setImageWithProgressBarAndUrl:imageUrl];
     [self pushImageView:imageView];
 }
 
@@ -109,10 +99,10 @@
 {
     // resize the image to fit into this view
     // add the image at the end of the scroll view
-    [imageView setFrame:CGRectMake(self.scrollView.contentSize.width,
-                                   0,
-                                   CGRectGetWidth(self.frame),
-                                   CGRectGetHeight(self.frame))];
+    //[imageView setFrame:CGRectMake(self.scrollView.contentSize.width,
+    //                               0,
+    //                               CGRectGetWidth(self.frame),
+    //                               CGRectGetHeight(self.frame))];
     [imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.scrollView addSubview:imageView];
     

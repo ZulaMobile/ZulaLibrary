@@ -144,7 +144,7 @@
     BOOL logoWasHidden = [self.logoView isHidden];
     if (self.homePage.logoUrl) {
         [self.logoView setHidden:NO];
-        [self.logoView setImageWithURL:homePage.logoUrl usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.logoView setImageWithProgressBarAndUrl:homePage.logoUrl];
         
         imageComponentDelegate = [[SMImageComponentStrategy alloc] initWithComponent:self];
         [self.logoView setTouchDelegate:imageComponentDelegate];
