@@ -38,7 +38,7 @@
         [_label setFont:[UIFont fontWithName:@"HelveticaNeue" size:13.0]];
         [_label setShadowColor:[UIColor whiteColor]];
         [_label setShadowOffset:CGSizeMake(0, 1)];
-        [_label setText:NSLocalizedString(@"Pull to Refresh", nil)];
+        [_label setText:NSLocalizedString(@"Pull Down to Refresh", nil)];
         [_scrollView addSubview:_label];
         
         [_indicator setFrame:CGRectMake(100, _label.frame.origin.y + 10, 20, 20)];
@@ -50,7 +50,7 @@
 - (void) endRefresh {
     [_pullToRefresh finishRefreshingDirection:MSRefreshDirectionTop animated:YES];
     [_pullToRefresh finishRefreshingDirection:MSRefreshDirectionBottom animated:YES];
-    //[_label setText:@""];
+    [_label setText:NSLocalizedString(@"Pull Down to Refresh", nil)];
     [_indicator stopAnimating];
     _isRefreshing = NO;
 }
@@ -102,7 +102,7 @@
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didDisengageRefreshDirection:(MSRefreshDirection)direction {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2];
-    //[_label setText:NSLocalizedString(@"two", nil)];
+    [_label setText:NSLocalizedString(@"", nil)];
     [_indicator stopAnimating];
     [UIView commitAnimations];
 }
