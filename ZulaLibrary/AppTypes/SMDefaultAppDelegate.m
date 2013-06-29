@@ -7,7 +7,8 @@
 //
 
 #import "SMDefaultAppDelegate.h"
-#import <CoreText/CoreText.h>
+#import "SMNavigationApperanceManager.h"
+#import "SMBaseComponentViewController.h"
 
 #import "SMAppDescription.h"
 #import "SMAppDescriptionDummyDataSource.h"

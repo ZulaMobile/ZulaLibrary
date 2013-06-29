@@ -12,6 +12,8 @@
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMComponentFactory.h"
+#import "SMNavigationApperanceManager.h"
+#import "SMBaseComponentViewController.h"
 
 @interface SMNavbarNavigationViewController ()
 

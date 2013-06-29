@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMNavigationApperanceManager.h"
-#import "SMBaseComponentViewController.h"
 
+@class SMNavigationApperanceManager, SMBaseComponentViewController, SMComponentDescription;
 @protocol SMNavigation <NSObject>
 
 @property (nonatomic, strong) SMNavigationApperanceManager *apperanceManager;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMDefaultAppDelegate.h"
 
 @interface ZulaLibrary : NSObject
 

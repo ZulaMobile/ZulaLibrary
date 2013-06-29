@@ -117,6 +117,10 @@
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
 		67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D79702175365240035313D /* UIColorSMAdditionsTests.m */; };
+		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
+		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
+		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
+		67E35F16177F5AD30079233A /* SMPreloaderComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */; };
 		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
 		67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */; };
 		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
@@ -159,6 +163,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67E35F16177F5AD30079233A /* SMPreloaderComponentViewController.h in CopyFiles */,
+				67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */,
+				67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */,
+				67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */,
 				6772D45216D689B700B36C0F /* SMPortfolioAppDelegate.h in CopyFiles */,
 				67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */,
 				6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */,
@@ -1605,11 +1613,11 @@
 				67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */,
 				67CCCA0C16C1710A000EBC0B /* SMContentViewController.m in Sources */,
 				67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */,
+				67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */,
 				67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */,
 				6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */,
 				6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */,
 				6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */,
-				67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */,
 				67D4C44016D8FF5900BCE927 /* SMBaseComponentViewController.m in Sources */,
 				67D4C44316D9031600BCE927 /* SMImageView.m in Sources */,
 				67D4C44716D9088600BCE927 /* SMLabel.m in Sources */,
