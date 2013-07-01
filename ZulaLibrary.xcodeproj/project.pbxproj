@@ -121,6 +121,9 @@
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
 		67E35F16177F5AD30079233A /* SMPreloaderComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6772D44E16D6870E00B36C0F /* SMPreloaderComponentViewController.h */; };
+		67E35F1C177F613B0079233A /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */; };
+		67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F1E177F61740079233A /* SMVideoGallery.m */; };
+		67E35F23177F677E0079233A /* SMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F22177F677E0079233A /* SMVideoCell.m */; };
 		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
 		67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */; };
 		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
@@ -368,6 +371,12 @@
 		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
 		67D79701175365240035313D /* UIColorSMAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorSMAdditionsTests.h; path = Library/Categories/UI/UIColorSMAdditionsTests.h; sourceTree = "<group>"; };
 		67D79702175365240035313D /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorSMAdditionsTests.m; path = Library/Categories/UI/UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
+		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
+		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
+		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
+		67E35F1E177F61740079233A /* SMVideoGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGallery.m; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.m; sourceTree = "<group>"; };
+		67E35F21177F677E0079233A /* SMVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoCell.h; path = UserInterface/Pages/VideoGallery/View/SMVideoCell.h; sourceTree = "<group>"; };
+		67E35F22177F677E0079233A /* SMVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoCell.m; path = UserInterface/Pages/VideoGallery/View/SMVideoCell.m; sourceTree = "<group>"; };
 		67E5F6A4174E0A0B006E1EEE /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMButton.h; path = UserInterface/Elements/SMButton.h; sourceTree = "<group>"; };
 		67E5F6A5174E0A0B006E1EEE /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMButton.m; path = UserInterface/Elements/SMButton.m; sourceTree = "<group>"; };
 		67EDF1B1177D84BD004AE1F5 /* SMQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMQAViewController.h; path = UserInterface/Pages/QA/Controller/SMQAViewController.h; sourceTree = "<group>"; };
@@ -1049,6 +1058,7 @@
 				674D6F30174B85E30007A4A1 /* ContentContainer */,
 				67B916B6176762CE006AF55C /* Container */,
 				6767B633175F4838001A20F8 /* ImageGallery */,
+				67E35F17177F61080079233A /* VideoGallery */,
 				6791C66C176866C0005D64A0 /* Web */,
 				67EDF1AE177D8450004AE1F5 /* QA */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
@@ -1285,6 +1295,43 @@
 				67D79702175365240035313D /* UIColorSMAdditionsTests.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		67E35F17177F61080079233A /* VideoGallery */ = {
+			isa = PBXGroup;
+			children = (
+				67E35F20177F674B0079233A /* View */,
+				67E35F18177F61130079233A /* Model */,
+				67E35F19177F61180079233A /* Controller */,
+			);
+			name = VideoGallery;
+			sourceTree = "<group>";
+		};
+		67E35F18177F61130079233A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67E35F1D177F61740079233A /* SMVideoGallery.h */,
+				67E35F1E177F61740079233A /* SMVideoGallery.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67E35F19177F61180079233A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */,
+				67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		67E35F20177F674B0079233A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67E35F21177F677E0079233A /* SMVideoCell.h */,
+				67E35F22177F677E0079233A /* SMVideoCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		67EDF1AE177D8450004AE1F5 /* QA */ = {
@@ -1693,6 +1740,9 @@
 				67D332C0177AF33F0010E49D /* SMPlainPullToRefresh.m in Sources */,
 				678D8FC8177C554F00A364FF /* SMSwipeComponentStrategy.m in Sources */,
 				67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */,
+				67E35F1C177F613B0079233A /* SMVideoGalleryViewController.m in Sources */,
+				67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */,
+				67E35F23177F677E0079233A /* SMVideoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

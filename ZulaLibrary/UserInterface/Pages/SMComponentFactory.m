@@ -19,6 +19,7 @@
 #import "SMImageGalleryViewController.h"
 #import "SMContainerViewController.h"
 #import "SMWebViewController.h"
+#import "SMVideoGalleryViewController.h"
 
 @implementation SMComponentFactory
 
@@ -44,6 +45,8 @@
         component = [[SMContainerViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"WebComponent"]) {
         component = [[SMWebViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"VideoGalleryComponent"]) {
+        component = [[SMVideoGalleryViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {
