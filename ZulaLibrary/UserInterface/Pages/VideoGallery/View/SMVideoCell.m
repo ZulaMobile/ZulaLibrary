@@ -21,7 +21,7 @@
     if (self) {
         CGRect bounds = [[UIScreen mainScreen] bounds];
         float height = 160.0f;
-        float padding = 10.0f;
+        float padding = 5.0f;
         
         UIView *wrapper = [[UIView alloc] initWithFrame:CGRectMake(padding, padding, CGRectGetWidth(bounds) - padding * 2, height - padding)];
         //[wrapper setUserInteractionEnabled:NO];

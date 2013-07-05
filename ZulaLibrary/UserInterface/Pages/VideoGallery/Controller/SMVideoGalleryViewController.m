@@ -29,7 +29,7 @@
     [super loadView];
     
     // screen size
-    CGRect fullSize = CGRectMake(0, 0,
+    CGRect fullSize = CGRectMake(0, 5.0f,
                                  CGRectGetWidth(self.view.frame),
                                  CGRectGetHeight(self.view.frame));
     
