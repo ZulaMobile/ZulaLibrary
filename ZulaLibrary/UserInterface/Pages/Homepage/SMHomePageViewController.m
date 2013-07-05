@@ -33,6 +33,7 @@
 @implementation SMHomePageViewController
 {
     SMImageComponentStrategy *imageComponentDelegate;
+    UIView *signature;
 }
 @synthesize homePage, logoView, homePageLinks;
 
@@ -71,7 +72,6 @@
     
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
-    
 }
 
 - (void)viewDidLoad
@@ -164,6 +164,31 @@
         [self.scrollView setContentSize:scrollContentSize];
     }
     
+    // zulamobile signature
+    
+    signature = [[UIView alloc] initWithFrame:CGRectMake(0, self.scrollView.contentSize.height, CGRectGetWidth(self.scrollView.frame), 20.0f)];
+    
+    UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/signature"]];
+    [im setFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) - 69 - 10, 4, 69, 12)];
+    [im setClipsToBounds:YES];
+    
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:9.0f];
+    CGSize lblSize = [@"App craeted by" sizeWithFont:font];
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(im.frame.origin.x - lblSize.width - 2, 2, lblSize.width, 20)];
+    [lbl setBackgroundColor:[UIColor clearColor]];
+    [lbl setFont:font];
+    [lbl setText:@"App created by"];
+    
+    [signature addSubview:lbl];
+    [signature addSubview:im];
+    [self.scrollView addSubview:signature];
+    
+    // expand scrollview content by signature content plus padding
+    CGSize scrollViewContentSize = self.scrollView.contentSize;
+    scrollViewContentSize.height += CGRectGetHeight(signature.frame) + 10;
+    [self.scrollView setContentSize:scrollViewContentSize];
+    
+     
     [pullToRefresh endRefresh];
 }
 
