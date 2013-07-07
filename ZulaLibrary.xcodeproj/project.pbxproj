@@ -98,6 +98,10 @@
 		67B916BC1767630E006AF55C /* SMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BB1767630E006AF55C /* SMContainer.m */; };
 		67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BE17676663006AF55C /* SMContainerViewController.m */; };
 		67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD5B1516F31E9200FC503F /* SMTitleLabel.m */; };
+		67C7382D1789ADD200340BCD /* SMFormTableViewStrategy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67F9CBA01762289F002AC981 /* SMFormTableViewStrategy.h */; };
+		67C7382E1789B2BD00340BCD /* SMFormDescription.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67F9CBB61763260F002AC981 /* SMFormDescription.h */; };
+		67C7382F1789B41900340BCD /* SMFormField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67F9CBA417623034002AC981 /* SMFormField.h */; };
+		67C738301789D52200340BCD /* SMProgressHUD.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
@@ -166,6 +170,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67C738301789D52200340BCD /* SMProgressHUD.h in CopyFiles */,
+				67C7382F1789B41900340BCD /* SMFormField.h in CopyFiles */,
+				67C7382E1789B2BD00340BCD /* SMFormDescription.h in CopyFiles */,
+				67C7382D1789ADD200340BCD /* SMFormTableViewStrategy.h in CopyFiles */,
 				67E35F16177F5AD30079233A /* SMPreloaderComponentViewController.h in CopyFiles */,
 				67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */,
 				67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */,

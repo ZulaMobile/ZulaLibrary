@@ -39,9 +39,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // start logging
-    SMLogManager *logManager = [[SMLogManager alloc] init];
-    [logManager start];
+    // common operations
+    [self prepareApp];
     
     // root view controller
     rootViewController = [[UIViewController alloc] init];
@@ -61,6 +60,19 @@
     }];
     
     return YES;
+}
+
+- (void)refreshApp
+{
+    [self launchApp];
+}
+
+- (void)prepareApp
+{
+    // start logging
+    SMLogManager *logManager = [[SMLogManager alloc] init];
+    [logManager start];
+    
 }
 
 #pragma mark - private methods
@@ -103,11 +115,6 @@
         rootViewController = nil;
         preloader = nil;
     }];
-}
-
-- (void)refreshApp
-{
-    [self launchApp];
 }
 
 #pragma mark - preloader delegate

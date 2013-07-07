@@ -43,7 +43,9 @@
         // text field
         self.field = [[UITextField alloc] init];
         self.field.tag = 661;
+        [(UITextField *)self.field setReturnKeyType:UIReturnKeyNext];
         [(UITextField *)self.field setDelegate:self];
+        [(UITextField *)self.field setClearButtonMode:UITextFieldViewModeWhileEditing];
         [cell.contentView addSubview:self.field];
     }
     
@@ -103,7 +105,12 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField endEditing:YES];
+    if ([self.delegate respondsToSelector:@selector(field:shouldReturnWithReturnKeyType:)]) {
+        return [self.delegate field:self shouldReturnWithReturnKeyType:textField.returnKeyType];
+    }
+    
+    // default behavior
+    [self endEditing:YES];
     return YES;
 }
 

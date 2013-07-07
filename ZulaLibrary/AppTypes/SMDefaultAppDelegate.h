@@ -17,5 +17,18 @@
 @interface SMDefaultAppDelegate : UIResponder <UIApplicationDelegate, SMAppDelegate, SMPreloaderComponentDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+/**
+ Reloads the app with app descriptors.
+ This means that any appearance setting will be refreshed.
+ Keep in mind that, Regular component refreshing will only refresh the component data, not the appearance descriptions
+ */
 - (void)refreshApp;
+
+/**
+ Common operations prior to loading the app
+ i.e. Starting loggers and background timers.
+ */
+- (void)prepareApp;
+
 @end

@@ -20,6 +20,7 @@
 - (void)keyboardWasShown:(NSNotification *)notification;
 - (void)keyboardWillHide:(NSNotification *)notification;
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender;
+- (void)sendActionFromField:(SMFormField *)field;
 @end
 
 @implementation SMFormTableViewStrategy
@@ -34,6 +35,7 @@
     self = [super init];
     if (self) {
         self.description = [[SMFormDescription alloc] initWithDictionary:dictionary];
+        self.description.delegate = self;
         [self commonInit];
     }
     return self;
@@ -44,6 +46,7 @@
     self = [super init];
     if (self) {
         self.description = formDescription;
+        self.description.delegate = self;
         [self commonInit];
     }
     return self;
@@ -54,6 +57,7 @@
     self = [super init];
     if (self) {
         self.description = [[SMFormDescription alloc] initWithDictionary:dictionary];
+        self.description.delegate = self;
         scrollView = containerScrollView;
         [self commonInit];
     }
@@ -65,6 +69,7 @@
     self = [super init];
     if (self) {
         self.description = formDescription;
+        self.description.delegate = self;
         scrollView = containerScrollView;
         [self commonInit];
     }
@@ -123,12 +128,26 @@
     if (self.description.activeField && !CGRectContainsPoint(aRect, self.description.activeField.field.frame.origin) ) {
         for (UIView *subview in scrollView.subviews) {
             if ([subview isKindOfClass:[UITableView class]]) {
-                float relative = subview.frame.origin.y + self.description.activeField.field.frame.origin.y;
-                CGPoint scrollPoint = CGPointMake(0.0, relative);
-                [scrollView setContentOffset:scrollPoint animated:YES];
+                // override the default scrolling functionality
+                if ([self.delegate respondsToSelector:@selector(formShouldAdjustScrollOffset:)] &&
+                    ![self.delegate formShouldAdjustScrollOffset:self]
+                    )
+                {
+                    // scroll behavior is overridden by the delegate
+                } else {
+                    // default scroll behavior, adjust the offset where the active field should be on top of the screen.
+                    float relative = subview.frame.origin.y + self.description.activeField.field.frame.origin.y;
+                    CGPoint scrollPoint = CGPointMake(0.0, relative);
+                    [scrollView setContentOffset:scrollPoint animated:YES];
+                }
+                
                 break;
             }
         }
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(formDidStartEditing:)]) {
+        [self.delegate formDidStartEditing:self];
     }
 }
 
@@ -140,15 +159,47 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
+    
+    if ([self.delegate respondsToSelector:@selector(formDidEndEditing:)]) {
+        [self.delegate formDidEndEditing:self];
+    }
 }
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender
 {
     if (sender.state != UIGestureRecognizerStateEnded) return;
     
-    if ([self.description.activeField.field respondsToSelector:@selector(endEditing:)]) {
-        [self.description.activeField.field endEditing:YES];
+    if ([self.description.activeField respondsToSelector:@selector(endEditing:)]) {
+        [self.description.activeField endEditing:YES];
     }
+}
+
+- (void)sendActionFromField:(SMFormField *)field
+{
+    // field has an action, execute it
+    if ([self.delegate respondsToSelector:@selector(form:didStartActionFromField:)]) {
+        [self.delegate form:self didStartActionFromField:field];
+    }
+    
+    // if field has no action, stop the execution
+    if (![field hasAction]) {
+        //NSLog(@"There is no registered action on the field, but it triggered the action via keyboard's SEND return type.");
+        return;
+    }
+    
+    // field actions delegate the job to the `SMFormAction` objects
+    [field executeActionWithDescription:self.description completion:^(NSError *error) {
+        if (error) {
+            if ([self.delegate respondsToSelector:@selector(form:didFailFromField:)]) {
+                [self.delegate form:self didFailFromField:field];
+            }
+            return;
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(form:didSuccesFromField:)]) {
+            [self.delegate form:self didSuccesFromField:field];
+        }
+    }];
 }
 
 #pragma mark - table view data source
@@ -192,27 +243,14 @@
 {
     SMFormField *field = [self.description fieldWithIndexPath:indexPath];
     
-    // if field has an action, execute it
-    if ([field hasAction]) {
-        
-        if ([self.delegate respondsToSelector:@selector(form:didStartActionFromField:)]) {
-            [self.delegate form:self didStartActionFromField:field];
-        }
-        
-        // field actions delegate the job to the `SMFormAction` objects
-        [field executeActionWithDescription:self.description completion:^(NSError *error) {
-            if (error) {
-                if ([self.delegate respondsToSelector:@selector(form:didFailFromField:)]) {
-                    [self.delegate form:self didFailFromField:field];
-                }
-                return;
-            }
-            
-            if ([self.delegate respondsToSelector:@selector(form:didSuccesFromField:)]) {
-                [self.delegate form:self didSuccesFromField:field];
-            }
-        }];
-    }
+    [self sendActionFromField:field];
+}
+
+#pragma mark - description delegate
+
+- (void)fieldDidDemandAction:(SMFormField *)field
+{
+    [self sendActionFromField:field];
 }
 
 @end

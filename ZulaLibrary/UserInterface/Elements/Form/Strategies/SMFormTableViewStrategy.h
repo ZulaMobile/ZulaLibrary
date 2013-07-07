@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMFormDescription.h"
 
 @protocol SMFormDelegate;
-@class SMFormAction, SMFormDescription, SMFormField;
+@class SMFormAction, SMFormField;
 
 /**
  Form strategy that manages the form table's data source and delegate
  The strategy stores the fields list that used for creating the form
  */
-@interface SMFormTableViewStrategy : NSObject <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface SMFormTableViewStrategy : NSObject <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, SMFormDescriptionDelegate>
 
 /**
  Delegates the result of the form
@@ -75,5 +76,25 @@
 - (void)form:(SMFormTableViewStrategy *)strategy didStartActionFromField:(SMFormField *)field;
 - (void)form:(SMFormTableViewStrategy *)strategy didFailFromField:(SMFormField *)field;
 - (void)form:(SMFormTableViewStrategy *)strategy didSuccesFromField:(SMFormField *)field;
+
+/**
+ Override point for adjusting the scrollview offset when activating a field.
+ The default behavior adjusts the scrollview position to the place where active field displays on top of the screen.
+ This method is only triggered if the scrollview is set.
+ 
+ Return NO if you want to override the default behavior.
+ */
+- (BOOL)formShouldAdjustScrollOffset:(SMFormTableViewStrategy *)strategy;
+
+/**
+ Triggers when any field in the form is activated. 
+ This also means that the keyboard is activated
+ */
+- (void)formDidStartEditing:(SMFormTableViewStrategy *)strategy;
+
+/**
+ Triggers when the editing of the form is finished.
+ */
+- (void)formDidEndEditing:(SMFormTableViewStrategy *)strategy;
 
 @end

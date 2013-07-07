@@ -58,6 +58,14 @@
     return (_data) ? _data : @"";
 }
 
+- (void)endEditing:(BOOL)animated
+{
+    // default behavior
+    if ([self.field respondsToSelector:@selector(endEditing:)]) {
+        [self.field endEditing:animated];
+    }
+}
+
 #pragma mark - methods
 
 // should be overridden

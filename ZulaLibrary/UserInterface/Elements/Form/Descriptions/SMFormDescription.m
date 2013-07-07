@@ -12,7 +12,7 @@
 #import "SMFormFieldFactory.h"
 
 @implementation SMFormDescription
-@synthesize sections, extraData;
+@synthesize sections, extraData, delegate;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -123,6 +123,38 @@
 - (void)fieldDidBecameInactive:(SMFormField *)field
 {
     [self setActiveField:nil];
+}
+
+- (BOOL)field:(SMFormField *)field shouldReturnWithReturnKeyType:(UIReturnKeyType)returnKeyType
+{
+    if (returnKeyType == UIReturnKeyNext) {
+        // activate the next field
+        for (SMFormSection *section in self.sections) {
+            NSInteger fieldCount = [section.fields count];
+            for (int i = 0; i < fieldCount; i++) {
+                SMFormField *aField = [section.fields objectAtIndex:i];
+                if (aField == field) {
+                    if (i + 1 < fieldCount) {
+                        SMFormField *nextField = [section.fields objectAtIndex:i+1];
+                        if (nextField) {
+                            [nextField.field becomeFirstResponder];
+                            [self setActiveField:nextField];
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        return NO;
+    } else if (returnKeyType == UIReturnKeySend || returnKeyType == UIReturnKeyGo || returnKeyType == UIReturnKeyJoin) {
+        if ([self.delegate respondsToSelector:@selector(fieldDidDemandAction:)]) {
+            [self.delegate fieldDidDemandAction:field];
+        }
+    }
+    
+    // default behavior is to end the editing
+    [field.field endEditing:YES];
+    return YES;
 }
 
 @end

@@ -27,8 +27,10 @@
         // text field
         
         self.field = [[UITextField alloc] init];
+        [(UITextField *)self.field setReturnKeyType:UIReturnKeyGo];
         [(UITextField *)self.field setSecureTextEntry:YES];
         [(UITextField *)self.field setDelegate:self];
+        [(UITextField *)self.field setClearButtonMode:UITextFieldViewModeWhileEditing];
         self.field.tag = 661;
         [cell.contentView addSubview:self.field];
     }

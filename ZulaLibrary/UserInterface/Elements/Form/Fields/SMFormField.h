@@ -98,6 +98,8 @@
  */
 - (BOOL)hasAction;
 
+- (void)endEditing:(BOOL)animated;
+
 /**
  Executes the attached action and returns in the completion block
  */
@@ -123,5 +125,10 @@
  Fired when the field resigns being first responder
  */
 - (void)fieldDidBecameInactive:(SMFormField *)field;
+
+/**
+ Fired when the next return key on the keyboard is pressed
+ */
+- (BOOL)field:(SMFormField *)field shouldReturnWithReturnKeyType:(UIReturnKeyType)returnKeyType;
 
 @end

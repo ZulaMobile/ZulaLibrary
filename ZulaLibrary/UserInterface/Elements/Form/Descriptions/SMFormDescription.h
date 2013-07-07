@@ -10,6 +10,7 @@
 #import "SMFormField.h"
 
 @class SMFormAction;
+@protocol SMFormDescriptionDelegate;
 
 /**
  The encapsulator around the configuration data.
@@ -33,6 +34,8 @@
  It is helpful to add some hidden data to the submitted form
  */
 @property (nonatomic, strong) NSDictionary *extraData;
+
+@property (nonatomic, weak) id<SMFormDescriptionDelegate> delegate;
 
 /**
  Loads data from the dictionary. The dictionary must 
@@ -60,5 +63,12 @@
  Returns the data in dictionary, ready to post to server
  */
 - (NSDictionary *)formData;
+
+@end
+
+@protocol SMFormDescriptionDelegate <NSObject>
+
+@optional
+- (void)fieldDidDemandAction:(SMFormField *)field;
 
 @end
