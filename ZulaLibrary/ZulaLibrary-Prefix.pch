@@ -40,3 +40,5 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                 UIViewAutoresizingFlexibleTopMargin
 
 #define UIViewAutoresizingDefault UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin
+
+#define IS_IPHONE_5 ([UIScreen mainScreen].bounds.size.height == 568.0)

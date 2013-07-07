@@ -35,9 +35,15 @@
     [self.activityIndicatorView startAnimating];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
-    [self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash"]];
+    //[self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash"]];
+    if (IS_IPHONE_5) {
+        [self.imageView setImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
+    } else {
+        [self.imageView setImage:[UIImage imageNamed:@"Default"]];
+    }
+    
     [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
     
     errButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [errButton setHidden:YES];
