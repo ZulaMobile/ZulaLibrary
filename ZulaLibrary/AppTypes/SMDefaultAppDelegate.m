@@ -98,7 +98,6 @@
             [self.navigationComponent addChildComponentDescription:componentDesc];
         }
         
-        //[self.window addSubview:self.navigationComponent.view];
         [self.window setRootViewController:self.navigationComponent];
         
         rootViewController = nil;
