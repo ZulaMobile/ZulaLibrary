@@ -52,7 +52,7 @@
                                                       userInfo:nil];
     
     // return to default 
-    return [NSURL URLWithString:@"http://localhost:8000/"];
+    return [NSURL URLWithString:@"http://www.zulamobile.com/"];
 }
 
 - (id)initWithBaseURL:(NSURL *)url
