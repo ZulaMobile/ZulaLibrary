@@ -43,9 +43,36 @@
         // text field
         self.field = [[UITextField alloc] init];
         self.field.tag = 661;
-        [(UITextField *)self.field setReturnKeyType:UIReturnKeyNext];
         [(UITextField *)self.field setDelegate:self];
-        [(UITextField *)self.field setClearButtonMode:UITextFieldViewModeWhileEditing];
+        
+        if (self.appearances && [self.appearances objectForKey:@"return_key"]) {
+            NSInteger key = [[self.appearances objectForKey:@"return_key"] integerValue];
+            [(UITextField *)self.field setReturnKeyType:key];
+        } else {
+            [(UITextField *)self.field setReturnKeyType:UIReturnKeyNext];
+        }
+        
+        if (self.appearances && [self.appearances objectForKey:@"clear_button_mode"]) {
+            NSInteger key = [[self.appearances objectForKey:@"clear_button_mode"] integerValue];
+            [(UITextField *)self.field setClearButtonMode:key];
+        } else {
+            [(UITextField *)self.field setClearButtonMode:UITextFieldViewModeWhileEditing];    
+        }
+        
+        if (self.appearances && [self.appearances objectForKey:@"auto_capitalization_type"]) {
+            NSInteger key = [[self.appearances objectForKey:@"auto_capitalization_type"] integerValue];
+            [(UITextField *)self.field setAutocapitalizationType:key];
+        } else {
+            [(UITextField *)self.field setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+        }
+        
+        if (self.appearances && [self.appearances objectForKey:@"auto_correction_type"]) {
+            NSInteger key = [[self.appearances objectForKey:@"auto_correction_type"] integerValue];
+            [(UITextField *)self.field setAutocapitalizationType:key];
+        } else {
+            [(UITextField *)self.field setAutocorrectionType:UITextAutocorrectionTypeNo];
+        }
+        
         [cell.contentView addSubview:self.field];
     }
     

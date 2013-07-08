@@ -36,8 +36,15 @@
     // set the 1st component as the root controller
     UIViewController *firstComponent = [self componentAtIndex:0];
     [self presentViewController:firstComponent animated:NO completion:^{
-        // nothing
+        // fade in the view
+        [firstComponent.view setAlpha:0];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.5];
+        [firstComponent.view setAlpha:1];
+        [UIView commitAnimations];
     }];
+    
 }
 
 #pragma mark - methods

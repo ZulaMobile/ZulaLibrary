@@ -15,7 +15,7 @@
     NSString *_label;
     NSString *_data;
 }
-@synthesize name, field, validators, height, delegate;
+@synthesize name, field, validators, height, delegate, appearances;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -23,6 +23,7 @@
     if (self) {
         self.name = [attributes objectForKey:kFormFieldName];
         self.label = [attributes objectForKey:kFormFieldLabel];
+        self.appearances = [attributes objectForKey:kFormFieldAppearances];
     }
     return self;
 }

@@ -16,6 +16,7 @@
  */
 #define kFormFieldName @"name"
 #define kFormFieldLabel @"label"
+#define kFormFieldAppearances @"appearances"
 
 /*********************************************************
  Properties that hold data
@@ -37,6 +38,13 @@
  If not set, the `name` attribute will be used.
  */
 @property (nonatomic, strong) NSString *label;
+
+/**
+ Extra appearance dictionary that holds key/value pairs for appearance options. 
+ Available options are:
+    * 
+ */
+@property (nonatomic, strong) NSDictionary *appearances;
 
 /*********************************************************
  Properties

@@ -91,6 +91,11 @@
 		679EC1BB176B9B7900D32228 /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */; };
 		679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */; };
 		67A2505A16D8E2FD007C6325 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
+		67A83200178AE328000D3243 /* SMApiClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3116F05F41001AA909 /* SMApiClient.h */; };
+		67A83201178AE3EA000D3243 /* SMServerError.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3B16F0A475001AA909 /* SMServerError.h */; };
+		67A83206178AE541000D3243 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A83205178AE541000D3243 /* SMUser.m */; };
+		67A83207178AE624000D3243 /* SMUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67A83204178AE541000D3243 /* SMUser.h */; };
+		67A83208178AF064000D3243 /* SMModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCCA0616C16E54000EBC0B /* SMModel.h */; };
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
 		67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */; };
@@ -170,6 +175,10 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67A83208178AF064000D3243 /* SMModel.h in CopyFiles */,
+				67A83207178AE624000D3243 /* SMUser.h in CopyFiles */,
+				67A83201178AE3EA000D3243 /* SMServerError.h in CopyFiles */,
+				67A83200178AE328000D3243 /* SMApiClient.h in CopyFiles */,
 				67C738301789D52200340BCD /* SMProgressHUD.h in CopyFiles */,
 				67C7382F1789B41900340BCD /* SMFormField.h in CopyFiles */,
 				67C7382E1789B2BD00340BCD /* SMFormDescription.h in CopyFiles */,
@@ -327,6 +336,8 @@
 		679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDefaultPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.h; sourceTree = "<group>"; };
 		679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDefaultPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMDefaultPullToRefresh.m; sourceTree = "<group>"; };
 		67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		67A83204178AE541000D3243 /* SMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUser.h; path = UserInterface/Pages/Auth/Model/SMUser.h; sourceTree = "<group>"; };
+		67A83205178AE541000D3243 /* SMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUser.m; path = UserInterface/Pages/Auth/Model/SMUser.m; sourceTree = "<group>"; };
 		67B587B1174E48C600CF35D7 /* UIButton+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+SMAdditions.h"; path = "Library/Categories/UI/UIButton+SMAdditions.h"; sourceTree = "<group>"; };
 		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
 		67B587B4174E49C300CF35D7 /* UILabel+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+SMAdditions.h"; path = "Library/Categories/UI/UILabel+SMAdditions.h"; sourceTree = "<group>"; };
@@ -983,6 +994,23 @@
 			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
+		67A83202178AE516000D3243 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				67A83203178AE51C000D3243 /* Model */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		67A83203178AE51C000D3243 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67A83204178AE541000D3243 /* SMUser.h */,
+				67A83205178AE541000D3243 /* SMUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		67B6C68D174F8342008E1EF0 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1086,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67A83202178AE516000D3243 /* Auth */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
 				6749EB7817257966002219C8 /* List */,
@@ -1751,6 +1780,7 @@
 				67E35F1C177F613B0079233A /* SMVideoGalleryViewController.m in Sources */,
 				67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */,
 				67E35F23177F677E0079233A /* SMVideoCell.m in Sources */,
+				67A83206178AE541000D3243 /* SMUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
