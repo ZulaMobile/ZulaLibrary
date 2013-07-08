@@ -25,26 +25,42 @@
 
 + (NSURL*)baseUrl
 {
-    
 #ifdef DEBUG_APP
     //return [NSURL URLWithString:@"http://localhost:8000/"];
-    return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
+    //return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
     //return [NSURL URLWithString:@"http://192.168.0.12:8000/"];
-#else
-    /*
-     NSDictionary* serverInfo = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"rest server"];
-     NSString* baseUrl = [serverInfo objectForKey:@"url"];
-     return [NSURL URLWithString:baseUrl];
-     */
-    
-    return [NSURL URLWithString:@"http://lotb.zulamobile.com/"];
 #endif
     
+    NSString *apiUrl;
     
+    // check if base url exists in defaults. Preview app sets base url on defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    apiUrl = [defaults objectForKey:@"api_url"];
+    if (apiUrl) {
+        return [NSURL URLWithString:apiUrl];
+    }
+    
+    // otherwise fetch if from the plist
+    apiUrl = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"api_url"];
+    if (apiUrl) {
+        return [NSURL URLWithString:apiUrl];
+    }
+    
+    // no api url, show an error
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMalformedAppNotification
+                                                        object:nil
+                                                      userInfo:nil];
+    
+    // return to default 
+    return [NSURL URLWithString:@"http://localhost:8000/"];
 }
 
 - (id)initWithBaseURL:(NSURL *)url
 {
+    if (!url) {
+        return nil;
+    }
+    
     self = [super initWithBaseURL:url];
     if (self) {
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];

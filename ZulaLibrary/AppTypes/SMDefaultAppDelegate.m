@@ -26,6 +26,8 @@
 
 @interface SMDefaultAppDelegate()
 - (void)launchApp;
+- (void)showErrorScreen;
+- (void)showErrorScreenWithError:(NSError *)error;
 @end
 
 @implementation SMDefaultAppDelegate
@@ -66,6 +68,8 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -82,6 +86,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showErrorScreen)
+                                                 name:kMalformedAppNotification
+                                               object:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -119,8 +127,9 @@
         if (error) {
             DDLogError(@"app description could not be fetched: %@", error);
             // show an error alert
-            [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
-            [preloader onAppFail];
+            //[preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
+            //[preloader onAppFail];
+            [self showErrorScreenWithError:error];
             return;
         }
         
@@ -139,6 +148,31 @@
 
         rootViewController = nil;
         preloader = nil;
+    }];
+}
+
+- (void)showErrorScreen
+{
+    [self showErrorScreenWithError:nil];
+}
+
+- (void)showErrorScreenWithError:(NSError *)error
+{
+    // init the preloader screen again
+    if (!preloader) {
+        preloader = [[SMPreloaderComponentViewController alloc] init];
+        [preloader setDelegate:self];
+    }
+    
+    if (error) {
+        [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
+    } else {
+        [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"Malformed Application. Please tap anywhere to try again", nil)]];
+    }
+    
+    // show the modal preloader
+    [self.window.rootViewController presentViewController:preloader animated:NO completion:^{
+        [preloader onAppFail];
     }];
 }
 

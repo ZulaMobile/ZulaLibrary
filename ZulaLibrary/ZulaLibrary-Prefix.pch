@@ -13,7 +13,10 @@
 
 #import <DDLog.h>
 
-#define DEBUG_APP 1
+//#define DEBUG_APP 1
+
+// notifications
+#define kMalformedAppNotification @"kMalformedAppNotification"
 
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;

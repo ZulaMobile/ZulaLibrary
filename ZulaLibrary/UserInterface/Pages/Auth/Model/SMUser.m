@@ -37,10 +37,13 @@
 
 + (void)logInWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(SMUser *, SMServerError *))completion
 {
+    NSString *defaultApiUrl = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"default_api_url"];
+    SMApiClient *client = [[SMApiClient alloc] initWithBaseURL:[NSURL URLWithString:defaultApiUrl]];
+    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
-    [[SMApiClient sharedClient] postPath:@"http://localhost:8000/api/v1/login/"
-                              parameters:params
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject)
+    [client postPath:@"api/v1/login/"
+          parameters:params
+             success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          // validate response
          if (![SMUser isValidResponse:responseObject]) {
@@ -54,6 +57,12 @@
          NSDictionary *response = (NSDictionary *)responseObject;
          SMUser *user = [[SMUser alloc] initWithAttributes:response];
          [user setUsername:username];
+         
+         // set defaults
+         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+         [defaults setValue:[user baseUrl] forKey:@"api_url"];
+         [defaults synchronize];
+         
          if (completion) {
              completion(user, nil);
          }
