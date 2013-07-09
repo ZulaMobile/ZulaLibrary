@@ -1,8 +1,8 @@
 //
-//  SMDefaultPullToRefresh.h
+//  SMGrayPullToRefresh.h
 //  ZulaLibrary
 //
-//  Created by Suleyman Melikoglu on 6/14/13.
+//  Created by Suleyman Melikoglu on 7/9/13.
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 #import "MSPullToRefreshController.h"
 #import "SMPullToRefresh.h"
 
-@interface SMDefaultPullToRefresh : NSObject <SMPullToRefresh, MSPullToRefreshDelegate>
+@interface SMGrayPullToRefresh : NSObject <SMPullToRefresh, MSPullToRefreshDelegate>
 {
-    UIView *_background;
+    UIImageView *_background;
     UIImageView *_arrowTop;
     UIActivityIndicatorView *_indicator;
     

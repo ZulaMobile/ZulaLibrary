@@ -41,7 +41,10 @@
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.tableView delegate:self];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.tableView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     // add views to main view
     [self.view addSubview:self.tableView];

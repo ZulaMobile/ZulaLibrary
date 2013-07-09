@@ -75,7 +75,10 @@
     [self.extraView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
     [self.extraView setTag:402];
     
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     [self.scrollView addSubview:self.textView];
     [self.scrollView addSubview:self.extraView];

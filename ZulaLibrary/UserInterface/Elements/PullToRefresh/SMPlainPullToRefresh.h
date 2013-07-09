@@ -14,6 +14,8 @@
 {
     UILabel *_label;
     
+    UIImageView *_arrowTop;
+    
     UIScrollView *_scrollView;
     MSPullToRefreshController *_pullToRefresh;
     

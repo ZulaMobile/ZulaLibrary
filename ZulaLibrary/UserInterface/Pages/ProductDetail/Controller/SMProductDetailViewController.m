@@ -60,7 +60,10 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     [self.scrollView addSubview:self.imageView];
     [self.scrollView addSubview:self.webView];

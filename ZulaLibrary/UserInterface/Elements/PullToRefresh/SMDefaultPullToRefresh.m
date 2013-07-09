@@ -25,15 +25,15 @@
         
         _pullToRefresh = [[MSPullToRefreshController alloc] initWithScrollView:_scrollView delegate:self];
         
-        _background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loading-1.png"]];
+        _background = [[UIView alloc] init];
         _background.frame = CGRectMake(0, -_scrollView.frame.size.height, _scrollView.frame.size.width, scrollView.frame.size.height);
         [scrollView addSubview:_background];
         
-        _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_arrow.png"]];
+        _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/pull_to_refresh/default/big_arrow"]];
         _arrowTop.frame = CGRectMake(floorf((_background.frame.size.width-_arrowTop.frame.size.width)/2), _background.frame.size.height - _arrowTop.frame.size.height - 10 , _arrowTop.frame.size.width, _arrowTop.frame.size.height);
         [_background addSubview:_arrowTop];
         
-        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_indicator setHidesWhenStopped:YES];
         _indicator.frame = CGRectMake(_arrowTop.frame.origin.x, _arrowTop.frame.origin.y, 16, 16);
         [_background addSubview:_indicator];

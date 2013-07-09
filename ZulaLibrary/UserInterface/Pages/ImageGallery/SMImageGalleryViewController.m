@@ -41,7 +41,10 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     [self.view addSubview:self.scrollView];
 }

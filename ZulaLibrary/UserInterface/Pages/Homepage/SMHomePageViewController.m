@@ -68,7 +68,10 @@
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView delegate:self];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
@@ -188,7 +191,6 @@
     scrollViewContentSize.height += CGRectGetHeight(signature.frame) + 10;
     [self.scrollView setContentSize:scrollViewContentSize];
     
-     
     [pullToRefresh endRefresh];
 }
 

@@ -68,6 +68,7 @@
 		677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46B816DA44DD003CE7A1 /* SMMainView.m */; };
 		677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BB16DA5878003CE7A1 /* SMWebView.m */; };
 		677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */; };
+		677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
 		6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* ZulaLibrary.m */; };
@@ -297,6 +298,8 @@
 		677C46BB16DA5878003CE7A1 /* SMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWebView.m; path = UserInterface/Elements/SMWebView.m; sourceTree = "<group>"; };
 		677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProgressHUD.h; path = UserInterface/Elements/SMProgressHUD.h; sourceTree = "<group>"; };
 		677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProgressHUD.m; path = UserInterface/Elements/SMProgressHUD.m; sourceTree = "<group>"; };
+		677CD7D1178C14FE003DBB7D /* SMGrayPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMGrayPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMGrayPullToRefresh.h; sourceTree = "<group>"; };
+		677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMGrayPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMGrayPullToRefresh.m; sourceTree = "<group>"; };
 		6780DDD416C02593005EDD1D /* libZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZulaLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -990,6 +993,8 @@
 				679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */,
 				67D332BE177AF33F0010E49D /* SMPlainPullToRefresh.h */,
 				67D332BF177AF33F0010E49D /* SMPlainPullToRefresh.m */,
+				677CD7D1178C14FE003DBB7D /* SMGrayPullToRefresh.h */,
+				677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */,
 			);
 			name = PullToRefresh;
 			sourceTree = "<group>";
@@ -1781,6 +1786,7 @@
 				67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */,
 				67E35F23177F677E0079233A /* SMVideoCell.m in Sources */,
 				67A83206178AE541000D3243 /* SMUser.m in Sources */,
+				677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
