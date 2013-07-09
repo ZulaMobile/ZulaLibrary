@@ -20,8 +20,31 @@
         _token = [attributes objectForKey:kModelUserToken];
         _baseUrl = [attributes objectForKey:kModelUserBaseUrl];
         _version = [attributes objectForKey:kModelUserVersion];
+        
+        // persists
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:attributes forKey:@"user"];
+        [defaults synchronize];
     }
     return self;
+}
+
++ (SMUser *)currentUser
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dict = [defaults objectForKey:@"user"];
+    if (dict) {
+        return [[SMUser alloc] initWithAttributes:dict];
+    } else {
+        return nil;
+    }
+}
+
+- (void)logOut
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"user"];
+    [defaults synchronize];
 }
 
 + (BOOL)isValidResponse:(id)response

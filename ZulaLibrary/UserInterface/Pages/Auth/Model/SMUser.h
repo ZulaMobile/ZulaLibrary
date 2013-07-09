@@ -22,10 +22,19 @@
 @property (nonatomic, readonly) NSString *baseUrl;
 @property (nonatomic, readonly) NSString *version;
 
+/**
+ Initialize the user and logs him in (i.e. write attributes to persistent storage
+ */
 - (id)initWithAttributes:(NSDictionary *)attributes;
+
+/**
+ Get the current logged in user, otherwise nil
+ */
++ (SMUser *)currentUser;
+
+- (void)logOut;
 
 + (BOOL)isValidResponse:(id)response;
 + (void)logInWithUsername:(NSString *)username password:(NSString *)password completion:(void(^)(SMUser *user, SMServerError *error))completion;
-
 
 @end
