@@ -17,7 +17,7 @@
 
 @interface SMFormTableViewStrategy()
 - (void)commonInit;
-- (void)keyboardWasShown:(NSNotification *)notification;
+- (void)keyboardWillShown:(NSNotification *)notification;
 - (void)keyboardWillHide:(NSNotification *)notification;
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender;
 - (void)sendActionFromField:(SMFormField *)field;
@@ -90,12 +90,12 @@
     
     // add keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShown:)
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
     
     // tap recognizer to dismiss keyboard when tapping anywhere
@@ -105,7 +105,7 @@
     [scrollView addGestureRecognizer:tapGesture];
 }
 
-- (void)keyboardWasShown:(NSNotification *)notification
+- (void)keyboardWillShown:(NSNotification *)notification
 {
     // return if we cannot make use of it
     if (!scrollView) return;
@@ -156,9 +156,12 @@
     // return if we cannot make use of it
     if (!scrollView) return;
     
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.2 animations:nil];
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
+    [UIView commitAnimations];
     
     if ([self.delegate respondsToSelector:@selector(formDidEndEditing:)]) {
         [self.delegate formDidEndEditing:self];

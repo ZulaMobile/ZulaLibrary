@@ -25,7 +25,7 @@
 #import "SMNavigation.h"
 
 @interface SMDefaultAppDelegate()
-- (void)launchApp;
+- (void)launchAppWithCompletion:(void(^)(NSError *))completion;
 - (void)showErrorScreen;
 - (void)showErrorScreenWithError:(NSError *)error;
 @end
@@ -58,7 +58,7 @@
     // show the modal preloader
     [rootViewController presentViewController:preloader animated:NO completion:^{
         // launch the app
-        [self launchApp];
+        [self launchAppWithCompletion:nil];
     }];
     
     return YES;
@@ -99,7 +99,12 @@
 
 - (void)refreshApp
 {
-    [self launchApp];
+    [self launchAppWithCompletion:nil];
+}
+
+- (void)refreshAppWithCompletion:(void (^)(NSError *))completion
+{
+    [self launchAppWithCompletion:completion];
 }
 
 - (void)prepareApp
@@ -112,7 +117,7 @@
 
 #pragma mark - private methods
 
-- (void)launchApp
+- (void)launchAppWithCompletion:(void (^)(NSError *))completion
 {
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
@@ -130,6 +135,7 @@
             //[preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
             //[preloader onAppFail];
             [self showErrorScreenWithError:error];
+            if (completion) completion(error);
             return;
         }
         
@@ -145,7 +151,8 @@
         }
         
         [self.window setRootViewController:self.navigationComponent];
-
+        
+        if (completion) completion(nil);
         rootViewController = nil;
         preloader = nil;
     }];
@@ -181,7 +188,7 @@
 - (void)preloaderOnErrButton
 {
     // relaunch app
-    [self launchApp];
+    [self launchAppWithCompletion:nil];
 }
 
 @end

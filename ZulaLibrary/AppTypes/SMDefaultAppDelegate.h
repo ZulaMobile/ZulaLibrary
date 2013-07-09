@@ -24,6 +24,7 @@
  Keep in mind that, Regular component refreshing will only refresh the component data, not the appearance descriptions
  */
 - (void)refreshApp;
+- (void)refreshAppWithCompletion:(void(^)(NSError *))completion;
 
 /**
  Common operations prior to loading the app
