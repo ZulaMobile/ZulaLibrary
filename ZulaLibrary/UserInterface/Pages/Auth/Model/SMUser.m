@@ -13,17 +13,20 @@
 @implementation SMUser
 @synthesize token=_token, username=_username, baseUrl=_baseUrl, version=_version;
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (id)initWithAttributes:(NSDictionary *)attributes username:(NSString *)username
 {
     self = [super init];
     if (self) {
         _token = [attributes objectForKey:kModelUserToken];
         _baseUrl = [attributes objectForKey:kModelUserBaseUrl];
         _version = [attributes objectForKey:kModelUserVersion];
+        _username = username;
         
         // persists
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithDictionary:attributes];
+        [tmp setValue:username forKey:@"username"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:attributes forKey:@"user"];
+        [defaults setObject:[NSDictionary dictionaryWithDictionary:tmp] forKey:@"user"];
         [defaults synchronize];
     }
     return self;
@@ -34,7 +37,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *dict = [defaults objectForKey:@"user"];
     if (dict) {
-        return [[SMUser alloc] initWithAttributes:dict];
+        return [[SMUser alloc] initWithAttributes:dict username:[dict objectForKey:@"username"]];
     } else {
         return nil;
     }
@@ -78,8 +81,7 @@
          }
          
          NSDictionary *response = (NSDictionary *)responseObject;
-         SMUser *user = [[SMUser alloc] initWithAttributes:response];
-         [user setUsername:username];
+         SMUser *user = [[SMUser alloc] initWithAttributes:response username:username];
          
          // set defaults
          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

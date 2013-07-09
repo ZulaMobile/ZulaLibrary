@@ -25,7 +25,7 @@
 /**
  Initialize the user and logs him in (i.e. write attributes to persistent storage
  */
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (id)initWithAttributes:(NSDictionary *)attributes username:(NSString *)username;
 
 /**
  Get the current logged in user, otherwise nil
