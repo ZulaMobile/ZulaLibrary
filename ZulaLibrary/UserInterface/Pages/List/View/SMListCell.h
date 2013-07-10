@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMViewElement.h"
 
-@interface SMListCell : UITableViewCell
+@interface SMListCell : UITableViewCell <SMViewElement>
 
 @end

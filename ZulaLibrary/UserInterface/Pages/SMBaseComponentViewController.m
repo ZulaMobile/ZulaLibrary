@@ -12,6 +12,7 @@
 #import "SMMainView.h"
 #import "SMImageView.h"
 #import "UIViewController+SSToolkitAdditions.h"
+#import "UIImageView+WebCache.h"
 
 @interface SMBaseComponentViewController ()
 
@@ -19,6 +20,8 @@
 
 @implementation SMBaseComponentViewController
 @synthesize componentDesciption = _componentDesciption;
+@synthesize componentNavigationDelegate;
+@synthesize swipeStrategy;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -33,6 +36,20 @@
         padding = 10.0;
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // navbar enable/disable
+    NSDictionary *navbarIcon = [self.componentDesciption.appearance objectForKey:@"navbar_icon"];
+    if (navbarIcon && [navbarIcon objectForKey:@"disabled"]) {
+        BOOL disabled = [[navbarIcon objectForKey:@"disabled"] boolValue];
+        [self.navigationController setNavigationBarHidden:disabled];
+    } else {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
 }
 
 - (void)loadView
@@ -52,22 +69,38 @@
     [self.backgroundImageView setImageWithUrlString:appDescription.bgImageUrl];
     
     // navigation bar
+    /*
     NSInteger displayNavBar = [[self.componentDesciption.appearance objectForKey:@"display_navbar"] integerValue];
     if (displayNavBar == 1) {
         [self.navigationController setNavigationBarHidden:NO];
     } else {
         [self.navigationController setNavigationBarHidden:YES];
-    }
+    }*/
     
     // set view
     [view addSubview:self.backgroundImageView];
     [view sendSubviewToBack:self.backgroundImageView];
     [self setView:view];
+    
+    swipeStrategy = [[SMSwipeComponentStrategy alloc] initWithComponent:self];
+    [swipeStrategy setDelegate:self];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // change navigation back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:nil
+                                                                  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (void)fetchContents
@@ -78,6 +111,34 @@
 - (void)applyContents
 {
     // must be overridden
+}
+
+- (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
+{
+    if (!navbarIconUrl) {
+        if (self.navigationItem.titleView)
+            self.navigationItem.titleView = nil;
+        return;
+    }
+    UIImageView *navbarImage = [[UIImageView alloc] init];
+    [navbarImage setImageWithURL:navbarIconUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    }];
+    self.navigationItem.titleView = navbarImage;
+}
+
+// override this behavior
+- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+// override this behavior
+- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
+{
+    
 }
 
 @end

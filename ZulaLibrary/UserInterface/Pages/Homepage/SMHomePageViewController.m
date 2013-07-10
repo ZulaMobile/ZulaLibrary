@@ -7,14 +7,19 @@
 //
 
 #import "SMHomePageViewController.h"
+#import "SMProgressHUD.h"
+#import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
-#import "SMProgressHUD.h"
 #import "SMHomePage.h"
 #import "UIViewController+SSToolkitAdditions.h"
 #import "SMHomePageLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
+#import "SMPullToRefreshFactory.h"
+
+#import "SMImageComponentStrategy.h"
+#import "SMDefaultAppDelegate.h"
 
 @interface SMHomePageViewController ()
 
@@ -26,6 +31,22 @@
 @end
 
 @implementation SMHomePageViewController
+{
+    SMImageComponentStrategy *imageComponentDelegate;
+    UIView *signature;
+}
+@synthesize homePage, logoView, homePageLinks;
+
+- (id)initWithDescription:(SMComponentDescription *)description
+{
+    self = [super initWithDescription:description];
+    if (self) {
+        // the homepage title is fixed to app title
+        SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+        [self setTitle:[appDesc appTitle]];
+    }
+    return self;
+}
 
 - (void)loadView
 {
@@ -34,41 +55,48 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
 
-    self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
-    [self.scrollView applyAppearances:self.componentDesciption.appearance];
-    [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    
-    self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
+    self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
     [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
+    [self.logoView setHidden:YES];
+    
+    self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0,
+                                                                     0,
+                                                                     screenRect.size.width,
+                                                                     screenRect.size.height)];
+    [self.scrollView applyAppearances:self.componentDesciption.appearance];
+    [self.scrollView setBackgroundColor:[UIColor clearColor]];
+    [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
     
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
-    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // By default, homepage doesn't have navigation bar
-    [self.navigationController setNavigationBarHidden:YES];
-    
     // fetch the contents
     [self fetchContents];
     
     // place links
-    SMHomePageLinks *homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
+    self.homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
                                       CGRectMake(padding,
-                                                 120 + padding,
+                                                 padding,
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
-    [homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [homePageLinks setAutoresizesSubviews:UIViewAutoresizingDefault];
-    [homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
-    [self.scrollView addSubview:homePageLinks];
+    [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [self.homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+    [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
+    [self.homePageLinks setBackgroundColor:[UIColor clearColor]];
+    [self.scrollView addSubview:self.homePageLinks];
     
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame) + 120 + padding)];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
     
     /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
@@ -96,10 +124,12 @@
 
 - (void)fetchContents
 {
-    [SMProgressHUD show];
+    //if (![pullToRefresh isRefreshing])
+    //    [SMProgressHUD show];
+    
     NSString *url = [self.componentDesciption url];
-    [SMHomePage fetchWithURLString:url completion:^(SMHomePage *homePage, SMServerError *error) {
-        [SMProgressHUD dismiss];
+    [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
+        //[SMProgressHUD dismiss];
         if (error) {
             DDLogError(@"Home page fetch contents error|%@", [error description]);
             // show error
@@ -107,12 +137,69 @@
             return;
         }
         
-        if (homePage.logoUrl)
-            [self.logoView setImageWithURL:homePage.logoUrl];
-        
-        if (homePage.backgroundUrl)
-            [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
+        self.homePage = _homePage;
+        [self applyContents];
     }];
+}
+
+- (void)applyContents
+{
+    BOOL logoWasHidden = [self.logoView isHidden];
+    if (self.homePage.logoUrl) {
+        [self.logoView setHidden:NO];
+        [self.logoView setImageWithProgressBarAndUrl:homePage.logoUrl];
+        
+        imageComponentDelegate = [[SMImageComponentStrategy alloc] initWithComponent:self];
+        [self.logoView setTouchDelegate:imageComponentDelegate];
+    }
+    
+    if (homePage.backgroundUrl)
+        [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
+    
+    // rearrange positions
+    if (self.homePage.logoUrl && logoWasHidden) {
+        CGRect linksFrame = self.homePageLinks.frame;
+        linksFrame.origin.y += CGRectGetHeight(self.logoView.frame);
+        [self.homePageLinks setFrame:linksFrame];
+        
+        CGSize scrollContentSize = self.scrollView.contentSize;
+        scrollContentSize.height += CGRectGetHeight(self.logoView.frame);
+        [self.scrollView setContentSize:scrollContentSize];
+    }
+    
+    // zulamobile signature
+    
+    signature = [[UIView alloc] initWithFrame:CGRectMake(0, self.scrollView.contentSize.height, CGRectGetWidth(self.scrollView.frame), 20.0f)];
+    
+    UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/signature"]];
+    [im setFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) - 69 - 10, 4, 69, 12)];
+    [im setClipsToBounds:YES];
+    
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:9.0f];
+    CGSize lblSize = [@"App craeted by" sizeWithFont:font];
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(im.frame.origin.x - lblSize.width - 2, 2, lblSize.width, 20)];
+    [lbl setBackgroundColor:[UIColor clearColor]];
+    [lbl setFont:font];
+    [lbl setText:@"App created by"];
+    
+    [signature addSubview:lbl];
+    [signature addSubview:im];
+    [self.scrollView addSubview:signature];
+    
+    // expand scrollview content by signature content plus padding
+    CGSize scrollViewContentSize = self.scrollView.contentSize;
+    scrollViewContentSize.height += CGRectGetHeight(signature.frame) + 10;
+    [self.scrollView setContentSize:scrollViewContentSize];
+    
+    [pullToRefresh endRefresh];
+}
+
+- (void)pullToRefreshShouldRefresh:(id<SMPullToRefresh>)thePullToRefresh
+{
+    [self fetchContents];
+    
+    SMDefaultAppDelegate *appDelegate = (SMDefaultAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate refreshApp];
 }
 
 #pragma mark - private methods
@@ -121,7 +208,7 @@
 {
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
-    UIViewController *component = (UIViewController *)[[navigation components] objectAtIndex:sender.selectedIndex];
+    UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
 }

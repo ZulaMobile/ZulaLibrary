@@ -8,16 +8,17 @@
 
 #import "SMTabbedNavigationViewController.h"
 #import "SMNavigationApperanceManager.h"
+#import "SMAppDescription.h"
+#import "SMComponentDescription.h"
+#import "SMBaseComponentViewController.h"
+#import "SMComponentFactory.h"
 
 @interface SMTabbedNavigationViewController ()
 
 @end
 
 @implementation SMTabbedNavigationViewController
-{
-    NSArray *components_;
-}
-@synthesize apperanceManager = appearanceManager_;
+@synthesize apperanceManager = appearanceManager_, componentDescriptions=_componentDescriptions;
 
 - (id)init
 {
@@ -28,24 +29,27 @@
     return self;
 }
 
-#pragma getters/setters
-
-- (NSArray *)components
-{
-    return components_;
-}
-
-/**
- Set components and view controllers for the tabbarcontroller
- */
-- (void)setComponents:(NSArray *)components
-{
-    components_ = components;
-    [self setViewControllers:components];
-}
-
 #pragma methods
 
+- (void)addChildComponentDescription:(SMComponentDescription *)componentDescription
+{
+    // add component to the self.components
+    NSMutableArray *tmpComponents;
+    if (self.componentDescriptions) {
+        tmpComponents = [NSMutableArray arrayWithArray:self.componentDescriptions];
+    } else {
+        tmpComponents = [NSMutableArray array];
+    }
+    [tmpComponents addObject:componentDescription];
+    [self setComponentDescriptions:[NSArray arrayWithArray:tmpComponents]];
+    /*
+     // if it's homepage component, add the navigation delegate to this class
+     if ([component isKindOfClass:[UINavigationController class]]) {
+     [(UINavigationController *)component setDelegate:self];
+     }*/
+}
+
+/*
 - (void)addChildComponent:(UIViewController *)component
 {
     NSMutableArray *tmpComponents;
@@ -56,6 +60,19 @@
     }
     [tmpComponents addObject:component];
     [self setComponents:[NSArray arrayWithArray:tmpComponents]];
+}
+*/
+
+- (SMBaseComponentViewController *)componentAtIndex:(NSInteger)index
+{
+    SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    SMComponentDescription *compDesc = [appDesc.componentDescriptions objectAtIndex:index];
+    
+    if (!compDesc) {
+        raise(1);
+    }
+    
+    return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:compDesc forNavigation:appDesc.navigationDescription];
 }
 
 - (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent

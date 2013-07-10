@@ -20,15 +20,6 @@
 @synthesize dataSource = _dataSource;
 @synthesize appearance = _appearance;
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
 // singleton implementation
 + (SMAppDescription *)sharedInstance
 {

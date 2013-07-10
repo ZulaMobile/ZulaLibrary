@@ -10,6 +10,7 @@
 #import "SMAppDescription.h"
 #import "UIColor+SSToolkitAdditions.h"
 #import "SMNavigationDescription.h"
+#import "SDWebImageManager.h"
 
 @interface SMNavigationApperanceManager()
 - (void)appearancesForNavBarBackgroundColor:(NSString *)hexColor;
@@ -27,6 +28,7 @@
 
 - (void)applyAppearances:(NSDictionary *)appearances
 {
+    
     SMAppDescription *appDesc = [SMAppDescription sharedInstance];
     SMNavigationDescription *navDesc = [appDesc navigationDescription];
     
@@ -44,7 +46,7 @@
     
     // nav bar data
     NSString *navbarImageUrl = [navDesc.data objectForKey:@"navbar_bg_image"];
-    if (navbarImageUrl) {
+    if (![navbarImageUrl isEqualToString:@""]) {
         [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
     }
 }
@@ -58,24 +60,48 @@
     }
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
+    
 }
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
 {
-    if (!imageUrl) {
+    if (!imageUrl || [imageUrl isEqualToString:@""]) {
         return;
     }
-    
-#warning load async images
+#warning load async
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
-    CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
-    if (screenScale != image.scale) {
+    CGFloat screenScale = 2; //[UIScreen mainScreen].scale;  
+    if (screenScale != image.scale) {  
         image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
     }
     
     [[UINavigationBar appearance] setBackgroundImage:image
                                        forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setContentScaleFactor:[UIScreen mainScreen].scale];
+    
+    /*
+    NSLog(@"url: %@", imageUrl);
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadWithURL:[NSURL URLWithString:imageUrl] options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
+        //progress
+        DDLogInfo(@"size: %d", receivedSize);
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+        // completed
+        
+        if (finished && !error) {
+            DDLogInfo(@"completed");
+            CGFloat screenScale = 2; //[UIScreen mainScreen].scale;
+            if (screenScale != image.scale) {
+                image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+            }
+            
+            [[UINavigationBar appearance] setBackgroundImage:image
+                                               forBarMetrics:UIBarMetricsDefault];
+        } else {
+            DDLogInfo(@"not finished");
+        }
+    }];
+    */
 }
 
 - (void)appearancesForNavBarTextColor:(NSString *)hexColor
@@ -99,4 +125,16 @@
      */
 }
 
+#pragma mark - web image delegate
+/*
+- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
+{
+    DDLogInfo(@"finished");
+}
+
+- (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error
+{
+    DDLogError(@"image not downloaded");
+}
+*/
 @end

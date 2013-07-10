@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMSwipeComponentStrategy.h"
 
+@protocol SMComponentNavigationDelegate;
 @class SMComponentDescription, SMImageView;
 
 /**
  Base component provides the common functionality for all components.
  Concrete components must derive from this class
  */
-@interface SMBaseComponentViewController : UIViewController
+@interface SMBaseComponentViewController : UIViewController <SMSwipeComponentStrategyDelegate>
 {
     /**
      Default padding for the main view
@@ -36,12 +38,22 @@
 @property (nonatomic, strong) SMImageView *backgroundImageView;
 
 /**
+ Component navigation delegate fires event when navigation changes
+ */
+@property (nonatomic, weak) id<SMComponentNavigationDelegate> componentNavigationDelegate;
+
+/**
  Initializer (constructor) that must be used to initialize a component instance
  */
 - (id)initWithDescription:(SMComponentDescription *)description;
 
 /**
- Downloads the contents from the server and set the view files. 
+ Swipe strategy to control swiping gestures
+ */
+@property (nonatomic, strong) SMSwipeComponentStrategy *swipeStrategy;
+
+/**
+ Downloads the contents from the server and set the view files.
  Must be overridden by the subclasses
  */
 - (void)fetchContents;
@@ -50,5 +62,21 @@
  Sets fetched content data to the views
  */
 - (void)applyContents;
+
+/**
+ Sets navbar icon 
+ */
+- (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl;
+
+@end
+
+/**
+ Component navigation delegate controls when a navigation happens
+ This delegate will be used by components who requires sub navigation
+ */
+@protocol SMComponentNavigationDelegate <NSObject>
+
+@optional
+- (void)component:(SMBaseComponentViewController *)component willShowViewController:(UIViewController *)controller animated:(BOOL)animated;
 
 @end

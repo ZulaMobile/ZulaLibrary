@@ -7,6 +7,9 @@
 //
 
 #import "SMDefaultAppDelegate.h"
+#import "SMNavigationApperanceManager.h"
+#import "SMBaseComponentViewController.h"
+
 #import "SMAppDescription.h"
 #import "SMAppDescriptionDummyDataSource.h"
 #import "SMAppDescriptionRestApiDataSource.h"
@@ -22,7 +25,9 @@
 #import "SMNavigation.h"
 
 @interface SMDefaultAppDelegate()
-- (void)launchApp;
+- (void)launchAppWithCompletion:(void(^)(NSError *))completion;
+- (void)showErrorScreen;
+- (void)showErrorScreenWithError:(NSError *)error;
 @end
 
 @implementation SMDefaultAppDelegate
@@ -36,9 +41,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // start logging
-    SMLogManager *logManager = [[SMLogManager alloc] init];
-    [logManager start];
+    // common operations
+    [self prepareApp];
     
     // root view controller
     rootViewController = [[UIViewController alloc] init];
@@ -47,22 +51,73 @@
     preloader = [[SMPreloaderComponentViewController alloc] init];
     [preloader setDelegate:self];
     
-    // launch the app
-    [self launchApp];
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
     
     // show the modal preloader
-    [rootViewController presentViewController:preloader animated:NO completion:nil];
+    [rootViewController presentViewController:preloader animated:NO completion:^{
+        // launch the app
+        [self launchAppWithCompletion:nil];
+    }];
     
     return YES;
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showErrorScreen)
+                                                 name:kMalformedAppNotification
+                                               object:nil];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)refreshApp
+{
+    [self launchAppWithCompletion:nil];
+}
+
+- (void)refreshAppWithCompletion:(void (^)(NSError *))completion
+{
+    [self launchAppWithCompletion:completion];
+}
+
+- (void)prepareApp
+{
+    // start logging
+    SMLogManager *logManager = [[SMLogManager alloc] init];
+    [logManager start];
+    
+}
+
 #pragma mark - private methods
 
-- (void)launchApp
+- (void)launchAppWithCompletion:(void (^)(NSError *))completion
 {
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
@@ -77,8 +132,10 @@
         if (error) {
             DDLogError(@"app description could not be fetched: %@", error);
             // show an error alert
-            [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
-            [preloader onAppFail];
+            //[preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
+            //[preloader onAppFail];
+            [self showErrorScreenWithError:error];
+            if (completion) completion(error);
             return;
         }
         
@@ -88,20 +145,41 @@
         self.navigationComponent = [SMNavigationFactory navigationByType:appDescription.navigationDescription.type];
         [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
-        // create component instances
+        // add component descriptions to the navigation
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
-            UIViewController *component = [SMComponentFactory componentWithDescription:componentDesc forNavigation:appDescription.navigationDescription];
-            if (component) {
-                [self.navigationComponent addChildComponent:component];
-            }
+            [self.navigationComponent addChildComponentDescription:componentDesc];
         }
         
-        // show the main window
-        [rootViewController dismissViewControllerAnimated:NO completion:^{
-            [self.window addSubview:self.navigationComponent.view];
-            [rootViewController.view removeFromSuperview];
-        }];
+        [self.window setRootViewController:self.navigationComponent];
         
+        if (completion) completion(nil);
+        rootViewController = nil;
+        preloader = nil;
+    }];
+}
+
+- (void)showErrorScreen
+{
+    [self showErrorScreenWithError:nil];
+}
+
+- (void)showErrorScreenWithError:(NSError *)error
+{
+    // init the preloader screen again
+    if (!preloader) {
+        preloader = [[SMPreloaderComponentViewController alloc] init];
+        [preloader setDelegate:self];
+    }
+    
+    if (error) {
+        [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
+    } else {
+        [preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"Malformed Application. Please tap anywhere to try again", nil)]];
+    }
+    
+    // show the modal preloader
+    [self.window.rootViewController presentViewController:preloader animated:NO completion:^{
+        [preloader onAppFail];
     }];
 }
 
@@ -110,7 +188,7 @@
 - (void)preloaderOnErrButton
 {
     // relaunch app
-    [self launchApp];
+    [self launchAppWithCompletion:nil];
 }
 
 @end

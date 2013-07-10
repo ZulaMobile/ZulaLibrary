@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
 
-@class SMImageView, SMLabel, SMWebView, SMContentPage;
+@class SMImageView, SMLabel, SMMultipleImageView, SMContentPage, SMWebView;
 
 /**
  Content page is a simple page consist of title, text and image
@@ -20,7 +20,7 @@
  
  @see SMContentPage model class for the component data to fetch for this page
  */
-@interface SMContentViewController : SMBaseComponentViewController <UIWebViewDelegate>
+@interface SMContentViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate>
 
 /**
  Model attribute that holds the data 
@@ -28,20 +28,14 @@
 @property (nonatomic, strong) SMContentPage *contentPage;
 
 /**
- Title label
- See label appearance attributes
- */
-@property (nonatomic, strong) SMLabel *titleView;
-
-/**
  web view to show html content
  */
 @property (nonatomic, strong) SMWebView *webView;
 
 /**
- The 320x150 image view.
+ The 320x160 image view.
  If there is no image set, this view will disappear
  */
-@property (nonatomic, strong) SMImageView *imageView;
+@property (nonatomic, strong) SMMultipleImageView *imageView;
 
 @end

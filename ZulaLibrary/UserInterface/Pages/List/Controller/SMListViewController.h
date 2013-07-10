@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMBaseComponentViewController.h"
+#import "SMPullToRefreshComponentViewController.h"
+#import "SMPullToRefresh.h"
 
-@class SMListPage, SMListItem;
+@class SMListPage, SMListItem, SMMultipleImageView;
 
 /**
  List page corresponds to UITableViewController.
  */
-@interface SMListViewController : SMBaseComponentViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SMListViewController : SMPullToRefreshComponentViewController <UITableViewDataSource, UITableViewDelegate, SMComponentNavigationDelegate>
 
 /**
  The model instance, it stores the items to display
@@ -24,6 +25,11 @@
  Table view 
  */
 @property (nonatomic, strong) UITableView *tableView;
+
+/**
+ Swipable image gallery
+ */
+@property (nonatomic, strong) SMMultipleImageView *images;
 
 /**
  Returns the component from the data on the `listItem`.

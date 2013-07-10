@@ -7,34 +7,23 @@
 //
 
 #import "SMComponentFactory.h"
+#import <DDLog.h>
 
 // component imports
 #import "SMHomePageViewController.h"
 #import "SMContentViewController.h"
 #import "SMListViewController.h"
+#import "SMContentContainerViewController.h"
+#import "SMProductDetailViewController.h"
+#import "SMContactViewController.h"
+#import "SMImageGalleryViewController.h"
+#import "SMContainerViewController.h"
+#import "SMWebViewController.h"
+#import "SMVideoGalleryViewController.h"
 
 @implementation SMComponentFactory
 
-/*
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
-{
-    UIViewController *component;
-    if ([componentDescription.type isEqualToString:@"Content"]) {
-        // create the component
-        SMContentViewController *contentComponent = [[SMContentViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:contentComponent];
-    } else if ([componentDescription.type isEqualToString:@"HomePage"]) {
-        SMHomePageViewController *homePageComponent = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:homePageComponent];
-    } else if ([componentDescription.type isEqualToString:@"List"]) {
-        SMListViewController *listComponent = [[SMListViewController alloc] initWithDescription:componentDescription];
-        component = [[UINavigationController alloc] initWithRootViewController:listComponent];
-    }
-    return component;
-}
- */
-
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
 {
     UIViewController *component;
     if ([componentDescription.type isEqualToString:@"ContentComponent"]) {
@@ -44,11 +33,36 @@
         component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ListComponent"]) {
         component = [[SMListViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ContentContainerComponent"]) {
+        component = [[SMContentContainerViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ProductDetailComponent"]) {
+        component = [[SMProductDetailViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ContactComponent"]) {
+        component = [[SMContactViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ImageGalleryComponent"]) {
+        component = [[SMImageGalleryViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"ContainerComponent"]) {
+        component = [[SMContainerViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"WebComponent"]) {
+        component = [[SMWebViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"VideoGalleryComponent"]) {
+        component = [[SMVideoGalleryViewController alloc] initWithDescription:componentDescription];
     }
     
     if (!component) {
-        DDLogError(@"unknown component `%@`", componentDescription.type);
+        DDLogError(@"unknown component %@", componentDescription.type);
         assert(component);
+        return nil;
+    }
+    
+    return component;
+}
+
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
+{
+    UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
+    
+    if (!component) {
         return nil;
     }
     

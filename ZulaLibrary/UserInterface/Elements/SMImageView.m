@@ -6,22 +6,36 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMImageView.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIColor+SSToolkitAdditions.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "UIImageView+ProgressView.h"
+
+#import "UILabel+SMAdditions.h"
+#import "SMImageView.h"
 #import "SMAppearanceValidator.h"
+
 
 @interface SMImageView()
 - (void)appearanceForAlignment:(NSString *)alignment;
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
+- (void)appearanceForCaption:(NSString *)caption;
+- (void)rescaleImage;
 @end
 
 @implementation SMImageView
+{
+    UIProgressView *progressView;
+}
+@synthesize touchDelegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self setClipsToBounds:YES];
+        
+        [self setUserInteractionEnabled:YES];
     }
     return self;
 }
@@ -34,13 +48,27 @@
 - (void)applyAppearances:(NSDictionary *)appearances
 {
     if (![SMAppearanceValidator isValidData:appearances]) {
-        DDLogError(@"Image data is not valid, expects dict: %@", appearances);
+        //DDLogError(@"Image data is not valid, expects dict: %@", appearances);
         return;
     }
     
     // set appearances
     [self appearanceForAlignment:[appearances objectForKey:@"alignment"]];
     [self appearanceForBackgroundColorHex:[appearances objectForKey:@"bg_color"]];
+    [self appearanceForCaption:[appearances objectForKey:@"caption"]];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    
+    if ([touch view] == self) {
+        if ([self.touchDelegate respondsToSelector:@selector(imageDidTouch:)]) {
+            [self.touchDelegate imageDidTouch:self];
+        }
+    }
+    
+    [super touchesEnded:touches withEvent:event];
 }
 
 #pragma mark - appearance helpers
@@ -78,18 +106,123 @@
     }
 }
 
+- (void)setImageWithURL:(NSURL *)url activityIndicatorStyle:(UIActivityIndicatorViewStyle)style
+{
+    [self setImageWithURL:url usingActivityIndicatorStyle:style];
+}
+
+- (void)setImageWithProgressBarAndUrl:(NSURL *)url
+{
+    float progressWidth = 100.0f; float progressHeight = 9.0f;
+    progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    [progressView setFrame:CGRectMake(CGRectGetWidth(self.frame) / 2 - progressWidth / 2,
+                                      CGRectGetHeight(self.frame) / 2 - progressHeight / 2,
+                                      progressWidth,
+                                      progressHeight)];
+    
+    UIImage *track = [[UIImage imageNamed:@"zularesources.bundle/progress_track"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 0, 1)];
+    [progressView setTrackImage:track];
+    
+    UIImage *bar = [[UIImage imageNamed:@"zularesources.bundle/progress_bar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 0, 1)];
+    [progressView setProgressImage:bar];
+    
+    [progressView.layer setBorderColor:[UIColor colorWithHex:@"CCCCCC"].CGColor];
+    [progressView.layer setBorderWidth:1.0f];
+    
+    [self setImageWithURL:url
+        usingProgressView:progressView];
+}
+
 - (void)setImageWithUrlString:(NSString *)url
 {
-    if (!url) {
-        return;
-    }
+    if (!url || [url isEqualToString:@""]) return;
     
     NSURL *imageUrl = [NSURL URLWithString:url];
-    if (!imageUrl) {
+    if (!imageUrl) return;
+    
+    [self setImageWithURL:imageUrl];
+}
+
+-(NSString *) stringByStrippingHTML:(NSString *)html {
+    NSRange r;
+    //NSString *s = [[self copy] autorelease];
+    NSString *s = [NSString stringWithString:html];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
+}
+
+- (void)appearanceForCaption:(NSString *)caption
+{
+    // adds a caption text on image
+    if (!caption) {
         return;
     }
     
-    [self setImageWithURL:imageUrl];
+    UIWebView *captionWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0,
+                                                                            0,
+                                                                            CGRectGetWidth(self.frame),
+                                                                            CGRectGetHeight(self.frame))];
+    [captionWebView setOpaque:NO];
+    [captionWebView setBackgroundColor:[UIColor clearColor]];
+    [captionWebView setUserInteractionEnabled:NO];
+    
+    [captionWebView loadHTMLString:caption baseURL:[NSURL URLWithString:@"http://www.zulamobile.com"]];
+    [captionWebView setDelegate:self];
+    [self addSubview:captionWebView];
+}
+
+#pragma mark - web view delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    frame.origin.y = CGRectGetHeight(self.frame) - fittingSize.height;
+    webView.frame = frame;
+}
+
+#pragma mark - image methods
+
+- (void)addFrame
+{
+    CALayer *layer = self.layer;
+    [layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [layer setBorderWidth:4.0f];
+    [layer setShadowColor: [[UIColor colorWithHex:@"333333"] CGColor]];
+    [layer setShadowOpacity:0.5f];
+    [layer setShadowOffset: CGSizeMake(1, 1)];
+    [layer setShadowRadius:1.0];
+    [self setClipsToBounds:NO];
+    
+    [self rescaleImage];
+}
+
+- (void)rescaleImage
+{
+    UIImage* scaledImage = self.image;
+    
+    CALayer* layer = self.layer;
+    CGFloat borderWidth = layer.borderWidth;
+    
+    //if border is defined
+    if (borderWidth > 0)
+    {
+        //rectangle in which we want to draw the image.
+        CGRect imageRect = CGRectMake(0.0, 0.0, self.bounds.size.width - 2 * borderWidth,self.bounds.size.height - 2 * borderWidth);
+        //Only draw image if its size is bigger than the image rect size.
+        if (self.image.size.width > imageRect.size.width || self.image.size.height > imageRect.size.height)
+        {
+            UIGraphicsBeginImageContext(imageRect.size);
+            [self.image drawInRect:imageRect];
+            scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
+    }
+    self.image = scaledImage;
 }
 
 @end

@@ -24,17 +24,26 @@
 
 - (void)loadView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 548)];
+    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), CGRectGetHeight(screenRect))];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [self.activityIndicatorView setFrame:CGRectMake(150, 420, 20, 20)];
-    [self.activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin];
+    [self.activityIndicatorView setFrame:CGRectMake(CGRectGetWidth(view.frame) / 2 - 20 / 2, CGRectGetHeight(view.frame) - 20 - 20, 20, 20)];
+    [self.activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin];
     [self.activityIndicatorView startAnimating];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
-    [self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash.png"]];
+    //[self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash"]];
+    if (IS_IPHONE_5) {
+        [self.imageView setImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
+    } else {
+        [self.imageView setImage:[UIImage imageNamed:@"Default"]];
+    }
+    
     [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
     
     errButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [errButton setHidden:YES];

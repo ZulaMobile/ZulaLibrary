@@ -19,6 +19,8 @@
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
+#import "SMMultipleImageView.h"
+#import "SMPullToRefreshFactory.h"
 
 @interface SMContentViewController ()
 
@@ -30,7 +32,6 @@
 @end
 
 @implementation SMContentViewController
-@synthesize titleView = _titleView;
 @synthesize imageView = _imageView;
 @synthesize webView = _webView;
 @synthesize scrollView = _scrollView;
@@ -47,17 +48,9 @@
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.imageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
-    [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
-    [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
-    
-    self.titleView = [[SMTitleLabel alloc] initWithFrame:CGRectMake(padding, CGRectGetHeight(self.imageView.frame), CGRectGetWidth(self.view.frame) - padding * 2, 30)];
-    [self.titleView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [self.titleView applyAppearances:[self.componentDesciption.appearance objectForKey:@"title"]];
-    
     self.webView = [[SMWebView alloc] initWithFrame:
                     CGRectMake(padding,
-                               CGRectGetHeight(self.imageView.frame),
+                               padding,
                                CGRectGetWidth(self.view.frame) - padding * 2,
                                600)];
     [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
@@ -65,8 +58,11 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
-    [self.scrollView addSubview:self.imageView];
-    //[self.scrollView addSubview:self.titleView];
+    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
+                                                               delegate:self
+                                                                   name:pullToRefreshType];
+    
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
 }
@@ -83,14 +79,15 @@
 
 - (void)fetchContents
 {
-    // if data is already set, no need to fetch contents
-    if (self.contentPage) {
+    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
+    if (![pullToRefresh isRefreshing] && self.contentPage) {
         [self applyContents];
         return;
     }
     
     // start preloader
-    [SMProgressHUD show];
+    if (![pullToRefresh isRefreshing])
+        [SMProgressHUD show];
     
     NSString *url = [self.componentDesciption url];
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
@@ -113,26 +110,35 @@
 
 - (void)applyContents
 {
-    [_titleView setText:self.contentPage.title];
     [_webView loadHTMLString:self.contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
-    if (self.contentPage.imageUrl)
-        [_imageView setImageWithURL:self.contentPage.imageUrl];
-    
-    if (self.contentPage.backgroundUrl)
-        [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
-    
-    // reposition elements
-    if (!self.contentPage.imageUrl) {
-        // move views up
-        CGRect imageViewFrame = _imageView.frame;
-        //CGRect titleViewFrame = _titleView.frame;
-        CGRect webViewFrame = _webView.frame;
-        //titleViewFrame.origin.y -= imageViewFrame.size.height;
-        webViewFrame.origin.y -= imageViewFrame.size.height;
-        //[_titleView setFrame:titleViewFrame];
-        [_webView setFrame:webViewFrame];
+    // set images
+    if ([self.contentPage.images count] > 0) {
+        self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
+        [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+        [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
+        [self.imageView addImagesWithArray:self.contentPage.images];
+        [self.scrollView addSubview:self.imageView];
+    } else {
+        // unset images if set before
+        if (self.imageView) {
+            [self.imageView removeFromSuperview];
+            self.imageView = nil;
+        }
     }
+    
+    if (self.contentPage.backgroundUrl) {
+        // set background
+        [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
+    } else if (self.backgroundImageView) {
+        // unset background
+        [self.backgroundImageView setImage:nil];
+    }
+    
+    // add navigation image if set
+    [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
+    
+    [pullToRefresh endRefresh];
 }
 
 #pragma mark - web view delegate
@@ -156,13 +162,20 @@
     frame.size = fittingSize;
     aWebView.frame = frame;
     
-    [self.webView setFrame:CGRectMake(padding,
-                                      padding + CGRectGetHeight(self.imageView.frame),
-                                      CGRectGetWidth(self.view.frame) - padding * 2,
-                                      fittingSize.height)];
-    [self.scrollView setContentSize:CGSizeMake(
-                                               CGRectGetWidth(self.view.frame),
-                                               padding * 2 + CGRectGetHeight(self.imageView.frame) + fittingSize.height)];
+    // set web view size
+    CGRect webViewFrame = self.webView.frame;
+    webViewFrame.size.height = fittingSize.height;
+    if (self.imageView) {
+        webViewFrame.origin.y = CGRectGetHeight(self.imageView.frame);
+        //webViewFrame.size.height += CGRectGetHeight(self.imageView.frame);
+    }
+    [self.webView setFrame:webViewFrame];
+    
+    // set scrollview content size
+    CGSize contentSize = self.scrollView.contentSize;
+    contentSize.height = CGRectGetHeight(self.imageView.frame) + CGRectGetHeight(self.webView.frame);
+    [self.scrollView setContentSize:contentSize];
+     
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {

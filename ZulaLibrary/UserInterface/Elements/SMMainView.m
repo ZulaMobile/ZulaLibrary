@@ -8,7 +8,6 @@
 
 #import "SMMainView.h"
 #import "UIColor+SSToolkitAdditions.h"
-#import "UIImageView+AFNetworking.h"
 #import "SMImageView.h"
 
 @interface SMMainView()

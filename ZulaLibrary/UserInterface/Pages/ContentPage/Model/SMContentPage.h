@@ -13,8 +13,9 @@
 // data structure constants
 #define kModelContentPageTitle @"title"
 #define kModelContentPageText @"text"
-#define kModelContentPageImageUrl @"image"
+#define kModelContentPageImages @"images"
 #define kModelContentPageBackgroundImageUrl @"bg_image"
+#define kModelContentPageNavbarIcon @"navbar_icon"
 
 /**
  Model class to provide the data for the `Content Page` object.
@@ -35,14 +36,19 @@
 @property (nonatomic, readonly) NSString *text;
 
 /**
- Optional image to display on the page just above the title.
+ Optional images array that display multiple images with swipe navigation.
  */
-@property (nonatomic) NSURL *imageUrl;
+@property (nonatomic) NSArray *images;
 
 /**
  Optional background image
  */
 @property (nonatomic) NSURL *backgroundUrl;
+
+/**
+ Optional navigation bar image that replaces the title
+ */
+@property (nonatomic) NSURL *navbarIcon;
 
 /**
  Content data for Content model
