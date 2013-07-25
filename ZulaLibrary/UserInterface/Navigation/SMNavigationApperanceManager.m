@@ -65,7 +65,7 @@
 }
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
-{
+{    
     if (!imageUrl || [imageUrl isEqualToString:@""]) {
         return;
     }

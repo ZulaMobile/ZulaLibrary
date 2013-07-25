@@ -9,13 +9,14 @@
 #import "SMBaseComponentViewController.h"
 #import "SMComponentDescription.h"
 #import "SMAppDescription.h"
+#import "SMNavigationDescription.h"
 #import "SMMainView.h"
 #import "SMImageView.h"
 #import "UIViewController+SSToolkitAdditions.h"
 #import "UIImageView+WebCache.h"
 
 @interface SMBaseComponentViewController ()
-
+- (BOOL)navigationHasBackgroundImage;
 @end
 
 @implementation SMBaseComponentViewController
@@ -101,6 +102,9 @@
                                                                   target:nil
                                                                   action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    // disable the title view if navbar background exists
+    [self navigationHasBackgroundImage];
 }
 
 - (void)fetchContents
@@ -113,11 +117,28 @@
     // must be overridden
 }
 
+- (void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
 {
+#warning fix this, move it to a better place
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"back_arrow"]  ;
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 30, 19);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    
     if (!navbarIconUrl) {
-        if (self.navigationItem.titleView)
-            self.navigationItem.titleView = nil;
+        if (![self navigationHasBackgroundImage]) {
+            if (self.navigationItem.titleView)
+                self.navigationItem.titleView = nil;
+        }
         return;
     }
     UIImageView *navbarImage = [[UIImageView alloc] init];
@@ -130,15 +151,31 @@
 // override this behavior
 - (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    
 }
 
 // override this behavior
 - (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
 {
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark - private methods
+
+
+- (BOOL)navigationHasBackgroundImage
+{
+    // disable the navigation title, if background image exists
+    SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
+    NSString *bgImage = [navDesc.data objectForKey:@"navbar_bg_image"];
+    if (bgImage) {
+        self.navigationItem.titleView = [[UIView alloc] init];
+        return YES;
+    }
     
+    return NO;
 }
 
 @end

@@ -985,10 +985,10 @@
 			isa = PBXGroup;
 			children = (
 				679EC163176B92D100D32228 /* SMPullToRefresh.h */,
-				679EC15D176B904F00D32228 /* SMRainboxPullToRefresh.h */,
-				679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */,
 				679EC164176B934D00D32228 /* SMPullToRefreshFactory.h */,
 				679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */,
+				679EC15D176B904F00D32228 /* SMRainboxPullToRefresh.h */,
+				679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */,
 				679EC1BC176BB80F00D32228 /* SMDefaultPullToRefresh.h */,
 				679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */,
 				67D332BE177AF33F0010E49D /* SMPlainPullToRefresh.h */,
