@@ -90,6 +90,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // nav bar will not be transculent, necessary for ios7
+    [self.navigationController.navigationBar setTranslucent:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated

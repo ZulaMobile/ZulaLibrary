@@ -1932,6 +1932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
@@ -1950,6 +1951,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/ZulaLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
