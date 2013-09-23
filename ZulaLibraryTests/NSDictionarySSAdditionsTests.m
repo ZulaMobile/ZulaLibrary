@@ -6,11 +6,15 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "NSDictionarySSAdditionsTests.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import "NSDictionary+SMAdditions.h"
+
+@interface NSDictionarySSAdditionsTests : SenTestCase
+@end
 
 @implementation NSDictionarySSAdditionsTests
 
-- (void)testMergeDictionarySimple
+- (void)testShouldMergeSimpleDictionariesWithClassMethod
 {
     NSDictionary *first = [NSDictionary dictionaryWithObjectsAndKeys:@"ali", @"name", @"engineer", @"title", nil];
     NSDictionary *second = [NSDictionary dictionaryWithObjectsAndKeys:@"sm123", @"id", @"active", @"status", nil];
@@ -23,7 +27,7 @@
     STAssertTrue([[result objectForKey:@"status"] isEqualToString:@"active"], @"");
 }
 
-- (void)testMergeDictionaryOverride
+- (void)testShouldMergeAndOverrideDictionariesWithClassMethod
 {
     NSDictionary *overridden = [NSDictionary dictionaryWithObjectsAndKeys:@"ali", @"name", @"engineer", @"title", nil];
     NSDictionary *overrides = [NSDictionary dictionaryWithObjectsAndKeys:@"ayse", @"name", @"doctor", @"title", @"sm123", @"id", @"active", @"status", nil];
@@ -36,7 +40,7 @@
     STAssertTrue([[result objectForKey:@"status"] isEqualToString:@"active"], @"");
 }
 
-- (void)testMergeSelfDictionarySimple
+- (void)testShouldMergeSimpleDictionaries
 {
     NSDictionary *first = [NSDictionary dictionaryWithObjectsAndKeys:@"ali", @"name", @"engineer", @"title", nil];
     NSDictionary *second = [NSDictionary dictionaryWithObjectsAndKeys:@"sm123", @"id", @"active", @"status", nil];
@@ -49,7 +53,7 @@
     STAssertTrue([[result objectForKey:@"status"] isEqualToString:@"active"], @"");
 }
 
-- (void)testMergeSelfDictionaryOverride
+- (void)testShouldMergeAndOverrideDictionaries
 {
     NSDictionary *overridden = [NSDictionary dictionaryWithObjectsAndKeys:
                                 @"ali", @"name",
@@ -68,7 +72,7 @@
     STAssertTrue([[result objectForKey:@"status"] isEqualToString:@"active"], @"");
 }
 
-- (void)testMergeMultiDimensional
+- (void)testShouldMergeMultiDimensionalDictionaries
 {
     NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"ff0000", @"bg_color",
@@ -106,7 +110,7 @@
     STAssertTrue([[image objectForKey:@"alignment"] isEqualToString:@"aspect_fill"], @"");
 }
 
-- (void)testMergeMultiDimensionalOverride
+- (void)testShouldMergeAndOverrideMultiDimensionalDictionaries
 {
     // main appearances needs to be overridden by component appearances
     NSDictionary *mainAppearances = [NSDictionary dictionaryWithObjectsAndKeys:

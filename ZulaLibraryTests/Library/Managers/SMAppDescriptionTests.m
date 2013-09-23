@@ -6,9 +6,13 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMAppDescriptionTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "SMComponentDescription.h"
 #import "SMNavigationDescription.h"
+#import "SMAppDescription.h"
+
+@interface SMAppDescriptionTests : SenTestCase <SMAppDescriptionDataSource>
+@end
 
 @implementation SMAppDescriptionTests
 {

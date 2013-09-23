@@ -6,13 +6,19 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMNavBarNavigationControllerTests.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import "SMAppDescription.h"
 #import "SMNavbarNavigationViewController.h"
 #import "SMComponentDescription.h"
 #import "SMBaseComponentViewController.h"
 #import "SMHomePageViewController.h"
 #import "SMContentViewController.h"
 #import "SMContactViewController.h"
+
+
+@interface SMNavBarNavigationControllerTests : SenTestCase <SMAppDescriptionDataSource>
+
+@end
 
 @implementation SMNavBarNavigationControllerTests
 {

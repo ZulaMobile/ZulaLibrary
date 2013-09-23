@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMFormDescriptionTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "SMFormDescription.h"
 #import "SMFormSection.h"
+
+
+@interface SMFormDescriptionTests : SenTestCase
+
+@end
 
 @implementation SMFormDescriptionTests
 {

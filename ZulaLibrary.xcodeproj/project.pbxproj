@@ -259,7 +259,6 @@
 		675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		675BDD6816DB955800B141F8 /* NSDictionary+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SMAdditions.h"; path = "Library/Categories/NSDictionary+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SMAdditions.m"; path = "Library/Categories/NSDictionary+SMAdditions.m"; sourceTree = "<group>"; };
-		675BDD6C16DB968A00B141F8 /* NSDictionarySSAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionarySSAdditionsTests.h; sourceTree = "<group>"; };
 		675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
 		675BDD7116DBB77B00B141F8 /* SMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMScrollView.h; path = UserInterface/Elements/SMScrollView.h; sourceTree = "<group>"; };
 		675BDD7216DBB77C00B141F8 /* SMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMScrollView.m; path = UserInterface/Elements/SMScrollView.m; sourceTree = "<group>"; };
@@ -372,7 +371,6 @@
 		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
 		67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescription.h; path = Library/Managers/SMAppDescription.h; sourceTree = "<group>"; };
 		67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescription.m; path = Library/Managers/SMAppDescription.m; sourceTree = "<group>"; };
-		67CCCA1D16C3F318000EBC0B /* SMAppDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionTests.h; path = Library/Managers/SMAppDescriptionTests.h; sourceTree = "<group>"; };
 		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 		67EE109317661FE9007D7116 /* SMFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormModel.m; path = UserInterface/Elements/Form/Model/SMFormModel.m; sourceTree = "<group>"; };
 		67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ZulaAdditions.h"; path = "Library/Categories/UI/UIColor+ZulaAdditions.h"; sourceTree = "<group>"; };
 		67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ZulaAdditions.m"; path = "Library/Categories/UI/UIColor+ZulaAdditions.m"; sourceTree = "<group>"; };
-		67F3C351176B20AA005E7D6F /* SMNavBarNavigationControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNavBarNavigationControllerTests.h; path = UserInterface/NavigationComponents/SMNavBarNavigationControllerTests.h; sourceTree = "<group>"; };
 		67F3C352176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavBarNavigationControllerTests.m; path = UserInterface/NavigationComponents/SMNavBarNavigationControllerTests.m; sourceTree = "<group>"; };
 		67F6CD6C1777902D003055B4 /* SMImageComponentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMImageComponentStrategy.h; path = UserInterface/Delegates/SMImageComponentStrategy.h; sourceTree = "<group>"; };
 		67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMImageComponentStrategy.m; path = UserInterface/Delegates/SMImageComponentStrategy.m; sourceTree = "<group>"; };
@@ -419,7 +416,6 @@
 		67F9CBA917623269002AC981 /* SMFormAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormAction.m; path = UserInterface/Elements/Form/Actions/SMFormAction.m; sourceTree = "<group>"; };
 		67F9CBAC176251B3002AC981 /* SMFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTextField.h; path = UserInterface/Elements/Form/Fields/SMFormTextField.h; sourceTree = "<group>"; };
 		67F9CBAD176251B4002AC981 /* SMFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormTextField.m; path = UserInterface/Elements/Form/Fields/SMFormTextField.m; sourceTree = "<group>"; };
-		67F9CBB2176322F6002AC981 /* SMFormFieldTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldTests.h; path = UserInterface/UIElements/Form/Fields/SMFormFieldTests.h; sourceTree = "<group>"; };
 		67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldTests.m; sourceTree = "<group>"; };
 		67F9CBB61763260F002AC981 /* SMFormDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormDescription.h; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.h; sourceTree = "<group>"; };
 		67F9CBB71763260F002AC981 /* SMFormDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescription.m; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.m; sourceTree = "<group>"; };
@@ -429,7 +425,6 @@
 		67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactoryTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		67F9CBBF176355A3002AC981 /* SMFormFieldFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldFactory.h; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.h; sourceTree = "<group>"; };
 		67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactory.m; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.m; sourceTree = "<group>"; };
-		67F9CBC317635D7F002AC981 /* SMFormDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormDescriptionTests.h; path = UserInterface/UIElements/Form/Descriptions/SMFormDescriptionTests.h; sourceTree = "<group>"; };
 		67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/Descriptions/SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		67F9CBC6176362B4002AC981 /* SMFormPasswordField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormPasswordField.h; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.h; sourceTree = "<group>"; };
 		67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormPasswordField.m; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.m; sourceTree = "<group>"; };
@@ -753,7 +748,6 @@
 			isa = PBXGroup;
 			children = (
 				67D79700175364F50035313D /* UI */,
-				675BDD6C16DB968A00B141F8 /* NSDictionarySSAdditionsTests.h */,
 				675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */,
 			);
 			name = Categories;
@@ -1299,7 +1293,6 @@
 		67CCCA1C16C3F2EF000EBC0B /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
-				67CCCA1D16C3F318000EBC0B /* SMAppDescriptionTests.h */,
 				67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */,
 				675BDD6216DB849100B141F8 /* SMComponentDescriptionTests.h */,
 				675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */,
@@ -1413,7 +1406,6 @@
 		67F3C34F176B18B9005E7D6F /* NavigationComponents */ = {
 			isa = PBXGroup;
 			children = (
-				67F3C351176B20AA005E7D6F /* SMNavBarNavigationControllerTests.h */,
 				67F3C352176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m */,
 			);
 			name = NavigationComponents;
@@ -1506,7 +1498,6 @@
 		67F9CBB1176322D2002AC981 /* Fields */ = {
 			isa = PBXGroup;
 			children = (
-				67F9CBB2176322F6002AC981 /* SMFormFieldTests.h */,
 				67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */,
 				67F9CBBC176354B1002AC981 /* SMFormFieldFactoryTests.h */,
 				67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */,
@@ -1526,7 +1517,6 @@
 		67F9CBC217635D62002AC981 /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
-				67F9CBC317635D7F002AC981 /* SMFormDescriptionTests.h */,
 				67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */,
 			);
 			name = Descriptions;

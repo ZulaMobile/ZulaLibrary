@@ -6,8 +6,13 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMFormFieldTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "SMFormField.h"
+
+
+@interface SMFormFieldTests : SenTestCase
+
+@end
 
 @implementation SMFormFieldTests
 
