@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZulaLibrary.h"
 #import "SMDefaultAppDelegate.h"
 
 /**

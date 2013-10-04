@@ -22,6 +22,11 @@
 		670DA45E175CEB5900B154F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670DA45D175CEB5800B154F0 /* MapKit.framework */; };
 		670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA463175D053A00B154F0 /* SMAnnotation.m */; };
 		670DA467175DCE7C00B154F0 /* SMMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA466175DCE7B00B154F0 /* SMMapView.m */; };
+		67170B0B17FF6B42006AD465 /* SMPullToRefreshComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */; };
+		67170B0C17FF6B84006AD465 /* SMBaseComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */; };
+		67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC163176B92D100D32228 /* SMPullToRefresh.h */; };
+		67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC6177C554F00A364FF /* SMSwipeComponentStrategy.h */; };
+		67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -71,7 +76,6 @@
 		677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
-		6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDDE16C02593005EDD1D /* ZulaLibrary.m */; };
 		6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE616C02593005EDD1D /* SenTestingKit.framework */; };
 		6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE816C02593005EDD1D /* UIKit.framework */; };
 		6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
@@ -176,6 +180,11 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */,
+				67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */,
+				67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */,
+				67170B0C17FF6B84006AD465 /* SMBaseComponentViewController.h in CopyFiles */,
+				67170B0B17FF6B42006AD465 /* SMPullToRefreshComponentViewController.h in CopyFiles */,
 				67A83208178AF064000D3243 /* SMModel.h in CopyFiles */,
 				67A83207178AE624000D3243 /* SMUser.h in CopyFiles */,
 				67A83201178AE3EA000D3243 /* SMServerError.h in CopyFiles */,
@@ -303,7 +312,6 @@
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		6780DDDC16C02593005EDD1D /* ZulaLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibrary.h; sourceTree = "<group>"; };
-		6780DDDE16C02593005EDD1D /* ZulaLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibrary.m; sourceTree = "<group>"; };
 		6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZulaLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDE616C02593005EDD1D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6780DDE816C02593005EDD1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -892,7 +900,6 @@
 				67CCC9CB16C11D97000EBC0B /* UserInterface */,
 				67CCC9DA16C157AD000EBC0B /* Library */,
 				6780DDDC16C02593005EDD1D /* ZulaLibrary.h */,
-				6780DDDE16C02593005EDD1D /* ZulaLibrary.m */,
 				67CCC9DB16C15B41000EBC0B /* Vendor */,
 				6780DDDA16C02593005EDD1D /* Supporting Files */,
 			);
@@ -1685,7 +1692,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6780DDDF16C02593005EDD1D /* ZulaLibrary.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,

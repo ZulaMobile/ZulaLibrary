@@ -7,6 +7,7 @@
 //
 
 #import "SMServerError.h"
+#import "AFHTTPRequestOperation.h"
 
 @implementation SMServerError
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
+#import <AFNetworking/AFHTTPClient.h>
 
 @interface SMApiClient : AFHTTPClient
 

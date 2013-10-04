@@ -10,9 +10,7 @@
 #import "SMPullToRefreshComponentViewController.h"
 #import "SMPullToRefresh.h"
 
-#import "SMImageView.h"
-
-@class SMHomePage, SMHomePageLinks;
+@class SMHomePage, SMHomePageLinks, SMImageView;
 
 /**
  Home Page Component automatically displays all registered components 

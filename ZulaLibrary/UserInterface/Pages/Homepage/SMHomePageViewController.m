@@ -17,6 +17,7 @@
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
 #import "SMPullToRefreshFactory.h"
+#import "SMImageView.h"
 
 #import "SMImageComponentStrategy.h"
 #import "SMDefaultAppDelegate.h"
