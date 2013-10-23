@@ -8,6 +8,8 @@
 
 #import "SMContactViewController.h"
 #import <AddressBook/AddressBook.h>
+#import <MapKit/MapKit.h>
+
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SSToolkitAdditions.h"
@@ -32,7 +34,7 @@
 #import "SMFormTextArea.h"
 #import "SMPullToRefreshFactory.h"
 
-@interface SMContactViewController ()
+@interface SMContactViewController () <MKMapViewDelegate, SMMapViewDelegate>
 @property (nonatomic, strong) SMScrollView *scrollView;
 @property (nonatomic, strong) SMFormTableViewStrategy *formStrategy;
 - (void)addRegionAndAnnotationLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude annotationName:(NSString *)name;
