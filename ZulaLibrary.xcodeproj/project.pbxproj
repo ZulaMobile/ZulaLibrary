@@ -27,29 +27,58 @@
 		67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC163176B92D100D32228 /* SMPullToRefresh.h */; };
 		67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC6177C554F00A364FF /* SMSwipeComponentStrategy.h */; };
 		67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */; };
+		67357872182A9C1E009B327D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
+		67357873182A9C1E009B327D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
+		67357874182A9C1E009B327D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F51174B9F4A0007A4A1 /* UIKit.framework */; };
+		6735787A182A9C1E009B327D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67357878182A9C1E009B327D /* InfoPlist.strings */; };
+		6735787C182A9C1E009B327D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6735787B182A9C1E009B327D /* main.m */; };
+		6735789F182A9CFB009B327D /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6735789D182A9CAC009B327D /* GHUnitIOS.framework */; };
+		673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578A3182A9EA9009B327D /* NSDictionarySSAdditionsTests.m */; };
+		673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
+		673578A9182A9FD0009B327D /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578A8182A9FD0009B327D /* UIColorSMAdditionsTests.m */; };
+		673578AA182AA071009B327D /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
+		673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578AD182AA184009B327D /* SMAppDescriptionTests.m */; };
+		673578AF182AA1F7009B327D /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
+		673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
+		673578B1182AA215009B327D /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
+		673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578B3182AA268009B327D /* SMComponentDescriptionTests.m */; };
+		673578B9182AA316009B327D /* SMNavBarNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578B8182AA316009B327D /* SMNavBarNavigationControllerTests.m */; };
+		673578C2182AA757009B327D /* SMSubMenuApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578C1182AA757009B327D /* SMSubMenuApplicationTests.m */; };
+		673578CA182AA9D9009B327D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */; };
+		673578CB182AA9DF009B327D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
+		673578CC182AA9F1009B327D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
+		673578CE182AAA0A009B327D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673578CD182AAA0A009B327D /* CoreLocation.framework */; };
+		673578CF182AAA29009B327D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670DA45D175CEB5800B154F0 /* MapKit.framework */; };
+		673578D1182AAA44009B327D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673578D0182AAA44009B327D /* AddressBook.framework */; };
+		673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A1174AADF000733E7A /* SMSubMenuView.m */; };
+		673578D9182AADFE009B327D /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F62174BBAB50007A4A1 /* SMTriangle.m */; };
+		673578DC182AAF69009B327D /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 673578DB182AAF69009B327D /* libPods-ZulaLibrary.a */; };
+		673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578DF182AC009009B327D /* SMListViewControllerTests.m */; };
+		673578E5182AC095009B327D /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578E4182AC095009B327D /* SMFormDescriptionTests.m */; };
+		673578E6182AC0E6009B327D /* SMFormDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBB71763260F002AC981 /* SMFormDescription.m */; };
+		673578E7182AC0EE009B327D /* SMFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBBA176351B2002AC981 /* SMFormSection.m */; };
+		673578E9182AC10F009B327D /* SMFormAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA917623269002AC981 /* SMFormAction.m */; };
+		673578EA182AC111009B327D /* SMFormSubmitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */; };
+		673578EB182AC126009B327D /* SMFormFieldFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */; };
+		673578EC182AC143009B327D /* SMApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3216F05F41001AA909 /* SMApiClient.m */; };
+		673578ED182AC18B009B327D /* SMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA517623034002AC981 /* SMFormField.m */; };
+		673578EE182AC193009B327D /* SMFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBAD176251B4002AC981 /* SMFormTextField.m */; };
+		673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */; };
+		673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCA1763635C002AC981 /* SMFormButtonField.m */; };
+		673578F1182AC1A5009B327D /* SMFormTextArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD6176370CB002AC981 /* SMFormTextArea.m */; };
+		673578F2182AC1AF009B327D /* SMFormEmailField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD31763706A002AC981 /* SMFormEmailField.m */; };
+		673578F3182AC1BF009B327D /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
+		673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578F5182AC278009B327D /* SMFormFieldTests.m */; };
+		673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */; };
+		673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
 		674D6F36174B975C0007A4A1 /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F35174B975C0007A4A1 /* SMContentContainer.m */; };
-		674D6F3E174B9DED0007A4A1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE616C02593005EDD1D /* SenTestingKit.framework */; };
-		674D6F3F174B9DED0007A4A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE816C02593005EDD1D /* UIKit.framework */; };
-		674D6F40174B9DED0007A4A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
-		674D6F46174B9DED0007A4A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 674D6F44174B9DED0007A4A1 /* InfoPlist.strings */; };
-		674D6F49174B9DED0007A4A1 /* ZulaLibraryLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */; };
-		674D6F4E174B9F340007A4A1 /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
-		674D6F50174B9F380007A4A1 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */; };
-		674D6F52174B9F4A0007A4A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F51174B9F4A0007A4A1 /* UIKit.framework */; };
-		674D6F53174B9F5E0007A4A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
-		674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */; };
 		674D6F60174BA7510007A4A1 /* SMContentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5F174BA7510007A4A1 /* SMContentContainerViewController.m */; };
 		674D6F63174BBAB50007A4A1 /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F62174BBAB50007A4A1 /* SMTriangle.m */; };
 		675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */; };
-		675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */; };
-		675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */; };
-		675BDD6616DB929000B141F8 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */; };
 		675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
-		675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */; };
-		675BDD7016DB990F00B141F8 /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */; };
 		675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7216DBB77C00B141F8 /* SMScrollView.m */; };
 		675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */; };
 		675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */; };
@@ -61,11 +90,6 @@
 		677207701732D80300E5CDC2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6772076F1732D80200E5CDC2 /* CoreImage.framework */; };
 		677207741732D83400E5CDC2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677207731732D83400E5CDC2 /* ImageIO.framework */; };
 		6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 677207791733D37900E5CDC2 /* SMListCell.m */; };
-		67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */; };
-		67723CC21727E8F000BB51D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
-		67723CC31727E8F500BB51D7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9ED16C15BE6000EBC0B /* QuartzCore.framework */; };
-		67723CC41727F50700BB51D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A2505916D8E2FD007C6325 /* SystemConfiguration.framework */; };
-		67723CC61727F5B800BB51D7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */; };
 		6772D44716D6795E00B36C0F /* SMComponentDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44616D6795E00B36C0F /* SMComponentDescription.m */; };
 		6772D44B16D6831F00B36C0F /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */; };
 		6772D45116D6871000B36C0F /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
@@ -76,14 +100,7 @@
 		677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
-		6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE616C02593005EDD1D /* SenTestingKit.framework */; };
-		6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDE816C02593005EDD1D /* UIKit.framework */; };
-		6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
-		6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */; };
-		6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6780DDF116C02593005EDD1D /* InfoPlist.strings */; };
-		6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */; };
 		67890A2E16EF868D001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
-		67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 67890A2D16EF868D001AA909 /* libz.dylib */; };
 		67890A3316F05F41001AA909 /* SMApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3216F05F41001AA909 /* SMApiClient.m */; };
 		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
 		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
@@ -103,7 +120,6 @@
 		67A83208178AF064000D3243 /* SMModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCCA0616C16E54000EBC0B /* SMModel.h */; };
 		67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */; };
 		67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */; };
-		67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */; };
 		67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */; };
 		67B916BC1767630E006AF55C /* SMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BB1767630E006AF55C /* SMContainer.m */; };
 		67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BE17676663006AF55C /* SMContainerViewController.m */; };
@@ -121,7 +137,6 @@
 		67CCCA0816C16E54000EBC0B /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
 		67CCCA0C16C1710A000EBC0B /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentViewController.m */; };
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
-		67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
 		67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A1174AADF000733E7A /* SMSubMenuView.m */; };
 		67D332C0177AF33F0010E49D /* SMPlainPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D332BF177AF33F0010E49D /* SMPlainPullToRefresh.m */; };
@@ -130,7 +145,6 @@
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
-		67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D79702175365240035313D /* UIColorSMAdditionsTests.m */; };
 		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
@@ -142,18 +156,14 @@
 		67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */; };
 		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
-		67F3C353176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F3C352176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m */; };
 		67F6CD6E1777902D003055B4 /* SMImageComponentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */; };
 		67F9CBA21762289F002AC981 /* SMFormTableViewStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA11762289F002AC981 /* SMFormTableViewStrategy.m */; };
 		67F9CBA617623034002AC981 /* SMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA517623034002AC981 /* SMFormField.m */; };
 		67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA917623269002AC981 /* SMFormAction.m */; };
 		67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBAD176251B4002AC981 /* SMFormTextField.m */; };
-		67F9CBB4176322F6002AC981 /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */; };
 		67F9CBB81763260F002AC981 /* SMFormDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBB71763260F002AC981 /* SMFormDescription.m */; };
 		67F9CBBB176351B4002AC981 /* SMFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBBA176351B2002AC981 /* SMFormSection.m */; };
-		67F9CBBE176354B2002AC981 /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */; };
 		67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */; };
-		67F9CBC517635D7F002AC981 /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */; };
 		67F9CBC8176362BA002AC981 /* SMFormPasswordField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */; };
 		67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCA1763635C002AC981 /* SMFormButtonField.m */; };
 		67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBCD17636A32002AC981 /* SMFormSubmitAction.m */; };
@@ -162,16 +172,6 @@
 		67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD6176370CB002AC981 /* SMFormTextArea.m */; };
 		8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6780DDEB16C02593005EDD1D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6780DDCC16C02592005EDD1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6780DDD316C02593005EDD1D;
-			remoteInfo = ZulaLibrary;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6780DDD216C02593005EDD1D /* CopyFiles */ = {
@@ -237,6 +237,29 @@
 		670DA463175D053A00B154F0 /* SMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAnnotation.m; path = UserInterface/Elements/Helpers/SMAnnotation.m; sourceTree = "<group>"; };
 		670DA465175DCE7B00B154F0 /* SMMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMMapView.h; path = UserInterface/Elements/SMMapView.h; sourceTree = "<group>"; };
 		670DA466175DCE7B00B154F0 /* SMMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMMapView.m; path = UserInterface/Elements/SMMapView.m; sourceTree = "<group>"; };
+		67357871182A9C1E009B327D /* ZulaLibraryGHTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZulaLibraryGHTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67357877182A9C1E009B327D /* ZulaLibraryGHTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZulaLibraryGHTests-Info.plist"; sourceTree = "<group>"; };
+		67357879182A9C1E009B327D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6735787B182A9C1E009B327D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6735787D182A9C1E009B327D /* ZulaLibraryGHTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibraryGHTests-Prefix.pch"; sourceTree = "<group>"; };
+		67357888182A9C1E009B327D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6735789D182A9CAC009B327D /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../../../../../tmp/gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		673578A3182A9EA9009B327D /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionarySSAdditionsTests.m; path = Library/Categories/NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
+		673578A8182A9FD0009B327D /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorSMAdditionsTests.m; path = Library/Categories/UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
+		673578AD182AA184009B327D /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Descriptions/SMAppDescriptionTests.m; sourceTree = "<group>"; };
+		673578B3182AA268009B327D /* SMComponentDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescriptionTests.m; path = Library/Descriptions/SMComponentDescriptionTests.m; sourceTree = "<group>"; };
+		673578B8182AA316009B327D /* SMNavBarNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavBarNavigationControllerTests.m; path = UserInterface/NavigationComponents/SMNavBarNavigationControllerTests.m; sourceTree = "<group>"; };
+		673578C1182AA757009B327D /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuApplicationTests.m; path = UserInterface/Components/ContentContainer/SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
+		673578C8182AA919009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578CD182AAA0A009B327D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		673578D0182AAA44009B327D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		673578D5182AAB70009B327D /* libPods-ZulaLibrary-SSToolkit.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary-SSToolkit.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary-SSToolkit.a"; sourceTree = "<group>"; };
+		673578D7182AAB82009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578DB182AAF69009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578DF182AC009009B327D /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/SMListViewControllerTests.m; sourceTree = "<group>"; };
+		673578E4182AC095009B327D /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/SMFormDescriptionTests.m; sourceTree = "<group>"; };
+		673578F5182AC278009B327D /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/SMFormFieldTests.m; sourceTree = "<group>"; };
+		673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactoryTests.m; path = UserInterface/UIElements/Form/SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -245,30 +268,17 @@
 		6749EB8217258519002219C8 /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewController.m; path = UserInterface/Pages/List/Controller/SMListViewController.m; sourceTree = "<group>"; };
 		674D6F34174B975C0007A4A1 /* SMContentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentContainer.h; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.h; sourceTree = "<group>"; };
 		674D6F35174B975C0007A4A1 /* SMContentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentContainer.m; path = UserInterface/Pages/ContentContainer/Model/SMContentContainer.m; sourceTree = "<group>"; };
-		674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZulaLibraryLogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		674D6F43174B9DED0007A4A1 /* ZulaLibraryLogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZulaLibraryLogicTests-Info.plist"; sourceTree = "<group>"; };
-		674D6F45174B9DED0007A4A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		674D6F47174B9DED0007A4A1 /* ZulaLibraryLogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryLogicTests.h; sourceTree = "<group>"; };
-		674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryLogicTests.m; sourceTree = "<group>"; };
-		674D6F4A174B9DED0007A4A1 /* ZulaLibraryLogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibraryLogicTests-Prefix.pch"; sourceTree = "<group>"; };
 		674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		674D6F51174B9F4A0007A4A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		674D6F5B174BA0B80007A4A1 /* SMSubMenuApplicationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuApplicationTests.h; path = UserInterface/Components/ContentContainer/View/SMSubMenuApplicationTests.h; sourceTree = "<group>"; };
-		674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuApplicationTests.m; path = UserInterface/Components/ContentContainer/View/SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
 		674D6F5E174BA7510007A4A1 /* SMContentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContentContainerViewController.h; path = UserInterface/Pages/ContentContainer/Controllers/SMContentContainerViewController.h; sourceTree = "<group>"; };
 		674D6F5F174BA7510007A4A1 /* SMContentContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContentContainerViewController.m; path = UserInterface/Pages/ContentContainer/Controllers/SMContentContainerViewController.m; sourceTree = "<group>"; };
 		674D6F61174BBAB50007A4A1 /* SMTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTriangle.h; path = UserInterface/Pages/ContentContainer/View/SMTriangle.h; sourceTree = "<group>"; };
 		674D6F62174BBAB50007A4A1 /* SMTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTriangle.m; path = UserInterface/Pages/ContentContainer/View/SMTriangle.m; sourceTree = "<group>"; };
 		675BDD5A16DB741200B141F8 /* UIWebView+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+SMAdditions.h"; path = "Library/Categories/UI/UIWebView+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD5B16DB741200B141F8 /* UIWebView+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+SMAdditions.m"; path = "Library/Categories/UI/UIWebView+SMAdditions.m"; sourceTree = "<group>"; };
-		675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceDataTests.h; sourceTree = "<group>"; };
-		675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceDataTests.m; sourceTree = "<group>"; };
-		675BDD6216DB849100B141F8 /* SMComponentDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMComponentDescriptionTests.h; sourceTree = "<group>"; };
-		675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMComponentDescriptionTests.m; sourceTree = "<group>"; };
 		675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		675BDD6816DB955800B141F8 /* NSDictionary+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SMAdditions.h"; path = "Library/Categories/NSDictionary+SMAdditions.h"; sourceTree = "<group>"; };
 		675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SMAdditions.m"; path = "Library/Categories/NSDictionary+SMAdditions.m"; sourceTree = "<group>"; };
-		675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
 		675BDD7116DBB77B00B141F8 /* SMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMScrollView.h; path = UserInterface/Elements/SMScrollView.h; sourceTree = "<group>"; };
 		675BDD7216DBB77C00B141F8 /* SMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMScrollView.m; path = UserInterface/Elements/SMScrollView.m; sourceTree = "<group>"; };
 		675BDD7516DBBF1D00B141F8 /* SMNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMNavigation.h; path = UserInterface/Navigation/SMNavigation.h; sourceTree = "<group>"; };
@@ -290,8 +300,6 @@
 		677207731732D83400E5CDC2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		677207781733D37900E5CDC2 /* SMListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListCell.h; path = UserInterface/Pages/List/View/SMListCell.h; sourceTree = "<group>"; };
 		677207791733D37900E5CDC2 /* SMListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListCell.m; path = UserInterface/Pages/List/View/SMListCell.m; sourceTree = "<group>"; };
-		67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListViewControllerTests.h; path = UserInterface/Components/List/Controller/SMListViewControllerTests.h; sourceTree = "<group>"; };
-		67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/Controller/SMListViewControllerTests.m; sourceTree = "<group>"; };
 		67723CC51727F5B800BB51D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6772D44516D6795D00B36C0F /* SMComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentDescription.h; path = Library/Descriptions/SMComponentDescription.h; sourceTree = "<group>"; };
 		6772D44616D6795E00B36C0F /* SMComponentDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescription.m; path = Library/Descriptions/SMComponentDescription.m; sourceTree = "<group>"; };
@@ -312,13 +320,8 @@
 		6780DDD716C02593005EDD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		6780DDDC16C02593005EDD1D /* ZulaLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibrary.h; sourceTree = "<group>"; };
-		6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZulaLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6780DDE616C02593005EDD1D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6780DDE816C02593005EDD1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		6780DDF016C02593005EDD1D /* ZulaLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZulaLibraryTests-Info.plist"; sourceTree = "<group>"; };
-		6780DDF216C02593005EDD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZulaLibraryTests.h; sourceTree = "<group>"; };
-		6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZulaLibraryTests.m; sourceTree = "<group>"; };
 		67890A2D16EF868D001AA909 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		67890A3116F05F41001AA909 /* SMApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMApiClient.h; sourceTree = "<group>"; };
 		67890A3216F05F41001AA909 /* SMApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMApiClient.m; sourceTree = "<group>"; };
@@ -352,16 +355,12 @@
 		67B587B2174E48C600CF35D7 /* UIButton+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+SMAdditions.m"; path = "Library/Categories/UI/UIButton+SMAdditions.m"; sourceTree = "<group>"; };
 		67B587B4174E49C300CF35D7 /* UILabel+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+SMAdditions.h"; path = "Library/Categories/UI/UILabel+SMAdditions.h"; sourceTree = "<group>"; };
 		67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+SMAdditions.m"; path = "Library/Categories/UI/UILabel+SMAdditions.m"; sourceTree = "<group>"; };
-		67B6C690174F839C008E1EF0 /* SMHomePageViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewControllerTests.h; path = UserInterface/Components/Homepage/Controller/SMHomePageViewControllerTests.h; sourceTree = "<group>"; };
-		67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewControllerTests.m; path = UserInterface/Components/Homepage/Controller/SMHomePageViewControllerTests.m; sourceTree = "<group>"; };
 		67B6C699174F9E4C008E1EF0 /* SMBorderedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBorderedImage.h; path = UserInterface/Elements/SMBorderedImage.h; sourceTree = "<group>"; };
 		67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBorderedImage.m; path = UserInterface/Elements/SMBorderedImage.m; sourceTree = "<group>"; };
 		67B916BA1767630E006AF55C /* SMContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContainer.h; path = UserInterface/Pages/Container/Model/SMContainer.h; sourceTree = "<group>"; };
 		67B916BB1767630E006AF55C /* SMContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContainer.m; path = UserInterface/Pages/Container/Model/SMContainer.m; sourceTree = "<group>"; };
 		67B916BD17676663006AF55C /* SMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMContainerViewController.h; path = UserInterface/Pages/Container/Controller/SMContainerViewController.h; sourceTree = "<group>"; };
 		67B916BE17676663006AF55C /* SMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContainerViewController.m; path = UserInterface/Pages/Container/Controller/SMContainerViewController.m; sourceTree = "<group>"; };
-		67BD5B0516F30B4600FC503F /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		67BD5B0716F30B5200FC503F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BD5B1416F31E9200FC503F /* SMTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTitleLabel.h; path = UserInterface/Elements/SMTitleLabel.h; sourceTree = "<group>"; };
 		67BD5B1516F31E9200FC503F /* SMTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTitleLabel.m; path = UserInterface/Elements/SMTitleLabel.m; sourceTree = "<group>"; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
@@ -379,7 +378,6 @@
 		67CCCA0B16C1710A000EBC0B /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMContentPageViewController.xib; path = UserInterface/Pages/ContentPage/Controller/SMContentPageViewController.xib; sourceTree = "<group>"; };
 		67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescription.h; path = Library/Managers/SMAppDescription.h; sourceTree = "<group>"; };
 		67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescription.m; path = Library/Managers/SMAppDescription.m; sourceTree = "<group>"; };
-		67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionTests.m; path = Library/Managers/SMAppDescriptionTests.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
 		67D275A0174AADF000733E7A /* SMSubMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuView.h; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.h; sourceTree = "<group>"; };
@@ -397,8 +395,6 @@
 		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
 		67D4C44816D918C900BCE927 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTextView.h; path = UserInterface/Elements/SMTextView.h; sourceTree = "<group>"; };
 		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
-		67D79701175365240035313D /* UIColorSMAdditionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorSMAdditionsTests.h; path = Library/Categories/UI/UIColorSMAdditionsTests.h; sourceTree = "<group>"; };
-		67D79702175365240035313D /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorSMAdditionsTests.m; path = Library/Categories/UI/UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
 		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
@@ -413,7 +409,6 @@
 		67EE109317661FE9007D7116 /* SMFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormModel.m; path = UserInterface/Elements/Form/Model/SMFormModel.m; sourceTree = "<group>"; };
 		67F27434174D2A2100FB4FBB /* UIColor+ZulaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ZulaAdditions.h"; path = "Library/Categories/UI/UIColor+ZulaAdditions.h"; sourceTree = "<group>"; };
 		67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ZulaAdditions.m"; path = "Library/Categories/UI/UIColor+ZulaAdditions.m"; sourceTree = "<group>"; };
-		67F3C352176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavBarNavigationControllerTests.m; path = UserInterface/NavigationComponents/SMNavBarNavigationControllerTests.m; sourceTree = "<group>"; };
 		67F6CD6C1777902D003055B4 /* SMImageComponentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMImageComponentStrategy.h; path = UserInterface/Delegates/SMImageComponentStrategy.h; sourceTree = "<group>"; };
 		67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMImageComponentStrategy.m; path = UserInterface/Delegates/SMImageComponentStrategy.m; sourceTree = "<group>"; };
 		67F9CBA01762289F002AC981 /* SMFormTableViewStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTableViewStrategy.h; path = UserInterface/Elements/Form/Strategies/SMFormTableViewStrategy.h; sourceTree = "<group>"; };
@@ -424,16 +419,12 @@
 		67F9CBA917623269002AC981 /* SMFormAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormAction.m; path = UserInterface/Elements/Form/Actions/SMFormAction.m; sourceTree = "<group>"; };
 		67F9CBAC176251B3002AC981 /* SMFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTextField.h; path = UserInterface/Elements/Form/Fields/SMFormTextField.h; sourceTree = "<group>"; };
 		67F9CBAD176251B4002AC981 /* SMFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormTextField.m; path = UserInterface/Elements/Form/Fields/SMFormTextField.m; sourceTree = "<group>"; };
-		67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldTests.m; sourceTree = "<group>"; };
 		67F9CBB61763260F002AC981 /* SMFormDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormDescription.h; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.h; sourceTree = "<group>"; };
 		67F9CBB71763260F002AC981 /* SMFormDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescription.m; path = UserInterface/Elements/Form/Descriptions/SMFormDescription.m; sourceTree = "<group>"; };
 		67F9CBB9176351B2002AC981 /* SMFormSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormSection.h; path = UserInterface/Elements/Form/Fields/SMFormSection.h; sourceTree = "<group>"; };
 		67F9CBBA176351B2002AC981 /* SMFormSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormSection.m; path = UserInterface/Elements/Form/Fields/SMFormSection.m; sourceTree = "<group>"; };
-		67F9CBBC176354B1002AC981 /* SMFormFieldFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldFactoryTests.h; path = UserInterface/UIElements/Form/Fields/SMFormFieldFactoryTests.h; sourceTree = "<group>"; };
-		67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactoryTests.m; path = UserInterface/UIElements/Form/Fields/SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		67F9CBBF176355A3002AC981 /* SMFormFieldFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormFieldFactory.h; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.h; sourceTree = "<group>"; };
 		67F9CBC0176355A4002AC981 /* SMFormFieldFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactory.m; path = UserInterface/Elements/Form/Fields/SMFormFieldFactory.m; sourceTree = "<group>"; };
-		67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/Descriptions/SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		67F9CBC6176362B4002AC981 /* SMFormPasswordField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormPasswordField.h; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.h; sourceTree = "<group>"; };
 		67F9CBC7176362B7002AC981 /* SMFormPasswordField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormPasswordField.m; path = UserInterface/Elements/Form/Fields/SMFormPasswordField.m; sourceTree = "<group>"; };
 		67F9CBC91763635A002AC981 /* SMFormButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormButtonField.h; path = UserInterface/Elements/Form/Fields/SMFormButtonField.h; sourceTree = "<group>"; };
@@ -450,17 +441,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		674D6F39174B9DED0007A4A1 /* Frameworks */ = {
+		6735786E182A9C1E009B327D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				674D6F53174B9F5E0007A4A1 /* CoreGraphics.framework in Frameworks */,
-				674D6F52174B9F4A0007A4A1 /* UIKit.framework in Frameworks */,
-				674D6F50174B9F380007A4A1 /* libPods-ZulaLibrary.a in Frameworks */,
-				674D6F4E174B9F340007A4A1 /* libZulaLibrary.a in Frameworks */,
-				674D6F3E174B9DED0007A4A1 /* SenTestingKit.framework in Frameworks */,
-				674D6F3F174B9DED0007A4A1 /* UIKit.framework in Frameworks */,
-				674D6F40174B9DED0007A4A1 /* Foundation.framework in Frameworks */,
+				673578DC182AAF69009B327D /* libPods-ZulaLibrary.a in Frameworks */,
+				673578D1182AAA44009B327D /* AddressBook.framework in Frameworks */,
+				673578CF182AAA29009B327D /* MapKit.framework in Frameworks */,
+				673578CE182AAA0A009B327D /* CoreLocation.framework in Frameworks */,
+				673578CC182AA9F1009B327D /* QuartzCore.framework in Frameworks */,
+				673578CB182AA9DF009B327D /* SystemConfiguration.framework in Frameworks */,
+				673578CA182AA9D9009B327D /* MobileCoreServices.framework in Frameworks */,
+				6735789F182A9CFB009B327D /* GHUnitIOS.framework in Frameworks */,
+				67357873182A9C1E009B327D /* CoreGraphics.framework in Frameworks */,
+				67357874182A9C1E009B327D /* UIKit.framework in Frameworks */,
+				67357872182A9C1E009B327D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,23 +472,6 @@
 				67CCC9F016C15BF1000EBC0B /* CoreGraphics.framework in Frameworks */,
 				67CCC9EE16C15BE6000EBC0B /* QuartzCore.framework in Frameworks */,
 				8D42F23E15254E5D850ABEA7 /* libPods-ZulaLibrary.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6780DDE116C02593005EDD1D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				67723CC61727F5B800BB51D7 /* MobileCoreServices.framework in Frameworks */,
-				67890A2F16EF8693001AA909 /* libz.dylib in Frameworks */,
-				67723CC41727F50700BB51D7 /* SystemConfiguration.framework in Frameworks */,
-				6780DDEA16C02593005EDD1D /* Foundation.framework in Frameworks */,
-				67723CC21727E8F000BB51D7 /* CoreGraphics.framework in Frameworks */,
-				67723CC31727E8F500BB51D7 /* QuartzCore.framework in Frameworks */,
-				6780DDE916C02593005EDD1D /* UIKit.framework in Frameworks */,
-				675BDD6616DB929000B141F8 /* libPods-ZulaLibrary.a in Frameworks */,
-				6780DDED16C02593005EDD1D /* libZulaLibrary.a in Frameworks */,
-				6780DDE716C02593005EDD1D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +564,115 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		67357875182A9C1E009B327D /* ZulaLibraryGHTests */ = {
+			isa = PBXGroup;
+			children = (
+				673578B5182AA2D8009B327D /* UserInterface */,
+				673578A0182A9E6B009B327D /* Library */,
+				67357876182A9C1E009B327D /* Supporting Files */,
+			);
+			path = ZulaLibraryGHTests;
+			sourceTree = "<group>";
+		};
+		67357876182A9C1E009B327D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67357877182A9C1E009B327D /* ZulaLibraryGHTests-Info.plist */,
+				67357878182A9C1E009B327D /* InfoPlist.strings */,
+				6735787B182A9C1E009B327D /* main.m */,
+				6735787D182A9C1E009B327D /* ZulaLibraryGHTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		673578A0182A9E6B009B327D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				673578AB182AA163009B327D /* Descriptions */,
+				673578A1182A9E85009B327D /* Categories */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		673578A1182A9E85009B327D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				673578A3182A9EA9009B327D /* NSDictionarySSAdditionsTests.m */,
+				673578A8182A9FD0009B327D /* UIColorSMAdditionsTests.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		673578AB182AA163009B327D /* Descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				673578AD182AA184009B327D /* SMAppDescriptionTests.m */,
+				673578B3182AA268009B327D /* SMComponentDescriptionTests.m */,
+			);
+			name = Descriptions;
+			sourceTree = "<group>";
+		};
+		673578B5182AA2D8009B327D /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				673578E1182AC072009B327D /* UIElements */,
+				673578BF182AA731009B327D /* Components */,
+				673578B6182AA2FA009B327D /* NavigationComponents */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		673578B6182AA2FA009B327D /* NavigationComponents */ = {
+			isa = PBXGroup;
+			children = (
+				673578B8182AA316009B327D /* SMNavBarNavigationControllerTests.m */,
+			);
+			name = NavigationComponents;
+			sourceTree = "<group>";
+		};
+		673578BF182AA731009B327D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				673578DD182ABFF0009B327D /* List */,
+				673578C3182AA75B009B327D /* ContentContainer */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		673578C3182AA75B009B327D /* ContentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				673578C1182AA757009B327D /* SMSubMenuApplicationTests.m */,
+			);
+			name = ContentContainer;
+			sourceTree = "<group>";
+		};
+		673578DD182ABFF0009B327D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				673578DF182AC009009B327D /* SMListViewControllerTests.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		673578E1182AC072009B327D /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				673578E2182AC078009B327D /* Form */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
+		673578E2182AC078009B327D /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				673578E4182AC095009B327D /* SMFormDescriptionTests.m */,
+				673578F5182AC278009B327D /* SMFormFieldTests.m */,
+				673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */,
+			);
+			name = Form;
+			sourceTree = "<group>";
+		};
 		6749EB7817257966002219C8 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,66 +742,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		674D6F37174B9D610007A4A1 /* ContentContainer */ = {
-			isa = PBXGroup;
-			children = (
-				67D275A3174AB17500733E7A /* View */,
-			);
-			name = ContentContainer;
-			sourceTree = "<group>";
-		};
-		674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F54174B9F6E0007A4A1 /* UserInterface */,
-				674D6F47174B9DED0007A4A1 /* ZulaLibraryLogicTests.h */,
-				674D6F48174B9DED0007A4A1 /* ZulaLibraryLogicTests.m */,
-				674D6F42174B9DED0007A4A1 /* Supporting Files */,
-			);
-			path = ZulaLibraryLogicTests;
-			sourceTree = "<group>";
-		};
-		674D6F42174B9DED0007A4A1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F43174B9DED0007A4A1 /* ZulaLibraryLogicTests-Info.plist */,
-				674D6F44174B9DED0007A4A1 /* InfoPlist.strings */,
-				674D6F4A174B9DED0007A4A1 /* ZulaLibraryLogicTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		674D6F54174B9F6E0007A4A1 /* UserInterface */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F55174B9F860007A4A1 /* Components */,
-			);
-			name = UserInterface;
-			sourceTree = "<group>";
-		};
-		674D6F55174B9F860007A4A1 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F56174B9F910007A4A1 /* ContentContainer */,
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		674D6F56174B9F910007A4A1 /* ContentContainer */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F57174B9F9C0007A4A1 /* View */,
-			);
-			name = ContentContainer;
-			sourceTree = "<group>";
-		};
-		674D6F57174B9F9C0007A4A1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		675BDD5916DB73E600B141F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,37 +755,6 @@
 				67B587B5174E49C300CF35D7 /* UILabel+SMAdditions.m */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		675BDD5D16DB774F00B141F8 /* UserInterface */ = {
-			isa = PBXGroup;
-			children = (
-				67F3C34F176B18B9005E7D6F /* NavigationComponents */,
-				67F9CBAF176322BA002AC981 /* UIElements */,
-				675BDD5E16DB776200B141F8 /* Components */,
-			);
-			name = UserInterface;
-			sourceTree = "<group>";
-		};
-		675BDD5E16DB776200B141F8 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				67B6C68D174F8342008E1EF0 /* Homepage */,
-				674D6F37174B9D610007A4A1 /* ContentContainer */,
-				67723CBD1726F1A300BB51D7 /* List */,
-				675BDD5F16DB77FB00B141F8 /* AppearanceDataTests.h */,
-				675BDD6016DB77FB00B141F8 /* AppearanceDataTests.m */,
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		675BDD6B16DB966600B141F8 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				67D79700175364F50035313D /* UI */,
-				675BDD6D16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		675BDD7416DBBE4A00B141F8 /* NavigationComponents */ = {
@@ -822,23 +818,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		67723CBD1726F1A300BB51D7 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				67723CBE1726F1A900BB51D7 /* Controller */,
-			);
-			name = List;
-			sourceTree = "<group>";
-		};
-		67723CBE1726F1A900BB51D7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				67723CBF1726F1D700BB51D7 /* SMListViewControllerTests.h */,
-				67723CC01726F1D700BB51D7 /* SMListViewControllerTests.m */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		6772D44D16D686D300B36C0F /* SplashPreLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,8 +832,7 @@
 			isa = PBXGroup;
 			children = (
 				6780DDD916C02593005EDD1D /* ZulaLibrary */,
-				6780DDEE16C02593005EDD1D /* ZulaLibraryTests */,
-				674D6F41174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
+				67357875182A9C1E009B327D /* ZulaLibraryGHTests */,
 				6780DDD616C02593005EDD1D /* Frameworks */,
 				6780DDD516C02593005EDD1D /* Products */,
 				AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */,
@@ -865,8 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				6780DDD416C02593005EDD1D /* libZulaLibrary.a */,
-				6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */,
-				674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */,
+				67357871182A9C1E009B327D /* ZulaLibraryGHTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -874,6 +851,13 @@
 		6780DDD616C02593005EDD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				673578DB182AAF69009B327D /* libPods-ZulaLibrary.a */,
+				673578D7182AAB82009B327D /* libPods-ZulaLibrary.a */,
+				673578D5182AAB70009B327D /* libPods-ZulaLibrary-SSToolkit.a */,
+				673578D0182AAA44009B327D /* AddressBook.framework */,
+				673578CD182AAA0A009B327D /* CoreLocation.framework */,
+				673578C8182AA919009B327D /* libPods-ZulaLibrary.a */,
+				6735789D182A9CAC009B327D /* GHUnitIOS.framework */,
 				670DA45D175CEB5800B154F0 /* MapKit.framework */,
 				674D6F51174B9F4A0007A4A1 /* UIKit.framework */,
 				674D6F4F174B9F380007A4A1 /* libPods-ZulaLibrary.a */,
@@ -889,6 +873,7 @@
 				6780DDE816C02593005EDD1D /* UIKit.framework */,
 				061E0CAFC2754318AB7857F1 /* libPods-ZulaLibrary.a */,
 				675BDD6516DB929000B141F8 /* libPods-ZulaLibrary.a */,
+				67357888182A9C1E009B327D /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -910,27 +895,6 @@
 			isa = PBXGroup;
 			children = (
 				6780DDDB16C02593005EDD1D /* ZulaLibrary-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6780DDEE16C02593005EDD1D /* ZulaLibraryTests */ = {
-			isa = PBXGroup;
-			children = (
-				67CCCA1B16C3F2E6000EBC0B /* Library */,
-				675BDD5D16DB774F00B141F8 /* UserInterface */,
-				6780DDF416C02593005EDD1D /* ZulaLibraryTests.h */,
-				6780DDF516C02593005EDD1D /* ZulaLibraryTests.m */,
-				6780DDEF16C02593005EDD1D /* Supporting Files */,
-			);
-			path = ZulaLibraryTests;
-			sourceTree = "<group>";
-		};
-		6780DDEF16C02593005EDD1D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6780DDF016C02593005EDD1D /* ZulaLibraryTests-Info.plist */,
-				6780DDF116C02593005EDD1D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1017,28 +981,11 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		67B6C68D174F8342008E1EF0 /* Homepage */ = {
-			isa = PBXGroup;
-			children = (
-				67B6C68F174F8379008E1EF0 /* Controller */,
-			);
-			name = Homepage;
-			sourceTree = "<group>";
-		};
 		67B6C68E174F835D008E1EF0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */,
 				67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		67B6C68F174F8379008E1EF0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				67B6C690174F839C008E1EF0 /* SMHomePageViewControllerTests.h */,
-				67B6C691174F839C008E1EF0 /* SMHomePageViewControllerTests.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1288,25 +1235,6 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		67CCCA1B16C3F2E6000EBC0B /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				675BDD6B16DB966600B141F8 /* Categories */,
-				67CCCA1C16C3F2EF000EBC0B /* Descriptions */,
-			);
-			name = Library;
-			sourceTree = "<group>";
-		};
-		67CCCA1C16C3F2EF000EBC0B /* Descriptions */ = {
-			isa = PBXGroup;
-			children = (
-				67CCCA1E16C3F318000EBC0B /* SMAppDescriptionTests.m */,
-				675BDD6216DB849100B141F8 /* SMComponentDescriptionTests.h */,
-				675BDD6316DB849100B141F8 /* SMComponentDescriptionTests.m */,
-			);
-			name = Descriptions;
-			sourceTree = "<group>";
-		};
 		67CCCA2016C3F64F000EBC0B /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1319,24 +1247,6 @@
 				6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */,
 			);
 			name = Descriptions;
-			sourceTree = "<group>";
-		};
-		67D275A3174AB17500733E7A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				674D6F5B174BA0B80007A4A1 /* SMSubMenuApplicationTests.h */,
-				674D6F5C174BA0B80007A4A1 /* SMSubMenuApplicationTests.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		67D79700175364F50035313D /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				67D79701175365240035313D /* UIColorSMAdditionsTests.h */,
-				67D79702175365240035313D /* UIColorSMAdditionsTests.m */,
-			);
-			name = UI;
 			sourceTree = "<group>";
 		};
 		67E35F17177F61080079233A /* VideoGallery */ = {
@@ -1410,14 +1320,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		67F3C34F176B18B9005E7D6F /* NavigationComponents */ = {
-			isa = PBXGroup;
-			children = (
-				67F3C352176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m */,
-			);
-			name = NavigationComponents;
-			sourceTree = "<group>";
-		};
 		67F6CD6B17778FD3003055B4 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1485,33 +1387,6 @@
 			name = Actions;
 			sourceTree = "<group>";
 		};
-		67F9CBAF176322BA002AC981 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
-				67F9CBB0176322C4002AC981 /* Form */,
-			);
-			name = UIElements;
-			sourceTree = "<group>";
-		};
-		67F9CBB0176322C4002AC981 /* Form */ = {
-			isa = PBXGroup;
-			children = (
-				67F9CBC217635D62002AC981 /* Descriptions */,
-				67F9CBB1176322D2002AC981 /* Fields */,
-			);
-			name = Form;
-			sourceTree = "<group>";
-		};
-		67F9CBB1176322D2002AC981 /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				67F9CBB3176322F6002AC981 /* SMFormFieldTests.m */,
-				67F9CBBC176354B1002AC981 /* SMFormFieldFactoryTests.h */,
-				67F9CBBD176354B1002AC981 /* SMFormFieldFactoryTests.m */,
-			);
-			name = Fields;
-			sourceTree = "<group>";
-		};
 		67F9CBB5176325EB002AC981 /* Descriptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,34 +1396,25 @@
 			name = Descriptions;
 			sourceTree = "<group>";
 		};
-		67F9CBC217635D62002AC981 /* Descriptions */ = {
-			isa = PBXGroup;
-			children = (
-				67F9CBC417635D7F002AC981 /* SMFormDescriptionTests.m */,
-			);
-			name = Descriptions;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		674D6F3C174B9DED0007A4A1 /* ZulaLibraryLogicTests */ = {
+		67357870182A9C1E009B327D /* ZulaLibraryGHTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 674D6F4B174B9DED0007A4A1 /* Build configuration list for PBXNativeTarget "ZulaLibraryLogicTests" */;
+			buildConfigurationList = 67357896182A9C1F009B327D /* Build configuration list for PBXNativeTarget "ZulaLibraryGHTests" */;
 			buildPhases = (
-				674D6F38174B9DED0007A4A1 /* Sources */,
-				674D6F39174B9DED0007A4A1 /* Frameworks */,
-				674D6F3A174B9DED0007A4A1 /* Resources */,
-				674D6F3B174B9DED0007A4A1 /* ShellScript */,
+				6735786D182A9C1E009B327D /* Sources */,
+				6735786E182A9C1E009B327D /* Frameworks */,
+				6735786F182A9C1E009B327D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ZulaLibraryLogicTests;
-			productName = ZulaLibraryLogicTests;
-			productReference = 674D6F3D174B9DED0007A4A1 /* ZulaLibraryLogicTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			name = ZulaLibraryGHTests;
+			productName = ZulaLibraryGHTests;
+			productReference = 67357871182A9C1E009B327D /* ZulaLibraryGHTests.app */;
+			productType = "com.apple.product-type.application";
 		};
 		6780DDD316C02593005EDD1D /* ZulaLibrary */ = {
 			isa = PBXNativeTarget;
@@ -1567,25 +1433,6 @@
 			productName = ZulaLibrary;
 			productReference = 6780DDD416C02593005EDD1D /* libZulaLibrary.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		6780DDE416C02593005EDD1D /* ZulaLibraryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibraryTests" */;
-			buildPhases = (
-				6780DDE016C02593005EDD1D /* Sources */,
-				6780DDE116C02593005EDD1D /* Frameworks */,
-				6780DDE216C02593005EDD1D /* Resources */,
-				6780DDE316C02593005EDD1D /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6780DDEC16C02593005EDD1D /* PBXTargetDependency */,
-			);
-			name = ZulaLibraryTests;
-			productName = ZulaLibraryTests;
-			productReference = 6780DDE516C02593005EDD1D /* ZulaLibraryTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -1611,58 +1458,23 @@
 			projectRoot = "";
 			targets = (
 				6780DDD316C02593005EDD1D /* ZulaLibrary */,
-				6780DDE416C02593005EDD1D /* ZulaLibraryTests */,
-				674D6F3C174B9DED0007A4A1 /* ZulaLibraryLogicTests */,
+				67357870182A9C1E009B327D /* ZulaLibraryGHTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		674D6F3A174B9DED0007A4A1 /* Resources */ = {
+		6735786F182A9C1E009B327D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				674D6F46174B9DED0007A4A1 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6780DDE216C02593005EDD1D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6780DDF316C02593005EDD1D /* InfoPlist.strings in Resources */,
+				6735787A182A9C1E009B327D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		674D6F3B174B9DED0007A4A1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		6780DDE316C02593005EDD1D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 		EAEB2C768C9549D5B68C9DC5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1680,11 +1492,42 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		674D6F38174B9DED0007A4A1 /* Sources */ = {
+		6735786D182A9C1E009B327D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				674D6F49174B9DED0007A4A1 /* ZulaLibraryLogicTests.m in Sources */,
+				673578C2182AA757009B327D /* SMSubMenuApplicationTests.m in Sources */,
+				673578EE182AC193009B327D /* SMFormTextField.m in Sources */,
+				673578EB182AC126009B327D /* SMFormFieldFactory.m in Sources */,
+				673578E7182AC0EE009B327D /* SMFormSection.m in Sources */,
+				673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */,
+				673578F2182AC1AF009B327D /* SMFormEmailField.m in Sources */,
+				673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */,
+				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
+				673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */,
+				673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */,
+				673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */,
+				673578EC182AC143009B327D /* SMApiClient.m in Sources */,
+				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
+				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
+				673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */,
+				673578E6182AC0E6009B327D /* SMFormDescription.m in Sources */,
+				673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */,
+				673578ED182AC18B009B327D /* SMFormField.m in Sources */,
+				673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */,
+				6735787C182A9C1E009B327D /* main.m in Sources */,
+				673578B9182AA316009B327D /* SMNavBarNavigationControllerTests.m in Sources */,
+				673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */,
+				673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */,
+				673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */,
+				673578A9182A9FD0009B327D /* UIColorSMAdditionsTests.m in Sources */,
+				673578E9182AC10F009B327D /* SMFormAction.m in Sources */,
+				673578D9182AADFE009B327D /* SMTriangle.m in Sources */,
+				673578AF182AA1F7009B327D /* SMAppDescription.m in Sources */,
+				673578E5182AC095009B327D /* SMFormDescriptionTests.m in Sources */,
+				673578F1182AC1A5009B327D /* SMFormTextArea.m in Sources */,
+				673578AA182AA071009B327D /* UIColor+ZulaAdditions.m in Sources */,
+				673578EA182AC111009B327D /* SMFormSubmitAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1786,52 +1629,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6780DDE016C02593005EDD1D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				675BDD7016DB990F00B141F8 /* NSDictionary+SMAdditions.m in Sources */,
-				6780DDF616C02593005EDD1D /* ZulaLibraryTests.m in Sources */,
-				67CCCA1F16C3F318000EBC0B /* SMAppDescriptionTests.m in Sources */,
-				675BDD6116DB77FB00B141F8 /* AppearanceDataTests.m in Sources */,
-				675BDD6416DB849100B141F8 /* SMComponentDescriptionTests.m in Sources */,
-				675BDD6E16DB968A00B141F8 /* NSDictionarySSAdditionsTests.m in Sources */,
-				67723CC11726F1D700BB51D7 /* SMListViewControllerTests.m in Sources */,
-				674D6F5D174BA0B80007A4A1 /* SMSubMenuApplicationTests.m in Sources */,
-				67B6C692174F839C008E1EF0 /* SMHomePageViewControllerTests.m in Sources */,
-				67D79703175365240035313D /* UIColorSMAdditionsTests.m in Sources */,
-				67F9CBB4176322F6002AC981 /* SMFormFieldTests.m in Sources */,
-				67F9CBBE176354B2002AC981 /* SMFormFieldFactoryTests.m in Sources */,
-				67F9CBC517635D7F002AC981 /* SMFormDescriptionTests.m in Sources */,
-				67F3C353176B20AA005E7D6F /* SMNavBarNavigationControllerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		6780DDEC16C02593005EDD1D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6780DDD316C02593005EDD1D /* ZulaLibrary */;
-			targetProxy = 6780DDEB16C02593005EDD1D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		674D6F44174B9DED0007A4A1 /* InfoPlist.strings */ = {
+		67357878182A9C1E009B327D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				674D6F45174B9DED0007A4A1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6780DDF116C02593005EDD1D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6780DDF216C02593005EDD1D /* en */,
-				67BD5B0516F30B4600FC503F /* tr */,
-				67BD5B0716F30B5200FC503F /* ar */,
+				67357879182A9C1E009B327D /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1839,35 +1643,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		674D6F4C174B9DED0007A4A1 /* Debug */ = {
+		67357897182A9C1F009B327D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+					"/Users/solomon/tmp/gh-unit/Project-iOS/build/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Prefix.pch";
-				INFOPLIST_FILE = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				GCC_PREFIX_HEADER = "ZulaLibraryGHTests/ZulaLibraryGHTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ZulaLibraryGHTests/ZulaLibraryGHTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		674D6F4D174B9DED0007A4A1 /* Release */ = {
+		67357898182A9C1F009B327D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+					"/Users/solomon/tmp/gh-unit/Project-iOS/build/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Prefix.pch";
-				INFOPLIST_FILE = "ZulaLibraryLogicTests/ZulaLibraryLogicTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				GCC_PREFIX_HEADER = "ZulaLibraryGHTests/ZulaLibraryGHTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ZulaLibraryGHTests/ZulaLibraryGHTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -1962,60 +1800,16 @@
 			};
 			name = Release;
 		};
-		6780DDFD16C02593005EDD1D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB953F2409F94BCB8497A610 /* Pods-ZulaLibrary.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaPreview.app/ZulaPreview";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
-				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = ZulaLibraryTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		6780DDFE16C02593005EDD1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaPreview.app/ZulaPreview";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZulaLibrary/ZulaLibrary-Prefix.pch";
-				INFOPLIST_FILE = "ZulaLibraryTests/ZulaLibraryTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = ZulaLibraryTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		674D6F4B174B9DED0007A4A1 /* Build configuration list for PBXNativeTarget "ZulaLibraryLogicTests" */ = {
+		67357896182A9C1F009B327D /* Build configuration list for PBXNativeTarget "ZulaLibraryGHTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				674D6F4C174B9DED0007A4A1 /* Debug */,
-				674D6F4D174B9DED0007A4A1 /* Release */,
+				67357897182A9C1F009B327D /* Debug */,
+				67357898182A9C1F009B327D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "ZulaLibrary" */ = {
 			isa = XCConfigurationList;
@@ -2031,15 +1825,6 @@
 			buildConfigurations = (
 				6780DDFA16C02593005EDD1D /* Debug */,
 				6780DDFB16C02593005EDD1D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6780DDFC16C02593005EDD1D /* Build configuration list for PBXNativeTarget "ZulaLibraryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6780DDFD16C02593005EDD1D /* Debug */,
-				6780DDFE16C02593005EDD1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
