@@ -13,4 +13,11 @@
 + (SMApiClient*)sharedClient;
 + (NSURL*)baseUrl;
 
+- (void)downloadToPath:(NSString *)downloadPath
+               getPath:(NSString *)getPath
+            parameters:(NSDictionary *)parameters
+               success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+               failure:(void (^)(AFHTTPRequestOperation *responseObject, NSError *error))failure
+              progress:(void(^)(float percentage))progress;
+
 @end

@@ -89,6 +89,7 @@
     if (![pullToRefresh isRefreshing])
         [SMProgressHUD show];
     
+    // fetch it from the remote server
     NSString *url = [self.componentDesciption url];
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
         // end preloader

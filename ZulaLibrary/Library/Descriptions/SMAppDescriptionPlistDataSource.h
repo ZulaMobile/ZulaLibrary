@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SMAppDescriptionBaseDataSource.h"
 
-@interface SMAppDescriptionPlistDataSource : NSObject
+/**
+ *  Reads the app description from an arbitrary plist file
+ */
+@interface SMAppDescriptionPlistDataSource : SMAppDescriptionBaseDataSource
+
+/**
+ *  The path of the plist file
+ */
+@property (nonatomic, strong) NSString *path;
+
+- (id)initWithPath:(NSString *)path;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMAppDelegate.h"
 #import "SMPreloaderComponentViewController.h"
+#import "SMAppDescription.h"
 
 /**
  Base App Delegate: Provides basic structure to start the zula app
@@ -17,6 +18,12 @@
 @interface SMDefaultAppDelegate : UIResponder <UIApplicationDelegate, SMAppDelegate, SMPreloaderComponentDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+/**
+ *  The app data source that is responsible of fetching the setup data
+ *  A default data source is set but you can override it.
+ */
+@property (strong, nonatomic) id<SMAppDescriptionDataSource> appDataSource;
 
 /**
  Reloads the app with app descriptors.

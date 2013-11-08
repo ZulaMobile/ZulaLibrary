@@ -73,4 +73,65 @@
     }
     return self;
 }
+
+- (void)downloadToPath:(NSString *)downloadPath
+               getPath:(NSString *)getPath
+            parameters:(NSDictionary *)parameters
+               success:(void (^)(AFHTTPRequestOperation *, id))success
+               failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+              progress:(void(^)(float percentage))progress
+{
+    
+    NSMutableURLRequest* rq = [self requestWithMethod:@"GET" 
+                                                 path:getPath
+                                           parameters:parameters];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:rq];
+    
+    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:downloadPath append:NO];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        /*
+        // download finished notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationIssueDownloadDidFinish object:self];
+        
+        if (completion) {
+            completion(YES);
+        }*/
+        
+        
+        if (success) {
+            success(operation, responseObject);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        /*
+        // download finished notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationIssueDownloadDidFinish object:self];
+        _isDownloading = NO;
+        
+        if (completion) {
+            completion(NO);
+        }*/
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+    
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        // progress
+        float complete = (float)totalBytesRead / (float)totalBytesExpectedToRead;
+        if (progress) {
+            progress(complete);
+        }
+    }];
+    
+    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        
+    }];
+    
+    [operation start];
+}
+
 @end

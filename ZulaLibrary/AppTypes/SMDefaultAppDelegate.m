@@ -11,7 +11,6 @@
 #import "SMBaseComponentViewController.h"
 
 #import "SMAppDescription.h"
-#import "SMAppDescriptionDummyDataSource.h"
 #import "SMAppDescriptionRestApiDataSource.h"
 
 #import "SMLogManager.h"
@@ -36,6 +35,7 @@
     __block SMPreloaderComponentViewController *preloader;
 }
 @synthesize navigationComponent = _navigationComponent;
+@synthesize appDataSource = _appDataSource;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -115,6 +115,21 @@
     
 }
 
+#pragma mark - getter setters
+
+- (id<SMAppDescriptionDataSource>)appDataSource
+{
+    if (!_appDataSource) {
+        _appDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
+    }
+    return _appDataSource;
+}
+
+- (void)setAppDataSource:(id<SMAppDescriptionDataSource>)appDataSource
+{
+    _appDataSource = appDataSource;
+}
+
 #pragma mark - private methods
 
 - (void)launchAppWithCompletion:(void (^)(NSError *))completion
@@ -122,11 +137,7 @@
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
     
-    //SMAppDescriptionDummyDataSource *dummyDataSource = [[SMAppDescriptionDummyDataSource alloc] init];
-    //[appDescription setDataSource:dummyDataSource];
-    
-    SMAppDescriptionRestApiDataSource *restApiDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
-    [appDescription setDataSource:restApiDataSource];
+    [appDescription setDataSource:self.appDataSource];
     
     [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
         if (error) {

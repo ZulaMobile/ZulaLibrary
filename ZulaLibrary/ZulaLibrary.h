@@ -12,6 +12,10 @@
 #import "SMDefaultAppDelegate.h"
 #import "SMPortfolioAppDelegate.h"
 #import "SMNavigation.h"
+#import "SMAppDescription.h"
+#import "SMAppDescriptionRestApiDataSource.h"
+#import "SMAppDescriptionDummyDataSource.h"
+#import "SMAppDescriptionPlistDataSource.h"
 
 // view controllers
 #import "SMBaseComponentViewController.h"
@@ -29,5 +33,6 @@
 
 // library
 #import "SMServerError.h"
-//#import "SMApiClient.h"
+#import "SMApiClient.h"
 #import "SMProgressHUD.h"
+#import "SMValidator.h"

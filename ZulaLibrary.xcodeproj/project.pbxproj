@@ -71,6 +71,16 @@
 		673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578F5182AC278009B327D /* SMFormFieldTests.m */; };
 		673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */; };
 		673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */; };
+		6735792F182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */; };
+		67357930182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */; };
+		67357933182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */; };
+		67357934182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */; };
+		67357935182AE7DC009B327D /* SMAppDescription.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCCA1816C3F1F2000EBC0B /* SMAppDescription.h */; };
+		67357936182AE9B1009B327D /* SMAppDescriptionBaseDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */; };
+		67357937182AE9B1009B327D /* SMAppDescriptionRestApiDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */; };
+		67357938182AE9B1009B327D /* SMAppDescriptionDummyDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */; };
+		67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */; };
+		6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3516F06DD2001AA909 /* SMValidator.h */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -180,6 +190,12 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */,
+				67357936182AE9B1009B327D /* SMAppDescriptionBaseDataSource.h in CopyFiles */,
+				67357937182AE9B1009B327D /* SMAppDescriptionRestApiDataSource.h in CopyFiles */,
+				67357938182AE9B1009B327D /* SMAppDescriptionDummyDataSource.h in CopyFiles */,
+				67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */,
+				67357935182AE7DC009B327D /* SMAppDescription.h in CopyFiles */,
 				67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */,
 				67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */,
 				67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */,
@@ -260,6 +276,10 @@
 		673578E4182AC095009B327D /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		673578F5182AC278009B327D /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/SMFormFieldTests.m; sourceTree = "<group>"; };
 		673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldFactoryTests.m; path = UserInterface/UIElements/Form/SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
+		6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionPlistDataSource.h; path = Library/Descriptions/SMAppDescriptionPlistDataSource.h; sourceTree = "<group>"; };
+		6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionPlistDataSource.m; path = Library/Descriptions/SMAppDescriptionPlistDataSource.m; sourceTree = "<group>"; };
+		67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionBaseDataSource.h; path = Library/Descriptions/SMAppDescriptionBaseDataSource.h; sourceTree = "<group>"; };
+		67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionBaseDataSource.m; path = Library/Descriptions/SMAppDescriptionBaseDataSource.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -902,10 +922,14 @@
 		67890A3616F07021001AA909 /* AppDescriptionDataSources */ = {
 			isa = PBXGroup;
 			children = (
+				67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */,
+				67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */,
 				67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */,
 				67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */,
 				67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */,
 				67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */,
+				6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */,
+				6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */,
 			);
 			name = AppDescriptionDataSources;
 			sourceTree = "<group>";
@@ -1511,6 +1535,8 @@
 				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
 				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
 				673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */,
+				67357934182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
+				67357930182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */,
 				673578E6182AC0E6009B327D /* SMFormDescription.m in Sources */,
 				673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */,
 				673578ED182AC18B009B327D /* SMFormField.m in Sources */,
@@ -1555,6 +1581,7 @@
 				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
 				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
 				675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */,
+				6735792F182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */,
 				675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */,
 				675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */,
 				675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */,
@@ -1608,6 +1635,7 @@
 				67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */,
 				67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */,
 				67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */,
+				67357933182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
 				67B916BC1767630E006AF55C /* SMContainer.m in Sources */,
 				67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */,
