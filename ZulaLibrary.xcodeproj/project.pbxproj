@@ -141,6 +141,8 @@
 		67C7F9F6182D519300FCE846 /* SMComponentDescription.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6772D44516D6795D00B36C0F /* SMComponentDescription.h */; };
 		67C7F9F9182D597300FCE846 /* UIViewController+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7F9F8182D597300FCE846 /* UIViewController+SMAdditions.m */; };
 		67C7F9FA182D5A7200FCE846 /* UIViewController+SMAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */; };
+		67C7F9FE182D609100FCE846 /* SMArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7F9FD182D609100FCE846 /* SMArrayDataSource.m */; };
+		67C7FA02182D611500FCE846 /* SMSimpleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7FA01182D611500FCE846 /* SMSimpleTableViewController.m */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
@@ -390,6 +392,10 @@
 		67BD5B1516F31E9200FC503F /* SMTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTitleLabel.m; path = UserInterface/Elements/SMTitleLabel.m; sourceTree = "<group>"; };
 		67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SMAdditions.h"; path = "Library/Categories/UIViewController+SMAdditions.h"; sourceTree = "<group>"; };
 		67C7F9F8182D597300FCE846 /* UIViewController+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SMAdditions.m"; path = "Library/Categories/UIViewController+SMAdditions.m"; sourceTree = "<group>"; };
+		67C7F9FC182D609100FCE846 /* SMArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMArrayDataSource.h; path = Library/DataSources/SMArrayDataSource.h; sourceTree = "<group>"; };
+		67C7F9FD182D609100FCE846 /* SMArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMArrayDataSource.m; path = Library/DataSources/SMArrayDataSource.m; sourceTree = "<group>"; };
+		67C7FA00182D611500FCE846 /* SMSimpleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSimpleTableViewController.h; path = UserInterface/Pages/Common/SMSimpleTableViewController.h; sourceTree = "<group>"; };
+		67C7FA01182D611500FCE846 /* SMSimpleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSimpleTableViewController.m; path = UserInterface/Pages/Common/SMSimpleTableViewController.m; sourceTree = "<group>"; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
 		67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPortfolioAppDelegate.h; path = AppTypes/SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
@@ -1056,6 +1062,24 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		67C7F9FB182D606000FCE846 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				67C7F9FC182D609100FCE846 /* SMArrayDataSource.h */,
+				67C7F9FD182D609100FCE846 /* SMArrayDataSource.m */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		67C7F9FF182D60F500FCE846 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				67C7FA00182D611500FCE846 /* SMSimpleTableViewController.h */,
+				67C7FA01182D611500FCE846 /* SMSimpleTableViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		67CCC9CB16C11D97000EBC0B /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1094,7 @@
 		67CCC9CC16C11DA9000EBC0B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67C7F9FF182D60F500FCE846 /* Common */,
 				67A83202178AE516000D3243 /* Auth */,
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
@@ -1164,6 +1189,7 @@
 				67CCC9FA16C16A07000EBC0B /* Categories */,
 				67CCC9FB16C16A11000EBC0B /* Network */,
 				67CCC9FD16C16A2B000EBC0B /* Strategies */,
+				67C7F9FB182D606000FCE846 /* DataSources */,
 				67CCC9FC16C16A21000EBC0B /* Authentication */,
 			);
 			name = Library;
@@ -1599,6 +1625,8 @@
 				675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */,
 				6701BD7516DF91A3005A9BD3 /* SMLogManager.m in Sources */,
 				6701BD7916DF931B005A9BD3 /* CompressingLogFileManager.m in Sources */,
+				67C7F9FE182D609100FCE846 /* SMArrayDataSource.m in Sources */,
+				67C7FA02182D611500FCE846 /* SMSimpleTableViewController.m in Sources */,
 				6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */,
 				6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */,
 				6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */,
