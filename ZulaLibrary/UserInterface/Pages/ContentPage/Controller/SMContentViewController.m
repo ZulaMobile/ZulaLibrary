@@ -18,7 +18,7 @@
 #import "SMContentPage.h"
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "SMMultipleImageView.h"
 #import "SMPullToRefreshFactory.h"
 

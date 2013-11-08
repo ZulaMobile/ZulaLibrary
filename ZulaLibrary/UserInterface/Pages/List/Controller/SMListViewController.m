@@ -12,7 +12,7 @@
 #import "SMProgressHUD.h"
 
 #import "UIColor+ZulaAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 
 #import "SMComponentFactory.h"
 #import "SMAppDescription.h"

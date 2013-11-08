@@ -9,7 +9,7 @@
 #import "SMContainerViewController.h"
 #import "SDSegmentedControl.h"
 #import "SMProgressHUD.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"

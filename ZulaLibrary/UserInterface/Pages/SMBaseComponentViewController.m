@@ -12,7 +12,7 @@
 #import "SMNavigationDescription.h"
 #import "SMMainView.h"
 #import "SMImageView.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "UIImageView+WebCache.h"
 
 @interface SMBaseComponentViewController ()

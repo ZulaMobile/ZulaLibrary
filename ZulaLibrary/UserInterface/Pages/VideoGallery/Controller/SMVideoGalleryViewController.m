@@ -9,7 +9,7 @@
 #import "SMVideoGalleryViewController.h"
 #import "SMProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "UIColor+SSToolkitAdditions.h"
 
 #import "SMVideoGallery.h"

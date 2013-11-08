@@ -12,7 +12,7 @@
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
 #import "SMHomePage.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "SMHomePageLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"

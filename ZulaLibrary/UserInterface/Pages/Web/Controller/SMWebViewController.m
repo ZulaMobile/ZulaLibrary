@@ -12,7 +12,7 @@
 #import "SMComponentDescription.h"
 #import "SMAppDescription.h"
 #import "UIWebView+SMAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 
 #import "SMWeb.h"
 #import "SMWebView.h"

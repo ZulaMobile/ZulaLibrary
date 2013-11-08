@@ -138,6 +138,9 @@
 		67C7382E1789B2BD00340BCD /* SMFormDescription.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67F9CBB61763260F002AC981 /* SMFormDescription.h */; };
 		67C7382F1789B41900340BCD /* SMFormField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67F9CBA417623034002AC981 /* SMFormField.h */; };
 		67C738301789D52200340BCD /* SMProgressHUD.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */; };
+		67C7F9F6182D519300FCE846 /* SMComponentDescription.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6772D44516D6795D00B36C0F /* SMComponentDescription.h */; };
+		67C7F9F9182D597300FCE846 /* UIViewController+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7F9F8182D597300FCE846 /* UIViewController+SMAdditions.m */; };
+		67C7F9FA182D5A7200FCE846 /* UIViewController+SMAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
@@ -190,6 +193,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67C7F9FA182D5A7200FCE846 /* UIViewController+SMAdditions.h in CopyFiles */,
+				67C7F9F6182D519300FCE846 /* SMComponentDescription.h in CopyFiles */,
 				6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */,
 				67357936182AE9B1009B327D /* SMAppDescriptionBaseDataSource.h in CopyFiles */,
 				67357937182AE9B1009B327D /* SMAppDescriptionRestApiDataSource.h in CopyFiles */,
@@ -266,12 +271,12 @@
 		673578B3182AA268009B327D /* SMComponentDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentDescriptionTests.m; path = Library/Descriptions/SMComponentDescriptionTests.m; sourceTree = "<group>"; };
 		673578B8182AA316009B327D /* SMNavBarNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavBarNavigationControllerTests.m; path = UserInterface/NavigationComponents/SMNavBarNavigationControllerTests.m; sourceTree = "<group>"; };
 		673578C1182AA757009B327D /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuApplicationTests.m; path = UserInterface/Components/ContentContainer/SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
-		673578C8182AA919009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578C8182AA919009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		673578CD182AAA0A009B327D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		673578D0182AAA44009B327D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		673578D5182AAB70009B327D /* libPods-ZulaLibrary-SSToolkit.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary-SSToolkit.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary-SSToolkit.a"; sourceTree = "<group>"; };
-		673578D7182AAB82009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
-		673578DB182AAF69009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578D5182AAB70009B327D /* libPods-ZulaLibrary-SSToolkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary-SSToolkit.a"; path = "../Pods/build/Release-iphoneos/libPods-ZulaLibrary-SSToolkit.a"; sourceTree = "<group>"; };
+		673578D7182AAB82009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
+		673578DB182AAF69009B327D /* libPods-ZulaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ZulaLibrary.a"; path = "../Pods/build/Debug-iphoneos/libPods-ZulaLibrary.a"; sourceTree = "<group>"; };
 		673578DF182AC009009B327D /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListViewControllerTests.m; path = UserInterface/Components/List/SMListViewControllerTests.m; sourceTree = "<group>"; };
 		673578E4182AC095009B327D /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormDescriptionTests.m; path = UserInterface/UIElements/Form/SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		673578F5182AC278009B327D /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormFieldTests.m; path = UserInterface/UIElements/Form/SMFormFieldTests.m; sourceTree = "<group>"; };
@@ -383,6 +388,8 @@
 		67B916BE17676663006AF55C /* SMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMContainerViewController.m; path = UserInterface/Pages/Container/Controller/SMContainerViewController.m; sourceTree = "<group>"; };
 		67BD5B1416F31E9200FC503F /* SMTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTitleLabel.h; path = UserInterface/Elements/SMTitleLabel.h; sourceTree = "<group>"; };
 		67BD5B1516F31E9200FC503F /* SMTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTitleLabel.m; path = UserInterface/Elements/SMTitleLabel.m; sourceTree = "<group>"; };
+		67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SMAdditions.h"; path = "Library/Categories/UIViewController+SMAdditions.h"; sourceTree = "<group>"; };
+		67C7F9F8182D597300FCE846 /* UIViewController+SMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SMAdditions.m"; path = "Library/Categories/UIViewController+SMAdditions.m"; sourceTree = "<group>"; };
 		67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageViewController.h; path = UserInterface/Pages/Homepage/SMHomePageViewController.h; sourceTree = "<group>"; };
 		67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageViewController.m; path = UserInterface/Pages/Homepage/SMHomePageViewController.m; sourceTree = "<group>"; };
 		67CCC9D616C153DF000EBC0B /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPortfolioAppDelegate.h; path = AppTypes/SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
@@ -1177,6 +1184,8 @@
 				675BDD6916DB955800B141F8 /* NSDictionary+SMAdditions.m */,
 				67F9CBCF17636E77002AC981 /* NSString+SMAdditions.h */,
 				67F9CBD017636E77002AC981 /* NSString+SMAdditions.m */,
+				67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */,
+				67C7F9F8182D597300FCE846 /* UIViewController+SMAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1623,6 +1632,7 @@
 				6767B637175F4864001A20F8 /* SMImageGalleryViewController.m in Sources */,
 				6767B63E175FB7CA001A20F8 /* SMImageGallery.m in Sources */,
 				67F9CBA21762289F002AC981 /* SMFormTableViewStrategy.m in Sources */,
+				67C7F9F9182D597300FCE846 /* UIViewController+SMAdditions.m in Sources */,
 				67F9CBA617623034002AC981 /* SMFormField.m in Sources */,
 				67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */,
 				67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */,
@@ -1838,6 +1848,7 @@
 				67357898182A9C1F009B327D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6780DDCF16C02592005EDD1D /* Build configuration list for PBXProject "ZulaLibrary" */ = {
 			isa = XCConfigurationList;

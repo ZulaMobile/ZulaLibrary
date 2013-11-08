@@ -16,6 +16,7 @@
 #import "SMAppDescriptionRestApiDataSource.h"
 #import "SMAppDescriptionDummyDataSource.h"
 #import "SMAppDescriptionPlistDataSource.h"
+#import "SMComponentDescription.h"
 
 // view controllers
 #import "SMBaseComponentViewController.h"
@@ -36,3 +37,6 @@
 #import "SMApiClient.h"
 #import "SMProgressHUD.h"
 #import "SMValidator.h"
+
+// categories
+#import "UIViewController+SMAdditions.h"

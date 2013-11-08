@@ -13,7 +13,7 @@
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIImageView+WebCache.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "UIColor+SSToolkitAdditions.h"
 
 #import "SMAppDescription.h"

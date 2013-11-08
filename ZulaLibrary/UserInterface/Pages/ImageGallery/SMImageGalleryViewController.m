@@ -8,7 +8,7 @@
 
 #import "SMImageGalleryViewController.h"
 #import "SMProgressHUD.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 
 #import "SMComponentDescription.h"
 #import "MWPhoto.h"

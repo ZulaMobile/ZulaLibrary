@@ -26,6 +26,8 @@
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
 {
     UIViewController *component;
+    
+    // try to get build-in components
     if ([componentDescription.type isEqualToString:@"ContentComponent"]) {
         // create the component
         component = [[SMContentViewController alloc] initWithDescription:componentDescription];
@@ -47,6 +49,25 @@
         component = [[SMWebViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"VideoGalleryComponent"]) {
         component = [[SMVideoGalleryViewController alloc] initWithDescription:componentDescription];
+    }
+    
+    // try to get app-specific components
+    if (!component) {
+        NSString *appInfoPath = [[NSBundle mainBundle] pathForResource:@"app" ofType:@"plist"];
+        NSDictionary *appInfo = [NSDictionary dictionaryWithContentsOfFile:appInfoPath];
+        NSArray *appComponents = [appInfo objectForKey:@"available_components"];
+        for (NSString *componentTitle in appComponents) {
+            // by convention, component names are like this: [ComponentName]Component
+            // we need to cut the Component out from it, and append "ViewController" at the end, and prepend the namespece "SM"
+            NSString *componentName = [componentTitle stringByReplacingOccurrencesOfString:@"Component" withString:@""];
+            componentName = [NSString stringWithFormat:@"SM%@ViewController", componentName];
+            
+            Class cls = NSClassFromString(componentName);
+            if (cls) {
+                component = [[cls alloc] initWithDescription:componentDescription];
+                return component;
+            }
+        }
     }
     
     if (!component) {
