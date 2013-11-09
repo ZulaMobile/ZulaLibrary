@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-typedef void(^TableViewCellConfigureBlock) (id cell, id item);
+typedef void(^TableViewCellConfigureBlock) (id cell, id item, NSIndexPath *indexPath);
 typedef void (^ItemDidSelectBlock) (id item);
 
 

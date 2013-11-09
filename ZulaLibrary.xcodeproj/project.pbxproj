@@ -143,6 +143,9 @@
 		67C7F9FA182D5A7200FCE846 /* UIViewController+SMAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67C7F9F7182D597300FCE846 /* UIViewController+SMAdditions.h */; };
 		67C7F9FE182D609100FCE846 /* SMArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7F9FD182D609100FCE846 /* SMArrayDataSource.m */; };
 		67C7FA02182D611500FCE846 /* SMSimpleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7FA01182D611500FCE846 /* SMSimpleTableViewController.m */; };
+		67C7FA03182D61C900FCE846 /* SMSimpleTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67C7FA00182D611500FCE846 /* SMSimpleTableViewController.h */; };
+		67C7FA04182D61D500FCE846 /* SMArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67C7F9FC182D609100FCE846 /* SMArrayDataSource.h */; };
+		67C7FA21182DB70600FCE846 /* SMPullToRefreshFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC164176B934D00D32228 /* SMPullToRefreshFactory.h */; };
 		67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
 		67CCC9D316C138E0000EBC0B /* SMHomePageViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67CCC9CE16C11DED000EBC0B /* SMHomePageViewController.h */; };
 		67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9D716C153DF000EBC0B /* SMPortfolioAppDelegate.m */; };
@@ -195,6 +198,9 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67C7FA21182DB70600FCE846 /* SMPullToRefreshFactory.h in CopyFiles */,
+				67C7FA04182D61D500FCE846 /* SMArrayDataSource.h in CopyFiles */,
+				67C7FA03182D61C900FCE846 /* SMSimpleTableViewController.h in CopyFiles */,
 				67C7F9FA182D5A7200FCE846 /* UIViewController+SMAdditions.h in CopyFiles */,
 				67C7F9F6182D519300FCE846 /* SMComponentDescription.h in CopyFiles */,
 				6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */,

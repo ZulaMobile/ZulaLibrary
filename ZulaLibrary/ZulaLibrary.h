@@ -22,6 +22,7 @@
 #import "SMBaseComponentViewController.h"
 #import "SMPreloaderComponentViewController.h"
 #import "SMHomePageViewController.h"
+#import "SMSimpleTableViewController.h"
 
 // forms
 #import "SMFormField.h"
@@ -37,6 +38,8 @@
 #import "SMApiClient.h"
 #import "SMProgressHUD.h"
 #import "SMValidator.h"
+#import "SMArrayDataSource.h"
+#import "SMPullToRefreshFactory.h"
 
 // categories
 #import "UIViewController+SMAdditions.h"

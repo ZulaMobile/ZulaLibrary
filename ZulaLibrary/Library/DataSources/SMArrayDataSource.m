@@ -56,7 +56,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     
     id item = [self.items objectAtIndex:[indexPath row]];
-    cellConfigureBlock(cell, item);
+    cellConfigureBlock(cell, item, indexPath);
     
     return cell;
 }
