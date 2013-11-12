@@ -8,7 +8,7 @@
 
 #import "SMSubMenuView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "UIColor+ZulaAdditions.h"
 #import "SMTriangle.h"
 

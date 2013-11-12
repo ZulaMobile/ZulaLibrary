@@ -10,7 +10,7 @@
 #import "SMProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+SMAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 #import "SMVideoGallery.h"
 #import "SMPullToRefreshFactory.h"

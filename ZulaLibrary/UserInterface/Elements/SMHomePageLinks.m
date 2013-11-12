@@ -7,7 +7,7 @@
 //
 
 #import "SMHomePageLinks.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "SMAppDelegate.h"
 #import "SMNavigation.h"
 #import "SMButton.h"

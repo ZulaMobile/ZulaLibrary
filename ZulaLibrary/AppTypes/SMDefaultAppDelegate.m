@@ -158,8 +158,11 @@
         [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
         // add component descriptions to the navigation
+        NSInteger index = 0;
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
+            componentDesc.index = index;
             [self.navigationComponent addChildComponentDescription:componentDesc];
+            index++;
         }
         
         [self.window setRootViewController:self.navigationComponent];

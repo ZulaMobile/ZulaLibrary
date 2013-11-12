@@ -90,10 +90,10 @@
     if ([navigationDescription.type isEqualToString:@"tabbar"]) {
         return [[UINavigationController alloc] initWithRootViewController:component];
     } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
-        // only homepage must be navigation controller
-        if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
-            return [[UINavigationController alloc] initWithRootViewController:component];
-        }
+        // only the 1st component (the component with index no:0) will be a navigation controller
+        if (componentDescription.index == 0) return [[UINavigationController alloc] initWithRootViewController:component];
+        
+        // all other component are without navigation controller (because they will be pushed)
         return component;
     }
     

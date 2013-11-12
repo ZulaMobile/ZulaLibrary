@@ -21,6 +21,7 @@
 /**
  Returns the component for the given description and navigation
  */
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription;
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
+                                 forNavigation:(SMNavigationDescription *)navigationDescription;
 
 @end

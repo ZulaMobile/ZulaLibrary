@@ -8,7 +8,7 @@
 
 #import "SMNavigationApperanceManager.h"
 #import "SMAppDescription.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "SMNavigationDescription.h"
 #import "SDWebImageManager.h"
 

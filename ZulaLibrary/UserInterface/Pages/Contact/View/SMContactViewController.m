@@ -14,7 +14,7 @@
 #import "UIWebView+SMAdditions.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+SMAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"

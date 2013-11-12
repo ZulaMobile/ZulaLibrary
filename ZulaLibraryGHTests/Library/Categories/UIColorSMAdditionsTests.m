@@ -8,7 +8,6 @@
 
 #import <GHUnitIOS/GHUnit.h>
 #import "UIColor+ZulaAdditions.h"
-//#import "UIColor+SSToolkitAdditions.h"
 
 @interface UIColorSMAdditionsTests : GHTestCase
 

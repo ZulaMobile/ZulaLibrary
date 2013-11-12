@@ -24,6 +24,10 @@
 #import "SMHomePageViewController.h"
 #import "SMSimpleTableViewController.h"
 
+// views
+#import "SMViewElement.h"
+#import "SMImageView.h"
+
 // forms
 #import "SMFormField.h"
 #import "SMFormDescription.h"

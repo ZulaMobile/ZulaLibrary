@@ -18,6 +18,7 @@
 @synthesize url = _url;
 @synthesize appearance = _apperance;
 @synthesize contents = _contents;
+@synthesize index = _index;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -27,6 +28,7 @@
         _title = [attributes objectForKey:@"title"];
         _slug = [attributes objectForKey:@"slug"];
         _url = [attributes objectForKey:@"url"];
+        _index = 0; // default is zero
         
         // try to understand if the contents is a url
         id rawContents = [attributes objectForKey:@"contents"];

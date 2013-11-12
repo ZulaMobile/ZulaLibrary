@@ -57,6 +57,12 @@
 @property (nonatomic, readonly) id contents;
 
 /**
+ *  Zero-index of the component. Components are ordered by this number
+ *  For example, the 1st component will be zero.
+ */
+@property (nonatomic) NSInteger index;
+
+/**
  Initializer method
  All properties must set using this initializer, since all of them are read-only
  */
