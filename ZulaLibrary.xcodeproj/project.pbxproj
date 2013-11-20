@@ -173,6 +173,7 @@
 		67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F1E177F61740079233A /* SMVideoGallery.m */; };
 		67E35F23177F677E0079233A /* SMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F22177F677E0079233A /* SMVideoCell.m */; };
 		67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
+		67EDD2551833C56B004B0AB2 /* SMNotifications.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67EDD2541833C519004B0AB2 /* SMNotifications.h */; };
 		67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */; };
 		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
@@ -200,6 +201,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				67EDD2551833C56B004B0AB2 /* SMNotifications.h in CopyFiles */,
 				674D683F1832380B00CE9D5D /* SMViewElement.h in CopyFiles */,
 				674D683E183237B100CE9D5D /* SMImageView.h in CopyFiles */,
 				67C7FA21182DB70600FCE846 /* SMPullToRefreshFactory.h in CopyFiles */,
@@ -446,6 +448,7 @@
 		67E35F22177F677E0079233A /* SMVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoCell.m; path = UserInterface/Pages/VideoGallery/View/SMVideoCell.m; sourceTree = "<group>"; };
 		67E5F6A4174E0A0B006E1EEE /* SMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMButton.h; path = UserInterface/Elements/SMButton.h; sourceTree = "<group>"; };
 		67E5F6A5174E0A0B006E1EEE /* SMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMButton.m; path = UserInterface/Elements/SMButton.m; sourceTree = "<group>"; };
+		67EDD2541833C519004B0AB2 /* SMNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMNotifications.h; path = Library/Base/SMNotifications.h; sourceTree = "<group>"; };
 		67EDF1B1177D84BD004AE1F5 /* SMQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMQAViewController.h; path = UserInterface/Pages/QA/Controller/SMQAViewController.h; sourceTree = "<group>"; };
 		67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMQAViewController.m; path = UserInterface/Pages/QA/Controller/SMQAViewController.m; sourceTree = "<group>"; };
 		67EE109217661FE9007D7116 /* SMFormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormModel.h; path = UserInterface/Elements/Form/Model/SMFormModel.h; sourceTree = "<group>"; };
@@ -1283,6 +1286,7 @@
 				67CCCA0616C16E54000EBC0B /* SMModel.h */,
 				67CCCA0716C16E54000EBC0B /* SMModel.m */,
 				67890A3516F06DD2001AA909 /* SMValidator.h */,
+				67EDD2541833C519004B0AB2 /* SMNotifications.h */,
 			);
 			name = Base;
 			sourceTree = "<group>";

@@ -38,6 +38,7 @@
 #import "SMUser.h"
 
 // library
+#import "SMNotifications.h"
 #import "SMServerError.h"
 #import "SMApiClient.h"
 #import "SMProgressHUD.h"
@@ -47,3 +48,11 @@
 
 // categories
 #import "UIViewController+SMAdditions.h"
+
+// notifications
+/*
+kMalformedAppNotification @"kMalformedAppNotification"
+kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
+kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
+*/
+#define kSomething @"ef"

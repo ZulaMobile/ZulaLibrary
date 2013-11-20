@@ -16,7 +16,7 @@
 //#define DEBUG_APP 1
 
 // notifications
-#define kMalformedAppNotification @"kMalformedAppNotification"
+#import "SMNotifications.h"
 
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;

@@ -98,6 +98,9 @@
     [UIView setAnimationDuration:0.2];
     _arrowTop.transform = CGAffineTransformIdentity;
     [UIView commitAnimations];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStopRefreshing
+                                                        object:self];
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
@@ -105,6 +108,9 @@
     _arrowTop.hidden = YES;
     [_indicator startAnimating];
     [_delegate pullToRefreshShouldRefresh:self];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStartRefreshing
+                                                        object:self];
 }
 
 @end

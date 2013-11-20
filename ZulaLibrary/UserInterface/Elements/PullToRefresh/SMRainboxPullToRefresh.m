@@ -126,6 +126,9 @@
     _arrowTop.transform = CGAffineTransformIdentity;
     _arrowBot.transform  = CGAffineTransformMakeRotation(M_PI);
     [UIView commitAnimations];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStopRefreshing
+                                                        object:self];
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
@@ -135,6 +138,9 @@
     [_rainbowTop startAnimating];
     [_rainbowBot startAnimating];
     [_delegate pullToRefreshShouldRefresh:self];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStartRefreshing
+                                                        object:self];
 }
 
 @end
