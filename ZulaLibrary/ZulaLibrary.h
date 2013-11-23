@@ -41,6 +41,7 @@
 #import "SMNotifications.h"
 #import "SMServerError.h"
 #import "SMApiClient.h"
+#import "SMDownloadSession.h"
 #import "SMProgressHUD.h"
 #import "SMValidator.h"
 #import "SMArrayDataSource.h"

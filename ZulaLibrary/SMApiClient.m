@@ -8,6 +8,7 @@
 
 #import "SMApiClient.h"
 #import "AFJSONRequestOperation.h"
+#import "SMDownloadSession.h"
 
 @implementation SMApiClient
 
@@ -74,7 +75,7 @@
     return self;
 }
 
-- (void)downloadToPath:(NSString *)downloadPath
+- (SMDownloadSession *)downloadToPath:(NSString *)downloadPath
                getPath:(NSString *)getPath
             parameters:(NSDictionary *)parameters
                success:(void (^)(AFHTTPRequestOperation *, id))success
@@ -114,6 +115,8 @@
     }];
     
     [operation start];
+    
+    return [[SMDownloadSession alloc] initWithRequestOperation:operation];
 }
 
 @end

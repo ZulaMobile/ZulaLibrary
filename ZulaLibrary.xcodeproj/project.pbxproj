@@ -109,6 +109,9 @@
 		677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46B816DA44DD003CE7A1 /* SMMainView.m */; };
 		677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BB16DA5878003CE7A1 /* SMWebView.m */; };
 		677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */; };
+		677C5C2E184111B70073063D /* SMDownloadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C5C2D184111B70073063D /* SMDownloadSession.m */; };
+		677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C5C2D184111B70073063D /* SMDownloadSession.m */; };
+		677C5C30184112A80073063D /* SMDownloadSession.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 677C5C2C184111B70073063D /* SMDownloadSession.h */; };
 		677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */; };
 		6780DDD816C02593005EDD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		6780DDDD16C02593005EDD1D /* ZulaLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6780DDDC16C02593005EDD1D /* ZulaLibrary.h */; };
@@ -201,6 +204,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				677C5C30184112A80073063D /* SMDownloadSession.h in CopyFiles */,
 				67EDD2551833C56B004B0AB2 /* SMNotifications.h in CopyFiles */,
 				674D683F1832380B00CE9D5D /* SMViewElement.h in CopyFiles */,
 				674D683E183237B100CE9D5D /* SMImageView.h in CopyFiles */,
@@ -353,6 +357,8 @@
 		677C46BB16DA5878003CE7A1 /* SMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWebView.m; path = UserInterface/Elements/SMWebView.m; sourceTree = "<group>"; };
 		677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProgressHUD.h; path = UserInterface/Elements/SMProgressHUD.h; sourceTree = "<group>"; };
 		677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProgressHUD.m; path = UserInterface/Elements/SMProgressHUD.m; sourceTree = "<group>"; };
+		677C5C2C184111B70073063D /* SMDownloadSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDownloadSession.h; path = Library/Network/SMDownloadSession.h; sourceTree = "<group>"; };
+		677C5C2D184111B70073063D /* SMDownloadSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDownloadSession.m; path = Library/Network/SMDownloadSession.m; sourceTree = "<group>"; };
 		677CD7D1178C14FE003DBB7D /* SMGrayPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMGrayPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMGrayPullToRefresh.h; sourceTree = "<group>"; };
 		677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMGrayPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMGrayPullToRefresh.m; sourceTree = "<group>"; };
 		6780DDD416C02593005EDD1D /* libZulaLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZulaLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1234,6 +1240,8 @@
 			children = (
 				67890A3116F05F41001AA909 /* SMApiClient.h */,
 				67890A3216F05F41001AA909 /* SMApiClient.m */,
+				677C5C2C184111B70073063D /* SMDownloadSession.h */,
+				677C5C2D184111B70073063D /* SMDownloadSession.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1576,6 +1584,7 @@
 				673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */,
 				673578F2182AC1AF009B327D /* SMFormEmailField.m in Sources */,
 				673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */,
+				677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */,
 				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
 				673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */,
 				673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */,
@@ -1637,6 +1646,7 @@
 				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
 				675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */,
 				675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */,
+				677C5C2E184111B70073063D /* SMDownloadSession.m in Sources */,
 				6701BD7516DF91A3005A9BD3 /* SMLogManager.m in Sources */,
 				6701BD7916DF931B005A9BD3 /* CompressingLogFileManager.m in Sources */,
 				67C7F9FE182D609100FCE846 /* SMArrayDataSource.m in Sources */,
