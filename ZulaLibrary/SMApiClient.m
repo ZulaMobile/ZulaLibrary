@@ -90,30 +90,10 @@
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:downloadPath append:NO];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        /*
-        // download finished notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationIssueDownloadDidFinish object:self];
-        
-        if (completion) {
-            completion(YES);
-        }*/
-        
-        
         if (success) {
             success(operation, responseObject);
         }
-        
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        /*
-        // download finished notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationIssueDownloadDidFinish object:self];
-        _isDownloading = NO;
-        
-        if (completion) {
-            completion(NO);
-        }*/
         if (failure) {
             failure(operation, error);
         }
@@ -127,8 +107,10 @@
         }
     }];
     
+    __block id weakOperation = self;
     [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
-        
+        AFHTTPRequestOperation *strongOperation = weakOperation;
+        [strongOperation pause];
     }];
     
     [operation start];
