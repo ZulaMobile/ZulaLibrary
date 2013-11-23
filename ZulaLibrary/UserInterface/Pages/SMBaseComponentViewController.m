@@ -163,30 +163,6 @@
     }
 }
 
-#pragma mark - rotation support
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
-    NSLog(@"screen: %@", NSStringFromCGRect(screenRect));
-    
-    CGRect fr = self.view.frame;
-    if (isLandscape()) {
-        fr.size.width = screenRect.size.height;
-        fr.size.height = screenRect.size.width;
-    } else {
-        fr.size.width = screenRect.size.width;
-        fr.size.height = screenRect.size.height;
-    }
-    self.view.frame = fr;
-    //SMMainView *view = [[SMMainView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
-}
-
 #pragma mark - private methods
 
 
