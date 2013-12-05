@@ -40,4 +40,9 @@
     return self.operation != nil;
 }
 
+- (void)cancel
+{
+    [self.operation cancel];
+}
+
 @end

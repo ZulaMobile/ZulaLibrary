@@ -24,4 +24,6 @@
 
 - (BOOL)canResume;
 
+- (void)cancel;
+
 @end
