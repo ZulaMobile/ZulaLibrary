@@ -126,14 +126,15 @@
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl
 {
 #warning fix this, move it to a better place
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"back_arrow"]  ;
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(0, 0, 30, 19);
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
-    
+    if (!self.navigationItem.leftBarButtonItem) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *backBtnImage = [UIImage imageNamed:@"back_arrow"]  ;
+        [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+        backBtn.frame = CGRectMake(0, 0, 30, 19);
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+        self.navigationItem.leftBarButtonItem = backButton;
+    }
     
     if (!navbarIconUrl) {
         if (![self navigationHasBackgroundImage]) {
