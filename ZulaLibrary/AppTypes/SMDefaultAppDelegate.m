@@ -171,6 +171,8 @@
         rootViewController = nil;
         preloader = nil;
     }];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 }
 
 - (void)showErrorScreen
