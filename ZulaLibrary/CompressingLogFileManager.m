@@ -214,7 +214,7 @@
     //   Z_BEST_COMPRESSION
     //   Z_DEFAULT_COMPRESSION
 	
-#warning unsupported architecture error
+    //#warning unsupported architecture error
 	//deflateInit2(&strm, Z_DEFAULT_COMPRESSION, Z_DEFLATED, (15+16), 8, Z_DEFAULT_STRATEGY);
 	
 	// Prepare our variables for steps 5-7
@@ -300,7 +300,7 @@
 		NSInteger prevTotalOut = strm.total_out;
 		
 		int flush = [inputStream hasBytesAvailable] ? Z_SYNC_FLUSH : Z_FINISH;
-#warning unsupported arch
+        //#warning unsupported arch
 		//deflate(&strm, flush);
 		
 		NSInteger inputProcessed = strm.total_in - prevTotalIn;
@@ -375,7 +375,7 @@
 	[outputStream close];
 	
 	// STEP 10
-#warning unsupported arch
+    //#warning unsupported arch
 	//deflateEnd(&strm);
 	
 	// We're done!
