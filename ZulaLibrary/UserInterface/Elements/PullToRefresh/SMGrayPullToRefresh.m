@@ -30,7 +30,7 @@
         [scrollView addSubview:_background];
         
         _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_arrow.png"]];
-        _arrowTop.frame = CGRectMake(floorf((_background.frame.size.width-_arrowTop.frame.size.width)/2), _background.frame.size.height - _arrowTop.frame.size.height - 10 , _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        _arrowTop.frame = CGRectMake(floorf((_background.frame.size.width-_arrowTop.frame.size.width)/2) - 8, _background.frame.size.height - _arrowTop.frame.size.height - 10 , _arrowTop.frame.size.width, _arrowTop.frame.size.height);
         [_background addSubview:_arrowTop];
         
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
