@@ -31,8 +31,12 @@
         _index = 0; // default is zero
         
         // try to understand if the contents is a url
-        id rawContents = [attributes objectForKey:@"contents"];
-        _contents = ([rawContents isKindOfClass:[NSDictionary class]]) ? rawContents : [NSURL URLWithString:rawContents];
+        if (_url) {
+            _contents = _url; // backward compatibility
+        } else {
+            id rawContents = [attributes objectForKey:@"contents"];
+            _contents = ([rawContents isKindOfClass:[NSDictionary class]]) ? rawContents : [NSURL URLWithString:rawContents];
+        }
         
         // merge with app wide apperances
         NSDictionary *appAppearances = [[SMAppDescription sharedInstance] appearance];
@@ -44,7 +48,11 @@
 
 - (BOOL)hasDownloadableContents
 {
-    return [_contents isKindOfClass:[NSURL class]];
+    if ([_contents isKindOfClass:[NSString class]]) {
+        NSString *url = (NSString *)_contents;
+        return [NSURL URLWithString:url] != nil;
+    }
+    return NO;
 }
 
 @end

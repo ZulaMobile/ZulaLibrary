@@ -89,8 +89,20 @@
     if (![pullToRefresh isRefreshing])
         [SMProgressHUD show];
     
-    // fetch it from the remote server
-    NSString *url = [self.componentDesciption url];
+    // check if there are offline content instead of server one
+    if (![self.componentDesciption hasDownloadableContents]) {
+        [SMProgressHUD dismiss];
+        
+        // the contents are ready
+        SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:self.componentDesciption.contents];
+        [self setContentPage:contentPage];
+        [self applyContents];
+        return;
+    }
+    
+    // there are downloadable content. fetch it from the webservice.
+    NSString *url = [self.componentDesciption contents];
+    
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
         // end preloader
         [SMProgressHUD dismiss];
