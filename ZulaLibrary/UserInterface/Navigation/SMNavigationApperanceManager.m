@@ -13,10 +13,16 @@
 #import "SDWebImageManager.h"
 
 @interface SMNavigationApperanceManager()
+
 - (void)appearancesForNavBarBackgroundColor:(NSString *)hexColor;
 - (void)appearancesForNavBarTextColor:(NSString *)hexColor;
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl;
 //- (void)appearancesForNavBarIconSet:(NSString *)iconSet;
+
+- (void)appearancesForTabBarBackgroundColor:(NSString *)hexColor;
+- (void)appearancesForTabBarTextColor:(NSString *)hexColor;
+- (void)appearancesForTabBarBackgroundImageUrl:(NSString *)imageUrl;
+
 @end
 
 @implementation SMNavigationApperanceManager
@@ -31,9 +37,9 @@
     
     SMAppDescription *appDesc = [SMAppDescription sharedInstance];
     SMNavigationDescription *navDesc = [appDesc navigationDescription];
+    NSDictionary *navApperance = [navDesc appearance];
     
     // nav bar apperance
-    NSDictionary *navApperance = [navDesc appearance];
     NSDictionary *navBarApperance = [navApperance objectForKey:@"navbar"];
     if (navBarApperance) {
         NSDictionary *bg_img = [navBarApperance objectForKey:@"bg_image"];
@@ -49,6 +55,23 @@
     if (![navbarImageUrl isEqualToString:@""]) {
         [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
     }
+    
+    // tabbar appearance
+    NSDictionary *tabBarApperance = [navApperance objectForKey:@"tabbar"];
+    if (tabBarApperance) {
+        NSDictionary *bg_img = [tabBarApperance objectForKey:@"bg_image"];
+        if (bg_img) {
+            [self appearancesForTabBarBackgroundColor:[bg_img objectForKey:@"bg_color"]];
+        }
+        
+        [self appearancesForTabBarTextColor:[tabBarApperance objectForKey:@"text_color"]];
+    }
+    
+    // tab bar data
+    NSString *tabbarImageUrl = [navDesc.data objectForKey:@"tabbar_bg_image"];
+    if (![tabbarImageUrl isEqualToString:@""]) {
+        [self appearancesForTabBarBackgroundImageUrl:tabbarImageUrl];
+    }
 }
 
 #pragma mark - private methods
@@ -59,9 +82,13 @@
         return;
     }
     
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
-    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // background color
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:hexColor]];
+    } else {
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+        [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
+    }
 }
 
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
@@ -110,6 +137,11 @@
         return;
     }
 
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // text color
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+    }
+    
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor colorWithHex:hexColor], UITextAttributeTextColor,
@@ -123,6 +155,43 @@
       [UIFont fontWithName:@"Arial-Bold" size:0.0], UITextAttributeFont,
       nil]];
      */
+}
+
+- (void)appearancesForTabBarBackgroundColor:(NSString *)hexColor
+{
+    if (!hexColor) {
+        return;
+    }
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // background color
+        [[UITabBar appearance] setBarTintColor:[UIColor colorWithHex:hexColor]];
+    } else {
+        [[UITabBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+        [[UITabBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
+    }
+}
+
+- (void)appearancesForTabBarTextColor:(NSString *)hexColor
+{
+    if (!hexColor) {
+        return;
+    }
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // text color
+        [[UITabBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
+    } else {
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:hexColor] }
+                                                 forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:@"CCCCCC"] }
+                                                 forState:UIControlStateHighlighted];
+    }
+}
+
+- (void)appearancesForTabBarBackgroundImageUrl:(NSString *)imageUrl
+{
+    
 }
 
 #pragma mark - web image delegate

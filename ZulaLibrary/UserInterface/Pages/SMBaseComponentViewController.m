@@ -147,7 +147,7 @@
     [navbarImage setImageWithURL:navbarIconUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     }];
-    self.navigationItem.titleView = navbarImage;
+    //self.navigationItem.titleView = navbarImage;
 }
 
 // override this behavior
@@ -172,7 +172,7 @@
     // disable the navigation title, if background image exists
     SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
     NSString *bgImage = [navDesc.data objectForKey:@"navbar_bg_image"];
-    if (bgImage) {
+    if (bgImage && ![bgImage isEqualToString:@""]) {
         self.navigationItem.titleView = [[UIView alloc] init];
         return YES;
     }
