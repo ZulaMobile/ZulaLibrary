@@ -146,8 +146,13 @@
     
     // create component
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
-    activeContentViewController = [SMComponentFactory componentWithDescription:description
+    activeContentViewController = [SMComponentFactory subComponentWithDescription:description
                                                                  forNavigation:appDescription.navigationDescription];
+    
+    if (![activeContentViewController isKindOfClass:[SMBaseComponentViewController class]]) {
+        return;
+    }
+    
     [(SMBaseComponentViewController *)activeContentViewController setComponentNavigationDelegate:self];
     
     // add controller's view to self.view

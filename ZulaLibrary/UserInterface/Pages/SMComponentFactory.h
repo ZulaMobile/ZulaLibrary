@@ -14,14 +14,34 @@
 @interface SMComponentFactory : NSObject
 
 /**
- Returns the component for the given description
+ *  Returns the component for the given description
+ *
+ *  @param componentDescription
+ *
+ *  @return
  */
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription;
 
 /**
- Returns the component for the given description and navigation
+ *  Returns the component for the given description and navigation
+ *
+ *  @param componentDescription
+ *  @param navigationDescription
+ *
+ *  @return
  */
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
                                  forNavigation:(SMNavigationDescription *)navigationDescription;
+
+/**
+ *  Sub component for the given description. Sub components are displayed as it is in an another component
+ *
+ *  @param componentDescription
+ *  @param navigationDescription
+ *
+ *  @return
+ */
++ (UIViewController *)subComponentWithDescription:(SMComponentDescription *)componentDescription
+                                    forNavigation:(SMNavigationDescription *)navigationDescription;
 
 @end

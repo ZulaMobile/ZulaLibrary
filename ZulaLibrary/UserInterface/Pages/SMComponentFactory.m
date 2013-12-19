@@ -79,7 +79,8 @@
     return component;
 }
 
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
+                                 forNavigation:(SMNavigationDescription *)navigationDescription
 {
     UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
     
@@ -89,6 +90,29 @@
     
     if ([navigationDescription.type isEqualToString:@"tabbar"]) {
         return [[UINavigationController alloc] initWithRootViewController:component];
+    } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
+        // only the 1st component (the component with index no:0) will be a navigation controller
+        if (componentDescription.index == 0) return [[UINavigationController alloc] initWithRootViewController:component];
+        
+        // all other component are without navigation controller (because they will be pushed)
+        return component;
+    }
+    
+    DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    return nil;
+}
+
++ (UIViewController *)subComponentWithDescription:(SMComponentDescription *)componentDescription
+                                    forNavigation:(SMNavigationDescription *)navigationDescription
+{
+    UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
+    
+    if (!component) {
+        return nil;
+    }
+    
+    if ([navigationDescription.type isEqualToString:@"tabbar"]) {
+        return component;
     } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
         // only the 1st component (the component with index no:0) will be a navigation controller
         if (componentDescription.index == 0) return [[UINavigationController alloc] initWithRootViewController:component];

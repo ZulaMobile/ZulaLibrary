@@ -280,7 +280,7 @@
         
         // create the view controller
         SMAppDescription *appDescription = [SMAppDescription sharedInstance];
-        return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:listItem.targetComponentDescription
+        return (SMBaseComponentViewController *)[SMComponentFactory subComponentWithDescription:listItem.targetComponentDescription
                                                                                forNavigation:appDescription.navigationDescription];
     }
  
