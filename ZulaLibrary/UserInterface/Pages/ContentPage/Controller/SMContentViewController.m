@@ -29,6 +29,8 @@
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
 
+- (void)deviceOrientationDidChange:(NSNotification *)notification;
+
 @end
 
 @implementation SMContentViewController
@@ -36,6 +38,11 @@
 @synthesize webView = _webView;
 @synthesize scrollView = _scrollView;
 @synthesize contentPage = _contentPage;
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)loadView
 {
@@ -47,13 +54,16 @@
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    self.scrollView.autoresizesSubviews = YES;
     
+    /*
     self.webView = [[SMWebView alloc] initWithFrame:
                     CGRectMake(padding,
                                padding,
                                CGRectGetWidth(self.view.frame) - padding * 2,
-                               600)];
-    [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
+                               0)];*/
+    self.webView = [[SMWebView alloc] initWithFrame:self.scrollView.frame];
+    self.webView.autoresizingMask = UIViewAutoresizingFlexibleAll;
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
@@ -65,6 +75,12 @@
     
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
+    
+    // orientation notifiers
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -128,7 +144,7 @@
     // set images
     if ([self.contentPage.images count] > 0) {
         self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
-        [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+        [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
         [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
         [self.imageView addImagesWithArray:self.contentPage.images];
         [self.scrollView addSubview:self.imageView];
@@ -198,6 +214,12 @@
     }
     
     return YES;
+}
+
+#pragma mark - private methods
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    [self webViewDidFinishLoad:self.webView];
 }
 
 @end

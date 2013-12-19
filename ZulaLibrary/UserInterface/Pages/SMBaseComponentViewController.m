@@ -63,7 +63,7 @@
     
     // set background image
     self.backgroundImageView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
-    [self.backgroundImageView setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+    [self.backgroundImageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.backgroundImageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"bg_image"]];
     [self.backgroundImageView setImageWithUrlString:appDescription.bgImageUrl];
     
@@ -90,7 +90,15 @@
     [super viewDidLoad];
     
     // nav bar will not be transculent, necessary for ios7
-    [self.navigationController.navigationBar setTranslucent:NO];
+    if (self.navigationController) {
+        [self.navigationController.navigationBar setTranslucent:NO];
+    }
+    
+    // tab bar will not be transculent, necessary for ios7
+    if (self.tabBarController) {
+        [self.tabBarController.tabBar setTranslucent:NO];
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

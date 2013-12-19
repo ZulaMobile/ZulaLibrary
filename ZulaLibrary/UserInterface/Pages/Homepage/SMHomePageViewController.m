@@ -57,7 +57,7 @@
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
 
     self.logoView = [[SMImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
-    [self.logoView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+    [self.logoView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.logoView applyAppearances:[self.componentDesciption.appearance objectForKey:@"logo"]];
     [self.logoView setHidden:YES];
     
@@ -92,7 +92,7 @@
                                                  CGRectGetWidth(self.view.frame) - padding * 2,
                                                  CGRectGetHeight(self.view.frame))];
     [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [self.homePageLinks setAutoresizesSubviews:UIViewAutoresizingFlexibleAll];
+    [self.homePageLinks setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
     [self.homePageLinks setBackgroundColor:[UIColor clearColor]];
     [self.scrollView addSubview:self.homePageLinks];

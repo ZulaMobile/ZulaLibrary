@@ -92,7 +92,7 @@
     [errButton setFrame:errFrame];
     [errButton setTitle:self.errorMessage forState:UIControlStateNormal];
     [errButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [errButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [errButton setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
     [errButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
     [errButton setBackgroundColor:[UIColor blackColor]];
     [errButton.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];

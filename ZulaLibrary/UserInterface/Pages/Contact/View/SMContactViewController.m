@@ -60,7 +60,7 @@
                                padding,
                                CGRectGetWidth(self.view.frame),
                                CGRectGetHeight(self.view.frame))];
-    [self.textView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.textView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.textView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.textView setDelegate:self];
     [self.textView disableScrollBounce];
@@ -71,7 +71,7 @@
                                                                   0,
                                                                   CGRectGetWidth(self.view.frame),
                                                                   CGRectGetHeight(self.view.frame))];
-    [self.extraView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.extraView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.extraView applyAppearances:[self.componentDesciption.appearance objectForKey:@"extra"]];
     [self.extraView setDelegate:self];
     [self.extraView disableScrollBounce];

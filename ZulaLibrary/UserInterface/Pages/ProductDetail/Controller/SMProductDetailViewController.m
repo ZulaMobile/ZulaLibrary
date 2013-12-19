@@ -45,9 +45,10 @@
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [self.scrollView setAutoresizesSubviews:YES];
     
     self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
-    [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+    [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
     self.webView = [[SMWebView alloc] initWithFrame:
@@ -55,7 +56,7 @@
                                CGRectGetHeight(self.imageView.frame),
                                CGRectGetWidth(self.view.frame) - padding * 2,
                                600)];
-    [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.webView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];

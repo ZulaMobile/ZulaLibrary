@@ -185,7 +185,7 @@
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:hexColor] }
                                                  forState:UIControlStateNormal];
         [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:@"CCCCCC"] }
-                                                 forState:UIControlStateHighlighted];
+                                                 forState:UIControlStateSelected];
     }
 }
 
