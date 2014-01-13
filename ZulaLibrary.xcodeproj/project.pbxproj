@@ -81,6 +81,12 @@
 		67357938182AE9B1009B327D /* SMAppDescriptionDummyDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */; };
 		67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */; };
 		6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3516F06DD2001AA909 /* SMValidator.h */; };
+		6741DD421883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
+		6741DD431883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
+		6741DD491884057D008B0391 /* SMSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD481884057D008B0391 /* SMSideMenuViewController.m */; };
+		6741DD4A1884057D008B0391 /* SMSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD481884057D008B0391 /* SMSideMenuViewController.m */; };
+		6741DD4E18840742008B0391 /* SMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD4D18840742008B0391 /* SMTableCell.m */; };
+		6741DD4F18840742008B0391 /* SMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD4D18840742008B0391 /* SMTableCell.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -303,6 +309,12 @@
 		6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionPlistDataSource.m; path = Library/Descriptions/SMAppDescriptionPlistDataSource.m; sourceTree = "<group>"; };
 		67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionBaseDataSource.h; path = Library/Descriptions/SMAppDescriptionBaseDataSource.h; sourceTree = "<group>"; };
 		67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionBaseDataSource.m; path = Library/Descriptions/SMAppDescriptionBaseDataSource.m; sourceTree = "<group>"; };
+		6741DD401883FC77008B0391 /* SMSideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideNavigationViewController.h; path = UserInterface/Navigation/SMSideNavigationViewController.h; sourceTree = "<group>"; };
+		6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSideNavigationViewController.m; path = UserInterface/Navigation/SMSideNavigationViewController.m; sourceTree = "<group>"; };
+		6741DD471884057D008B0391 /* SMSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideMenuViewController.h; path = UserInterface/Navigation/SMSideMenuViewController.h; sourceTree = "<group>"; };
+		6741DD481884057D008B0391 /* SMSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSideMenuViewController.m; path = UserInterface/Navigation/SMSideMenuViewController.m; sourceTree = "<group>"; };
+		6741DD4C18840742008B0391 /* SMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTableCell.h; path = UserInterface/Elements/ReusableViews/SMTableCell.h; sourceTree = "<group>"; };
+		6741DD4D18840742008B0391 /* SMTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTableCell.m; path = UserInterface/Elements/ReusableViews/SMTableCell.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -725,6 +737,44 @@
 			name = Form;
 			sourceTree = "<group>";
 		};
+		6741DD4418840547008B0391 /* Side */ = {
+			isa = PBXGroup;
+			children = (
+				6741DD401883FC77008B0391 /* SMSideNavigationViewController.h */,
+				6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */,
+				6741DD471884057D008B0391 /* SMSideMenuViewController.h */,
+				6741DD481884057D008B0391 /* SMSideMenuViewController.m */,
+			);
+			name = Side;
+			sourceTree = "<group>";
+		};
+		6741DD451884054F008B0391 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				675BDD7916DBC02D00B141F8 /* SMNavbarNavigationViewController.h */,
+				675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */,
+			);
+			name = Navbar;
+			sourceTree = "<group>";
+		};
+		6741DD4618840556008B0391 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				675BDD7616DBBFAE00B141F8 /* SMTabbedNavigationViewController.h */,
+				675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */,
+			);
+			name = Tabbar;
+			sourceTree = "<group>";
+		};
+		6741DD4B1884071D008B0391 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				6741DD4C18840742008B0391 /* SMTableCell.h */,
+				6741DD4D18840742008B0391 /* SMTableCell.m */,
+			);
+			name = ReusableViews;
+			sourceTree = "<group>";
+		};
 		6749EB7817257966002219C8 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,11 +862,10 @@
 		675BDD7416DBBE4A00B141F8 /* NavigationComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6741DD4618840556008B0391 /* Tabbar */,
+				6741DD451884054F008B0391 /* Navbar */,
+				6741DD4418840547008B0391 /* Side */,
 				675BDD7516DBBF1D00B141F8 /* SMNavigation.h */,
-				675BDD7616DBBFAE00B141F8 /* SMTabbedNavigationViewController.h */,
-				675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */,
-				675BDD7916DBC02D00B141F8 /* SMNavbarNavigationViewController.h */,
-				675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */,
 				675BDD7C16DCDF7400B141F8 /* SMNavigationFactory.h */,
 				675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */,
 				675BDD7F16DCEA7C00B141F8 /* SMNavigationApperanceManager.h */,
@@ -1161,6 +1210,7 @@
 		67CCC9D916C1579D000EBC0B /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				6741DD4B1884071D008B0391 /* ReusableViews */,
 				679EC15C176B901D00D32228 /* PullToRefresh */,
 				67F9CB9E176227F8002AC981 /* Form */,
 				670DA461175D051100B154F0 /* Helpers */,
@@ -1587,6 +1637,7 @@
 				677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */,
 				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
 				673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */,
+				6741DD4F18840742008B0391 /* SMTableCell.m in Sources */,
 				673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */,
 				673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */,
 				673578EC182AC143009B327D /* SMApiClient.m in Sources */,
@@ -1601,6 +1652,7 @@
 				673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */,
 				6735787C182A9C1E009B327D /* main.m in Sources */,
 				673578B9182AA316009B327D /* SMNavBarNavigationControllerTests.m in Sources */,
+				6741DD4A1884057D008B0391 /* SMSideMenuViewController.m in Sources */,
 				673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */,
 				673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */,
 				673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */,
@@ -1611,6 +1663,7 @@
 				673578E5182AC095009B327D /* SMFormDescriptionTests.m in Sources */,
 				673578F1182AC1A5009B327D /* SMFormTextArea.m in Sources */,
 				673578AA182AA071009B327D /* UIColor+ZulaAdditions.m in Sources */,
+				6741DD431883FC77008B0391 /* SMSideNavigationViewController.m in Sources */,
 				673578EA182AC111009B327D /* SMFormSubmitAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1677,6 +1730,7 @@
 				670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */,
 				670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */,
 				670DA4521757A8E800B154F0 /* SMMultipleImageView.m in Sources */,
+				6741DD421883FC77008B0391 /* SMSideNavigationViewController.m in Sources */,
 				670DA459175CE31500B154F0 /* SMContact.m in Sources */,
 				670DA45C175CE67800B154F0 /* SMContactViewController.m in Sources */,
 				670DA464175D053A00B154F0 /* SMAnnotation.m in Sources */,
@@ -1693,10 +1747,12 @@
 				67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */,
 				67F9CBC8176362BA002AC981 /* SMFormPasswordField.m in Sources */,
 				67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */,
+				6741DD491884057D008B0391 /* SMSideMenuViewController.m in Sources */,
 				67F9CBCE17636A32002AC981 /* SMFormSubmitAction.m in Sources */,
 				67F9CBD117636E78002AC981 /* NSString+SMAdditions.m in Sources */,
 				67F9CBD417637070002AC981 /* SMFormEmailField.m in Sources */,
 				67F9CBD7176370D2002AC981 /* SMFormTextArea.m in Sources */,
+				6741DD4E18840742008B0391 /* SMTableCell.m in Sources */,
 				67357933182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
 				67B916BC1767630E006AF55C /* SMContainer.m in Sources */,

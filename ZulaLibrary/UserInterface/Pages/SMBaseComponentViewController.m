@@ -131,7 +131,7 @@
 #warning fix this, move it to a better place
     if (!self.navigationItem.leftBarButtonItem) {
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *backBtnImage = [UIImage imageNamed:@"back_arrow"]  ;
+        UIImage *backBtnImage = [UIImage imageNamed:@"zularesources.bundle/Left_Reveal_Icon"];
         [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
         [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
         backBtn.frame = CGRectMake(0, 0, 30, 19);
