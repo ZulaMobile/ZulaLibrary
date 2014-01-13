@@ -14,12 +14,38 @@
 #import "SMBaseComponentViewController.h"
 
 
+@interface SMSideMenuLogoCell : UITableViewCell
+
+@end
+
+@implementation SMSideMenuLogoCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
+        UIView *selectedBackgroundView = [UIView new];
+        selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+        self.selectedBackgroundView = selectedBackgroundView;
+        
+        UIView *backgoundView = [UIView new];
+        backgoundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.25];
+        self.backgroundView = backgoundView;
+    }
+    return self;
+}
+
+@end
+
+
 static NSString *const CellIdentifier = @"MenuCellIdentifier";
 
 @interface SMSideMenuViewController ()
 
 @property (nonatomic, strong) SMArrayDataSource *arrayDataSource;
-@property (nonatomic, strong) UIBarButtonItem *paneRevealLeftBarButtonItem;
 
 - (void)dynamicsDrawerRevealLeftBarButtonItemTapped:(id)sender;
 
@@ -43,8 +69,9 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
             UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
             UIViewController *component = [navigation componentAtIndex:[indexPath row]];
             
-            [strongSelf transitionToViewController:component animated:YES];
+            [strongSelf transitionToViewController:component animated:NO];
             
+            /*
             // Prevent visual display bug with cell dividers
             [strongSelf.tableView deselectRowAtIndexPath:indexPath animated:YES];
             double delayInSeconds = 0.3;
@@ -52,10 +79,12 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [strongSelf.tableView reloadData];
             });
-            
+            */
         }];
         
         [self.tableView registerClass:[SMTableCell class] forCellReuseIdentifier:CellIdentifier];
+        self.tableView.dataSource = self.arrayDataSource;
+        self.tableView.delegate = self.arrayDataSource;
     }
     return self;
 }
@@ -63,19 +92,35 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor orangeColor];
     self.tableView.separatorColor = [UIColor colorWithWhite:1.0 alpha:0.25];
 }
 
 - (void)transitionToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    /*
     self.paneRevealLeftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Left_Reveal_Icon"]
                                                                         style:UIBarButtonItemStyleBordered
                                                                        target:self
                                                                        action:@selector(dynamicsDrawerRevealLeftBarButtonItemTapped:)];
-    viewController.navigationItem.leftBarButtonItem = self.paneRevealLeftBarButtonItem;
+    */
     
-    [self.dynamicsDrawer setPaneViewController:viewController animated:animated completion:nil];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Menu_Icon"]
+                                                             style:UIBarButtonItemStyleBordered
+                                                            target:self
+                                                            action:@selector(dynamicsDrawerRevealLeftBarButtonItemTapped:)];
+    
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        UIViewController *topViewController = [(UINavigationController *)viewController topViewController];
+        topViewController.navigationItem.leftBarButtonItem = item;
+    } else {
+        viewController.navigationItem.leftBarButtonItem = item;
+    }
+    
+    
+    [self.dynamicsDrawer setPaneViewController:viewController animated:animated completion:^{
+        [self.dynamicsDrawer setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:YES completion:nil];
+    }];
 }
 
 - (void)dynamicsDrawerRevealLeftBarButtonItemTapped:(id)sender

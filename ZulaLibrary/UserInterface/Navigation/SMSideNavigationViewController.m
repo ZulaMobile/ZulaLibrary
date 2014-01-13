@@ -32,10 +32,10 @@
         self.delegate = self;
         //self.bounceElasticity = 0.2f;
         //self.bounceMagnitude = 60.0f;
-        //self.gravityMagnitude = 1.0f;
+        self.gravityMagnitude = 3.0f;
         
         // add stylers
-        [self addStylersFromArray:@[[MSDynamicsDrawerParallaxStyler styler]] forDirection:MSDynamicsDrawerDirectionLeft];
+        [self addStylersFromArray:@[[MSDynamicsDrawerParallaxStyler styler], [MSDynamicsDrawerShadowStyler styler]] forDirection:MSDynamicsDrawerDirectionLeft];
     }
     return self;
 }
@@ -43,7 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     // add the menu controller
-    self.menuController = [SMSideMenuViewController new];
+    self.menuController = [[SMSideMenuViewController alloc] initWithComponentDesciptions:self.componentDescriptions];
     self.menuController.dynamicsDrawer = self;
     [self setDrawerViewController:self.menuController forDirection:MSDynamicsDrawerDirectionLeft];
     
