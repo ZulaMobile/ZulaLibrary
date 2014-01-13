@@ -89,14 +89,9 @@
 {
     [super viewDidLoad];
     
-    // nav bar will not be transculent, necessary for ios7
-    if (self.navigationController) {
-        [self.navigationController.navigationBar setTranslucent:NO];
-    }
-    
-    // tab bar will not be transculent, necessary for ios7
-    if (self.tabBarController) {
-        [self.tabBarController.tabBar setTranslucent:NO];
+    // the transculent navbar setting for ios7
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
 }

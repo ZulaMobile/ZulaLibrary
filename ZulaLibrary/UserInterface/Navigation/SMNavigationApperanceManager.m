@@ -34,7 +34,6 @@
 
 - (void)applyAppearances:(NSDictionary *)appearances
 {
-    
     SMAppDescription *appDesc = [SMAppDescription sharedInstance];
     SMNavigationDescription *navDesc = [appDesc navigationDescription];
     NSDictionary *navApperance = [navDesc appearance];

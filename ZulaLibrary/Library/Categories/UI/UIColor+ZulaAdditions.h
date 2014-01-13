@@ -59,6 +59,8 @@
  */
 + (UIColor *)colorWithHex:(NSString *)hex;
 
++ (UIColor *)colorWithHex:(NSString *)hex alpha:(float)alpha;
+
 /**
  Returns the receiver's value as a hex string.
  
