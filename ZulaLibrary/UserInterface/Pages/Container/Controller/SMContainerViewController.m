@@ -203,7 +203,15 @@
 
 - (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
 {
-    [self swipeToDeltaIndex:-1];
+    NSInteger selectedIndex = [self.subMenu selectedSegmentIndex];
+    if (selectedIndex == 0) {
+        // if the far left sub-page is active, then go back to the previous vc
+        [super onSwipeToRight:gestureRecognizer];
+    } else {
+        // we can display the subpage on the left
+        [self swipeToDeltaIndex:-1];
+    }
+    
 }
 
 #pragma mark - component navigation delegate
