@@ -91,7 +91,9 @@
     
     // the transculent navbar setting for ios7
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.navigationController.navigationBar.translucent = YES;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        //self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
 }
@@ -148,6 +150,7 @@
         self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     }];
     //self.navigationItem.titleView = navbarImage;
+    
 }
 
 // override this behavior

@@ -87,6 +87,8 @@
 		6741DD4A1884057D008B0391 /* SMSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD481884057D008B0391 /* SMSideMenuViewController.m */; };
 		6741DD4E18840742008B0391 /* SMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD4D18840742008B0391 /* SMTableCell.m */; };
 		6741DD4F18840742008B0391 /* SMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD4D18840742008B0391 /* SMTableCell.m */; };
+		6741DD5318854A5D008B0391 /* SMNoPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD5218854A5D008B0391 /* SMNoPullToRefresh.m */; };
+		6741DD5418854A5D008B0391 /* SMNoPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD5218854A5D008B0391 /* SMNoPullToRefresh.m */; };
 		6749EB7D172579B5002219C8 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
 		6749EB8017257C6F002219C8 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
 		6749EB8317258519002219C8 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
@@ -315,6 +317,8 @@
 		6741DD481884057D008B0391 /* SMSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSideMenuViewController.m; path = UserInterface/Navigation/SMSideMenuViewController.m; sourceTree = "<group>"; };
 		6741DD4C18840742008B0391 /* SMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTableCell.h; path = UserInterface/Elements/ReusableViews/SMTableCell.h; sourceTree = "<group>"; };
 		6741DD4D18840742008B0391 /* SMTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTableCell.m; path = UserInterface/Elements/ReusableViews/SMTableCell.m; sourceTree = "<group>"; };
+		6741DD5118854A5D008B0391 /* SMNoPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNoPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMNoPullToRefresh.h; sourceTree = "<group>"; };
+		6741DD5218854A5D008B0391 /* SMNoPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNoPullToRefresh.m; path = UserInterface/Elements/PullToRefresh/SMNoPullToRefresh.m; sourceTree = "<group>"; };
 		6749EB7B172579B5002219C8 /* SMListPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListPage.h; path = UserInterface/Pages/List/Model/SMListPage.h; sourceTree = "<group>"; };
 		6749EB7C172579B5002219C8 /* SMListPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMListPage.m; path = UserInterface/Pages/List/Model/SMListPage.m; sourceTree = "<group>"; };
 		6749EB7E17257C6F002219C8 /* SMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMListItem.h; path = UserInterface/Pages/List/Model/SMListItem.h; sourceTree = "<group>"; };
@@ -1065,6 +1069,8 @@
 				67D332BF177AF33F0010E49D /* SMPlainPullToRefresh.m */,
 				677CD7D1178C14FE003DBB7D /* SMGrayPullToRefresh.h */,
 				677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */,
+				6741DD5118854A5D008B0391 /* SMNoPullToRefresh.h */,
+				6741DD5218854A5D008B0391 /* SMNoPullToRefresh.m */,
 			);
 			name = PullToRefresh;
 			sourceTree = "<group>";
@@ -1640,6 +1646,7 @@
 				6741DD4F18840742008B0391 /* SMTableCell.m in Sources */,
 				673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */,
 				673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */,
+				6741DD5418854A5D008B0391 /* SMNoPullToRefresh.m in Sources */,
 				673578EC182AC143009B327D /* SMApiClient.m in Sources */,
 				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
 				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
@@ -1696,6 +1703,7 @@
 				675BDD7316DBB77C00B141F8 /* SMScrollView.m in Sources */,
 				675BDD7816DBBFAE00B141F8 /* SMTabbedNavigationViewController.m in Sources */,
 				675BDD7B16DBC02D00B141F8 /* SMNavbarNavigationViewController.m in Sources */,
+				6741DD5318854A5D008B0391 /* SMNoPullToRefresh.m in Sources */,
 				675BDD7E16DCDF7500B141F8 /* SMNavigationFactory.m in Sources */,
 				675BDD8116DCEA7C00B141F8 /* SMNavigationApperanceManager.m in Sources */,
 				675BDD8516DCFA1800B141F8 /* SMComponentFactory.m in Sources */,
