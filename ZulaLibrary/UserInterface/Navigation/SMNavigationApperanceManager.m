@@ -51,9 +51,7 @@
     
     // nav bar data
     NSString *navbarImageUrl = [navDesc.data objectForKey:@"navbar_bg_image"];
-    if (![navbarImageUrl isEqualToString:@""]) {
-        [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
-    }
+    [self appearancesForNavBarBackgroundImageUrl:navbarImageUrl];
     
     // tabbar appearance
     NSDictionary *tabBarApperance = [navApperance objectForKey:@"tabbar"];
@@ -83,7 +81,8 @@
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         // background color
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:hexColor]];
+        //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:hexColor]];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHex:hexColor alpha:0.4f]];
     } else {
         [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
         [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithHex:hexColor]];
@@ -93,6 +92,7 @@
 - (void)appearancesForNavBarBackgroundImageUrl:(NSString *)imageUrl
 {    
     if (!imageUrl || [imageUrl isEqualToString:@""]) {
+        
         return;
     }
 #warning load async

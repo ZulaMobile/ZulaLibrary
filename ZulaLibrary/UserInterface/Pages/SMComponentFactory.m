@@ -96,6 +96,8 @@
         
         // all other component are without navigation controller (because they will be pushed)
         return component;
+    } else if ([navigationDescription.type isEqualToString:@"sidebar"]) {
+        return [[UINavigationController alloc] initWithRootViewController:component];
     }
     
     DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
@@ -119,9 +121,11 @@
         
         // all other component are without navigation controller (because they will be pushed)
         return component;
+    } else if ([navigationDescription.type isEqualToString:@"sidebar"]) {
+        return component;
     }
     
-    DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    DDLogError(@"sub component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
     return nil;
 }
 

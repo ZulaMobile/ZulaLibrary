@@ -9,15 +9,18 @@
 #import "SMNavigationFactory.h"
 #import "SMTabbedNavigationViewController.h"
 #import "SMNavbarNavigationViewController.h"
+#import "SMSideNavigationViewController.h"
 
 @implementation SMNavigationFactory
 
 +(UIViewController<SMNavigation> *)navigationByType:(NSString *)type
 {
     if ([type isEqualToString:@"tabbar"]) {
-        return [[SMTabbedNavigationViewController alloc] init];
+        return [SMTabbedNavigationViewController new];
     } else if ([type isEqualToString:@"navbar"]) {
-        return [[SMNavbarNavigationViewController alloc] init];
+        return [SMNavbarNavigationViewController new];
+    } else if ([type isEqualToString:@"sidebar"]) {
+        return [SMSideNavigationViewController new];
     }
     return nil;
 }

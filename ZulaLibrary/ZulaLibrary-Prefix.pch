@@ -28,6 +28,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  Macros
  */
 
+#define ZULA_DEBUG 1
+
 #define UIViewAutoresizingFlexibleAll                       \
                 UIViewAutoresizingFlexibleBottomMargin    | \
                 UIViewAutoresizingFlexibleHeight          | \

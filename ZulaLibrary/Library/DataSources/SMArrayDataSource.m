@@ -66,7 +66,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self.items objectAtIndex:[indexPath row]];
-    itemDidSelectBlock(item);
+    itemDidSelectBlock(item, indexPath);
 }
 
 @end

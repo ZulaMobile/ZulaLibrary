@@ -7,7 +7,7 @@
 //
 
 typedef void(^TableViewCellConfigureBlock) (id cell, id item, NSIndexPath *indexPath);
-typedef void (^ItemDidSelectBlock) (id item);
+typedef void (^ItemDidSelectBlock) (id item, NSIndexPath *indexPath);
 
 
 @interface SMArrayDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>

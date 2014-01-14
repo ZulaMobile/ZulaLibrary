@@ -91,7 +91,9 @@
     
     // the transculent navbar setting for ios7
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.navigationController.navigationBar.translucent = YES;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        //self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
 }
@@ -130,13 +132,10 @@
 {
 #warning fix this, move it to a better place
     if (!self.navigationItem.leftBarButtonItem) {
-        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *backBtnImage = [UIImage imageNamed:@"back_arrow"]  ;
-        [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-        [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
-        backBtn.frame = CGRectMake(0, 0, 30, 19);
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-        self.navigationItem.leftBarButtonItem = backButton;
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Left_Reveal_Icon"]
+                                                                                 style:UIBarButtonItemStyleBordered
+                                                                                target:self
+                                                                                action:@selector(goback)];
     }
     
     if (!navbarIconUrl) {
@@ -151,6 +150,7 @@
         self.navigationItem.titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     }];
     //self.navigationItem.titleView = navbarImage;
+    
 }
 
 // override this behavior
