@@ -17,7 +17,6 @@
 + (id<SMPullToRefresh>)pullToRefreshWithScrollView:(UIScrollView *)scrollView
                                           delegate:(id<SMPullToRefreshDelegate>)delegate
 {
-    return [[SMNoPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
     return [SMPullToRefreshFactory pullToRefreshWithScrollView:scrollView delegate:delegate type:SMPullToRefreshDefault];
 }
 
@@ -25,8 +24,6 @@
                                           delegate:(id<SMPullToRefreshDelegate>)delegate
                                               type:(SMPullToRefreshType)type
 {
-    return [[SMNoPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
-    
     if (type == SMPullToRefreshPlain) {
         return [[SMPlainPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
     } else if (type == SMPullToRefreshRainbox) {
@@ -41,8 +38,6 @@
                                           delegate:(id<SMPullToRefreshDelegate>)delegate
                                               name:(NSString *)name
 {
-    return [[SMNoPullToRefresh alloc] initWithScrollView:scrollView delegate:delegate];
-    
     SMPullToRefreshType type;
     if ([name isEqualToString:@"plain"]) {
         type = SMPullToRefreshPlain;

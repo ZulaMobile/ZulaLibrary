@@ -17,13 +17,6 @@
  Concrete components must derive from this class
  */
 @interface SMBaseComponentViewController : UIViewController <SMSwipeComponentStrategyDelegate>
-{
-    /**
-     Default padding for the main view
-     Default value is 10.0
-     */
-    float padding;
-}
 
 /**
  Description file, provides title and slug that the user set
@@ -41,6 +34,12 @@
  Component navigation delegate fires event when navigation changes
  */
 @property (nonatomic, weak) id<SMComponentNavigationDelegate> componentNavigationDelegate;
+
+/**
+ Default padding for the main view
+ Default value is 10.0
+ */
+@property (nonatomic) CGPoint padding;
 
 /**
  Initializer (constructor) that must be used to initialize a component instance

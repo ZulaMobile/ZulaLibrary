@@ -52,9 +52,9 @@
     [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
     
     self.webView = [[SMWebView alloc] initWithFrame:
-                    CGRectMake(padding,
+                    CGRectMake(self.padding.x,
                                CGRectGetHeight(self.imageView.frame),
-                               CGRectGetWidth(self.view.frame) - padding * 2,
+                               CGRectGetWidth(self.view.frame) - self.padding.x * 2,
                                600)];
     [self.webView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
@@ -155,7 +155,7 @@
     float imageHeight = (self.productDetail.images) ? CGRectGetHeight(imageViewFrame) : 0;
     [self.scrollView setContentSize:CGSizeMake(
                                                CGRectGetWidth(self.view.frame),
-                                               padding * 2 + imageHeight + fittingSize.height)];
+                                               self.padding.y * 2 + imageHeight + fittingSize.height)];
      
 }
 

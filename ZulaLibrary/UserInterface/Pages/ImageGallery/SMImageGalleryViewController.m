@@ -109,17 +109,17 @@
     }
     
     // thumbnail container
-    UIView *thumbnailContainer = [[UIView alloc] initWithFrame:CGRectMake(padding,
-                                                                          padding,
-                                                                          CGRectGetWidth(self.view.frame) - padding * 2,
-                                                                          0)];
+    UIView *thumbnailContainer = [[UIView alloc] initWithFrame:CGRectMake(self.padding.x,
+                                                                          self.padding.y,
+                                                                          CGRectGetWidth(self.view.frame) - self.padding.x * 2,
+                                                                          - self.padding.y * 2)];
     [thumbnailContainer setBackgroundColor:[UIColor clearColor]];
     [thumbnailContainer setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     // set thumbnails
     NSInteger count = self.photos.count;
     int imagesPerRow = CGRectGetWidth(self.view.frame) / 80; // how many thumbnail on per row
-    float width = (320 - (padding * (imagesPerRow + 1))) / imagesPerRow; // thumbnail width
+    float width = (320 - (self.padding.y * (imagesPerRow + 1))) / imagesPerRow; // thumbnail width
     float height = width; // thumbnail height
     
     SMImageView *image;
@@ -128,8 +128,8 @@
         int column = i % imagesPerRow;
         
         // create the thumbnail view
-        image = [[SMImageView alloc] initWithFrame:CGRectMake((padding * column) + (column * width),
-                                                              (padding * row) + (row * height),
+        image = [[SMImageView alloc] initWithFrame:CGRectMake((self.padding.x * column) + (column * width),
+                                                              (self.padding.y * row) + (row * height),
                                                               width,
                                                               height)];
         [image setImageWithURL:[self.imageGallery.images objectAtIndex:i] activityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -143,7 +143,7 @@
     
     // expand the container size
     CGRect contanerFrame = thumbnailContainer.frame;
-    contanerFrame.size.height = ((count/imagesPerRow + 1) * height) + (padding * (count/imagesPerRow + 1)) + padding;
+    contanerFrame.size.height = ((count/imagesPerRow + 1) * height) + (self.padding.y * (count/imagesPerRow + 1)) + self.padding.y;
     [thumbnailContainer setTag:443];
     [thumbnailContainer setFrame:contanerFrame];
     

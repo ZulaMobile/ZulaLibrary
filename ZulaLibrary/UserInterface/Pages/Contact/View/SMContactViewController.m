@@ -51,15 +51,17 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
+    self.padding = (CGPoint){0.0f, 20.0f};
+    
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     self.textView = [[SMWebView alloc] initWithFrame:
-                    CGRectMake(0,
-                               padding,
-                               CGRectGetWidth(self.view.frame),
-                               CGRectGetHeight(self.view.frame))];
+                    CGRectMake(self.padding.x,
+                               self.padding.y,
+                               CGRectGetWidth(self.view.frame) - self.padding.x * 2,
+                               CGRectGetHeight(self.view.frame) - self.padding.y * 2)];
     [self.textView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.textView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.textView setDelegate:self];
@@ -240,7 +242,7 @@
         }
         
         // add the initial padding of the text view
-        scrollSize.height += padding;
+        scrollSize.height += self.padding.y;
         
         self.textView.frame = textViewFrame;
         [self.scrollView setContentSize:scrollSize];

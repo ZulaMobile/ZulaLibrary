@@ -25,6 +25,17 @@
         _isRefreshing = NO;
         _delegate = delegate;
         _scrollView = scrollView;
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            if (isPad()) {
+                [_scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            } else {
+                [_scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            }
+        }
+        
         //[_scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
         
         _pullToRefresh = [[MSPullToRefreshController alloc] initWithScrollView:_scrollView delegate:self];
@@ -53,6 +64,16 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+/*
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"%@",NSStringFromCGSize(_scrollView.contentSize));
+    CGFloat contentSizeArea = _scrollView.contentSize.width*_scrollView.contentSize.height;
+    CGFloat frameArea = _scrollView.frame.size.width*_scrollView.frame.size.height;
+    CGSize adjustedContentSize = contentSizeArea < frameArea ? _scrollView.frame.size : _scrollView.contentSize;
+    //_rainbowBot.frame = CGRectMake(0, adjustedContentSize.height, _scrollView.frame.size.width, _scrollView.frame.size.height);
+}
+ */
 
 - (void) endRefresh {
     [_pullToRefresh finishRefreshingDirection:MSRefreshDirectionTop animated:YES];

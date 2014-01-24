@@ -87,10 +87,10 @@
     
     // place links
     self.homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
-                                      CGRectMake(padding,
-                                                 padding,
-                                                 CGRectGetWidth(self.view.frame) - padding * 2,
-                                                 CGRectGetHeight(self.view.frame))];
+                                      CGRectMake(self.padding.x,
+                                                 self.padding.y,
+                                                 CGRectGetWidth(self.view.frame) - self.padding.x * 2,
+                                                 CGRectGetHeight(self.view.frame)  - self.padding.y * 2)];
     [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
     [self.homePageLinks setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];

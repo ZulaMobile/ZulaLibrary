@@ -46,7 +46,7 @@
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
     self.subMenu = [[SDSegmentedControl alloc] initWithItems:[NSArray array]];
-    [self.subMenu setFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
+    [self.subMenu setFrame:CGRectMake(0.0f, 60.0f, CGRectGetWidth(screenRect), 44)];
     [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     //[self.subMenu applyAppearances:self.componentDesciption.appearance];
     self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
@@ -156,7 +156,7 @@
     [(SMBaseComponentViewController *)activeContentViewController setComponentNavigationDelegate:self];
     
     // add controller's view to self.view
-    float pullUp = 5.0;
+    float pullUp = 6.0;
     [activeContentViewController.view setFrame:CGRectMake(0,
                                                           CGRectGetHeight(self.subMenu.frame) - pullUp,
                                                           CGRectGetWidth(self.view.frame),

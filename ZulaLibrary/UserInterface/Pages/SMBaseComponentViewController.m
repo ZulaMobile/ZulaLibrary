@@ -34,7 +34,7 @@
         [self setTitle:self.componentDesciption.title];
         
         // padding default value
-        padding = 10.0;
+        self.padding = CGPointMake(10.0f, 10.0f);
     }
     return self;
 }
