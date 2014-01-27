@@ -35,18 +35,29 @@ static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
         self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleAll;
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
+        self.collectionView.backgroundColor = [UIColor clearColor];
         
         // register the cell class
         [self.collectionView registerClass:[SMTileCell class] forCellWithReuseIdentifier:TilesCellIdentifier];
         
         [self.links addSubview:self.collectionView];
+        
+        // fix paddings
+        CGRect fr = self.links.frame;
+        fr.size.width += 10.0f;
+        fr.size.height += 10.0f;
+        self.links.frame = fr;
+        
     }
     return self;
 }
 
 - (void)setup
 {
-    
+    // adjust the frame size
+    CGRect linksFr = self.links.frame;
+    linksFr.size.height = self.layout.collectionViewContentSize.height;
+    self.links.frame = linksFr;
 }
 
 - (void)applyAppearances:(NSDictionary *)appearances
