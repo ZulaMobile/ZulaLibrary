@@ -24,9 +24,17 @@
         //self.footerReferenceSize = (CGSize){44, 44}; // 88
         self.footerReferenceSize = (CGSize){0, 0};
         
-        self.itemSize = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ?
-        CGSizeMake(280.0f, 280.0f) : CGSizeMake((320.0f - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 2,
-                                                (320.0f - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 2);
+        //UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        //NSInteger itemPerRow;
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            self.itemSize = CGSizeMake((CGRectGetWidth(bounds) - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 5,
+                                       (CGRectGetWidth(bounds) - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 5);
+            
+        } else {
+            self.itemSize = CGSizeMake((CGRectGetWidth(bounds) - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 2,
+                                      (CGRectGetWidth(bounds) - self.sectionInset.left - self.sectionInset.right - self.minimumInteritemSpacing) / 2);
+        }
     }
     return self;
 }

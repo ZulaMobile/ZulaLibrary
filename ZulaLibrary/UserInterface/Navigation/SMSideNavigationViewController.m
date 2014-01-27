@@ -53,11 +53,13 @@
     
     [self.menuController transitionToViewController:firstComponent animated:NO];
     
+    /*
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self bouncePaneOpenInDirection:MSDynamicsDrawerDirectionLeft allowUserInterruption:NO completion:nil];
     });
+     */
 }
 
 #pragma mark - SMNavigation methods

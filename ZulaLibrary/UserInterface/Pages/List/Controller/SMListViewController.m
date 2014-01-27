@@ -38,9 +38,17 @@
     [super loadView];
     
     // screen size
-    CGRect fullSize = CGRectMake(0, 0,
-                                 CGRectGetWidth(self.view.frame),
-                                 CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
+    CGRect fullSize ;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        fullSize = CGRectMake(0, 0,
+                              CGRectGetWidth(self.view.frame),
+                              CGRectGetHeight(self.view.frame));
+    } else {
+        fullSize = CGRectMake(0, 0,
+                              CGRectGetWidth(self.view.frame),
+                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
+    }
+    
     
     // create table view
     self.tableView = [[UITableView alloc] initWithFrame:fullSize style:UITableViewStylePlain];
