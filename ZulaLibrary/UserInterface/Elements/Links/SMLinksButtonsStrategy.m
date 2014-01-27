@@ -84,7 +84,7 @@
 
 - (void)onComponentButton:(UIButton *)sender
 {
-    [self.links onComponentButton:sender];
+    [self.links onComponentIndex:sender.tag];
 }
 
 @end

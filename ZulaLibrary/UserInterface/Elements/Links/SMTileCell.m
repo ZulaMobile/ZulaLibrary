@@ -16,10 +16,10 @@
     if (self) {
         self.backgroundColor = [UIColor greenColor];
         
-        float titleHeight = 44.0f;
-        self.title = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, CGRectGetHeight(frame) - titleHeight, CGRectGetWidth(frame), titleHeight)];
+        self.title = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(frame), CGRectGetHeight(frame))];
         self.title.backgroundColor = [UIColor clearColor];
         self.title.textAlignment = NSTextAlignmentCenter;
+        self.title.numberOfLines = 5;
         
         [self addSubview:self.title];
     }

@@ -100,7 +100,7 @@ static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
 
 - (void)collectionView:(UICollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self.links onComponentIndex:[indexPath row]];
 }
 
 @end

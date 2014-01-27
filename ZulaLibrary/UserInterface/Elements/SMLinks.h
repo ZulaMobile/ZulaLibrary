@@ -23,7 +23,7 @@
 
 @property (nonatomic) NSArray *componentTitles;
 
-- (void)onComponentButton:(UIButton *)sender;
+- (void)onComponentIndex:(NSInteger)index;
 
 @end
 

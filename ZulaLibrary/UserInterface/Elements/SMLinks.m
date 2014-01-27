@@ -60,9 +60,9 @@
     }
 }
 
-- (void)onComponentButton:(UIButton *)sender
+- (void)onComponentIndex:(NSInteger)index
 {
-    [self setSelectedIndex:sender.tag];
+    [self setSelectedIndex:index];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
