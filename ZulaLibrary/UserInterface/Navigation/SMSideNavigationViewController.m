@@ -87,6 +87,12 @@
     return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:compDesc forNavigation:appDesc.navigationDescription];
 }
 
+- (SMBaseComponentViewController *)componentFromComponentDescription:(SMComponentDescription *)componentDescription
+{
+    SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:componentDescription forNavigation:appDesc.navigationDescription];
+}
+
 - (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent
 {
     [self.menuController transitionToViewController:toComponent animated:YES];

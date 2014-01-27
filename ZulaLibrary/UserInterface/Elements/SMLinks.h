@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SMViewElement.h"
 
+@class SMComponentDescription;
+
 @interface SMLinks : UIControl <SMViewElement>
 
 /**
@@ -17,13 +19,13 @@
 @property (nonatomic) NSInteger padding;
 
 /**
- Selected component index
+ Selected component
  */
-@property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic) SMComponentDescription *selectedComponentDescription;
 
-@property (nonatomic) NSArray *componentTitles;
+@property (nonatomic) NSArray *componentDescriptions;
 
-- (void)onComponentIndex:(NSInteger)index;
+- (void)onComponentDescription:(SMComponentDescription *)componentDescription;
 
 @end
 

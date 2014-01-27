@@ -9,6 +9,7 @@
 #import "SMLinksTilesStrategy.h"
 #import "SMTileCell.h"
 #import "SMTileLayout.h"
+#import "SMComponentDescription.h"
 
 
 static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
@@ -74,7 +75,7 @@ static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.links.componentTitles count];
+    return [self.links.componentDescriptions count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -82,10 +83,10 @@ static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
     SMTileCell *cell = (SMTileCell *)[collectionView dequeueReusableCellWithReuseIdentifier:TilesCellIdentifier
                                                                                forIndexPath:indexPath];
     
-    NSString *title = [self.links.componentTitles objectAtIndex:[indexPath row]];
+    SMComponentDescription *desc = [self.links.componentDescriptions objectAtIndex:[indexPath row]];
     
     // configure the cell
-    [cell.title setText:title];
+    [cell.title setText:desc.title];
     
     return cell;
 }
@@ -100,7 +101,8 @@ static NSString* TilesCellIdentifier = @"LinksTilesStrategyReuseIdentifier";
 
 - (void)collectionView:(UICollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.links onComponentIndex:[indexPath row]];
+    SMComponentDescription *desc = [self.links.componentDescriptions objectAtIndex:[indexPath row]];
+    [self.links onComponentDescription:desc];
 }
 
 @end

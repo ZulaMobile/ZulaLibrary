@@ -12,6 +12,8 @@
 #import "SMButton.h"
 #import "SMComponentDescription.h"
 #import "SMNavigationDescription.h"
+#import "SMComponentDescription.h"
+
 
 @interface SMLinksButtonsStrategy ()
 - (void)appearanceForButtonColor:(NSString *)buttonColor;
@@ -43,7 +45,7 @@
     // place links
     int i = 0, j = 0;
     
-    for (NSString *title in self.links.componentTitles) {
+    for (SMComponentDescription *desc in self.links.componentDescriptions) {
         // place each component buttons
         SMButton *componentButton = [SMButton buttonWithType:UIButtonTypeCustom];
         [componentButton setFrame:CGRectMake(0,
@@ -52,7 +54,7 @@
                                              40)];
         [componentButton setTag:i];
         [componentButton addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventTouchUpInside];
-        [componentButton setTitle:title forState:UIControlStateNormal];
+        [componentButton setTitle:desc.title forState:UIControlStateNormal];
         
         [self.links addSubview:componentButton];
         i++; j++;
@@ -84,7 +86,8 @@
 
 - (void)onComponentButton:(UIButton *)sender
 {
-    [self.links onComponentIndex:sender.tag];
+    SMComponentDescription *desc = [self.links.componentDescriptions objectAtIndex:sender.tag];
+    [self.links onComponentDescription:desc];
 }
 
 @end

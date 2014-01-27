@@ -213,7 +213,7 @@
 {
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
-    UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
+    UIViewController *component = [navigation componentFromComponentDescription:sender.selectedComponentDescription];
     
     [navigation navigateComponent:component fromComponent:self];
 }
@@ -224,7 +224,7 @@
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
     
-    NSMutableArray *componentTitles = [NSMutableArray arrayWithCapacity:[navigation.componentDescriptions count]];
+    NSMutableArray *componentDescriptions = [NSMutableArray arrayWithCapacity:[navigation.componentDescriptions count]];
     for (SMComponentDescription *componentDescription in navigation.componentDescriptions) {
         
         // if it is a navigation controller, we disable them to show up in the homepage links
@@ -247,11 +247,11 @@
         }
         
         if (componentIsAllowed) {
-            [componentTitles addObject:componentDescription.title];
+            [componentDescriptions addObject:componentDescription];
         }
     }
     
-    [self.homePageLinks setComponentTitles:componentTitles];
+    [self.homePageLinks setComponentDescriptions:[NSArray arrayWithArray:componentDescriptions]];
     [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
 }

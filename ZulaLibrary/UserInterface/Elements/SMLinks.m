@@ -60,9 +60,9 @@
     }
 }
 
-- (void)onComponentIndex:(NSInteger)index
+- (void)onComponentDescription:(SMComponentDescription *)componentDescription
 {
-    [self setSelectedIndex:index];
+    [self setSelectedComponentDescription:componentDescription];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
