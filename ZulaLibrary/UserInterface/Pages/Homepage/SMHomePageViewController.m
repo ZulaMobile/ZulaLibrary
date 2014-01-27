@@ -89,8 +89,8 @@
     [self fetchContents];
     
     self.homePageLinks = [[SMLinks alloc] initWithFrame:
-                          CGRectMake(self.padding.x,
-                                     self.padding.y,
+                          CGRectMake(0.0f,
+                                     0.0f,
                                      CGRectGetWidth(self.view.frame) - self.padding.x * 2,
                                      CGRectGetHeight(self.view.frame)  - self.padding.y * 2)];
     [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];

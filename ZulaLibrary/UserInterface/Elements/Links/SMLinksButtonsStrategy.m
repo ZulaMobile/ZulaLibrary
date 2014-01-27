@@ -26,6 +26,14 @@
     self = [super init];
     if (self) {
         self.links = aLinksObject;
+        
+        if (!self.links.padding) {
+            self.links.padding = 10.0f;
+            CGRect fr = self.links.frame;
+            fr.origin.x = 10.0f;
+            fr.origin.y = 10.0f;
+            self.links.frame = fr;
+        }
     }
     return self;
 }

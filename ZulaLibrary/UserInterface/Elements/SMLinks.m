@@ -28,9 +28,6 @@
 
 - (void)applyAppearances:(NSDictionary *)appearances
 {
-    if (!padding) {
-        padding = 10.0;
-    }
     [self appearanceForVisibility:[[appearances objectForKey:@"disable"] boolValue]];
     [self determineStrategyFromStyle:[appearances objectForKey:@"style"]];
     

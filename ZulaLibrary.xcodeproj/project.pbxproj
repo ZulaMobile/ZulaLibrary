@@ -180,6 +180,10 @@
 		67E2F9B7189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */; };
 		67E2F9BA1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */; };
 		67E2F9BB1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */; };
+		67E2F9BE189684A900A1E804 /* SMTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9BD189684A900A1E804 /* SMTileCell.m */; };
+		67E2F9BF189684A900A1E804 /* SMTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9BD189684A900A1E804 /* SMTileCell.m */; };
+		67E2F9C21896872200A1E804 /* SMTileLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C11896872200A1E804 /* SMTileLayout.m */; };
+		67E2F9C31896872200A1E804 /* SMTileLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C11896872200A1E804 /* SMTileLayout.m */; };
 		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
@@ -470,6 +474,10 @@
 		67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLinksTilesStrategy.m; path = UserInterface/Elements/Links/SMLinksTilesStrategy.m; sourceTree = "<group>"; };
 		67E2F9B81896749300A1E804 /* SMLinksButtonsStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLinksButtonsStrategy.h; path = UserInterface/Elements/Links/SMLinksButtonsStrategy.h; sourceTree = "<group>"; };
 		67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLinksButtonsStrategy.m; path = UserInterface/Elements/Links/SMLinksButtonsStrategy.m; sourceTree = "<group>"; };
+		67E2F9BC189684A900A1E804 /* SMTileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTileCell.h; path = UserInterface/Elements/Links/SMTileCell.h; sourceTree = "<group>"; };
+		67E2F9BD189684A900A1E804 /* SMTileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTileCell.m; path = UserInterface/Elements/Links/SMTileCell.m; sourceTree = "<group>"; };
+		67E2F9C01896872200A1E804 /* SMTileLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTileLayout.h; path = UserInterface/Elements/Links/SMTileLayout.h; sourceTree = "<group>"; };
+		67E2F9C11896872200A1E804 /* SMTileLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTileLayout.m; path = UserInterface/Elements/Links/SMTileLayout.m; sourceTree = "<group>"; };
 		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
@@ -1400,6 +1408,10 @@
 				6701BD8C16DFBEBA005A9BD3 /* SMLinks.m */,
 				67E2F9B4189673F500A1E804 /* SMLinksTilesStrategy.h */,
 				67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */,
+				67E2F9BC189684A900A1E804 /* SMTileCell.h */,
+				67E2F9BD189684A900A1E804 /* SMTileCell.m */,
+				67E2F9C01896872200A1E804 /* SMTileLayout.h */,
+				67E2F9C11896872200A1E804 /* SMTileLayout.m */,
 				67E2F9B81896749300A1E804 /* SMLinksButtonsStrategy.h */,
 				67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */,
 			);
@@ -1669,6 +1681,7 @@
 				673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */,
 				6741DD5418854A5D008B0391 /* SMNoPullToRefresh.m in Sources */,
 				673578EC182AC143009B327D /* SMApiClient.m in Sources */,
+				67E2F9C31896872200A1E804 /* SMTileLayout.m in Sources */,
 				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
 				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
 				673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */,
@@ -1684,6 +1697,7 @@
 				673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */,
 				673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */,
 				673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */,
+				67E2F9BF189684A900A1E804 /* SMTileCell.m in Sources */,
 				673578A9182A9FD0009B327D /* UIColorSMAdditionsTests.m in Sources */,
 				67E2F9BB1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */,
 				673578E9182AC10F009B327D /* SMFormAction.m in Sources */,
@@ -1701,6 +1715,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E2F9C21896872200A1E804 /* SMTileLayout.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
 				67CCCA0416C16C4F000EBC0B /* SMContentPage.m in Sources */,
@@ -1746,6 +1761,7 @@
 				67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */,
 				67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */,
 				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
+				67E2F9BE189684A900A1E804 /* SMTileCell.m in Sources */,
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
