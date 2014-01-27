@@ -13,7 +13,7 @@
 		6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8216DF9C89005A9BD3 /* SMFileLogger.m */; };
 		6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8516DF9E6D005A9BD3 /* SMLogFileFormatter.m */; };
 		6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */; };
-		6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */; };
+		6701BD8D16DFBEBA005A9BD3 /* SMLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8C16DFBEBA005A9BD3 /* SMLinks.m */; };
 		670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44A1757480400B154F0 /* SMProductDetailViewController.m */; };
 		670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44E1757482700B154F0 /* SMProductDetail.m */; };
 		670DA4521757A8E800B154F0 /* SMMultipleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA4511757A8E800B154F0 /* SMMultipleImageView.m */; };
@@ -176,6 +176,10 @@
 		67D4C44316D9031600BCE927 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
 		67D4C44716D9088600BCE927 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
 		67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
+		67E2F9B6189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */; };
+		67E2F9B7189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */; };
+		67E2F9BA1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */; };
+		67E2F9BB1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */; };
 		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
@@ -267,8 +271,8 @@
 		6701BD8716DFA1ED005A9BD3 /* SMHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePage.h; path = UserInterface/Pages/Homepage/Model/SMHomePage.h; sourceTree = "<group>"; };
 		6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePage.m; path = UserInterface/Pages/Homepage/Model/SMHomePage.m; sourceTree = "<group>"; };
 		6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMAppDelegate.h; path = AppTypes/SMAppDelegate.h; sourceTree = "<group>"; };
-		6701BD8B16DFBEB9005A9BD3 /* SMHomePageLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHomePageLinks.h; path = UserInterface/Elements/SMHomePageLinks.h; sourceTree = "<group>"; };
-		6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHomePageLinks.m; path = UserInterface/Elements/SMHomePageLinks.m; sourceTree = "<group>"; };
+		6701BD8B16DFBEB9005A9BD3 /* SMLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLinks.h; path = UserInterface/Elements/SMLinks.h; sourceTree = "<group>"; };
+		6701BD8C16DFBEBA005A9BD3 /* SMLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLinks.m; path = UserInterface/Elements/SMLinks.m; sourceTree = "<group>"; };
 		670DA4491757480400B154F0 /* SMProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProductDetailViewController.h; path = UserInterface/Pages/ProductDetail/Controller/SMProductDetailViewController.h; sourceTree = "<group>"; };
 		670DA44A1757480400B154F0 /* SMProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProductDetailViewController.m; path = UserInterface/Pages/ProductDetail/Controller/SMProductDetailViewController.m; sourceTree = "<group>"; };
 		670DA44D1757482700B154F0 /* SMProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProductDetail.h; path = UserInterface/Pages/ProductDetail/Model/SMProductDetail.h; sourceTree = "<group>"; };
@@ -462,6 +466,10 @@
 		67D4C44616D9088600BCE927 /* SMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLabel.m; path = UserInterface/Elements/SMLabel.m; sourceTree = "<group>"; };
 		67D4C44816D918C900BCE927 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTextView.h; path = UserInterface/Elements/SMTextView.h; sourceTree = "<group>"; };
 		67D4C44916D918C900BCE927 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTextView.m; path = UserInterface/Elements/SMTextView.m; sourceTree = "<group>"; };
+		67E2F9B4189673F500A1E804 /* SMLinksTilesStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLinksTilesStrategy.h; path = UserInterface/Elements/Links/SMLinksTilesStrategy.h; sourceTree = "<group>"; };
+		67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLinksTilesStrategy.m; path = UserInterface/Elements/Links/SMLinksTilesStrategy.m; sourceTree = "<group>"; };
+		67E2F9B81896749300A1E804 /* SMLinksButtonsStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLinksButtonsStrategy.h; path = UserInterface/Elements/Links/SMLinksButtonsStrategy.h; sourceTree = "<group>"; };
+		67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLinksButtonsStrategy.m; path = UserInterface/Elements/Links/SMLinksButtonsStrategy.m; sourceTree = "<group>"; };
 		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
@@ -1220,6 +1228,7 @@
 				679EC15C176B901D00D32228 /* PullToRefresh */,
 				67F9CB9E176227F8002AC981 /* Form */,
 				670DA461175D051100B154F0 /* Helpers */,
+				67E2F9B3189672D000A1E804 /* Links */,
 				677C46BD16DA6D77003CE7A1 /* SMProgressHUD.h */,
 				677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */,
 				67D4C44416D903A900BCE927 /* SMViewElement.h */,
@@ -1239,8 +1248,6 @@
 				677C46BB16DA5878003CE7A1 /* SMWebView.m */,
 				675BDD7116DBB77B00B141F8 /* SMScrollView.h */,
 				675BDD7216DBB77C00B141F8 /* SMScrollView.m */,
-				6701BD8B16DFBEB9005A9BD3 /* SMHomePageLinks.h */,
-				6701BD8C16DFBEBA005A9BD3 /* SMHomePageLinks.m */,
 				67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */,
 				67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */,
 				67E5F6A4174E0A0B006E1EEE /* SMButton.h */,
@@ -1384,6 +1391,19 @@
 				6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */,
 			);
 			name = Descriptions;
+			sourceTree = "<group>";
+		};
+		67E2F9B3189672D000A1E804 /* Links */ = {
+			isa = PBXGroup;
+			children = (
+				6701BD8B16DFBEB9005A9BD3 /* SMLinks.h */,
+				6701BD8C16DFBEBA005A9BD3 /* SMLinks.m */,
+				67E2F9B4189673F500A1E804 /* SMLinksTilesStrategy.h */,
+				67E2F9B5189673F500A1E804 /* SMLinksTilesStrategy.m */,
+				67E2F9B81896749300A1E804 /* SMLinksButtonsStrategy.h */,
+				67E2F9B91896749300A1E804 /* SMLinksButtonsStrategy.m */,
+			);
+			name = Links;
 			sourceTree = "<group>";
 		};
 		67E35F17177F61080079233A /* VideoGallery */ = {
@@ -1639,6 +1659,7 @@
 				673578E7182AC0EE009B327D /* SMFormSection.m in Sources */,
 				673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */,
 				673578F2182AC1AF009B327D /* SMFormEmailField.m in Sources */,
+				67E2F9B7189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */,
 				673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */,
 				677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */,
 				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
@@ -1664,6 +1685,7 @@
 				673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */,
 				673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */,
 				673578A9182A9FD0009B327D /* UIColorSMAdditionsTests.m in Sources */,
+				67E2F9BB1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */,
 				673578E9182AC10F009B327D /* SMFormAction.m in Sources */,
 				673578D9182AADFE009B327D /* SMTriangle.m in Sources */,
 				673578AF182AA1F7009B327D /* SMAppDescription.m in Sources */,
@@ -1695,6 +1717,7 @@
 				67D4C44716D9088600BCE927 /* SMLabel.m in Sources */,
 				67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */,
 				677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */,
+				67E2F9B6189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */,
 				677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */,
 				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
 				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
@@ -1716,7 +1739,7 @@
 				6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */,
 				6701BD8616DF9E6D005A9BD3 /* SMLogFileFormatter.m in Sources */,
 				6701BD8916DFA1ED005A9BD3 /* SMHomePage.m in Sources */,
-				6701BD8D16DFBEBA005A9BD3 /* SMHomePageLinks.m in Sources */,
+				6701BD8D16DFBEBA005A9BD3 /* SMLinks.m in Sources */,
 				67890A3316F05F41001AA909 /* SMApiClient.m in Sources */,
 				67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67890A3D16F0A475001AA909 /* SMServerError.m in Sources */,
@@ -1750,6 +1773,7 @@
 				67F9CBA617623034002AC981 /* SMFormField.m in Sources */,
 				67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */,
 				67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */,
+				67E2F9BA1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */,
 				67F9CBB81763260F002AC981 /* SMFormDescription.m in Sources */,
 				67F9CBBB176351B4002AC981 /* SMFormSection.m in Sources */,
 				67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */,

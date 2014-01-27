@@ -10,7 +10,7 @@
 #import "SMPullToRefreshComponentViewController.h"
 #import "SMPullToRefresh.h"
 
-@class SMHomePage, SMHomePageLinks, SMImageView;
+@class SMHomePage, SMLinks, SMImageView;
 
 /**
  Home Page Component automatically displays all registered components 
@@ -33,6 +33,6 @@
  can display buttons in different listing style (grid, tabular, etc) or
  not displaying them at all
  */
-@property (nonatomic, strong) SMHomePageLinks *homePageLinks;
+@property (nonatomic, strong) SMLinks *homePageLinks;
 
 @end

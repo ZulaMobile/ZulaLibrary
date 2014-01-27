@@ -13,7 +13,7 @@
 #import "SMScrollView.h"
 #import "SMHomePage.h"
 #import "UIViewController+SMAdditions.h"
-#import "SMHomePageLinks.h"
+#import "SMLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
 #import "SMPullToRefreshFactory.h"
@@ -28,7 +28,10 @@
  scroll view as a wrapper for content view
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
-- (void)onComponentButton:(SMHomePageLinks *)sender;
+
+- (void)onComponentButton:(SMLinks *)sender;
+- (void)setupLinks;
+
 @end
 
 @implementation SMHomePageViewController
@@ -85,19 +88,18 @@
     // fetch the contents
     [self fetchContents];
     
-    // place links
-    self.homePageLinks = [[SMHomePageLinks alloc] initWithFrame:
-                                      CGRectMake(self.padding.x,
-                                                 self.padding.y,
-                                                 CGRectGetWidth(self.view.frame) - self.padding.x * 2,
-                                                 CGRectGetHeight(self.view.frame)  - self.padding.y * 2)];
+    self.homePageLinks = [[SMLinks alloc] initWithFrame:
+                          CGRectMake(self.padding.x,
+                                     self.padding.y,
+                                     CGRectGetWidth(self.view.frame) - self.padding.x * 2,
+                                     CGRectGetHeight(self.view.frame)  - self.padding.y * 2)];
     [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
     [self.homePageLinks setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
     [self.homePageLinks setBackgroundColor:[UIColor clearColor]];
     [self.scrollView addSubview:self.homePageLinks];
     
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
+    //[self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
     
     /*
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
@@ -145,6 +147,9 @@
 
 - (void)applyContents
 {
+    // setup links
+    [self setupLinks];
+    
     BOOL logoWasHidden = [self.logoView isHidden];
     if (self.homePage.logoUrl) {
         [self.logoView setHidden:NO];
@@ -169,7 +174,6 @@
     }
     
     // zulamobile signature
-    
     signature = [[UIView alloc] initWithFrame:CGRectMake(0, self.scrollView.contentSize.height, CGRectGetWidth(self.scrollView.frame), 20.0f)];
     
     UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/signature"]];
@@ -205,13 +209,51 @@
 
 #pragma mark - private methods
 
-- (void)onComponentButton:(SMHomePageLinks *)sender
+- (void)onComponentButton:(SMLinks *)sender
 {
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
     UIViewController *component = [navigation componentAtIndex:sender.selectedIndex];
     
     [navigation navigateComponent:component fromComponent:self];
+}
+
+- (void)setupLinks
+{
+    // place links, get available components to show and pass them to the links view.
+    UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
+    UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
+    
+    NSMutableArray *componentTitles = [NSMutableArray arrayWithCapacity:[navigation.componentDescriptions count]];
+    for (SMComponentDescription *componentDescription in navigation.componentDescriptions) {
+        
+        // if it is a navigation controller, we disable them to show up in the homepage links
+        // this will prevent the error of pushing navigation controller
+        // also this will allow us to disable menu in tabbar navigation
+        if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
+            continue;
+        }
+        
+        // we only display the components that are allowed by the homepage component
+        BOOL componentIsAllowed = YES;
+        if (self.homePage.components) {
+            componentIsAllowed = NO;
+            for (NSString *slug in self.homePage.components) {
+                if ([componentDescription.slug isEqualToString:slug]) {
+                    componentIsAllowed = YES;
+                    continue;
+                }
+            }
+        }
+        
+        if (componentIsAllowed) {
+            [componentTitles addObject:componentDescription.title];
+        }
+    }
+    
+    [self.homePageLinks setComponentTitles:componentTitles];
+    [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
 }
 
 @end
