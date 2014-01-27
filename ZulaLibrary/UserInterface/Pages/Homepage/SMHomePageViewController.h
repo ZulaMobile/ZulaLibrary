@@ -33,6 +33,6 @@
  can display buttons in different listing style (grid, tabular, etc) or
  not displaying them at all
  */
-@property (nonatomic, strong) SMLinks *homePageLinks;
+@property (nonatomic, strong) SMLinks *linksView;
 
 @end

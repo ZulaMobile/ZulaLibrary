@@ -23,7 +23,8 @@
 typedef NS_ENUM(NSInteger, SMListingStyle) {
     SMListingStyleTable,                  // regular table view
     SMListingStyleBox,                    // preferences style table view
-    SMListingStyleGroup                     
+    SMListingStyleGroup,
+    SMListingStyleSummary
 };
 
 /**

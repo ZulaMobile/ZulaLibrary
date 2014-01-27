@@ -39,7 +39,7 @@
     SMImageComponentStrategy *imageComponentDelegate;
     UIView *signature;
 }
-@synthesize homePage, logoView, homePageLinks;
+@synthesize homePage, logoView, linksView;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -88,16 +88,16 @@
     // fetch the contents
     [self fetchContents];
     
-    self.homePageLinks = [[SMLinks alloc] initWithFrame:
+    self.linksView = [[SMLinks alloc] initWithFrame:
                           CGRectMake(0.0f,
                                      0.0f,
                                      CGRectGetWidth(self.view.frame) - self.padding.x * 2,
                                      CGRectGetHeight(self.view.frame)  - self.padding.y * 2)];
-    [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [self.homePageLinks setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    [self.homePageLinks addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
-    [self.homePageLinks setBackgroundColor:[UIColor clearColor]];
-    [self.scrollView addSubview:self.homePageLinks];
+    [self.linksView applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [self.linksView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    [self.linksView addTarget:self action:@selector(onComponentButton:) forControlEvents:UIControlEventValueChanged];
+    [self.linksView setBackgroundColor:[UIColor clearColor]];
+    [self.scrollView addSubview:self.linksView];
     
     //[self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
     
@@ -164,9 +164,9 @@
     
     // rearrange positions
     if (self.homePage.logoUrl && logoWasHidden) {
-        CGRect linksFrame = self.homePageLinks.frame;
+        CGRect linksFrame = self.linksView.frame;
         linksFrame.origin.y += CGRectGetHeight(self.logoView.frame);
-        [self.homePageLinks setFrame:linksFrame];
+        [self.linksView setFrame:linksFrame];
         
         CGSize scrollContentSize = self.scrollView.contentSize;
         scrollContentSize.height += CGRectGetHeight(self.logoView.frame);
@@ -251,9 +251,9 @@
         }
     }
     
-    [self.homePageLinks setComponentDescriptions:[NSArray arrayWithArray:componentDescriptions]];
-    [self.homePageLinks applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
-    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(homePageLinks.frame))];
+    [self.linksView setComponentDescriptions:[NSArray arrayWithArray:componentDescriptions]];
+    [self.linksView applyAppearances:[self.componentDesciption.appearance objectForKey:@"links"]];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(linksView.frame))];
 }
 
 @end

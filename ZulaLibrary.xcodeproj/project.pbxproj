@@ -184,6 +184,10 @@
 		67E2F9BF189684A900A1E804 /* SMTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9BD189684A900A1E804 /* SMTileCell.m */; };
 		67E2F9C21896872200A1E804 /* SMTileLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C11896872200A1E804 /* SMTileLayout.m */; };
 		67E2F9C31896872200A1E804 /* SMTileLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C11896872200A1E804 /* SMTileLayout.m */; };
+		67E2F9C71896B6B800A1E804 /* SMTabularListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */; };
+		67E2F9C81896B6B800A1E804 /* SMTabularListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */; };
+		67E2F9CB1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */; };
+		67E2F9CC1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */; };
 		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
@@ -478,6 +482,10 @@
 		67E2F9BD189684A900A1E804 /* SMTileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTileCell.m; path = UserInterface/Elements/Links/SMTileCell.m; sourceTree = "<group>"; };
 		67E2F9C01896872200A1E804 /* SMTileLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTileLayout.h; path = UserInterface/Elements/Links/SMTileLayout.h; sourceTree = "<group>"; };
 		67E2F9C11896872200A1E804 /* SMTileLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTileLayout.m; path = UserInterface/Elements/Links/SMTileLayout.m; sourceTree = "<group>"; };
+		67E2F9C51896B6B800A1E804 /* SMTabularListStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTabularListStrategy.h; path = UserInterface/Pages/List/Controller/Strategies/SMTabularListStrategy.h; sourceTree = "<group>"; };
+		67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTabularListStrategy.m; path = UserInterface/Pages/List/Controller/Strategies/SMTabularListStrategy.m; sourceTree = "<group>"; };
+		67E2F9C91896B88600A1E804 /* SMSummaryListStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSummaryListStrategy.h; path = UserInterface/Pages/List/Controller/Strategies/SMSummaryListStrategy.h; sourceTree = "<group>"; };
+		67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSummaryListStrategy.m; path = UserInterface/Pages/List/Controller/Strategies/SMSummaryListStrategy.m; sourceTree = "<group>"; };
 		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
@@ -819,6 +827,7 @@
 		6749EB7A1725797E002219C8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				67E2F9C41896B67700A1E804 /* Strategies */,
 				6749EB8117258519002219C8 /* SMListViewController.h */,
 				6749EB8217258519002219C8 /* SMListViewController.m */,
 			);
@@ -1418,6 +1427,17 @@
 			name = Links;
 			sourceTree = "<group>";
 		};
+		67E2F9C41896B67700A1E804 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				67E2F9C51896B6B800A1E804 /* SMTabularListStrategy.h */,
+				67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */,
+				67E2F9C91896B88600A1E804 /* SMSummaryListStrategy.h */,
+				67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */,
+			);
+			name = Strategies;
+			sourceTree = "<group>";
+		};
 		67E35F17177F61080079233A /* VideoGallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -1688,7 +1708,9 @@
 				67357934182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67357930182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */,
 				673578E6182AC0E6009B327D /* SMFormDescription.m in Sources */,
+				67E2F9CC1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */,
 				673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */,
+				67E2F9C81896B6B800A1E804 /* SMTabularListStrategy.m in Sources */,
 				673578ED182AC18B009B327D /* SMFormField.m in Sources */,
 				673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */,
 				6735787C182A9C1E009B327D /* main.m in Sources */,
@@ -1758,6 +1780,7 @@
 				67890A3316F05F41001AA909 /* SMApiClient.m in Sources */,
 				67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67890A3D16F0A475001AA909 /* SMServerError.m in Sources */,
+				67E2F9CB1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */,
 				67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */,
 				67BD5B1616F31E9300FC503F /* SMTitleLabel.m in Sources */,
 				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
@@ -1803,6 +1826,7 @@
 				6741DD4E18840742008B0391 /* SMTableCell.m in Sources */,
 				67357933182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67EE109417661FE9007D7116 /* SMFormModel.m in Sources */,
+				67E2F9C71896B6B800A1E804 /* SMTabularListStrategy.m in Sources */,
 				67B916BC1767630E006AF55C /* SMContainer.m in Sources */,
 				67B916BF17676663006AF55C /* SMContainerViewController.m in Sources */,
 				6791C67117686707005D64A0 /* SMWeb.m in Sources */,

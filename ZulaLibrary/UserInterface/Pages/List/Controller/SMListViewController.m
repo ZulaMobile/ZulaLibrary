@@ -26,45 +26,21 @@
 #import "SMImageView.h"
 #import "SMPullToRefreshFactory.h"
 
+#import "SMTabularListStrategy.h"
+#import "SMSummaryListStrategy.h"
+
+
 @interface SMListViewController ()
 
 @end
 
 @implementation SMListViewController
-@synthesize listPage, tableView, images;
+@synthesize listPage, images;
 
 - (void)loadView
 {
     [super loadView];
     
-    // screen size
-    CGRect fullSize ;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        fullSize = CGRectMake(0, 0,
-                              CGRectGetWidth(self.view.frame),
-                              CGRectGetHeight(self.view.frame));
-    } else {
-        fullSize = CGRectMake(0, 0,
-                              CGRectGetWidth(self.view.frame),
-                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
-    }
-    
-    
-    // create table view
-    self.tableView = [[UITableView alloc] initWithFrame:fullSize style:UITableViewStylePlain];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.tableView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
-    // add views to main view
-    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidLoad
@@ -109,12 +85,26 @@
 - (void)applyContents
 {
     
-    // ui changes
-    if (self.listPage.backgroundUrl) {
-        UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:self.listPage.backgroundUrl];
-        [self.tableView setBackgroundView:background];
+    
+    // set the strategy
+    if (self.listPage.listingStyle == SMListingStyleSummary) {
+        self.strategy = [[SMSummaryListStrategy alloc] initWithListViewController:self];
+    } else if (self.listPage.listingStyle == SMListingStyleTable) {
+        self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
+        NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)self.strategy tableView]
+                                                                   delegate:self
+                                                                       name:pullToRefreshType];
+    } else {
+        self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
+        NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)self.strategy tableView]
+                                                                   delegate:self
+                                                                       name:pullToRefreshType];
     }
+    
+    [self.strategy setup];
+    [self.strategy applyAppearances:[self.componentDesciption.appearance objectForKey:@""]];
     
     // add images view if exists
     /*
@@ -133,150 +123,10 @@
     [self applyNavbarIconWithUrl:self.listPage.navbarIcon];
     
     [pullToRefresh endRefresh];
-    [self.tableView reloadData];
+    
 }
 
-#pragma mark - table view data source
 
-- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
-{
-    if ([[self.listPage images] count] > 0) 
-        return [self.listPage.items count] + 1;
-    
-    return [self.listPage.items count];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
-{
-    // we don't support multiple sections yet.
-    return 1;
-}
-
-- (UITableViewCell *)cellForImageInTableView:(UITableView *)aTableView
-{
-    static NSString* CellIdentifier = @"ListImageReuseIdentifier";
-    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        self.images = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160)];
-        [cell.contentView addSubview:self.images];
-    }
-    
-    [self.images addImagesWithArray:self.listPage.images];
-    
-    return cell;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row = [indexPath row];
-    if ([[self.listPage images] count] > 0) {
-        if ([indexPath row] == 0) {
-            return [self cellForImageInTableView:aTableView];
-        }
-        row -= 1;
-    }
-    
-    static NSString* CellIdentifier = @"ListViewReuseIdentifier";
-    
-    SMListCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SMListItem *item = [self.listPage.items objectAtIndex:row];
-    
-    if (cell == nil) {
-        cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
-        // customize the cell
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
-        // background image if exists
-        if (self.listPage.itemBackgroundUrl) {
-            UIImageView *itemBackground = [[UIImageView alloc] init];
-            [itemBackground setImageWithURL:self.listPage.itemBackgroundUrl];
-            [cell setBackgroundView:itemBackground];
-        }
-        
-        // table item appearances
-        [cell applyAppearances:[self.componentDesciption.appearance objectForKey:@"item_bg_image"]];
-        
-        // accessory indicator
-        if ([item hasDefaultTargetComponent] || [item hasCustomTargetComponent]) {
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        }
-    }
-    
-    // customize the cell data
-    [cell.textLabel setText:item.title];
-    [cell.detailTextLabel setText:item.subtitle];
-    
-    // left image if exists
-    if (item.thumbnailUrl) {
-        SMImageView *cellImage = [[SMImageView alloc] initWithFrame:CGRectMake(5, 10, 60, 60)];
-        [cellImage setImageWithURL:item.thumbnailUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            // move text label and title to the side
-            CGRect textLabelFrame = cell.textLabel.frame;
-            textLabelFrame.origin.x += 5;
-            textLabelFrame.size.width -= 20;
-            [cell.textLabel setFrame:textLabelFrame];
-            
-            CGRect textDetailFrame = cell.detailTextLabel.frame;
-            textDetailFrame.origin.x += 5;
-            textDetailFrame.size.width -= 20;
-            [cell.detailTextLabel setFrame:textDetailFrame];
-        }];
-        
-        [cellImage setContentMode:UIViewContentModeScaleAspectFill];
-        [cellImage setClipsToBounds:YES];
-        [cellImage setTag:31];
-        [cellImage addFrame];
-        
-        // add borders
-        //UIColor *bgColor = [cell backgroundColor];
-        //[cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
-        //[cellImage.layer setBorderWidth:0.5];
-        
-        
-        [cell.contentView addSubview:cellImage];
-        
-        
-    }
-    
-    return cell;
-}
-
-#pragma mark - table view delegate
-
-// display the detail row
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row = [indexPath row];
-    if ([[self.listPage images] count] > 0) {
-        if ([indexPath row] == 0) {
-            return;
-        }
-        row -= 1;
-    }
-    
-    SMListItem *listItem = (SMListItem *)[self.listPage.items objectAtIndex:row];
-    SMBaseComponentViewController *ctrl = [self targetComponentByListItem:listItem];
-    
-    // make delegate know about the navigation
-    if (ctrl && [self.componentNavigationDelegate respondsToSelector:@selector(component:willShowViewController:animated:)]) {
-        [self.componentNavigationDelegate component:self willShowViewController:ctrl animated:YES];
-    }
-    
-    // display this page now
-    if (self.navigationController && ctrl) {
-        [self.navigationController pushViewController:ctrl animated:YES];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[self.listPage images] count] > 0 && [indexPath row] == 0)
-        return 160.0;
-    
-    return 80.0;
-}
 
 #pragma mark - class methods
 
