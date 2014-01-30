@@ -14,8 +14,8 @@
 #import "SMSideMenuViewController.h"
 
 
-@interface SMSideNavigationViewController () 
-@property (nonatomic, strong) SMSideMenuViewController *menuController;
+@interface SMSideNavigationViewController () <SWRevealViewControllerDelegate>
+
 @end
 
 @implementation SMSideNavigationViewController
@@ -27,39 +27,35 @@
     self = [super init];
     if (self) {
         [self setApperanceManager:[SMNavigationApperanceManager appearanceManager]];
-        
-        // configure side navigation
         self.delegate = self;
-        //self.bounceElasticity = 0.2f;
-        //self.bounceMagnitude = 60.0f;
-        self.gravityMagnitude = 3.0f;
-        
-        // add stylers
-        [self addStylersFromArray:@[[MSDynamicsDrawerParallaxStyler styler], [MSDynamicsDrawerShadowStyler styler]] forDirection:MSDynamicsDrawerDirectionLeft];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     // add the menu controller
-    self.menuController = [[SMSideMenuViewController alloc] initWithComponentDesciptions:self.componentDescriptions];
-    self.menuController.dynamicsDrawer = self;
-    [self setDrawerViewController:self.menuController forDirection:MSDynamicsDrawerDirectionLeft];
+    [self setRearViewController:[[SMSideMenuViewController alloc] initWithComponentDesciptions:self.componentDescriptions]];
     
     // transition to the 1st view controller
     UIViewController *firstComponent = [self componentAtIndex:0];
-    [self setPaneViewSlideOffAnimationEnabled:YES];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Menu_Icon"]
+                                                             style:UIBarButtonItemStyleBordered
+                                                            target:self
+                                                            action:@selector(revealToggle:)];
+    if ([firstComponent isKindOfClass:[UINavigationController class]]) {
+        UIViewController *topViewController = [(UINavigationController *)firstComponent topViewController];
+        topViewController.navigationItem.leftBarButtonItem = item;
+    } else {
+        firstComponent.navigationItem.leftBarButtonItem = item;
+    }
     
-    [self.menuController transitionToViewController:firstComponent animated:NO];
+    [self setFrontViewController:firstComponent];
     
-    /*
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self bouncePaneOpenInDirection:MSDynamicsDrawerDirectionLeft allowUserInterruption:NO completion:nil];
-    });
-     */
+    [self panGestureRecognizer];
+    [self tapGestureRecognizer];
 }
 
 #pragma mark - SMNavigation methods
@@ -97,15 +93,49 @@
 
 - (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent
 {
-    [self.menuController transitionToViewController:toComponent animated:YES];
+    [(SMSideMenuViewController *)self.rearViewController transitionToViewController:toComponent animated:NO];
 }
 
-#pragma mark - MSDynamicsDrawerViewControllerDelegate
+#pragma mark - delegate
 
-- (void)dynamicsDrawerViewController:(MSDynamicsDrawerViewController *)dynamicsDrawerViewController didUpdateToPaneState:(MSDynamicsDrawerPaneState)state
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
 {
-    // Ensure that the pane's table view can scroll to top correctly
-    self.menuController.tableView.scrollsToTop = (state == MSDynamicsDrawerPaneStateOpen);
+    
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    
+}
+
+- (void)revealController:(SWRevealViewController *)revealController animateToPosition:(FrontViewPosition)position
+{
+    
+}
+
+- (void)revealControllerPanGestureBegan:(SWRevealViewController *)revealController;
+{
+    
+}
+
+- (void)revealControllerPanGestureEnded:(SWRevealViewController *)revealController;
+{
+    
+}
+
+- (void)revealController:(SWRevealViewController *)revealController panGestureBeganFromLocation:(CGFloat)location progress:(CGFloat)progress
+{
+    
+}
+
+- (void)revealController:(SWRevealViewController *)revealController panGestureMovedToLocation:(CGFloat)location progress:(CGFloat)progress
+{
+    
+}
+
+- (void)revealController:(SWRevealViewController *)revealController panGestureEndedToLocation:(CGFloat)location progress:(CGFloat)progress
+{
+    
 }
 
 @end

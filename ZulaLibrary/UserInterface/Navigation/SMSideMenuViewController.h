@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MSDynamicsDrawerViewController.h"
 
 @interface SMSideMenuViewController : UITableViewController
-
-@property (nonatomic, weak) MSDynamicsDrawerViewController *dynamicsDrawer;
 
 - (instancetype)initWithComponentDesciptions:(NSArray *)componentDescriptions;
 

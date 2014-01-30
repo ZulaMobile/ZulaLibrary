@@ -12,6 +12,7 @@
 #import "SMComponentDescription.h"
 #import "SMAppDelegate.h"
 #import "SMBaseComponentViewController.h"
+#import "SWRevealViewController.h"
 
 
 @interface SMSideMenuLogoCell : UITableViewCell
@@ -47,8 +48,6 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
 
 @property (nonatomic, strong) SMArrayDataSource *arrayDataSource;
 
-- (void)dynamicsDrawerRevealLeftBarButtonItemTapped:(id)sender;
-
 @end
 
 @implementation SMSideMenuViewController
@@ -70,16 +69,6 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
             UIViewController *component = [navigation componentAtIndex:[indexPath row]];
             
             [strongSelf transitionToViewController:component animated:NO];
-            
-            /*
-            // Prevent visual display bug with cell dividers
-            [strongSelf.tableView deselectRowAtIndexPath:indexPath animated:YES];
-            double delayInSeconds = 0.3;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [strongSelf.tableView reloadData];
-            });
-            */
         }];
         
         [self.tableView registerClass:[SMTableCell class] forCellReuseIdentifier:CellIdentifier];
@@ -98,34 +87,28 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
 
 - (void)transitionToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    /*
-    self.paneRevealLeftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Left_Reveal_Icon"]
-                                                                        style:UIBarButtonItemStyleBordered
-                                                                       target:self
-                                                                       action:@selector(dynamicsDrawerRevealLeftBarButtonItemTapped:)];
-    */
+    SWRevealViewController *revealController = self.revealViewController;
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/Menu_Icon"]
                                                              style:UIBarButtonItemStyleBordered
-                                                            target:self
-                                                            action:@selector(dynamicsDrawerRevealLeftBarButtonItemTapped:)];
+                                                            target:revealController
+                                                            action:@selector(revealToggle:)];
     
+    NSString *title = nil;
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UIViewController *topViewController = [(UINavigationController *)viewController topViewController];
         topViewController.navigationItem.leftBarButtonItem = item;
+        title = topViewController.title;
     } else {
         viewController.navigationItem.leftBarButtonItem = item;
+        title = viewController.title;
     }
     
-    
-    [self.dynamicsDrawer setPaneViewController:viewController animated:animated completion:^{
-        [self.dynamicsDrawer setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:YES completion:nil];
-    }];
-}
-
-- (void)dynamicsDrawerRevealLeftBarButtonItemTapped:(id)sender
-{
-    [self.dynamicsDrawer setPaneState:MSDynamicsDrawerPaneStateOpen inDirection:MSDynamicsDrawerDirectionLeft animated:YES allowUserInterruption:YES completion:nil];
+    if ([title isEqualToString:revealController.frontViewController.title]) {
+        [revealController revealToggle:revealController.frontViewController];
+    } else {
+        [revealController setFrontViewController:viewController animated:YES];
+    }
 }
 
 @end

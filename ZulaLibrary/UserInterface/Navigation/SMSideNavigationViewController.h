@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SMNavigation.h"
-#import "MSDynamicsDrawerViewController.h"
+#import "SWRevealViewController.h"
 
 
-@interface SMSideNavigationViewController : MSDynamicsDrawerViewController <SMNavigation, MSDynamicsDrawerViewControllerDelegate>
+@interface SMSideNavigationViewController : SWRevealViewController <SMNavigation>
 
 @end
