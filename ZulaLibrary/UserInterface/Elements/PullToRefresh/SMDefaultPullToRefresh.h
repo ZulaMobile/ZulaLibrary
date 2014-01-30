@@ -14,6 +14,7 @@
 {
     UIView *_background;
     UIImageView *_arrowTop;
+    UIImageView *_zulaLogo;
     UIActivityIndicatorView *_indicator;
     
     UIScrollView *_scrollView;

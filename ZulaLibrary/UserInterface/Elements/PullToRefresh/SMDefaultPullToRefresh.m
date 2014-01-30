@@ -50,6 +50,14 @@
                                      _arrowTop.frame.size.width, _arrowTop.frame.size.height);
         [_background addSubview:_arrowTop];
         
+        _zulaLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/icon_alternate-50"]];
+        _zulaLogo.frame = CGRectMake((_background.frame.size.width - (_zulaLogo.frame.size.width/2))/2,
+                                     _background.frame.size.height - (_zulaLogo.frame.size.height/2) - 80 ,
+                                     _zulaLogo.frame.size.width/2, _zulaLogo.frame.size.height/2);
+        _zulaLogo.backgroundColor = [UIColor clearColor];
+        _zulaLogo.alpha = 0.5f;
+        [_background addSubview:_zulaLogo];
+        
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_indicator setHidesWhenStopped:YES];
         _indicator.frame = CGRectMake(_arrowTop.frame.origin.x, _arrowTop.frame.origin.y, 16, 16);
@@ -152,15 +160,22 @@
 - (void)deviceOrientationDidChange:(NSNotification *)notification {
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     CGRect fr = [[UIScreen mainScreen] bounds];
-    
     if (UIDeviceOrientationIsLandscape(orientation)) {
         _arrowTop.frame = CGRectMake((CGRectGetHeight(fr) - _arrowTop.frame.size.width)/2,
-                                     _background.frame.size.height - _arrowTop.frame.size.height - 10 ,
+                                     _background.frame.size.height - _arrowTop.frame.size.height - 14 ,
                                      _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        
+        _zulaLogo.frame = CGRectMake((CGRectGetHeight(fr) - _zulaLogo.frame.size.width)/2,
+                                     _background.frame.size.height - _zulaLogo.frame.size.height - 74 ,
+                                     _zulaLogo.frame.size.width, _zulaLogo.frame.size.height);
     } else {
         _arrowTop.frame = CGRectMake((CGRectGetWidth(fr) - _arrowTop.frame.size.width)/2,
                                      _background.frame.size.height - _arrowTop.frame.size.height - 10 ,
                                      _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        
+        _zulaLogo.frame = CGRectMake((CGRectGetWidth(fr) - _zulaLogo.frame.size.width)/2,
+                                     _background.frame.size.height - _zulaLogo.frame.size.height - 80 ,
+                                     _zulaLogo.frame.size.width, _zulaLogo.frame.size.height);
     }
     _indicator.frame = CGRectMake(_arrowTop.frame.origin.x, _arrowTop.frame.origin.y, 16, 16);
 }

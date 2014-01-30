@@ -188,6 +188,8 @@
 		67E2F9C81896B6B800A1E804 /* SMTabularListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */; };
 		67E2F9CB1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */; };
 		67E2F9CC1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */; };
+		67E2F9CF1896C03100A1E804 /* SMSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CE1896C03100A1E804 /* SMSummaryCell.m */; };
+		67E2F9D01896C03100A1E804 /* SMSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2F9CE1896C03100A1E804 /* SMSummaryCell.m */; };
 		67E35F13177F59980079233A /* SMDefaultAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43B16D8ED0300BCE927 /* SMDefaultAppDelegate.h */; };
 		67E35F14177F59C10079233A /* SMAppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6701BD8A16DFAC5A005A9BD3 /* SMAppDelegate.h */; };
 		67E35F15177F59E20079233A /* SMNavigation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 675BDD7516DBBF1D00B141F8 /* SMNavigation.h */; };
@@ -486,6 +488,8 @@
 		67E2F9C61896B6B800A1E804 /* SMTabularListStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTabularListStrategy.m; path = UserInterface/Pages/List/Controller/Strategies/SMTabularListStrategy.m; sourceTree = "<group>"; };
 		67E2F9C91896B88600A1E804 /* SMSummaryListStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSummaryListStrategy.h; path = UserInterface/Pages/List/Controller/Strategies/SMSummaryListStrategy.h; sourceTree = "<group>"; };
 		67E2F9CA1896B88600A1E804 /* SMSummaryListStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSummaryListStrategy.m; path = UserInterface/Pages/List/Controller/Strategies/SMSummaryListStrategy.m; sourceTree = "<group>"; };
+		67E2F9CD1896C03100A1E804 /* SMSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSummaryCell.h; path = UserInterface/Pages/List/View/SMSummaryCell.h; sourceTree = "<group>"; };
+		67E2F9CE1896C03100A1E804 /* SMSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSummaryCell.m; path = UserInterface/Pages/List/View/SMSummaryCell.m; sourceTree = "<group>"; };
 		67E35F1A177F613B0079233A /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGalleryViewController.h; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMVideoGalleryViewController.m; path = UserInterface/Pages/VideoGallery/Controller/SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67E35F1D177F61740079233A /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMVideoGallery.h; path = UserInterface/Pages/VideoGallery/Model/SMVideoGallery.h; sourceTree = "<group>"; };
@@ -944,6 +948,8 @@
 			children = (
 				677207781733D37900E5CDC2 /* SMListCell.h */,
 				677207791733D37900E5CDC2 /* SMListCell.m */,
+				67E2F9CD1896C03100A1E804 /* SMSummaryCell.h */,
+				67E2F9CE1896C03100A1E804 /* SMSummaryCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1725,6 +1731,7 @@
 				673578E9182AC10F009B327D /* SMFormAction.m in Sources */,
 				673578D9182AADFE009B327D /* SMTriangle.m in Sources */,
 				673578AF182AA1F7009B327D /* SMAppDescription.m in Sources */,
+				67E2F9D01896C03100A1E804 /* SMSummaryCell.m in Sources */,
 				673578E5182AC095009B327D /* SMFormDescriptionTests.m in Sources */,
 				673578F1182AC1A5009B327D /* SMFormTextArea.m in Sources */,
 				673578AA182AA071009B327D /* UIColor+ZulaAdditions.m in Sources */,
@@ -1737,6 +1744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E2F9CF1896C03100A1E804 /* SMSummaryCell.m in Sources */,
 				67E2F9C21896872200A1E804 /* SMTileLayout.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,

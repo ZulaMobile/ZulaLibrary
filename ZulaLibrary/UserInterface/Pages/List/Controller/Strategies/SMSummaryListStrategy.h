@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SMListViewController.h"
+#import "SMTabularListStrategy.h"
 
-@interface SMSummaryListStrategy : NSObject <SMListViewStrategy>
+@interface SMSummaryListStrategy : SMTabularListStrategy
 
 @end
