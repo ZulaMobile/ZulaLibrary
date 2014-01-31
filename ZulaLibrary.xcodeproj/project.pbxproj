@@ -1213,10 +1213,10 @@
 				6791C66C176866C0005D64A0 /* Web */,
 				67EDF1AE177D8450004AE1F5 /* QA */,
 				6772D44D16D686D300B36C0F /* SplashPreLoader */,
-				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
-				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
 				675BDD8316DCFA1600B141F8 /* SMComponentFactory.h */,
 				675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */,
+				67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */,
+				67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */,
 				679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */,
 				679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */,
 			);
