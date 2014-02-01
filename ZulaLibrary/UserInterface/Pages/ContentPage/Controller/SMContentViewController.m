@@ -20,7 +20,6 @@
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"
 #import "SMMultipleImageView.h"
-#import "SMPullToRefreshFactory.h"
 
 @interface SMContentViewController ()
 
@@ -37,7 +36,6 @@
 @synthesize imageView = _imageView;
 @synthesize webView = _webView;
 @synthesize scrollView = _scrollView;
-@synthesize contentPage = _contentPage;
 
 - (void)dealloc
 {
@@ -68,11 +66,6 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
     
@@ -95,15 +88,7 @@
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.contentPage) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    [super fetchContents];
     
     // check if there are offline content instead of server one
     if (![self.componentDesciption hasDownloadableContents]) {
@@ -111,7 +96,7 @@
         
         // the contents are ready
         SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:self.componentDesciption.contents];
-        [self setContentPage:contentPage];
+        self.model = contentPage;
         [self applyContents];
         return;
     }
@@ -119,7 +104,7 @@
     // there are downloadable content. fetch it from the webservice.
     NSString *url = [self.componentDesciption contents];
     
-    [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
+    [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *aContentPage, SMServerError *error) {
         // end preloader
         [SMProgressHUD dismiss];
         
@@ -132,21 +117,23 @@
             return;
         }
         
-        [self setContentPage:contentPage];
+        self.model = aContentPage;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    [_webView loadHTMLString:self.contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    SMContentPage *contentPage = (SMContentPage *)self.model;
+    
+    [_webView loadHTMLString:contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
     // set images
-    if ([self.contentPage.images count] > 0) {
+    if ([contentPage.images count] > 0) {
         self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
         [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
         [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
-        [self.imageView addImagesWithArray:self.contentPage.images];
+        [self.imageView addImagesWithArray:contentPage.images];
         [self.scrollView addSubview:self.imageView];
     } else {
         // unset images if set before
@@ -156,18 +143,18 @@
         }
     }
     
-    if (self.contentPage.backgroundUrl) {
+    if (contentPage.backgroundUrl) {
         // set background
-        [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
+        [self.backgroundImageView setImageWithURL:contentPage.backgroundUrl];
     } else if (self.backgroundImageView) {
         // unset background
         [self.backgroundImageView setImage:nil];
     }
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
+    [self applyNavbarIconWithUrl:contentPage.navbarIcon];
     
-    [pullToRefresh endRefresh];
+    [super applyContents];
 }
 
 #pragma mark - web view delegate

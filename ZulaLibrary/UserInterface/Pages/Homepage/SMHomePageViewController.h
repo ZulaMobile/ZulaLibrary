@@ -16,12 +16,7 @@
  Home Page Component automatically displays all registered components 
  in order (if menu is not hidden)
  */
-@interface SMHomePageViewController : SMPullToRefreshComponentViewController
-
-/**
- Model class
- */
-@property (nonatomic, strong) SMHomePage *homePage;
+@interface SMHomePageViewController : SMBaseComponentViewController
 
 /**
  The optional logo image

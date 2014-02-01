@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMPullToRefreshComponentViewController.h"
 
-@class SMImageView, SMLabel, SMMultipleImageView, SMContentPage, SMWebView;
+@class SMImageView, SMLabel, SMMultipleImageView, SMWebView;
 
 /**
  Content page is a simple page consist of title, text and image
@@ -20,12 +20,7 @@
  
  @see SMContentPage model class for the component data to fetch for this page
  */
-@interface SMContentViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate>
-
-/**
- Model attribute that holds the data 
- */
-@property (nonatomic, strong) SMContentPage *contentPage;
+@interface SMContentViewController : SMBaseComponentViewController <UIWebViewDelegate>
 
 /**
  web view to show html content

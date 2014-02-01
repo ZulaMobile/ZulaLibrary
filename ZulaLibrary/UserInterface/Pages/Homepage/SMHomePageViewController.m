@@ -16,7 +16,6 @@
 #import "SMLinks.h"
 #import "SMNavigation.h"
 #import "SMAppDelegate.h"
-#import "SMPullToRefreshFactory.h"
 #import "SMImageView.h"
 
 #import "SMImageComponentStrategy.h"
@@ -39,7 +38,7 @@
     SMImageComponentStrategy *imageComponentDelegate;
     UIView *signature;
 }
-@synthesize homePage, logoView, linksView;
+@synthesize logoView, linksView;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -72,11 +71,6 @@
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     [self.scrollView addSubview:self.logoView];
     [self.view addSubview:self.scrollView];
 }
@@ -84,9 +78,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // fetch the contents
-    [self fetchContents];
     
     self.linksView = [[SMLinks alloc] initWithFrame:
                           CGRectMake(0.0f,
@@ -127,8 +118,7 @@
 
 - (void)fetchContents
 {
-    //if (![pullToRefresh isRefreshing])
-    //    [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
@@ -140,7 +130,7 @@
             return;
         }
         
-        self.homePage = _homePage;
+        self.model = _homePage;
         [self applyContents];
     }];
 }
@@ -150,8 +140,10 @@
     // setup links
     [self setupLinks];
     
+    SMHomePage *homePage = (SMHomePage *)self.model;
+    
     BOOL logoWasHidden = [self.logoView isHidden];
-    if (self.homePage.logoUrl) {
+    if (homePage.logoUrl) {
         [self.logoView setHidden:NO];
         [self.logoView setImageWithProgressBarAndUrl:homePage.logoUrl];
         
@@ -163,7 +155,7 @@
         [self.backgroundImageView setImageWithURL:homePage.backgroundUrl];
     
     // rearrange positions
-    if (self.homePage.logoUrl && logoWasHidden) {
+    if (homePage.logoUrl && logoWasHidden) {
         CGRect linksFrame = self.linksView.frame;
         linksFrame.origin.y += CGRectGetHeight(self.logoView.frame);
         [self.linksView setFrame:linksFrame];
@@ -196,15 +188,7 @@
     scrollViewContentSize.height += CGRectGetHeight(signature.frame) + 10;
     [self.scrollView setContentSize:scrollViewContentSize];
     
-    [pullToRefresh endRefresh];
-}
-
-- (void)pullToRefreshShouldRefresh:(id<SMPullToRefresh>)thePullToRefresh
-{
-    [self fetchContents];
-    
-    SMDefaultAppDelegate *appDelegate = (SMDefaultAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate refreshApp];
+    [super applyContents];
 }
 
 #pragma mark - private methods
@@ -220,6 +204,8 @@
 
 - (void)setupLinks
 {
+    SMHomePage *homePage = (SMHomePage *)self.model;
+    
     // place links, get available components to show and pass them to the links view.
     UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
     UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
@@ -236,9 +222,9 @@
         
         // we only display the components that are allowed by the homepage component
         BOOL componentIsAllowed = YES;
-        if (self.homePage.components) {
+        if (homePage.components) {
             componentIsAllowed = NO;
-            for (NSString *slug in self.homePage.components) {
+            for (NSString *slug in homePage.components) {
                 if ([componentDescription.slug isEqualToString:slug]) {
                     componentIsAllowed = YES;
                     continue;

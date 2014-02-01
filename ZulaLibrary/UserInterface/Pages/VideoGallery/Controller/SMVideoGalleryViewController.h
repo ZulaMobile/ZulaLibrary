@@ -10,12 +10,7 @@
 
 @class SMVideoGallery;
 
-@interface SMVideoGalleryViewController : SMPullToRefreshComponentViewController <UITableViewDataSource, UITableViewDelegate>
-
-/**
- The model instance, it stores the items to display
- */
-@property (nonatomic, strong) SMVideoGallery *videoGallery;
+@interface SMVideoGalleryViewController : SMBaseComponentViewController <UITableViewDataSource, UITableViewDelegate>
 
 /**
  Table view to list all the videos

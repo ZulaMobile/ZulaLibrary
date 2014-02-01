@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SMSwipeComponentStrategy.h"
+
 
 @protocol SMComponentNavigationDelegate;
-@class SMComponentDescription, SMImageView;
+@class SMComponentDescription, SMImageView, SMModel;
 
 /**
  Base component provides the common functionality for all components.
  Concrete components must derive from this class
  */
-@interface SMBaseComponentViewController : UIViewController <SMSwipeComponentStrategyDelegate>
+@interface SMBaseComponentViewController : UIViewController 
 
 /**
  Description file, provides title and slug that the user set
@@ -42,14 +42,21 @@
 @property (nonatomic) CGPoint padding;
 
 /**
+ *  Collection of `SMComponentModule` instances. These objects will be notified
+ *  when certain events occur. 
+ *  Modules are attached on initialization but can be modified anytime in the life cycle.
+ */
+@property (nonatomic, strong) NSArray *modules;
+
+/**
+ *  The default model of the component. A component is considered to have one main model object.
+ */
+@property (nonatomic, strong) SMModel *model;
+
+/**
  Initializer (constructor) that must be used to initialize a component instance
  */
 - (id)initWithDescription:(SMComponentDescription *)description;
-
-/**
- Swipe strategy to control swiping gestures
- */
-@property (nonatomic, strong) SMSwipeComponentStrategy *swipeStrategy;
 
 /**
  Downloads the contents from the server and set the view files.
@@ -67,6 +74,14 @@
  */
 - (void)applyNavbarIconWithUrl:(NSURL *)navbarIconUrl;
 
+/**
+ *  Determines wheather it is necessary to fetch contents.
+ *  if the contents are up to date, this will return NO
+ *
+ *  @return 
+ */
+- (BOOL)shouldFetchContents;
+
 @end
 
 /**
@@ -77,5 +92,34 @@
 
 @optional
 - (void)component:(SMBaseComponentViewController *)component willShowViewController:(UIViewController *)controller animated:(BOOL)animated;
+
+@end
+
+
+//
+//
+
+@interface SMBaseComponentViewController (ModuleAdditions)
+
+/**
+ *  Removes a module by its class.
+ *
+ *  @param cls
+ */
+- (void)removeModuleByClass:(Class)cls;
+
+/**
+ *  Add a module by its class. It creates the module for you.
+ *
+ *  @param cls
+ */
+- (void)addModuleByClass:(Class)cls;
+
+/**
+ *  Add a module to the modules array
+ *
+ *  @param module 
+ */
+- (void)addModule:(id)module;
 
 @end

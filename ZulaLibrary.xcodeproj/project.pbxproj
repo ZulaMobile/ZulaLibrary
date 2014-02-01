@@ -81,6 +81,12 @@
 		67357938182AE9B1009B327D /* SMAppDescriptionDummyDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */; };
 		67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */; };
 		6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3516F06DD2001AA909 /* SMValidator.h */; };
+		673FF956189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */; };
+		673FF957189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */; };
+		673FF95A189C1522000B9C88 /* SMComponentModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF959189C1522000B9C88 /* SMComponentModuleManager.m */; };
+		673FF95B189C1522000B9C88 /* SMComponentModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF959189C1522000B9C88 /* SMComponentModuleManager.m */; };
+		673FF95F189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */; };
+		673FF960189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */; };
 		6741DD421883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
 		6741DD431883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
 		6741DD491884057D008B0391 /* SMSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD481884057D008B0391 /* SMSideMenuViewController.m */; };
@@ -325,6 +331,13 @@
 		6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionPlistDataSource.m; path = Library/Descriptions/SMAppDescriptionPlistDataSource.m; sourceTree = "<group>"; };
 		67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionBaseDataSource.h; path = Library/Descriptions/SMAppDescriptionBaseDataSource.h; sourceTree = "<group>"; };
 		67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionBaseDataSource.m; path = Library/Descriptions/SMAppDescriptionBaseDataSource.m; sourceTree = "<group>"; };
+		673FF952189C0E30000B9C88 /* SMComponentModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentModule.h; path = UserInterface/ComponentModules/SMComponentModule.h; sourceTree = "<group>"; };
+		673FF954189C1055000B9C88 /* SMPullToRefreshModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPullToRefreshModule.h; path = UserInterface/ComponentModules/PullToRefresh/SMPullToRefreshModule.h; sourceTree = "<group>"; };
+		673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshModule.m; path = UserInterface/ComponentModules/PullToRefresh/SMPullToRefreshModule.m; sourceTree = "<group>"; };
+		673FF958189C1522000B9C88 /* SMComponentModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentModuleManager.h; path = UserInterface/ComponentModules/SMComponentModuleManager.h; sourceTree = "<group>"; };
+		673FF959189C1522000B9C88 /* SMComponentModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentModuleManager.m; path = UserInterface/ComponentModules/SMComponentModuleManager.m; sourceTree = "<group>"; };
+		673FF95D189C18EE000B9C88 /* SMSwipeBackModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSwipeBackModule.h; path = UserInterface/ComponentModules/SwipeBack/SMSwipeBackModule.h; sourceTree = "<group>"; };
+		673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSwipeBackModule.m; path = UserInterface/ComponentModules/SwipeBack/SMSwipeBackModule.m; sourceTree = "<group>"; };
 		6741DD401883FC77008B0391 /* SMSideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideNavigationViewController.h; path = UserInterface/Navigation/SMSideNavigationViewController.h; sourceTree = "<group>"; };
 		6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSideNavigationViewController.m; path = UserInterface/Navigation/SMSideNavigationViewController.m; sourceTree = "<group>"; };
 		6741DD471884057D008B0391 /* SMSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideMenuViewController.h; path = UserInterface/Navigation/SMSideMenuViewController.h; sourceTree = "<group>"; };
@@ -769,6 +782,36 @@
 			name = Form;
 			sourceTree = "<group>";
 		};
+		673FF950189C0DAF000B9C88 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				673FF95C189C18C8000B9C88 /* SwipeBack */,
+				673FF953189C102F000B9C88 /* PullToRefresh */,
+				673FF952189C0E30000B9C88 /* SMComponentModule.h */,
+				673FF958189C1522000B9C88 /* SMComponentModuleManager.h */,
+				673FF959189C1522000B9C88 /* SMComponentModuleManager.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		673FF953189C102F000B9C88 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				673FF954189C1055000B9C88 /* SMPullToRefreshModule.h */,
+				673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */,
+			);
+			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		673FF95C189C18C8000B9C88 /* SwipeBack */ = {
+			isa = PBXGroup;
+			children = (
+				673FF95D189C18EE000B9C88 /* SMSwipeBackModule.h */,
+				673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */,
+			);
+			name = SwipeBack;
+			sourceTree = "<group>";
+		};
 		6741DD4418840547008B0391 /* Side */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1232,7 @@
 			isa = PBXGroup;
 			children = (
 				675BDD7416DBBE4A00B141F8 /* NavigationComponents */,
+				673FF950189C0DAF000B9C88 /* Modules */,
 				67CCC9CC16C11DA9000EBC0B /* Components */,
 				67CCC9D916C1579D000EBC0B /* UI Elements */,
 				67F6CD6B17778FD3003055B4 /* Delegates */,
@@ -1293,7 +1337,6 @@
 				67CCCA0116C16B85000EBC0B /* Base */,
 				67CCC9FA16C16A07000EBC0B /* Categories */,
 				67CCC9FB16C16A11000EBC0B /* Network */,
-				67CCC9FD16C16A2B000EBC0B /* Strategies */,
 				67C7F9FB182D606000FCE846 /* DataSources */,
 				67CCC9FC16C16A21000EBC0B /* Authentication */,
 			);
@@ -1337,13 +1380,6 @@
 			children = (
 			);
 			name = Authentication;
-			sourceTree = "<group>";
-		};
-		67CCC9FD16C16A2B000EBC0B /* Strategies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Strategies;
 			sourceTree = "<group>";
 		};
 		67CCC9FE16C16B44000EBC0B /* Content */ = {
@@ -1693,6 +1729,7 @@
 			files = (
 				673578C2182AA757009B327D /* SMSubMenuApplicationTests.m in Sources */,
 				673578EE182AC193009B327D /* SMFormTextField.m in Sources */,
+				673FF960189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */,
 				673578EB182AC126009B327D /* SMFormFieldFactory.m in Sources */,
 				673578E7182AC0EE009B327D /* SMFormSection.m in Sources */,
 				673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */,
@@ -1700,6 +1737,7 @@
 				67E2F9B7189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */,
 				673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */,
 				677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */,
+				673FF95B189C1522000B9C88 /* SMComponentModuleManager.m in Sources */,
 				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
 				673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */,
 				6741DD4F18840742008B0391 /* SMTableCell.m in Sources */,
@@ -1718,6 +1756,7 @@
 				673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */,
 				67E2F9C81896B6B800A1E804 /* SMTabularListStrategy.m in Sources */,
 				673578ED182AC18B009B327D /* SMFormField.m in Sources */,
+				673FF957189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */,
 				673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */,
 				6735787C182A9C1E009B327D /* main.m in Sources */,
 				673578B9182AA316009B327D /* SMNavBarNavigationControllerTests.m in Sources */,
@@ -1794,6 +1833,7 @@
 				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
 				67E2F9BE189684A900A1E804 /* SMTileCell.m in Sources */,
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
+				673FF956189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
 				67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */,
@@ -1847,11 +1887,13 @@
 				67D332C0177AF33F0010E49D /* SMPlainPullToRefresh.m in Sources */,
 				678D8FC8177C554F00A364FF /* SMSwipeComponentStrategy.m in Sources */,
 				67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */,
+				673FF95F189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */,
 				67E35F1C177F613B0079233A /* SMVideoGalleryViewController.m in Sources */,
 				67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */,
 				67E35F23177F677E0079233A /* SMVideoCell.m in Sources */,
 				67A83206178AE541000D3243 /* SMUser.m in Sources */,
 				677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */,
+				673FF95A189C1522000B9C88 /* SMComponentModuleManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,11 +20,6 @@
 @interface SMContainerViewController : SMBaseComponentViewController <SMComponentNavigationDelegate, SMSwipeComponentStrategyDelegate>
 
 /**
- Model class
- */
-@property (nonatomic, strong) SMContainer *container;
-
-/**
  Submenu view contains the buttons for sub-components
  */
 @property (nonatomic, strong) SDSegmentedControl *subMenu;

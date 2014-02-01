@@ -15,7 +15,7 @@
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
-    self = [super init];
+    self = [super initWithAttributes:attributes];
     if (self) {
         _title = [attributes objectForKey:kModelVideoGalleryTitle];
         

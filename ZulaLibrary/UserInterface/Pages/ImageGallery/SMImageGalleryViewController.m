@@ -13,7 +13,6 @@
 #import "SMComponentDescription.h"
 #import "MWPhoto.h"
 #import "SMImageGallery.h"
-#import "SMPullToRefreshFactory.h"
 
 @interface SMImageGalleryViewController ()
 
@@ -22,7 +21,7 @@
 @end
 
 @implementation SMImageGalleryViewController
-@synthesize photos, imageGallery, scrollView;
+@synthesize photos, scrollView;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -41,36 +40,14 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     [self.view addSubview:self.scrollView];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
 }
 
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.imageGallery) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing]) 
-        [SMProgressHUD show];
-    
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMImageGallery fetchWithURLString:url completion:^(SMImageGallery *_imageGallery, SMServerError *error) {
@@ -86,23 +63,25 @@
             return;
         }
         
-        [self setImageGallery:_imageGallery];
+        self.model = _imageGallery;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
+    SMImageGallery *imageGallery = (SMImageGallery *)self.model;
+    
     UIView *thumbnailViewToDelete = [self.scrollView viewWithTag:443];
     [thumbnailViewToDelete removeFromSuperview];
     thumbnailViewToDelete = nil;
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.imageGallery.navbarIcon];
+    [self applyNavbarIconWithUrl:imageGallery.navbarIcon];
     
     self.photos = [NSMutableArray array];
     
-    for (NSURL *url in self.imageGallery.images) {
+    for (NSURL *url in imageGallery.images) {
         MWPhoto *ph = [MWPhoto photoWithURL:url];
         //[ph setCaption:@"Buraya aciklamalar gelecek"];
         [photos addObject:ph];
@@ -132,7 +111,7 @@
                                                               (self.padding.y * row) + (row * height),
                                                               width,
                                                               height)];
-        [image setImageWithURL:[self.imageGallery.images objectAtIndex:i] activityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [image setImageWithURL:[imageGallery.images objectAtIndex:i] activityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [image setContentMode:UIViewContentModeScaleToFill];
         [image setTouchDelegate:self];
         [image setTag:i];
@@ -151,7 +130,7 @@
     
     [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(thumbnailContainer.frame), CGRectGetHeight(thumbnailContainer.frame))];
     
-    [pullToRefresh endRefresh];
+    [super applyContents];
 }
 
 #pragma mark - private methods

@@ -14,9 +14,7 @@
 /**
  Contact controller to display maps, address info and a form
  */
-@interface SMContactViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate, SMFormDelegate>
-
-@property (nonatomic, strong) SMContact *contact;
+@interface SMContactViewController : SMBaseComponentViewController <UIWebViewDelegate, SMFormDelegate>
 
 @property (nonatomic, strong) SMMapView *mapView;
 

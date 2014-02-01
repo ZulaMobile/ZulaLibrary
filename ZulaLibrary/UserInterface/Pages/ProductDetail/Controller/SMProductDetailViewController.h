@@ -10,12 +10,7 @@
 
 @class SMProductDetail, SMLabel, SMWebView, SMMultipleImageView;
 
-@interface SMProductDetailViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate>
-
-/**
- Model instance
- */
-@property (nonatomic, strong) SMProductDetail *productDetail;
+@interface SMProductDetailViewController : SMBaseComponentViewController <UIWebViewDelegate>
 
 /**
  web view to show html content

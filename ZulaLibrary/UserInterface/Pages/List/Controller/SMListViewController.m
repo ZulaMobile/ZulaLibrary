@@ -24,43 +24,60 @@
 #import "SMListCell.h"
 #import "SMMultipleImageView.h"
 #import "SMImageView.h"
-#import "SMPullToRefreshFactory.h"
 
 #import "SMTabularListStrategy.h"
 #import "SMSummaryListStrategy.h"
 
+#import "SMPullToRefreshModule.h"
+#import "SMPullToRefreshFactory.h"
 
-@interface SMListViewController ()
+
+@interface SMListPullToRefreshModule : SMPullToRefreshModule
+@end
+
+@implementation SMListPullToRefreshModule
+
+- (void)componentViewDidLoad
+{
+    // override the default behavior
+}
+
+- (void)componentDidFetchContent:(SMModel *)model
+{
+    if (!pullToRefresh) {
+        NSString *pullToRefreshType = [self.component.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
+        SMListViewController *controller = (SMListViewController *)self.component;
+        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)controller.strategy tableView]
+                                                                   delegate:self
+                                                                       name:pullToRefreshType];
+    }
+    
+    [super componentDidFetchContent:model];
+}
 
 @end
 
+
+@interface SMListViewController ()
+@end
+
 @implementation SMListViewController
-@synthesize listPage, images;
+@synthesize images;
 
 - (void)loadView
 {
     [super loadView];
+ 
+    // remove the default pull to refresh
+    [self removeModuleByClass:[SMPullToRefreshModule class]];
     
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self fetchContents];
+    // add our modified one
+    [self addModuleByClass:[SMListPullToRefreshModule class]];
 }
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.listPage) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     
@@ -77,30 +94,22 @@
             return;
         }
         
-        [self setListPage:theListPage];
+        self.model = theListPage;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    
+    SMListPage *listPage = (SMListPage *)self.model;
     
     // set the strategy
-    if (self.listPage.listingStyle == SMListingStyleSummary) {
+    if (listPage.listingStyle == SMListingStyleSummary) {
         self.strategy = [[SMSummaryListStrategy alloc] initWithListViewController:self];
-    } else if (self.listPage.listingStyle == SMListingStyleTable) {
+    } else if (listPage.listingStyle == SMListingStyleTable) {
         self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
-        NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)self.strategy tableView]
-                                                                   delegate:self
-                                                                       name:pullToRefreshType];
     } else {
         self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
-        NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)self.strategy tableView]
-                                                                   delegate:self
-                                                                       name:pullToRefreshType];
     }
     
     [self.strategy setup];
@@ -120,10 +129,9 @@
     }*/
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.listPage.navbarIcon];
+    [self applyNavbarIconWithUrl:listPage.navbarIcon];
     
-    [pullToRefresh endRefresh];
-    
+    [super applyContents];
 }
 
 
@@ -132,6 +140,8 @@
 
 - (SMBaseComponentViewController *)targetComponentByListItem:(SMListItem *)listItem
 {
+    SMListPage *listPage = (SMListPage *)self.model;
+    
     // check if the item has custom component
     if ([listItem hasCustomTargetComponent]) {
         // if there is custom component, fetch information
@@ -155,7 +165,7 @@
                             //[self.listPage.backgroundUrl absoluteString], kModelContentPageBackgroundImageUrl,
                             nil];
     SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:params];
-    [contentPage setBackgroundUrl:self.listPage.backgroundUrl];
+    [contentPage setBackgroundUrl:listPage.backgroundUrl];
     if (listItem.imageUrl) {
         [contentPage setImages:[NSArray arrayWithObject:listItem.imageUrl]];
     }
@@ -169,7 +179,7 @@
                                          nil];
     SMComponentDescription *contentComponentDescription = [[SMComponentDescription alloc] initWithAttributes:componentDescParams];
     SMContentViewController *ctrl = [[SMContentViewController alloc] initWithDescription:contentComponentDescription];
-    [ctrl setContentPage:contentPage];
+    ctrl.model = contentPage;
     return ctrl;
 }
 
