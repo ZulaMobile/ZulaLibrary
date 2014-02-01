@@ -11,8 +11,16 @@
 @class SMBaseComponentViewController, SMModel;
 
 /**
- *  A component module is a delegate class that is attached to a
+ *  A component module is a delegate object that is attached to a
  *  component and notified when certain events happen.
+ *
+ *  Unlike `SMComponentStrategy`, a module has looser coupling with component objects.
+ *  Modules are supposed to be interchangable during the runtime and offers a general
+ *  behavior to the components.
+ *
+ *  In principle, it is discouraged for a module to modify a component member object.
+ *  In other words, modules are meanth to add functionality, not modify or remove existing ones.
+ *  To do those, see `SMComponentStrategy`
  */
 @protocol SMComponentModule <NSObject>
 

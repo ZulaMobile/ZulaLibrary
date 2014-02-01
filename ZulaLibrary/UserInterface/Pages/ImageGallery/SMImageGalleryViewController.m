@@ -7,7 +7,6 @@
 //
 
 #import "SMImageGalleryViewController.h"
-#import "SMProgressHUD.h"
 #import "UIViewController+SMAdditions.h"
 
 #import "SMComponentDescription.h"
@@ -51,8 +50,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMImageGallery fetchWithURLString:url completion:^(SMImageGallery *_imageGallery, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);

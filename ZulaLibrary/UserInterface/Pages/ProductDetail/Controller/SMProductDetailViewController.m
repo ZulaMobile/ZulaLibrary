@@ -9,7 +9,6 @@
 #import "SMProductDetailViewController.h"
 #import <DDLog.h>
 
-#import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"
 
@@ -73,8 +72,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMProductDetail fetchWithURLString:url completion:^(SMProductDetail *productDetail, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);

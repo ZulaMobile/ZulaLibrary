@@ -9,7 +9,6 @@
 #import "SMListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "SMProgressHUD.h"
 
 #import "UIColor+ZulaAdditions.h"
 #import "UIViewController+SMAdditions.h"
@@ -82,8 +81,6 @@
     NSString *url = [self.componentDesciption url];
     
     [SMListPage fetchWithUrlString:url completion:^(SMListPage *theListPage, NSError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"List page fetch contents error|%@", [error description]);

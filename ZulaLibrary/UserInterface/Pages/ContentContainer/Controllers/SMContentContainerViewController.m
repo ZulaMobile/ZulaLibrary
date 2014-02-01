@@ -10,7 +10,6 @@
 #import "SDSegmentedControl.h"
 #import "UIViewController+SMAdditions.h"
 #import "UIColor+ZulaAdditions.h"
-#import "SMProgressHUD.h"
 
 #import "SMComponentDescription.h"
 #import "SMContentContainer.h"
@@ -72,8 +71,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMContentContainer fetchWithURLString:url completion:^(SMContentContainer *theContentContainer, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);

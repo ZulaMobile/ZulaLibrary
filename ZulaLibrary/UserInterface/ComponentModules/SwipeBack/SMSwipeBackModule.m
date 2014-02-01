@@ -27,18 +27,6 @@
     self = [super init];
     if (self) {
         self.component = aComponent;
-        
-        // swipe gestures
-        swipeGestureToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToLeft:)];
-        [swipeGestureToLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-        [swipeGestureToLeft setNumberOfTouchesRequired:1];
-        [self.component.view addGestureRecognizer:swipeGestureToLeft];
-        
-        swipeGestureToRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToRight:)];
-        [swipeGestureToRight setDirection:UISwipeGestureRecognizerDirectionRight];
-        [swipeGestureToRight setNumberOfTouchesRequired:1];
-        [self.component.view addGestureRecognizer:swipeGestureToRight];
-        
     }
     return self;
 }
@@ -47,6 +35,20 @@
 {
     [self.component.view removeGestureRecognizer:swipeGestureToLeft];
     [self.component.view removeGestureRecognizer:swipeGestureToRight];
+}
+
+- (void)componentViewDidLoad
+{
+    // swipe gestures
+    swipeGestureToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToLeft:)];
+    [swipeGestureToLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [swipeGestureToLeft setNumberOfTouchesRequired:1];
+    [self.component.view addGestureRecognizer:swipeGestureToLeft];
+    
+    swipeGestureToRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeToRight:)];
+    [swipeGestureToRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [swipeGestureToRight setNumberOfTouchesRequired:1];
+    [self.component.view addGestureRecognizer:swipeGestureToRight];
 }
 
 #pragma mark - swipe gestures

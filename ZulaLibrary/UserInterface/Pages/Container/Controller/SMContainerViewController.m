@@ -8,7 +8,6 @@
 
 #import "SMContainerViewController.h"
 #import "SDSegmentedControl.h"
-#import "SMProgressHUD.h"
 #import "UIViewController+SMAdditions.h"
 
 #import "SMAppDescription.h"
@@ -61,21 +60,8 @@
 {
     [super fetchContents];
     
-    SMContainer *container = (SMContainer *)self.model;
-    
-    // if data is already set, no need to fetch contents
-    if (container) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    [SMProgressHUD show];
-    
     NSString *url = [self.componentDesciption url];
     [SMContainer fetchWithURLString:url completion:^(SMContainer *theContainer, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);

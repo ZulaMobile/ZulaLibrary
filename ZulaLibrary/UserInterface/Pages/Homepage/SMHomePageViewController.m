@@ -7,7 +7,6 @@
 //
 
 #import "SMHomePageViewController.h"
-#import "SMProgressHUD.h"
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
@@ -122,7 +121,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
-        //[SMProgressHUD dismiss];
         if (error) {
             DDLogError(@"Home page fetch contents error|%@", [error description]);
             // show error

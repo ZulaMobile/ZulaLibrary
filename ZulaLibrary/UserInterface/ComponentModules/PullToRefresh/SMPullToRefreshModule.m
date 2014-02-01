@@ -10,7 +10,6 @@
 #import "SMBaseComponentViewController.h"
 #import "SMPullToRefreshFactory.h"
 #import "SMComponentDescription.h"
-#import "SMProgressHUD.h"
 
 
 @implementation SMPullToRefreshModule
@@ -29,8 +28,8 @@
 
 - (void)componentViewDidLoad
 {
-    // the scrollview must be the first child view
-    UIView *view = [[self.component.view subviews] objectAtIndex:0];
+    // the scrollview must be the second child view after the background image
+    UIView *view = [[self.component.view subviews] objectAtIndex:1];
     if (![view isKindOfClass:[UIScrollView class]]) {
         // there is no scroll view to attach pull to refresh
         return;
@@ -56,8 +55,8 @@
 - (void)componentWillFetchContents
 {
     // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    //if (![pullToRefresh isRefreshing])
+    //    [SMProgressHUD show];
 }
 
 - (void)componentDidFetchContent:(SMModel *)model

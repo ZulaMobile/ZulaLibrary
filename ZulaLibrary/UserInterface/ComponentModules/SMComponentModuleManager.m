@@ -12,13 +12,15 @@
 
 #import "SMPullToRefreshModule.h"
 #import "SMSwipeBackModule.h"
+#import "SMProgressHUDModule.h"
 
 
 @implementation SMComponentModuleManager
 
 + (NSArray *)modulesForComponent:(SMBaseComponentViewController *)component
 {
-    return @[[[SMPullToRefreshModule alloc] initWithComponent:component],
+    return @[[[SMProgressHUDModule alloc] initWithComponent:component],
+             [[SMPullToRefreshModule alloc] initWithComponent:component],
              [[SMSwipeBackModule alloc] initWithComponent:component]
              ];
 }

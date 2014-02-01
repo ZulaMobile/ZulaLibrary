@@ -16,7 +16,6 @@
 #import "SMWebView.h"
 #import "SMScrollView.h"
 #import "SMContentPage.h"
-#import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"
 #import "SMMultipleImageView.h"
@@ -92,7 +91,6 @@
     
     // check if there are offline content instead of server one
     if (![self.componentDesciption hasDownloadableContents]) {
-        [SMProgressHUD dismiss];
         
         // the contents are ready
         SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:self.componentDesciption.contents];
@@ -105,8 +103,6 @@
     NSString *url = [self.componentDesciption contents];
     
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *aContentPage, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);

@@ -95,8 +95,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMContact fetchWithURLString:url Completion:^(SMContact *contactPage, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Contact page fetch contents error|%@", [error description]);

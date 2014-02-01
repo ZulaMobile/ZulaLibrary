@@ -7,7 +7,6 @@
 //
 
 #import "SMVideoGalleryViewController.h"
-#import "SMProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+SMAdditions.h"
 #import "UIColor+ZulaAdditions.h"
@@ -52,8 +51,6 @@
     NSString *url = [self.componentDesciption url];
     
     [SMVideoGallery fetchWithURLString:url completion:^(SMVideoGallery *theVideoGallery, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"List page fetch contents error|%@", [error description]);

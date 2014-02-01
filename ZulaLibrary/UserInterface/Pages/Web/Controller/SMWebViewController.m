@@ -56,8 +56,6 @@
     
     NSString *url = [self.componentDesciption url];
     [SMWeb fetchWithURLString:url completion:^(SMWeb *theWeb, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Web page fetch contents error|%@", [error description]);
