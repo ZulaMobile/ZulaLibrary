@@ -13,6 +13,10 @@
 #import "SMAppDelegate.h"
 #import "SMBaseComponentViewController.h"
 #import "SWRevealViewController.h"
+#import "SMAppDescription.h"
+#import "SMNavigationDescription.h"
+#import "UIImageView+WebCache.h"
+#import "UIColor+ZulaAdditions.h"
 
 
 @interface SMSideMenuLogoCell : UITableViewCell
@@ -28,6 +32,8 @@
         self.backgroundColor = [UIColor clearColor];
         self.textLabel.textColor = [UIColor whiteColor];
         self.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
+        
+        /*
         UIView *selectedBackgroundView = [UIView new];
         selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.25];
         self.selectedBackgroundView = selectedBackgroundView;
@@ -35,6 +41,7 @@
         UIView *backgoundView = [UIView new];
         backgoundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.25];
         self.backgroundView = backgoundView;
+         */
     }
     return self;
 }
@@ -43,10 +50,18 @@
 
 
 static NSString *const CellIdentifier = @"MenuCellIdentifier";
+static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 
-@interface SMSideMenuViewController ()
+@interface SMSideMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) SMArrayDataSource *arrayDataSource;
+@property (nonatomic, strong) NSArray *items;
+
+@property (nonatomic, strong) NSString *logoUrl;
+@property (nonatomic, strong) NSString *backgroundImageUrl;
+
+@property (nonatomic, strong) UIColor *textColor;
+
+- (void)applyAppearances;
 
 @end
 
@@ -56,24 +71,20 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        __block id weakSelf = self;
-        self.arrayDataSource = [[SMArrayDataSource alloc] initWithItems:componentDescriptions cellIdentifier:CellIdentifier configureCellBlock:^(id cell, id item, NSIndexPath *indexPath) {
-            SMTableCell *theCell = (SMTableCell *)cell;
-            SMComponentDescription *desc = (SMComponentDescription *)item;
-            theCell.textLabel.text = desc.title;
-        } itemDidSelectBlock:^(id item, NSIndexPath *indexPath) {
-            SMSideMenuViewController *strongSelf = weakSelf;
-            
-            UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
-            UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
-            UIViewController *component = [navigation componentAtIndex:[indexPath row]];
-            
-            [strongSelf transitionToViewController:component animated:NO];
-        }];
+        self.items = componentDescriptions;
+        
+        SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
+        self.logoUrl = [navDesc.data objectForKey:@"sidebar_top_image"];
+        self.backgroundImageUrl = [navDesc.data objectForKey:@"sidebar_bg_image"];
+        
+        if ([self.logoUrl isEqualToString:@""]) self.logoUrl = nil;
+        if ([self.backgroundImageUrl isEqualToString:@""]) self.backgroundImageUrl = nil;
         
         [self.tableView registerClass:[SMTableCell class] forCellReuseIdentifier:CellIdentifier];
-        self.tableView.dataSource = self.arrayDataSource;
-        self.tableView.delegate = self.arrayDataSource;
+        [self.tableView registerClass:[SMSideMenuLogoCell class] forCellReuseIdentifier:LogoCellIdentifier];
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
     }
     return self;
 }
@@ -81,8 +92,57 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor orangeColor];
-    self.tableView.separatorColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    
+    [self applyAppearances];
+}
+
+- (void)applyAppearances
+{
+    SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
+    NSDictionary *appearances = [[navDesc.data objectForKey:@"appearance"] objectForKey:@"sidebar"];
+    
+    if (appearances) {
+        // text color
+        self.textColor = ([appearances objectForKey:@"text_color"]) ?
+        [UIColor colorWithHex:[appearances objectForKey:@"text_color"]] : [UIColor whiteColor];
+        
+        // background color
+        NSDictionary *bgImageDict = [appearances objectForKey:@"bg_image"];
+        if (bgImageDict) {
+            NSString *bgColorHex = [bgImageDict objectForKey:@"bg_color"];
+            UIColor *bgColor = (bgColorHex) ? [UIColor colorWithHex:bgColorHex] : [UIColor colorWithHex:@"#006EFF"];
+            self.tableView.backgroundColor = bgColor;
+        }
+    }
+    
+    // background image
+    if (self.backgroundImageUrl) {
+        UIImageView *bgImage = [[UIImageView alloc] initWithFrame:self.view.frame];
+        [bgImage setImageWithURL:[NSURL URLWithString:self.backgroundImageUrl]];
+        
+        // background image alignment
+        NSDictionary *bgImageDict = [appearances objectForKey:@"bg_image"];
+        if (bgImageDict) {
+            NSString *alignmentOption = [bgImageDict objectForKey:@"alignment"];
+            if (alignmentOption) {
+                if ([alignmentOption isEqualToString:@"aspect_fill"]) {
+                    bgImage.contentMode = UIViewContentModeScaleAspectFill;
+                } else if ([alignmentOption isEqualToString:@"aspect_fit"]) {
+                    bgImage.contentMode = UIViewContentModeScaleAspectFit;
+                } else {
+                    bgImage.contentMode = UIViewContentModeCenter;
+                }
+            }
+        }
+        
+        [self.tableView addSubview:bgImage];
+        [self.tableView sendSubviewToBack:bgImage];
+        self.tableView.backgroundColor = [UIColor clearColor];
+    }
+    
+    //self.tableView.separatorColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
 - (void)transitionToViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -109,6 +169,90 @@ static NSString *const CellIdentifier = @"MenuCellIdentifier";
     } else {
         [revealController setFrontViewController:viewController animated:YES];
     }
+}
+
+
+#pragma mark - table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self.items count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                    forIndexPath:indexPath];
+    
+    id item = [self.items objectAtIndex:[indexPath row]];
+    SMComponentDescription *desc = (SMComponentDescription *)item;
+    cell.textLabel.text = desc.title;
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
+}
+
+#pragma mark - table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIResponder<SMAppDelegate> *appDelegate = (UIResponder<SMAppDelegate> *)[[UIApplication sharedApplication] delegate];
+    UIViewController<SMNavigation> *navigation = (UIViewController<SMNavigation> *)[appDelegate navigationComponent];
+    UIViewController *component = [navigation componentAtIndex:[indexPath row]];
+    
+    [self transitionToViewController:component animated:NO];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), 50.0f)];
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 50.0f)];
+    [logo setImageWithURL:[NSURL URLWithString:self.logoUrl]
+                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                }];
+    logo.contentMode = UIViewContentModeCenter;
+    
+    SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
+    NSDictionary *appearances = [[navDesc.data objectForKey:@"appearance"] objectForKey:@"sidebar"];
+    if (appearances) {
+        // background color
+        NSDictionary *topImageDict = [appearances objectForKey:@"top_image"];
+        if (topImageDict) {
+            NSString *bgColorHex = [topImageDict objectForKey:@"bg_color"];
+            UIColor *bgColor = (bgColorHex) ? [UIColor colorWithHex:bgColorHex] : [UIColor clearColor];
+            logo.backgroundColor = bgColor;
+        }
+        
+        /*
+        // alignment
+        NSString *alignmentOption = [topImageDict objectForKey:@"alignment"];
+        if (alignmentOption) {
+            if ([alignmentOption isEqualToString:@"aspect_fill"]) {
+                logo.contentMode = UIViewContentModeScaleAspectFill;
+            } else if ([alignmentOption isEqualToString:@"aspect_fit"]) {
+                logo.contentMode = UIViewContentModeScaleAspectFit;
+            } else {
+                logo.contentMode = UIViewContentModeCenter;
+            }
+        }
+         */
+    }
+    
+    [headerView addSubview:logo];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return (self.logoUrl) ? 50.0f : 0.0f;
 }
 
 @end
