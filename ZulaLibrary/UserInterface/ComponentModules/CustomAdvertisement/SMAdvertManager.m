@@ -13,6 +13,9 @@
 #import "SMBannerAdvert.h"
 
 @interface SMAdvertManager ()
+
+@property (nonatomic, strong) NSMutableDictionary *keywordAdverts;
+
 - (void)setupWithData:(NSDictionary *)data;
 @end
 
@@ -49,6 +52,8 @@
     self.interval = ([advertisementData objectForKey:@"interval"]) ?
     [[advertisementData objectForKey:@"interval"] integerValue] : 180;
     
+    self.keywordAdverts = [[NSMutableDictionary alloc] init];
+    
     NSArray *adDataArray = [advertisementData objectForKey:@"ads"];
     NSMutableArray *tmpInterstitial = [[NSMutableArray alloc] initWithCapacity:[adDataArray count]];
     NSMutableArray *tmpBanner = [[NSMutableArray alloc] initWithCapacity:[adDataArray count]];
@@ -61,6 +66,10 @@
         } else if ([advertType isEqualToString:@"Banner"]) {
             advert = [[SMBannerAdvert alloc] initWithDictionary:adData];
             [tmpBanner addObject:advert];
+        }
+        
+        for (NSString *keyword in advert.keywords) {
+            [self.keywordAdverts setObject:advert forKey:keyword];
         }
     }
     self.interstitialAdverts = [NSArray arrayWithArray:tmpInterstitial];
@@ -79,7 +88,19 @@
 
 - (SMInterstitialAdvert *)nextInterstitialAdvertForKeyword:(NSString *)keyword
 {
-    return ([self.interstitialAdverts count] > 0) ? [self.interstitialAdverts objectAtIndex:0] : nil;
+    // try to find an advert for the keyword
+    SMInterstitialAdvert *advert = [self.keywordAdverts objectForKey:keyword];
+    if (advert && [advert isKindOfClass:[SMInterstitialAdvert class]]) {
+        return advert;
+    }
+    
+    // try to return the ALL
+    advert = [self.keywordAdverts objectForKey:@"ALL"];
+    if (advert && [advert isKindOfClass:[SMInterstitialAdvert class]]) {
+        return advert;
+    }
+    
+    return nil;
 }
 
 - (SMBannerAdvert *)nextBannerAdvertForKeyword:(NSString *)keyword
