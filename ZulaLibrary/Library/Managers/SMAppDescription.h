@@ -52,6 +52,11 @@
 @property (nonatomic, strong) NSArray *componentDescriptions;
 
 /**
+ *  Raw app description dictionary
+ */
+@property (nonatomic, strong) NSDictionary *appDescriptionData;
+
+/**
  The navigation description data, includes navigation ui appearances and
  components in order
  */

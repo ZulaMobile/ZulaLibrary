@@ -13,6 +13,7 @@
 #import "SMPullToRefreshModule.h"
 #import "SMSwipeBackModule.h"
 #import "SMProgressHUDModule.h"
+#import "SMCustomAdvertisementModule.h"
 
 
 @implementation SMComponentModuleManager
@@ -21,7 +22,8 @@
 {
     return @[[[SMProgressHUDModule alloc] initWithComponent:component],
              [[SMPullToRefreshModule alloc] initWithComponent:component],
-             [[SMSwipeBackModule alloc] initWithComponent:component]
+             [[SMSwipeBackModule alloc] initWithComponent:component],
+             [[SMCustomAdvertisementModule alloc] initWithComponent:component]
              ];
 }
 
