@@ -93,6 +93,8 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 {
     [super viewDidLoad];
     
+    self.clearsSelectionOnViewWillAppear = NO;
+    
     [self applyAppearances];
 }
 
@@ -195,7 +197,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
     SMComponentDescription *desc = (SMComponentDescription *)item;
     cell.textLabel.text = desc.title;
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -213,7 +215,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), 50.0f)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), 70.0f)];
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 50.0f)];
     [logo setImageWithURL:[NSURL URLWithString:self.logoUrl]
                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
@@ -252,7 +254,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return (self.logoUrl) ? 50.0f : 0.0f;
+    return (self.logoUrl) ? 70.0f : 0.0f;
 }
 
 @end
