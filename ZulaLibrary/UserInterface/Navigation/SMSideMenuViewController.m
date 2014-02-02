@@ -66,11 +66,16 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 @end
 
 @implementation SMSideMenuViewController
+{
+    BOOL isInitial;
+}
 
 - (instancetype)initWithComponentDesciptions:(NSArray *)componentDescriptions
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        isInitial = YES;
+        
         self.items = componentDescriptions;
         
         SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];
@@ -96,6 +101,16 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
     self.clearsSelectionOnViewWillAppear = NO;
     
     [self applyAppearances];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (isInitial) {
+        // select the 1st item
+        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+        isInitial = NO;
+    }
 }
 
 - (void)applyAppearances
