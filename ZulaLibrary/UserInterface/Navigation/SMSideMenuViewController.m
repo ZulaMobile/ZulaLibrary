@@ -152,8 +152,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
             }
         }
         
-        [self.tableView addSubview:bgImage];
-        [self.tableView sendSubviewToBack:bgImage];
+        self.tableView.backgroundView = bgImage;
         self.tableView.backgroundColor = [UIColor clearColor];
     }
     

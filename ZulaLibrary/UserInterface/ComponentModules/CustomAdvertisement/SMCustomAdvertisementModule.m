@@ -21,6 +21,12 @@
 
 @implementation SMNoStatusBarController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setWantsFullScreenLayout:YES];
+}
+
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
@@ -61,10 +67,11 @@
     [adView addTarget:self action:@selector(onInterstitialAd:) forControlEvents:UIControlEventTouchUpInside];
     interstitialController.view = adView;
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.component presentViewController:interstitialController
                                  animated:YES
                                completion:^{
-                                   [[UIApplication sharedApplication] setStatusBarHidden:YES];
+                                   
                                }];
 }
 
@@ -77,9 +84,14 @@
 
 - (void)onInterstitialCloseButton:(id)sender
 {
-    [self.component dismissViewControllerAnimated:YES completion:^{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [self.component dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        }];
+    } else {
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    }];
+        [self.component dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)onInterstitialAd:(id)sender
