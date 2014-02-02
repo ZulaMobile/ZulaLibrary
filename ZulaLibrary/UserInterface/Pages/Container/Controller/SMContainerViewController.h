@@ -7,7 +7,6 @@
 //
 
 #import "SMBaseComponentViewController.h"
-#import "SMSwipeComponentStrategy.h"
 
 @class SDSegmentedControl, SMContainer;
 
@@ -17,12 +16,7 @@
  
  It displays a menu to choose between them. 
  */
-@interface SMContainerViewController : SMBaseComponentViewController <SMComponentNavigationDelegate, SMSwipeComponentStrategyDelegate>
-
-/**
- Model class
- */
-@property (nonatomic, strong) SMContainer *container;
+@interface SMContainerViewController : SMBaseComponentViewController <SMComponentNavigationDelegate>
 
 /**
  Submenu view contains the buttons for sub-components

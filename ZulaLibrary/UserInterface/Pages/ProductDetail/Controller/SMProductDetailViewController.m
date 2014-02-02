@@ -9,7 +9,6 @@
 #import "SMProductDetailViewController.h"
 #import <DDLog.h>
 
-#import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"
 
@@ -22,7 +21,6 @@
 #import "SMMainView.h"
 #import "SMWebView.h"
 #import "SMScrollView.h"
-#import "SMPullToRefreshFactory.h"
 
 @interface SMProductDetailViewController ()
 
@@ -61,42 +59,19 @@
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     [self.scrollView addSubview:self.imageView];
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
 }
 
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.productDetail) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMProductDetail fetchWithURLString:url completion:^(SMProductDetail *productDetail, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);
@@ -107,26 +82,28 @@
             return;
         }
         
-        [self setProductDetail:productDetail];
+        self.model = productDetail;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    [self setTitle:self.productDetail.title];
+    SMProductDetail *productDetail = (SMProductDetail *)self.model;
     
-    [self.webView loadHTMLString:self.productDetail.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    [self setTitle:productDetail.title];
     
-    [self.imageView addImagesWithArray:self.productDetail.images];
+    [self.webView loadHTMLString:productDetail.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
-    if (self.productDetail.backgroundUrl)
-        [self.backgroundImageView setImageWithURL:self.productDetail.backgroundUrl];
+    [self.imageView addImagesWithArray:productDetail.images];
+    
+    if (productDetail.backgroundUrl)
+        [self.backgroundImageView setImageWithURL:productDetail.backgroundUrl];
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.productDetail.navbarIcon];
+    [self applyNavbarIconWithUrl:productDetail.navbarIcon];
     
-    [pullToRefresh endRefresh];
+    [super applyContents];
 }
 
 #pragma mark - web view delegate
@@ -143,6 +120,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
+    SMProductDetail *productDetail = (SMProductDetail *)self.model;
+    
     CGRect frame = aWebView.frame;
     frame.size.height = 1;
     aWebView.frame = frame;
@@ -152,7 +131,7 @@
     
     // move views up if there is no image
     CGRect imageViewFrame = _imageView.frame;
-    float imageHeight = (self.productDetail.images) ? CGRectGetHeight(imageViewFrame) : 0;
+    float imageHeight = (productDetail.images) ? CGRectGetHeight(imageViewFrame) : 0;
     [self.scrollView setContentSize:CGSizeMake(
                                                CGRectGetWidth(self.view.frame),
                                                self.padding.y * 2 + imageHeight + fittingSize.height)];

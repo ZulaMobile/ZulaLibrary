@@ -10,7 +10,6 @@
 #import "SDSegmentedControl.h"
 #import "UIViewController+SMAdditions.h"
 #import "UIColor+ZulaAdditions.h"
-#import "SMProgressHUD.h"
 
 #import "SMComponentDescription.h"
 #import "SMContentContainer.h"
@@ -30,7 +29,6 @@
     SMContentViewController *activeContentViewController;
 }
 @synthesize subMenu;
-@synthesize contentContainer;
 
 - (void)loadView
 {
@@ -65,25 +63,14 @@
     [self.view addSubview:self.subMenu];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
-}
-
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // start preloader
-    [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMContentContainer fetchWithURLString:url completion:^(SMContentContainer *theContentContainer, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);
@@ -94,7 +81,7 @@
             return;
         }
         
-        [self setContentContainer:theContentContainer];
+        self.model = theContentContainer;
         [self applyContents];
         
     }];
@@ -102,12 +89,14 @@
 
 - (void)applyContents
 {
-    [self setTitle:self.contentContainer.title];
+    SMContentContainer *contentContainer = (SMContentContainer *)self.model;
+    
+    [self setTitle:contentContainer.title];
     
     // set the content components
     SMContentPage *firstContentPage;
     int i = 0;
-    for (SMContentPage *contentPage in self.contentContainer.components) {
+    for (SMContentPage *contentPage in contentContainer.components) {
         if (i == 0) {
             firstContentPage = contentPage;
         }
@@ -120,14 +109,17 @@
     // display the 1st one
     [self displayContentPage:firstContentPage];
     self.subMenu.selectedSegmentIndex = 0;
+    
+    [self applyContents];
 }
 
 #pragma mark - private methods
 
 - (void)onButton:(id)submenu
 {
+    SMContentContainer *contentContainer = (SMContentContainer *)self.model;
     NSInteger selectedIndex = [(SDSegmentedControl *)subMenu selectedSegmentIndex];
-    SMContentPage *contentPage = [self.contentContainer.components objectAtIndex:selectedIndex];
+    SMContentPage *contentPage = [contentContainer.components objectAtIndex:selectedIndex];
     [self displayContentPage:contentPage];
 }
 
@@ -140,7 +132,7 @@
     
     // create a controller for this
     activeContentViewController = [[SMContentViewController alloc] initWithDescription:self.componentDesciption];
-    [activeContentViewController setContentPage:contentPage];
+    activeContentViewController.model = contentPage;
     
     // add controller's view to self.view
     float pullUp = 5.0;

@@ -25,7 +25,6 @@
 		67170B0B17FF6B42006AD465 /* SMPullToRefreshComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC1B9176B9B7900D32228 /* SMPullToRefreshComponentViewController.h */; };
 		67170B0C17FF6B84006AD465 /* SMBaseComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */; };
 		67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC163176B92D100D32228 /* SMPullToRefresh.h */; };
-		67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC6177C554F00A364FF /* SMSwipeComponentStrategy.h */; };
 		67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */; };
 		67357872182A9C1E009B327D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		67357873182A9C1E009B327D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
@@ -81,6 +80,77 @@
 		67357938182AE9B1009B327D /* SMAppDescriptionDummyDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3716F07052001AA909 /* SMAppDescriptionDummyDataSource.h */; };
 		67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6735792D182AE1DF009B327D /* SMAppDescriptionPlistDataSource.h */; };
 		6735793A182AEA62009B327D /* SMValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67890A3516F06DD2001AA909 /* SMValidator.h */; };
+		673FF956189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */; };
+		673FF957189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */; };
+		673FF95A189C1522000B9C88 /* SMComponentModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF959189C1522000B9C88 /* SMComponentModuleManager.m */; };
+		673FF95B189C1522000B9C88 /* SMComponentModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF959189C1522000B9C88 /* SMComponentModuleManager.m */; };
+		673FF95F189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */; };
+		673FF960189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */; };
+		673FF964189D2C9B000B9C88 /* SMProgressHUDModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF963189D2C9B000B9C88 /* SMProgressHUDModule.m */; };
+		673FF965189D2C9B000B9C88 /* SMProgressHUDModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF963189D2C9B000B9C88 /* SMProgressHUDModule.m */; };
+		673FF969189D353D000B9C88 /* SMCustomAdvertisementModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF968189D353D000B9C88 /* SMCustomAdvertisementModule.m */; };
+		673FF96A189D353D000B9C88 /* SMCustomAdvertisementModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF968189D353D000B9C88 /* SMCustomAdvertisementModule.m */; };
+		673FF96F189D36FF000B9C88 /* SMCustomAdvertisementModuleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF96E189D36FF000B9C88 /* SMCustomAdvertisementModuleTests.m */; };
+		673FF970189D4294000B9C88 /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8416DCFA1700B141F8 /* SMComponentFactory.m */; };
+		673FF971189D42A9000B9C88 /* SMArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7F9FD182D609100FCE846 /* SMArrayDataSource.m */; };
+		673FF972189D42BD000B9C88 /* SMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44216D9031600BCE927 /* SMImageView.m */; };
+		673FF973189D42C4000B9C88 /* SMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E5F6A5174E0A0B006E1EEE /* SMButton.m */; };
+		673FF974189D42E1000B9C88 /* SMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BE16DA6D77003CE7A1 /* SMProgressHUD.m */; };
+		673FF975189D42E1000B9C88 /* SMMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46B816DA44DD003CE7A1 /* SMMainView.m */; };
+		673FF976189D42E1000B9C88 /* SMMultipleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA4511757A8E800B154F0 /* SMMultipleImageView.m */; };
+		673FF977189D42E1000B9C88 /* SMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44616D9088600BCE927 /* SMLabel.m */; };
+		673FF978189D42E1000B9C88 /* SMTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD5B1516F31E9200FC503F /* SMTitleLabel.m */; };
+		673FF979189D42E1000B9C88 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C44916D918C900BCE927 /* SMTextView.m */; };
+		673FF97A189D42E1000B9C88 /* SMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677C46BB16DA5878003CE7A1 /* SMWebView.m */; };
+		673FF97B189D42E1000B9C88 /* SMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7216DBB77C00B141F8 /* SMScrollView.m */; };
+		673FF97C189D42E1000B9C88 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
+		673FF97D189D42E1000B9C88 /* SMBorderedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B6C69A174F9E4C008E1EF0 /* SMBorderedImage.m */; };
+		673FF97E189D42E1000B9C88 /* SMMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA466175DCE7B00B154F0 /* SMMapView.m */; };
+		673FF97F189D42EA000B9C88 /* SMLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8C16DFBEBA005A9BD3 /* SMLinks.m */; };
+		673FF980189D42EE000B9C88 /* SMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA463175D053A00B154F0 /* SMAnnotation.m */; };
+		673FF981189D42F7000B9C88 /* SMPullToRefreshFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC165176B934D00D32228 /* SMPullToRefreshFactory.m */; };
+		673FF982189D42F7000B9C88 /* SMRainboxPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */; };
+		673FF983189D42F7000B9C88 /* SMDefaultPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BD176BB80F00D32228 /* SMDefaultPullToRefresh.m */; };
+		673FF984189D42F7000B9C88 /* SMPlainPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D332BF177AF33F0010E49D /* SMPlainPullToRefresh.m */; };
+		673FF985189D42F7000B9C88 /* SMGrayPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 677CD7D2178C14FE003DBB7D /* SMGrayPullToRefresh.m */; };
+		673FF986189D430D000B9C88 /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43F16D8FF5900BCE927 /* SMBaseComponentViewController.m */; };
+		673FF987189D430D000B9C88 /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC1BA176B9B7900D32228 /* SMPullToRefreshComponentViewController.m */; };
+		673FF988189D4316000B9C88 /* SMPreloaderComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6772D44F16D6871000B36C0F /* SMPreloaderComponentViewController.m */; };
+		673FF989189D4396000B9C88 /* SMTabbedNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7716DBBFAE00B141F8 /* SMTabbedNavigationViewController.m */; };
+		673FF98A189D4396000B9C88 /* SMNavbarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7A16DBC02D00B141F8 /* SMNavbarNavigationViewController.m */; };
+		673FF98B189D4396000B9C88 /* SMNavigationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD7D16DCDF7500B141F8 /* SMNavigationFactory.m */; };
+		673FF98C189D4396000B9C88 /* SMNavigationApperanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 675BDD8016DCEA7C00B141F8 /* SMNavigationApperanceManager.m */; };
+		673FF98D189D43AA000B9C88 /* SMSimpleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C7FA01182D611500FCE846 /* SMSimpleTableViewController.m */; };
+		673FF98E189D43AA000B9C88 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A83205178AE541000D3243 /* SMUser.m */; };
+		673FF98F189D43AA000B9C88 /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCC9CF16C11DED000EBC0B /* SMHomePageViewController.m */; };
+		673FF990189D43AA000B9C88 /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6701BD8816DFA1ED005A9BD3 /* SMHomePage.m */; };
+		673FF991189D43B0000B9C88 /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0316C16C4F000EBC0B /* SMContentPage.m */; };
+		673FF992189D43B0000B9C88 /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentViewController.m */; };
+		673FF993189D43BA000B9C88 /* SMListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 677207791733D37900E5CDC2 /* SMListCell.m */; };
+		673FF994189D43BA000B9C88 /* SMListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7C172579B5002219C8 /* SMListPage.m */; };
+		673FF995189D43BA000B9C88 /* SMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB7F17257C6F002219C8 /* SMListItem.m */; };
+		673FF996189D43BA000B9C88 /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6749EB8217258519002219C8 /* SMListViewController.m */; };
+		673FF997189D43C5000B9C88 /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44E1757482700B154F0 /* SMProductDetail.m */; };
+		673FF998189D43C5000B9C88 /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA44A1757480400B154F0 /* SMProductDetailViewController.m */; };
+		673FF999189D43CE000B9C88 /* SMContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA458175CE31500B154F0 /* SMContact.m */; };
+		673FF99A189D43CE000B9C88 /* SMContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 670DA45B175CE67800B154F0 /* SMContactViewController.m */; };
+		673FF99B189D43D8000B9C88 /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F35174B975C0007A4A1 /* SMContentContainer.m */; };
+		673FF99C189D43D8000B9C88 /* SMContentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D6F5F174BA7510007A4A1 /* SMContentContainerViewController.m */; };
+		673FF99D189D43DE000B9C88 /* SMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BB1767630E006AF55C /* SMContainer.m */; };
+		673FF99E189D43DE000B9C88 /* SMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B916BE17676663006AF55C /* SMContainerViewController.m */; };
+		673FF99F189D43E4000B9C88 /* SMImageGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6767B63D175FB7CA001A20F8 /* SMImageGallery.m */; };
+		673FF9A0189D43E4000B9C88 /* SMImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6767B636175F4864001A20F8 /* SMImageGalleryViewController.m */; };
+		673FF9A1189D43ED000B9C88 /* SMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F22177F677E0079233A /* SMVideoCell.m */; };
+		673FF9A2189D43ED000B9C88 /* SMVideoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F1E177F61740079233A /* SMVideoGallery.m */; };
+		673FF9A3189D43ED000B9C88 /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E35F1B177F613B0079233A /* SMVideoGalleryViewController.m */; };
+		673FF9A4189D43F2000B9C88 /* SMWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C67017686707005D64A0 /* SMWeb.m */; };
+		673FF9A5189D43F2000B9C88 /* SMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C673176879F6005D64A0 /* SMWebViewController.m */; };
+		673FF9A6189D43F9000B9C88 /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EDF1B2177D84BD004AE1F5 /* SMQAViewController.m */; };
+		673FF9A7189D4434000B9C88 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
+		673FF9A8189D4495000B9C88 /* SMFormTableViewStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA11762289F002AC981 /* SMFormTableViewStrategy.m */; };
+		673FF9A9189D44C5000B9C88 /* SMImageComponentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */; };
+		673FF9AA189D44E4000B9C88 /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0716C16E54000EBC0B /* SMModel.m */; };
+		673FF9AD189D4609000B9C88 /* SMAdvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673FF9AC189D4609000B9C88 /* SMAdvertTests.m */; };
 		6741DD421883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
 		6741DD431883FC77008B0391 /* SMSideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */; };
 		6741DD491884057D008B0391 /* SMSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6741DD481884057D008B0391 /* SMSideMenuViewController.m */; };
@@ -128,7 +198,6 @@
 		67890A3916F07052001AA909 /* SMAppDescriptionDummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3816F07052001AA909 /* SMAppDescriptionDummyDataSource.m */; };
 		67890A3D16F0A475001AA909 /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3C16F0A475001AA909 /* SMServerError.m */; };
 		67890A4016F0B322001AA909 /* SMAppearanceValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */; };
-		678D8FC8177C554F00A364FF /* SMSwipeComponentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 678D8FC7177C554F00A364FF /* SMSwipeComponentStrategy.m */; };
 		6791C67117686707005D64A0 /* SMWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C67017686707005D64A0 /* SMWeb.m */; };
 		6791C674176879F6005D64A0 /* SMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6791C673176879F6005D64A0 /* SMWebViewController.m */; };
 		679EC15F176B904F00D32228 /* SMRainboxPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 679EC15E176B904F00D32228 /* SMRainboxPullToRefresh.m */; };
@@ -203,6 +272,18 @@
 		67EE109417661FE9007D7116 /* SMFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67EE109317661FE9007D7116 /* SMFormModel.m */; };
 		67F27436174D2A2100FB4FBB /* UIColor+ZulaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */; };
 		67F6CD6E1777902D003055B4 /* SMImageComponentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */; };
+		67F81549189D784600CD898F /* SMInterstitialAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81548189D784600CD898F /* SMInterstitialAdvert.m */; };
+		67F8154A189D784600CD898F /* SMInterstitialAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81548189D784600CD898F /* SMInterstitialAdvert.m */; };
+		67F8154D189D786100CD898F /* SMBannerAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8154C189D786100CD898F /* SMBannerAdvert.m */; };
+		67F8154E189D786100CD898F /* SMBannerAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8154C189D786100CD898F /* SMBannerAdvert.m */; };
+		67F81551189D787500CD898F /* SMAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81550189D787500CD898F /* SMAdvert.m */; };
+		67F81552189D787500CD898F /* SMAdvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81550189D787500CD898F /* SMAdvert.m */; };
+		67F81555189D7DE500CD898F /* SMAdvertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81554189D7DE500CD898F /* SMAdvertManager.m */; };
+		67F81556189D7DE500CD898F /* SMAdvertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F81554189D7DE500CD898F /* SMAdvertManager.m */; };
+		67F8155B189D825A00CD898F /* SMBannerAdvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8155A189D825A00CD898F /* SMBannerAdvertView.m */; };
+		67F8155C189D825A00CD898F /* SMBannerAdvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8155A189D825A00CD898F /* SMBannerAdvertView.m */; };
+		67F8155F189D827500CD898F /* SMInterstitialAdvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8155E189D827500CD898F /* SMInterstitialAdvertView.m */; };
+		67F81560189D827500CD898F /* SMInterstitialAdvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8155E189D827500CD898F /* SMInterstitialAdvertView.m */; };
 		67F9CBA21762289F002AC981 /* SMFormTableViewStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA11762289F002AC981 /* SMFormTableViewStrategy.m */; };
 		67F9CBA617623034002AC981 /* SMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA517623034002AC981 /* SMFormField.m */; };
 		67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9CBA917623269002AC981 /* SMFormAction.m */; };
@@ -242,7 +323,6 @@
 				67357939182AE9B1009B327D /* SMAppDescriptionPlistDataSource.h in CopyFiles */,
 				67357935182AE7DC009B327D /* SMAppDescription.h in CopyFiles */,
 				67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */,
-				67170B0F17FF6E0E006AD465 /* SMSwipeComponentStrategy.h in CopyFiles */,
 				67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */,
 				67170B0C17FF6B84006AD465 /* SMBaseComponentViewController.h in CopyFiles */,
 				67170B0B17FF6B42006AD465 /* SMPullToRefreshComponentViewController.h in CopyFiles */,
@@ -325,6 +405,19 @@
 		6735792E182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionPlistDataSource.m; path = Library/Descriptions/SMAppDescriptionPlistDataSource.m; sourceTree = "<group>"; };
 		67357931182AE33A009B327D /* SMAppDescriptionBaseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionBaseDataSource.h; path = Library/Descriptions/SMAppDescriptionBaseDataSource.h; sourceTree = "<group>"; };
 		67357932182AE33A009B327D /* SMAppDescriptionBaseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionBaseDataSource.m; path = Library/Descriptions/SMAppDescriptionBaseDataSource.m; sourceTree = "<group>"; };
+		673FF952189C0E30000B9C88 /* SMComponentModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentModule.h; path = UserInterface/ComponentModules/SMComponentModule.h; sourceTree = "<group>"; };
+		673FF954189C1055000B9C88 /* SMPullToRefreshModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPullToRefreshModule.h; path = UserInterface/ComponentModules/PullToRefresh/SMPullToRefreshModule.h; sourceTree = "<group>"; };
+		673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPullToRefreshModule.m; path = UserInterface/ComponentModules/PullToRefresh/SMPullToRefreshModule.m; sourceTree = "<group>"; };
+		673FF958189C1522000B9C88 /* SMComponentModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMComponentModuleManager.h; path = UserInterface/ComponentModules/SMComponentModuleManager.h; sourceTree = "<group>"; };
+		673FF959189C1522000B9C88 /* SMComponentModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMComponentModuleManager.m; path = UserInterface/ComponentModules/SMComponentModuleManager.m; sourceTree = "<group>"; };
+		673FF95D189C18EE000B9C88 /* SMSwipeBackModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSwipeBackModule.h; path = UserInterface/ComponentModules/SwipeBack/SMSwipeBackModule.h; sourceTree = "<group>"; };
+		673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSwipeBackModule.m; path = UserInterface/ComponentModules/SwipeBack/SMSwipeBackModule.m; sourceTree = "<group>"; };
+		673FF962189D2C9B000B9C88 /* SMProgressHUDModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMProgressHUDModule.h; path = UserInterface/ComponentModules/ProgressHUD/SMProgressHUDModule.h; sourceTree = "<group>"; };
+		673FF963189D2C9B000B9C88 /* SMProgressHUDModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMProgressHUDModule.m; path = UserInterface/ComponentModules/ProgressHUD/SMProgressHUDModule.m; sourceTree = "<group>"; };
+		673FF967189D353D000B9C88 /* SMCustomAdvertisementModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCustomAdvertisementModule.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMCustomAdvertisementModule.h; sourceTree = "<group>"; };
+		673FF968189D353D000B9C88 /* SMCustomAdvertisementModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCustomAdvertisementModule.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMCustomAdvertisementModule.m; sourceTree = "<group>"; };
+		673FF96E189D36FF000B9C88 /* SMCustomAdvertisementModuleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCustomAdvertisementModuleTests.m; path = UserInterface/Modules/CustomAdvertisement/SMCustomAdvertisementModuleTests.m; sourceTree = "<group>"; };
+		673FF9AC189D4609000B9C88 /* SMAdvertTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAdvertTests.m; path = UserInterface/Modules/CustomAdvertisement/SMAdvertTests.m; sourceTree = "<group>"; };
 		6741DD401883FC77008B0391 /* SMSideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideNavigationViewController.h; path = UserInterface/Navigation/SMSideNavigationViewController.h; sourceTree = "<group>"; };
 		6741DD411883FC77008B0391 /* SMSideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSideNavigationViewController.m; path = UserInterface/Navigation/SMSideNavigationViewController.m; sourceTree = "<group>"; };
 		6741DD471884057D008B0391 /* SMSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSideMenuViewController.h; path = UserInterface/Navigation/SMSideMenuViewController.h; sourceTree = "<group>"; };
@@ -407,8 +500,6 @@
 		67890A3C16F0A475001AA909 /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMServerError.m; path = Library/Errors/SMServerError.m; sourceTree = "<group>"; };
 		67890A3E16F0B322001AA909 /* SMAppearanceValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppearanceValidator.h; path = UserInterface/Elements/SMAppearanceValidator.h; sourceTree = "<group>"; };
 		67890A3F16F0B322001AA909 /* SMAppearanceValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppearanceValidator.m; path = UserInterface/Elements/SMAppearanceValidator.m; sourceTree = "<group>"; };
-		678D8FC6177C554F00A364FF /* SMSwipeComponentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSwipeComponentStrategy.h; path = UserInterface/Delegates/SMSwipeComponentStrategy.h; sourceTree = "<group>"; };
-		678D8FC7177C554F00A364FF /* SMSwipeComponentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSwipeComponentStrategy.m; path = UserInterface/Delegates/SMSwipeComponentStrategy.m; sourceTree = "<group>"; };
 		678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMComponentDelegate.h; path = UserInterface/Delegates/SMComponentDelegate.h; sourceTree = "<group>"; };
 		6791C66F17686707005D64A0 /* SMWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWeb.h; path = UserInterface/Pages/Web/Model/SMWeb.h; sourceTree = "<group>"; };
 		6791C67017686707005D64A0 /* SMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWeb.m; path = UserInterface/Pages/Web/Model/SMWeb.m; sourceTree = "<group>"; };
@@ -507,6 +598,18 @@
 		67F27435174D2A2100FB4FBB /* UIColor+ZulaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ZulaAdditions.m"; path = "Library/Categories/UI/UIColor+ZulaAdditions.m"; sourceTree = "<group>"; };
 		67F6CD6C1777902D003055B4 /* SMImageComponentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMImageComponentStrategy.h; path = UserInterface/Delegates/SMImageComponentStrategy.h; sourceTree = "<group>"; };
 		67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMImageComponentStrategy.m; path = UserInterface/Delegates/SMImageComponentStrategy.m; sourceTree = "<group>"; };
+		67F81547189D784600CD898F /* SMInterstitialAdvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMInterstitialAdvert.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMInterstitialAdvert.h; sourceTree = "<group>"; };
+		67F81548189D784600CD898F /* SMInterstitialAdvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMInterstitialAdvert.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMInterstitialAdvert.m; sourceTree = "<group>"; };
+		67F8154B189D786100CD898F /* SMBannerAdvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBannerAdvert.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMBannerAdvert.h; sourceTree = "<group>"; };
+		67F8154C189D786100CD898F /* SMBannerAdvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBannerAdvert.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMBannerAdvert.m; sourceTree = "<group>"; };
+		67F8154F189D787500CD898F /* SMAdvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAdvert.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMAdvert.h; sourceTree = "<group>"; };
+		67F81550189D787500CD898F /* SMAdvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAdvert.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMAdvert.m; sourceTree = "<group>"; };
+		67F81553189D7DE500CD898F /* SMAdvertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAdvertManager.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMAdvertManager.h; sourceTree = "<group>"; };
+		67F81554189D7DE500CD898F /* SMAdvertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAdvertManager.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMAdvertManager.m; sourceTree = "<group>"; };
+		67F81559189D825A00CD898F /* SMBannerAdvertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMBannerAdvertView.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMBannerAdvertView.h; sourceTree = "<group>"; };
+		67F8155A189D825A00CD898F /* SMBannerAdvertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMBannerAdvertView.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMBannerAdvertView.m; sourceTree = "<group>"; };
+		67F8155D189D827500CD898F /* SMInterstitialAdvertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMInterstitialAdvertView.h; path = UserInterface/ComponentModules/CustomAdvertisement/SMInterstitialAdvertView.h; sourceTree = "<group>"; };
+		67F8155E189D827500CD898F /* SMInterstitialAdvertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMInterstitialAdvertView.m; path = UserInterface/ComponentModules/CustomAdvertisement/SMInterstitialAdvertView.m; sourceTree = "<group>"; };
 		67F9CBA01762289F002AC981 /* SMFormTableViewStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormTableViewStrategy.h; path = UserInterface/Elements/Form/Strategies/SMFormTableViewStrategy.h; sourceTree = "<group>"; };
 		67F9CBA11762289F002AC981 /* SMFormTableViewStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFormTableViewStrategy.m; path = UserInterface/Elements/Form/Strategies/SMFormTableViewStrategy.m; sourceTree = "<group>"; };
 		67F9CBA417623034002AC981 /* SMFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFormField.h; path = UserInterface/Elements/Form/Fields/SMFormField.h; sourceTree = "<group>"; };
@@ -711,6 +814,7 @@
 		673578B5182AA2D8009B327D /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				673FF96B189D36AF000B9C88 /* Modules */,
 				673578E1182AC072009B327D /* UIElements */,
 				673578BF182AA731009B327D /* Components */,
 				673578B6182AA2FA009B327D /* NavigationComponents */,
@@ -767,6 +871,77 @@
 				673578F9182AC2F7009B327D /* SMFormFieldFactoryTests.m */,
 			);
 			name = Form;
+			sourceTree = "<group>";
+		};
+		673FF950189C0DAF000B9C88 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				673FF966189D2ECF000B9C88 /* CustomAdvertisement */,
+				673FF961189D2C66000B9C88 /* ProgressHUD */,
+				673FF95C189C18C8000B9C88 /* SwipeBack */,
+				673FF953189C102F000B9C88 /* PullToRefresh */,
+				673FF952189C0E30000B9C88 /* SMComponentModule.h */,
+				673FF958189C1522000B9C88 /* SMComponentModuleManager.h */,
+				673FF959189C1522000B9C88 /* SMComponentModuleManager.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		673FF953189C102F000B9C88 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				673FF954189C1055000B9C88 /* SMPullToRefreshModule.h */,
+				673FF955189C1055000B9C88 /* SMPullToRefreshModule.m */,
+			);
+			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		673FF95C189C18C8000B9C88 /* SwipeBack */ = {
+			isa = PBXGroup;
+			children = (
+				673FF95D189C18EE000B9C88 /* SMSwipeBackModule.h */,
+				673FF95E189C18EE000B9C88 /* SMSwipeBackModule.m */,
+			);
+			name = SwipeBack;
+			sourceTree = "<group>";
+		};
+		673FF961189D2C66000B9C88 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				673FF962189D2C9B000B9C88 /* SMProgressHUDModule.h */,
+				673FF963189D2C9B000B9C88 /* SMProgressHUDModule.m */,
+			);
+			name = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		673FF966189D2ECF000B9C88 /* CustomAdvertisement */ = {
+			isa = PBXGroup;
+			children = (
+				67F81553189D7DE500CD898F /* SMAdvertManager.h */,
+				67F81554189D7DE500CD898F /* SMAdvertManager.m */,
+				673FF967189D353D000B9C88 /* SMCustomAdvertisementModule.h */,
+				673FF968189D353D000B9C88 /* SMCustomAdvertisementModule.m */,
+				67F81557189D821F00CD898F /* Model */,
+				67F81558189D823000CD898F /* View */,
+			);
+			name = CustomAdvertisement;
+			sourceTree = "<group>";
+		};
+		673FF96B189D36AF000B9C88 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				673FF96C189D36B8000B9C88 /* CustomAdvertisement */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		673FF96C189D36B8000B9C88 /* CustomAdvertisement */ = {
+			isa = PBXGroup;
+			children = (
+				673FF96E189D36FF000B9C88 /* SMCustomAdvertisementModuleTests.m */,
+				673FF9AC189D4609000B9C88 /* SMAdvertTests.m */,
+			);
+			name = CustomAdvertisement;
 			sourceTree = "<group>";
 		};
 		6741DD4418840547008B0391 /* Side */ = {
@@ -1189,6 +1364,7 @@
 			isa = PBXGroup;
 			children = (
 				675BDD7416DBBE4A00B141F8 /* NavigationComponents */,
+				673FF950189C0DAF000B9C88 /* Modules */,
 				67CCC9CC16C11DA9000EBC0B /* Components */,
 				67CCC9D916C1579D000EBC0B /* UI Elements */,
 				67F6CD6B17778FD3003055B4 /* Delegates */,
@@ -1293,7 +1469,6 @@
 				67CCCA0116C16B85000EBC0B /* Base */,
 				67CCC9FA16C16A07000EBC0B /* Categories */,
 				67CCC9FB16C16A11000EBC0B /* Network */,
-				67CCC9FD16C16A2B000EBC0B /* Strategies */,
 				67C7F9FB182D606000FCE846 /* DataSources */,
 				67CCC9FC16C16A21000EBC0B /* Authentication */,
 			);
@@ -1337,13 +1512,6 @@
 			children = (
 			);
 			name = Authentication;
-			sourceTree = "<group>";
-		};
-		67CCC9FD16C16A2B000EBC0B /* Strategies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Strategies;
 			sourceTree = "<group>";
 		};
 		67CCC9FE16C16B44000EBC0B /* Content */ = {
@@ -1521,10 +1689,32 @@
 				678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */,
 				67F6CD6C1777902D003055B4 /* SMImageComponentStrategy.h */,
 				67F6CD6D1777902D003055B4 /* SMImageComponentStrategy.m */,
-				678D8FC6177C554F00A364FF /* SMSwipeComponentStrategy.h */,
-				678D8FC7177C554F00A364FF /* SMSwipeComponentStrategy.m */,
 			);
 			name = Delegates;
+			sourceTree = "<group>";
+		};
+		67F81557189D821F00CD898F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67F8154F189D787500CD898F /* SMAdvert.h */,
+				67F81550189D787500CD898F /* SMAdvert.m */,
+				67F81547189D784600CD898F /* SMInterstitialAdvert.h */,
+				67F81548189D784600CD898F /* SMInterstitialAdvert.m */,
+				67F8154B189D786100CD898F /* SMBannerAdvert.h */,
+				67F8154C189D786100CD898F /* SMBannerAdvert.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67F81558189D823000CD898F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67F8155D189D827500CD898F /* SMInterstitialAdvertView.h */,
+				67F8155E189D827500CD898F /* SMInterstitialAdvertView.m */,
+				67F81559189D825A00CD898F /* SMBannerAdvertView.h */,
+				67F8155A189D825A00CD898F /* SMBannerAdvertView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		67F9CB9E176227F8002AC981 /* Form */ = {
@@ -1691,51 +1881,123 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673FF9A0189D43E4000B9C88 /* SMImageGalleryViewController.m in Sources */,
+				67F81556189D7DE500CD898F /* SMAdvertManager.m in Sources */,
+				673FF98C189D4396000B9C88 /* SMNavigationApperanceManager.m in Sources */,
+				673FF984189D42F7000B9C88 /* SMPlainPullToRefresh.m in Sources */,
 				673578C2182AA757009B327D /* SMSubMenuApplicationTests.m in Sources */,
+				673FF976189D42E1000B9C88 /* SMMultipleImageView.m in Sources */,
+				673FF973189D42C4000B9C88 /* SMButton.m in Sources */,
+				673FF998189D43C5000B9C88 /* SMProductDetailViewController.m in Sources */,
+				673FF987189D430D000B9C88 /* SMPullToRefreshComponentViewController.m in Sources */,
+				673FF97E189D42E1000B9C88 /* SMMapView.m in Sources */,
+				673FF988189D4316000B9C88 /* SMPreloaderComponentViewController.m in Sources */,
+				673FF992189D43B0000B9C88 /* SMContentViewController.m in Sources */,
 				673578EE182AC193009B327D /* SMFormTextField.m in Sources */,
+				673FF960189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */,
+				673FF978189D42E1000B9C88 /* SMTitleLabel.m in Sources */,
+				673FF98D189D43AA000B9C88 /* SMSimpleTableViewController.m in Sources */,
+				673FF98E189D43AA000B9C88 /* SMUser.m in Sources */,
+				673FF9A8189D4495000B9C88 /* SMFormTableViewStrategy.m in Sources */,
+				67F81560189D827500CD898F /* SMInterstitialAdvertView.m in Sources */,
 				673578EB182AC126009B327D /* SMFormFieldFactory.m in Sources */,
+				673FF991189D43B0000B9C88 /* SMContentPage.m in Sources */,
+				673FF971189D42A9000B9C88 /* SMArrayDataSource.m in Sources */,
+				673FF9A7189D4434000B9C88 /* SMServerError.m in Sources */,
+				673FF9AA189D44E4000B9C88 /* SMModel.m in Sources */,
 				673578E7182AC0EE009B327D /* SMFormSection.m in Sources */,
 				673578EF182AC199009B327D /* SMFormPasswordField.m in Sources */,
+				673FF965189D2C9B000B9C88 /* SMProgressHUDModule.m in Sources */,
 				673578F2182AC1AF009B327D /* SMFormEmailField.m in Sources */,
 				67E2F9B7189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */,
+				673FF990189D43AA000B9C88 /* SMHomePage.m in Sources */,
+				673FF977189D42E1000B9C88 /* SMLabel.m in Sources */,
 				673578D4182AAB4E009B327D /* SMSubMenuView.m in Sources */,
 				677C5C2F184111B70073063D /* SMDownloadSession.m in Sources */,
+				673FF95B189C1522000B9C88 /* SMComponentModuleManager.m in Sources */,
+				673FF981189D42F7000B9C88 /* SMPullToRefreshFactory.m in Sources */,
 				673578B1182AA215009B327D /* SMComponentDescription.m in Sources */,
+				673FF99F189D43E4000B9C88 /* SMImageGallery.m in Sources */,
 				673578B0182AA206009B327D /* SMNavigationDescription.m in Sources */,
+				67F8154A189D784600CD898F /* SMInterstitialAdvert.m in Sources */,
+				673FF97B189D42E1000B9C88 /* SMScrollView.m in Sources */,
 				6741DD4F18840742008B0391 /* SMTableCell.m in Sources */,
 				673578B4182AA268009B327D /* SMComponentDescriptionTests.m in Sources */,
+				673FF9A4189D43F2000B9C88 /* SMWeb.m in Sources */,
 				673578F6182AC278009B327D /* SMFormFieldTests.m in Sources */,
 				6741DD5418854A5D008B0391 /* SMNoPullToRefresh.m in Sources */,
+				673FF993189D43BA000B9C88 /* SMListCell.m in Sources */,
 				673578EC182AC143009B327D /* SMApiClient.m in Sources */,
 				67E2F9C31896872200A1E804 /* SMTileLayout.m in Sources */,
+				673FF994189D43BA000B9C88 /* SMListPage.m in Sources */,
+				673FF96F189D36FF000B9C88 /* SMCustomAdvertisementModuleTests.m in Sources */,
+				673FF9A9189D44C5000B9C88 /* SMImageComponentStrategy.m in Sources */,
+				673FF982189D42F7000B9C88 /* SMRainboxPullToRefresh.m in Sources */,
 				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
 				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
+				673FF972189D42BD000B9C88 /* SMImageView.m in Sources */,
+				673FF99B189D43D8000B9C88 /* SMContentContainer.m in Sources */,
 				673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */,
 				67357934182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67357930182AE1DF009B327D /* SMAppDescriptionPlistDataSource.m in Sources */,
+				673FF999189D43CE000B9C88 /* SMContact.m in Sources */,
+				673FF9A2189D43ED000B9C88 /* SMVideoGallery.m in Sources */,
+				673FF97A189D42E1000B9C88 /* SMWebView.m in Sources */,
+				673FF98B189D4396000B9C88 /* SMNavigationFactory.m in Sources */,
+				673FF97C189D42E1000B9C88 /* SMAppearanceValidator.m in Sources */,
+				673FF975189D42E1000B9C88 /* SMMainView.m in Sources */,
+				67F8154E189D786100CD898F /* SMBannerAdvert.m in Sources */,
+				673FF989189D4396000B9C88 /* SMTabbedNavigationViewController.m in Sources */,
+				673FF99C189D43D8000B9C88 /* SMContentContainerViewController.m in Sources */,
 				673578E6182AC0E6009B327D /* SMFormDescription.m in Sources */,
 				67E2F9CC1896B88600A1E804 /* SMSummaryListStrategy.m in Sources */,
 				673578AE182AA184009B327D /* SMAppDescriptionTests.m in Sources */,
+				673FF9AD189D4609000B9C88 /* SMAdvertTests.m in Sources */,
 				67E2F9C81896B6B800A1E804 /* SMTabularListStrategy.m in Sources */,
 				673578ED182AC18B009B327D /* SMFormField.m in Sources */,
+				673FF99D189D43DE000B9C88 /* SMContainer.m in Sources */,
+				673FF957189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */,
 				673578E0182AC009009B327D /* SMListViewControllerTests.m in Sources */,
 				6735787C182A9C1E009B327D /* main.m in Sources */,
+				673FF983189D42F7000B9C88 /* SMDefaultPullToRefresh.m in Sources */,
 				673578B9182AA316009B327D /* SMNavBarNavigationControllerTests.m in Sources */,
+				67F81552189D787500CD898F /* SMAdvert.m in Sources */,
 				6741DD4A1884057D008B0391 /* SMSideMenuViewController.m in Sources */,
 				673578F7182AC2CB009B327D /* NSString+SMAdditions.m in Sources */,
+				673FF99A189D43CE000B9C88 /* SMContactViewController.m in Sources */,
 				673578F0182AC19F009B327D /* SMFormButtonField.m in Sources */,
 				673578FA182AC2F7009B327D /* SMFormFieldFactoryTests.m in Sources */,
 				67E2F9BF189684A900A1E804 /* SMTileCell.m in Sources */,
+				67F8155C189D825A00CD898F /* SMBannerAdvertView.m in Sources */,
 				673578A9182A9FD0009B327D /* UIColorSMAdditionsTests.m in Sources */,
 				67E2F9BB1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */,
+				673FF97F189D42EA000B9C88 /* SMLinks.m in Sources */,
+				673FF985189D42F7000B9C88 /* SMGrayPullToRefresh.m in Sources */,
+				673FF99E189D43DE000B9C88 /* SMContainerViewController.m in Sources */,
 				673578E9182AC10F009B327D /* SMFormAction.m in Sources */,
+				673FF974189D42E1000B9C88 /* SMProgressHUD.m in Sources */,
+				673FF9A6189D43F9000B9C88 /* SMQAViewController.m in Sources */,
 				673578D9182AADFE009B327D /* SMTriangle.m in Sources */,
 				673578AF182AA1F7009B327D /* SMAppDescription.m in Sources */,
+				673FF979189D42E1000B9C88 /* SMTextView.m in Sources */,
+				673FF997189D43C5000B9C88 /* SMProductDetail.m in Sources */,
+				673FF995189D43BA000B9C88 /* SMListItem.m in Sources */,
+				673FF98A189D4396000B9C88 /* SMNavbarNavigationViewController.m in Sources */,
 				67E2F9D01896C03100A1E804 /* SMSummaryCell.m in Sources */,
+				673FF96A189D353D000B9C88 /* SMCustomAdvertisementModule.m in Sources */,
+				673FF970189D4294000B9C88 /* SMComponentFactory.m in Sources */,
+				673FF9A5189D43F2000B9C88 /* SMWebViewController.m in Sources */,
+				673FF980189D42EE000B9C88 /* SMAnnotation.m in Sources */,
 				673578E5182AC095009B327D /* SMFormDescriptionTests.m in Sources */,
 				673578F1182AC1A5009B327D /* SMFormTextArea.m in Sources */,
+				673FF9A3189D43ED000B9C88 /* SMVideoGalleryViewController.m in Sources */,
 				673578AA182AA071009B327D /* UIColor+ZulaAdditions.m in Sources */,
+				673FF986189D430D000B9C88 /* SMBaseComponentViewController.m in Sources */,
+				673FF996189D43BA000B9C88 /* SMListViewController.m in Sources */,
+				673FF9A1189D43ED000B9C88 /* SMVideoCell.m in Sources */,
 				6741DD431883FC77008B0391 /* SMSideNavigationViewController.m in Sources */,
+				673FF97D189D42E1000B9C88 /* SMBorderedImage.m in Sources */,
+				673FF98F189D43AA000B9C88 /* SMHomePageViewController.m in Sources */,
 				673578EA182AC111009B327D /* SMFormSubmitAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1745,6 +2007,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67E2F9CF1896C03100A1E804 /* SMSummaryCell.m in Sources */,
+				67F81555189D7DE500CD898F /* SMAdvertManager.m in Sources */,
 				67E2F9C21896872200A1E804 /* SMTileLayout.m in Sources */,
 				67CCC9D116C11DED000EBC0B /* SMHomePageViewController.m in Sources */,
 				67CCC9D816C153DF000EBC0B /* SMPortfolioAppDelegate.m in Sources */,
@@ -1761,9 +2024,11 @@
 				67D4C44316D9031600BCE927 /* SMImageView.m in Sources */,
 				67D4C44716D9088600BCE927 /* SMLabel.m in Sources */,
 				67D4C44A16D918C900BCE927 /* SMTextView.m in Sources */,
+				67F8155F189D827500CD898F /* SMInterstitialAdvertView.m in Sources */,
 				677C46B916DA44DD003CE7A1 /* SMMainView.m in Sources */,
 				67E2F9B6189673F500A1E804 /* SMLinksTilesStrategy.m in Sources */,
 				677C46BC16DA5878003CE7A1 /* SMWebView.m in Sources */,
+				673FF969189D353D000B9C88 /* SMCustomAdvertisementModule.m in Sources */,
 				677C46BF16DA6D77003CE7A1 /* SMProgressHUD.m in Sources */,
 				675BDD5C16DB741200B141F8 /* UIWebView+SMAdditions.m in Sources */,
 				675BDD6A16DB955800B141F8 /* NSDictionary+SMAdditions.m in Sources */,
@@ -1779,6 +2044,7 @@
 				6701BD7516DF91A3005A9BD3 /* SMLogManager.m in Sources */,
 				6701BD7916DF931B005A9BD3 /* CompressingLogFileManager.m in Sources */,
 				67C7F9FE182D609100FCE846 /* SMArrayDataSource.m in Sources */,
+				67F81549189D784600CD898F /* SMInterstitialAdvert.m in Sources */,
 				67C7FA02182D611500FCE846 /* SMSimpleTableViewController.m in Sources */,
 				6701BD8016DF98BF005A9BD3 /* SMUploadingLogFileManager.m in Sources */,
 				6701BD8316DF9C89005A9BD3 /* SMFileLogger.m in Sources */,
@@ -1794,6 +2060,7 @@
 				6749EB7D172579B5002219C8 /* SMListPage.m in Sources */,
 				67E2F9BE189684A900A1E804 /* SMTileCell.m in Sources */,
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
+				673FF956189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
 				67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */,
@@ -1804,6 +2071,7 @@
 				67E5F6A6174E0A0B006E1EEE /* SMButton.m in Sources */,
 				67B587B3174E48C600CF35D7 /* UIButton+SMAdditions.m in Sources */,
 				67B587B6174E49C300CF35D7 /* UILabel+SMAdditions.m in Sources */,
+				67F8154D189D786100CD898F /* SMBannerAdvert.m in Sources */,
 				67B6C69B174F9E4C008E1EF0 /* SMBorderedImage.m in Sources */,
 				670DA44B1757480400B154F0 /* SMProductDetailViewController.m in Sources */,
 				670DA44F1757482700B154F0 /* SMProductDetail.m in Sources */,
@@ -1818,11 +2086,14 @@
 				67F9CBA21762289F002AC981 /* SMFormTableViewStrategy.m in Sources */,
 				67C7F9F9182D597300FCE846 /* UIViewController+SMAdditions.m in Sources */,
 				67F9CBA617623034002AC981 /* SMFormField.m in Sources */,
+				67F81551189D787500CD898F /* SMAdvert.m in Sources */,
 				67F9CBAA17623269002AC981 /* SMFormAction.m in Sources */,
 				67F9CBAE176251B4002AC981 /* SMFormTextField.m in Sources */,
 				67E2F9BA1896749300A1E804 /* SMLinksButtonsStrategy.m in Sources */,
 				67F9CBB81763260F002AC981 /* SMFormDescription.m in Sources */,
 				67F9CBBB176351B4002AC981 /* SMFormSection.m in Sources */,
+				673FF964189D2C9B000B9C88 /* SMProgressHUDModule.m in Sources */,
+				67F8155B189D825A00CD898F /* SMBannerAdvertView.m in Sources */,
 				67F9CBC1176355A6002AC981 /* SMFormFieldFactory.m in Sources */,
 				67F9CBC8176362BA002AC981 /* SMFormPasswordField.m in Sources */,
 				67F9CBCB1763635F002AC981 /* SMFormButtonField.m in Sources */,
@@ -1845,13 +2116,14 @@
 				679EC1BE176BB80F00D32228 /* SMDefaultPullToRefresh.m in Sources */,
 				67F6CD6E1777902D003055B4 /* SMImageComponentStrategy.m in Sources */,
 				67D332C0177AF33F0010E49D /* SMPlainPullToRefresh.m in Sources */,
-				678D8FC8177C554F00A364FF /* SMSwipeComponentStrategy.m in Sources */,
 				67EDF1B3177D84BD004AE1F5 /* SMQAViewController.m in Sources */,
+				673FF95F189C18EE000B9C88 /* SMSwipeBackModule.m in Sources */,
 				67E35F1C177F613B0079233A /* SMVideoGalleryViewController.m in Sources */,
 				67E35F1F177F61740079233A /* SMVideoGallery.m in Sources */,
 				67E35F23177F677E0079233A /* SMVideoCell.m in Sources */,
 				67A83206178AE541000D3243 /* SMUser.m in Sources */,
 				677CD7D3178C14FF003DBB7D /* SMGrayPullToRefresh.m in Sources */,
+				673FF95A189C1522000B9C88 /* SMComponentModuleManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

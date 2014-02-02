@@ -25,7 +25,7 @@
     GHAssertTrue([btn1 isKindOfClass:[UIButton class]], @"new item must be a button");
     
     CGSize btnTitleSize = [@"my btn 1" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    GHAssertEquals(btnTitleSize.width + padding * 2, btn1.frame.size.width, @"the btn size needs to fit");
+    GHAssertEqualsWithAccuracy(btnTitleSize.width + padding * 2, btn1.frame.size.width, 1.0f, @"the btn size needs to fit");
     GHAssertEquals(padding, btn1.frame.origin.x, @"btn x");
     
     // add another button
@@ -34,8 +34,8 @@
     GHAssertTrue([btn2 isKindOfClass:[UIButton class]], @"new item must be a button");
     
     CGSize btnTitleSize2 = [@"my btn 2" sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    GHAssertEquals(btnTitleSize2.width + padding * 2, btn2.frame.size.width, @"the btn size needs to fit");
-    GHAssertEquals(btn1.frame.size.width + padding * 2 + padding, btn2.frame.origin.x, @"new buttons need to shift to the side");
+    GHAssertEqualsWithAccuracy(btnTitleSize2.width + padding * 2, btn2.frame.size.width, 1.0f, @"the btn size needs to fit");
+    GHAssertEqualsWithAccuracy(btn1.frame.size.width + padding * 2 + padding, btn2.frame.origin.x, 1.0f, @"new buttons need to shift to the side");
 }
 
 - (void)testScrollViewContentFrameMustEnlargeByButtonFrames

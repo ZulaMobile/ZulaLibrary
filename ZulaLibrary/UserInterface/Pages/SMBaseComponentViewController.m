@@ -14,6 +14,9 @@
 #import "SMImageView.h"
 #import "UIViewController+SMAdditions.h"
 #import "UIImageView+WebCache.h"
+#import "SMComponentModuleManager.h"
+#import "SMComponentModule.h"
+
 
 @interface SMBaseComponentViewController ()
 - (BOOL)navigationHasBackgroundImage;
@@ -22,7 +25,6 @@
 @implementation SMBaseComponentViewController
 @synthesize componentDesciption = _componentDesciption;
 @synthesize componentNavigationDelegate;
-@synthesize swipeStrategy;
 
 - (id)initWithDescription:(SMComponentDescription *)description
 {
@@ -35,6 +37,9 @@
         
         // padding default value
         self.padding = CGPointMake(10.0f, 10.0f);
+        
+        // add modules
+        self.modules = [SMComponentModuleManager modulesForComponent:self];
     }
     return self;
 }
@@ -80,9 +85,6 @@
     [view addSubview:self.backgroundImageView];
     [view sendSubviewToBack:self.backgroundImageView];
     [self setView:view];
-    
-    swipeStrategy = [[SMSwipeComponentStrategy alloc] initWithComponent:self];
-    [swipeStrategy setDelegate:self];
 }
 
 - (void)viewDidLoad
@@ -96,6 +98,17 @@
         //self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
+    // notify modules
+    for (id<SMComponentModule> module in self.modules) {
+        if ([module respondsToSelector:@selector(componentViewDidLoad)]) {
+            [module componentViewDidLoad];
+        }
+    }
+    
+    // fetch the contents
+    if ([self shouldFetchContents]) {
+        [self fetchContents];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -113,14 +126,40 @@
     [self navigationHasBackgroundImage];
 }
 
+- (BOOL)shouldFetchContents
+{
+    // check if any module thinks that we shouldn't fetch new contents
+    for (id<SMComponentModule> module in self.modules) {
+        if ([module respondsToSelector:@selector(componentShouldFetchContents)]) {
+            if (![module componentShouldFetchContents]) return NO;
+        }
+    }
+    
+    return YES;
+}
+
 - (void)fetchContents
 {
     // must be overridden
+    
+    // notify modules
+    for (id<SMComponentModule> module in self.modules) {
+        if ([module respondsToSelector:@selector(componentWillFetchContents)]) {
+            [module componentWillFetchContents];
+        }
+    }
 }
 
 - (void)applyContents
 {
     // must be overridden
+    
+    // notify modules
+    for (id<SMComponentModule> module in self.modules) {
+        if ([module respondsToSelector:@selector(componentDidFetchContent:)]) {
+            [module componentDidFetchContent:self.model];
+        }
+    }
 }
 
 - (void)goback
@@ -153,22 +192,7 @@
     
 }
 
-// override this behavior
-- (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
-{
-    
-}
-
-// override this behavior
-- (void)onSwipeToRight:(UIGestureRecognizer *)gestureRecognizer
-{
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
-
 #pragma mark - private methods
-
 
 - (BOOL)navigationHasBackgroundImage
 {
@@ -181,6 +205,38 @@
     }
     
     return NO;
+}
+
+@end
+
+
+@implementation SMBaseComponentViewController (ModuleAdditions)
+
+- (void)removeModuleByClass:(Class)cls
+{
+    NSMutableArray *tmpModules = [NSMutableArray arrayWithCapacity:[self.modules count]];
+    for (id<SMComponentModule> module in self.modules) {
+        if (![module isKindOfClass:cls]) {
+            [tmpModules addObject:module];
+        }
+    }
+    self.modules = [NSArray arrayWithArray:tmpModules];
+}
+
+- (void)addModuleByClass:(Class)cls
+{
+    // instantiate the modules
+    id<SMComponentModule> module = [[cls alloc] initWithComponent:self];
+    
+    // add it the the array
+    [self addModule:module];
+}
+
+- (void)addModule:(id)module
+{
+    NSMutableArray *tmpModules = [NSMutableArray arrayWithArray:self.modules];
+    [tmpModules addObject:module];
+    self.modules = [NSArray arrayWithArray:tmpModules];
 }
 
 @end

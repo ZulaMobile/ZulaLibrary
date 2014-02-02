@@ -7,7 +7,6 @@
 //
 
 #import "SMSummaryListStrategy.h"
-#import "SMProgressHUD.h"
 
 #import "UIColor+ZulaAdditions.h"
 #import "UIViewController+SMAdditions.h"
@@ -41,7 +40,8 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SMListItem *item = [self.controller.listPage.items objectAtIndex:[indexPath row]];
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    SMListItem *item = [listPage.items objectAtIndex:[indexPath row]];
     if (item.thumbnailUrl) {
         return 180.0f + 30.0f + 20.0f;
     } else {
@@ -51,6 +51,7 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
 
 - (UITableViewCell *)cellForImageInTableView:(UITableView *)aTableView
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
     
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -59,15 +60,17 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
         [cell.contentView addSubview:self.controller.images];
     }
     
-    [self.controller.images addImagesWithArray:self.controller.listPage.images];
+    [self.controller.images addImagesWithArray:listPage.images];
     
     return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    
     NSInteger row = [indexPath row];
-    if ([[self.controller.listPage images] count] > 0) {
+    if ([[listPage images] count] > 0) {
         if ([indexPath row] == 0) {
             return [self cellForImageInTableView:aTableView];
         }
@@ -75,7 +78,7 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
     }
     
     SMSummaryCell* cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SMListItem *item = [self.controller.listPage.items objectAtIndex:row];
+    SMListItem *item = [listPage.items objectAtIndex:row];
     
     if (cell == nil) {
         cell = [[SMSummaryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -84,9 +87,9 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         // background image if exists
-        if (self.controller.listPage.itemBackgroundUrl) {
+        if (listPage.itemBackgroundUrl) {
             SMImageView *itemBackground = [[SMImageView alloc] init];
-            [itemBackground setImageWithURL:self.controller.listPage.itemBackgroundUrl];
+            [itemBackground setImageWithURL:listPage.itemBackgroundUrl];
             [cell setBackgroundView:itemBackground];
         }
         
@@ -125,15 +128,17 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
 // display the detail row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    
     NSInteger row = [indexPath row];
-    if ([[self.controller.listPage images] count] > 0) {
+    if ([[listPage images] count] > 0) {
         if ([indexPath row] == 0) {
             return;
         }
         row -= 1;
     }
     
-    SMListItem *listItem = (SMListItem *)[self.controller.listPage.items objectAtIndex:row];
+    SMListItem *listItem = (SMListItem *)[listPage.items objectAtIndex:row];
     SMBaseComponentViewController *ctrl = [self.controller targetComponentByListItem:listItem];
     
     // make delegate know about the navigation

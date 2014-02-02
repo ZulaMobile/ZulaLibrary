@@ -15,12 +15,7 @@
 /**
  List page corresponds to UITableViewController.
  */
-@interface SMListViewController : SMPullToRefreshComponentViewController <SMComponentNavigationDelegate>
-
-/**
- The model instance, it stores the items to display
- */
-@property (nonatomic, strong) SMListPage *listPage;
+@interface SMListViewController : SMBaseComponentViewController <SMComponentNavigationDelegate>
 
 /**
  Swipable image gallery

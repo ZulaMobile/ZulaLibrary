@@ -7,7 +7,6 @@
 //
 
 #import "SMTabularListStrategy.h"
-#import "SMProgressHUD.h"
 
 #import "UIColor+ZulaAdditions.h"
 #import "UIViewController+SMAdditions.h"
@@ -69,10 +68,12 @@
 
 - (void)applyAppearances:(NSDictionary *)appearances
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    
     // ui changes
-    if (self.controller.listPage.backgroundUrl) {
+    if (listPage.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:self.controller.listPage.backgroundUrl];
+        [background setImageWithURL:listPage.backgroundUrl];
         [self.tableView setBackgroundView:background];
     }
     
@@ -84,10 +85,11 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([[self.controller.listPage images] count] > 0)
-        return [self.controller.listPage.items count] + 1;
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    if ([[listPage images] count] > 0)
+        return [listPage.items count] + 1;
     
-    return [self.controller.listPage.items count];
+    return [listPage.items count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
@@ -98,6 +100,7 @@
 
 - (UITableViewCell *)cellForImageInTableView:(UITableView *)aTableView
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
     static NSString* CellIdentifier = @"ListImageReuseIdentifier";
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -106,15 +109,16 @@
         [cell.contentView addSubview:self.controller.images];
     }
     
-    [self.controller.images addImagesWithArray:self.controller.listPage.images];
+    [self.controller.images addImagesWithArray:listPage.images];
     
     return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
     NSInteger row = [indexPath row];
-    if ([[self.controller.listPage images] count] > 0) {
+    if ([[listPage images] count] > 0) {
         if ([indexPath row] == 0) {
             return [self cellForImageInTableView:aTableView];
         }
@@ -124,7 +128,7 @@
     static NSString* CellIdentifier = @"ListViewReuseIdentifier";
     
     SMListCell* cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SMListItem *item = [self.controller.listPage.items objectAtIndex:row];
+    SMListItem *item = [listPage.items objectAtIndex:row];
     
     if (cell == nil) {
         cell = [[SMListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -133,9 +137,9 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         // background image if exists
-        if (self.controller.listPage.itemBackgroundUrl) {
+        if (listPage.itemBackgroundUrl) {
             SMImageView *itemBackground = [[SMImageView alloc] init];
-            [itemBackground setImageWithURL:self.controller.listPage.itemBackgroundUrl];
+            [itemBackground setImageWithURL:listPage.itemBackgroundUrl];
             [cell setBackgroundView:itemBackground];
         }
         
@@ -192,15 +196,17 @@
 // display the detail row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    
     NSInteger row = [indexPath row];
-    if ([[self.controller.listPage images] count] > 0) {
+    if ([[listPage images] count] > 0) {
         if ([indexPath row] == 0) {
             return;
         }
         row -= 1;
     }
     
-    SMListItem *listItem = (SMListItem *)[self.controller.listPage.items objectAtIndex:row];
+    SMListItem *listItem = (SMListItem *)[listPage.items objectAtIndex:row];
     SMBaseComponentViewController *ctrl = [self.controller targetComponentByListItem:listItem];
     
     // make delegate know about the navigation
@@ -216,7 +222,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[self.controller.listPage images] count] > 0 && [indexPath row] == 0)
+    SMListPage *listPage = (SMListPage *)self.controller.model;
+    if ([[listPage images] count] > 0 && [indexPath row] == 0)
         return 160.0;
     
     return 80.0;

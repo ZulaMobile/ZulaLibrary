@@ -8,13 +8,16 @@
 
 #import "SMContainerViewController.h"
 #import "SDSegmentedControl.h"
-#import "SMProgressHUD.h"
 #import "UIViewController+SMAdditions.h"
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMComponentFactory.h"
 #import "SMContainer.h"
+
+#import "SMSwipeBackModule.h"
+#import "SMComponentModule.h"
+
 
 #define subViewTag 665
 
@@ -30,13 +33,8 @@
 {
     // active content controller
     UIViewController *activeContentViewController;
-    
-    /**
-     Swipe strategy to control swiping gestures
-     */
-    //SMSwipeComponentStrategy *swipeStrategy;
 }
-@synthesize container, subMenu;
+@synthesize subMenu;
 
 - (void)loadView
 {
@@ -56,31 +54,14 @@
     [self.view addSubview:self.subMenu];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
-}
-
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // if data is already set, no need to fetch contents
-    if (self.container) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMContainer fetchWithURLString:url completion:^(SMContainer *theContainer, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);
@@ -91,7 +72,7 @@
             return;
         }
         
-        [self setContainer:theContainer];
+        self.model = theContainer;
         [self applyContents];
     }];
     
@@ -99,7 +80,9 @@
 
 - (void)applyContents
 {
-    [self setTitle:self.container.title];
+    SMContainer *container = (SMContainer *)self.model;
+    
+    [self setTitle:container.title];
     
     // get the initial sub component index
     NSDictionary *itemsAppearance = [self.componentDesciption.appearance objectForKey:@"items"];
@@ -111,7 +94,7 @@
     // set the content components
     SMComponentDescription *firstComponentDesc;
     int i = 0;
-    for (SMComponentDescription *desc in self.container.components) {
+    for (SMComponentDescription *desc in container.components) {
         if (i == initial) {
             firstComponentDesc = desc;
         }
@@ -121,19 +104,23 @@
     }
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.container.navbarIcon];
+    [self applyNavbarIconWithUrl:container.navbarIcon];
     
     // display the 1st one
     [self displayComponentWithDescription:firstComponentDesc];
     self.subMenu.selectedSegmentIndex = initial;
+    
+    [super applyContents];
 }
 
 #pragma mark - private methods
 
 - (void)onButton:(id)theSubmenu
 {
+    SMContainer *container = (SMContainer *)self.model;
+    
     NSInteger selectedIndex = [(SDSegmentedControl *)theSubmenu selectedSegmentIndex];
-    SMComponentDescription *thedesc = [self.container.components objectAtIndex:selectedIndex];
+    SMComponentDescription *thedesc = [container.components objectAtIndex:selectedIndex];
     [self displayComponentWithDescription:thedesc];
 }
 
@@ -180,22 +167,25 @@
     [self.view addSubview:self.subMenu];
     
     // disable its swipe functions, we override them here
-    [(SMBaseComponentViewController *)activeContentViewController setSwipeStrategy:nil];
+    [self removeModuleByClass:[SMSwipeBackModule class]];
 }
 
 - (void)swipeToDeltaIndex:(NSInteger)deltaIndex
 {
+    SMContainer *container = (SMContainer *)self.model;
+    
     NSInteger selectedIndex = [self.subMenu selectedSegmentIndex];
     NSInteger toSelectedIndex = selectedIndex + deltaIndex;
-    if (toSelectedIndex >= 0 && toSelectedIndex < [self.container.components count]) {
+    if (toSelectedIndex >= 0 && toSelectedIndex < [container.components count]) {
         [self.subMenu setSelectedSegmentIndex:toSelectedIndex];
-        SMComponentDescription *thedesc = [self.container.components objectAtIndex:toSelectedIndex];
+        SMComponentDescription *thedesc = [container.components objectAtIndex:toSelectedIndex];
         [self displayComponentWithDescription:thedesc];
     }
 }
 
 #pragma mark - swipe gestures
 
+/*
 - (void)onSwipeToLeft:(UIGestureRecognizer *)gestureRecognizer
 {
     [self swipeToDeltaIndex:1];
@@ -213,6 +203,7 @@
     }
     
 }
+*/
 
 #pragma mark - component navigation delegate
 
