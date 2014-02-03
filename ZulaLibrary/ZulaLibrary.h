@@ -56,4 +56,3 @@ kMalformedAppNotification @"kMalformedAppNotification"
 kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
 kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
 */
-#define kSomething @"ef"
