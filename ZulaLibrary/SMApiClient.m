@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
+#import <AFNetworking/AFHTTPClient.h>
 #import "SMApiClient.h"
 #import "AFJSONRequestOperation.h"
 #import "SMDownloadSession.h"
+
+@interface SMApiClient ()
+@property (nonatomic, strong) AFHTTPClient *client;
+@end
 
 @implementation SMApiClient
 
@@ -22,6 +27,26 @@
     });
     
     return _sharedClient;
+}
+
+- (id)initWithBaseURL:(NSURL *)baseUrl
+{
+    if (!baseUrl) {
+        return nil;
+    }
+    
+    self = [super init];
+    if (self) {
+        self.client = [[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+        [self.client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        
+        // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+        [self.client setDefaultHeader:@"Accept" value:@"application/json"];
+        //[operation setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain",@"text/html", nil]];
+        [self.client setParameterEncoding:AFJSONParameterEncoding];
+        
+    }
+    return self;
 }
 
 + (NSURL*)baseUrl
@@ -56,25 +81,6 @@
     return [NSURL URLWithString:@"http://www.zulamobile.com/"];
 }
 
-- (id)initWithBaseURL:(NSURL *)url
-{
-    if (!url) {
-        return nil;
-    }
-    
-    self = [super initWithBaseURL:url];
-    if (self) {
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        
-        // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
-        //[operation setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain",@"text/html", nil]];
-        [self setParameterEncoding:AFJSONParameterEncoding];
-        
-    }
-    return self;
-}
-
 - (SMDownloadSession *)downloadToPath:(NSString *)downloadPath
                getPath:(NSString *)getPath
             parameters:(NSDictionary *)parameters
@@ -83,9 +89,9 @@
               progress:(void(^)(float percentage))progress
 {
     
-    NSMutableURLRequest* rq = [self requestWithMethod:@"GET" 
-                                                 path:getPath
-                                           parameters:parameters];
+    NSMutableURLRequest* rq = [self.client requestWithMethod:@"GET"
+                                                     path:getPath
+                                               parameters:parameters];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:rq];
     
     operation.outputStream = [NSOutputStream outputStreamToFileAtPath:downloadPath append:NO];
@@ -117,6 +123,22 @@
     [operation start];
     
     return [[SMDownloadSession alloc] initWithRequestOperation:operation];
+}
+
+- (void)getPath:(NSString *)path
+     parameters:(NSDictionary *)parameters
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self.client getPath:path parameters:parameters success:success failure:failure];
+}
+
+- (void)postPath:(NSString *)path
+      parameters:(NSDictionary *)parameters
+         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self.client postPath:path parameters:parameters success:success failure:failure];
 }
 
 @end
