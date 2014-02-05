@@ -49,6 +49,7 @@
 
 // categories
 #import "UIViewController+SMAdditions.h"
+#import "NSDictionary+SMAdditions.h"
 
 // notifications
 /*
