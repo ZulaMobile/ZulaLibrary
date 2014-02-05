@@ -63,6 +63,7 @@
                      }];
     [imageView setContentMode:UIViewContentModeScaleAspectFit];
     [imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    imageView.backgroundColor = [UIColor clearColor];
     [self addSubview:imageView];
 }
 

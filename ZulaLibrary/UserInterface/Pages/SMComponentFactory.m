@@ -71,7 +71,7 @@
     }
     
     if (!component) {
-        DDLogError(@"unknown component %@", componentDescription.type);
+        DDLogError(@"Unknown component %@. Did you add extension components in app.plist?", componentDescription.type);
         assert(component);
         return nil;
     }
