@@ -57,3 +57,5 @@ kMalformedAppNotification @"kMalformedAppNotification"
 kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
 kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
 */
+
+#define zulaLibraryVersion 0.1
