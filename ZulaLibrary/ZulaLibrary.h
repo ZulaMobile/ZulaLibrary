@@ -51,6 +51,13 @@
 #import "UIViewController+SMAdditions.h"
 #import "NSDictionary+SMAdditions.h"
 
+// modules
+#import "SMComponentModule.h"
+#import "SMCustomAdvertisementModule.h"
+#import "SMProgressHUDModule.h"
+#import "SMSwipeBackModule.h"
+#import "SMPullToRefreshModule.h"
+
 // notifications
 /*
 kMalformedAppNotification @"kMalformedAppNotification"

@@ -111,14 +111,10 @@
 - (void)componentViewDidLoad
 {
     // load interstitial adverts
-    SMInterstitialAdvert *interstitial =
-    [[SMAdvertManager sharedInstance] nextInterstitialAdvertForKeyword:self.component.title];
-    [self displayInterstitialAdvert:interstitial];
+    [self displayInterstitialAdvertForKeyword:self.component.title];
     
     // load banner adverts
-    SMBannerAdvert *banner =
-    [[SMAdvertManager sharedInstance] nextBannerAdvertForKeyword:self.component.title];
-    [self displayBannerAdvert:banner];
+    [self displayBannerAdvertForKeyword:self.component.title];
 }
 
 - (void)componentWillFetchContents
@@ -129,6 +125,24 @@
 - (void)componentDidFetchContent:(SMModel *)model
 {
     
+}
+
+#pragma mark - public methods
+
+- (void)displayInterstitialAdvertForKeyword:(NSString *)keyword
+{
+    // load interstitial adverts
+    SMInterstitialAdvert *interstitial =
+    [[SMAdvertManager sharedInstance] nextInterstitialAdvertForKeyword:keyword];
+    [self displayInterstitialAdvert:interstitial];
+}
+
+- (void)displayBannerAdvertForKeyword:(NSString *)keyword
+{
+    // load interstitial adverts
+    SMBannerAdvert *banner =
+    [[SMAdvertManager sharedInstance] nextBannerAdvertForKeyword:keyword];
+    [self displayBannerAdvert:banner];
 }
 
 @end

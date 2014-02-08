@@ -15,4 +15,20 @@
  */
 @interface SMCustomAdvertisementModule : NSObject <SMComponentModule>
 
+/**
+ *  Fetches the interstitial (fullscreen) advert that matches the keyword
+ *  If found, displays it modally. If not does nothing
+ *
+ *  @param keyword A keyword that determines the advert
+ */
+- (void)displayInterstitialAdvertForKeyword:(NSString *)keyword;
+
+/**
+ *  Fetches the interstitial (fullscreen) advert that matches the keyword
+ *  If found, displays it. If not does nothing
+ *
+ *  @param keyword A keyword that determines the advert
+ */
+- (void)displayBannerAdvertForKeyword:(NSString *)keyword;
+
 @end

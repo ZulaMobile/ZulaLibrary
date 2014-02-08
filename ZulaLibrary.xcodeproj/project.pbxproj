@@ -41,6 +41,11 @@
 		67170B0C17FF6B84006AD465 /* SMBaseComponentViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4C43E16D8FF5900BCE927 /* SMBaseComponentViewController.h */; };
 		67170B0D17FF6DD9006AD465 /* SMPullToRefresh.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 679EC163176B92D100D32228 /* SMPullToRefresh.h */; };
 		67170B1017FF6E31006AD465 /* SMComponentDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 678D8FC9177C55BB00A364FF /* SMComponentDelegate.h */; };
+		672F33EB18A654F800D67A4C /* SMCustomAdvertisementModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 673FF967189D353D000B9C88 /* SMCustomAdvertisementModule.h */; };
+		672F33EC18A6551200D67A4C /* SMComponentModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 673FF952189C0E30000B9C88 /* SMComponentModule.h */; };
+		672F33ED18A6555100D67A4C /* SMProgressHUDModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 673FF962189D2C9B000B9C88 /* SMProgressHUDModule.h */; };
+		672F33EE18A6555B00D67A4C /* SMSwipeBackModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 673FF95D189C18EE000B9C88 /* SMSwipeBackModule.h */; };
+		672F33EF18A6556500D67A4C /* SMPullToRefreshModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 673FF954189C1055000B9C88 /* SMPullToRefreshModule.h */; };
 		67357872182A9C1E009B327D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780DDD716C02593005EDD1D /* Foundation.framework */; };
 		67357873182A9C1E009B327D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CCC9EF16C15BF1000EBC0B /* CoreGraphics.framework */; };
 		67357874182A9C1E009B327D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D6F51174B9F4A0007A4A1 /* UIKit.framework */; };
@@ -322,6 +327,11 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				672F33EF18A6556500D67A4C /* SMPullToRefreshModule.h in CopyFiles */,
+				672F33EE18A6555B00D67A4C /* SMSwipeBackModule.h in CopyFiles */,
+				672F33ED18A6555100D67A4C /* SMProgressHUDModule.h in CopyFiles */,
+				672F33EC18A6551200D67A4C /* SMComponentModule.h in CopyFiles */,
+				672F33EB18A654F800D67A4C /* SMCustomAdvertisementModule.h in CopyFiles */,
 				6710833118A271E5001171CD /* NSDictionary+SMAdditions.h in CopyFiles */,
 				677C5C30184112A80073063D /* SMDownloadSession.h in CopyFiles */,
 				67EDD2551833C56B004B0AB2 /* SMNotifications.h in CopyFiles */,
