@@ -65,4 +65,4 @@ kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefres
 kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
 */
 
-#define zulaLibraryVersion 0.1
+#define zulaLibraryVersion 0.2
