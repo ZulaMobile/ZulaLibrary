@@ -29,7 +29,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), CGRectGetHeight(screenRect))];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [self.activityIndicatorView setFrame:CGRectMake(CGRectGetWidth(view.frame) / 2 - 20 / 2, CGRectGetHeight(view.frame) - 20 - 20, 20, 20)];
     [self.activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin];
     [self.activityIndicatorView startAnimating];
