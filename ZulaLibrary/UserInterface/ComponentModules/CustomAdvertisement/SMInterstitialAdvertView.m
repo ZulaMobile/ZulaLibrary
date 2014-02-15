@@ -69,7 +69,16 @@
 
 - (void)setupHtmlContent
 {
-    // @TODO
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.frame];
+    [webView setContentMode:UIViewContentModeScaleAspectFit];
+    [webView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    webView.backgroundColor = [UIColor clearColor];
+    webView.opaque = NO;
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.model.url]];
+    [webView loadRequest:request];
+    
+    [self addSubview:webView];
 }
 
 - (void)setupVideoContent
