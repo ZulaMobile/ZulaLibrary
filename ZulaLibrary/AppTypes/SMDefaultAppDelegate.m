@@ -23,6 +23,11 @@
 #import "SMNavigationDescription.h"
 #import "SMNavigation.h"
 
+#import "SMApiClient.h"
+
+
+#define kPushNotificationDidReceive @"kPushNotificationDidReceive"
+
 @interface SMDefaultAppDelegate()
 - (void)launchAppWithCompletion:(void(^)(NSError *))completion;
 - (void)showErrorScreen;
@@ -60,6 +65,17 @@
         // launch the app
         [self launchAppWithCompletion:nil];
     }];
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    // push notifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    
+    UILocalNotification *remoteNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotif) {
+        [self application:application didReceiveRemoteNotification:nil];
+    }
     
     return YES;
 }
@@ -207,5 +223,49 @@
     // relaunch app
     [self launchAppWithCompletion:nil];
 }
+
+#pragma mark - push notifications
+
+- (void)sendTokenToServer:(NSString *)token
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", nil];
+    
+    [[SMApiClient sharedClient] postPath:@"/devicetokens" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"device token is saved");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"device token cannot be saved");
+    }];
+}
+
+// Delegation methods
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    
+    const unsigned *tokenBytes = [devToken bytes];
+    NSString *tokenStr = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:tokenStr forKey:@"token"];
+    [defaults synchronize];
+    
+    [self performSelectorInBackground:@selector(sendTokenToServer:) withObject:tokenStr];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    [[[UIAlertView alloc] initWithTitle:@"Device token failed" message:[NSString stringWithFormat:@"%@", [err description]] delegate:Nil cancelButtonTitle:@"Token registration failed?" otherButtonTitles:nil, nil] show];
+}
+
+- (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    // push notification increased the badge number outside the app
+    // when user opens the app, we should clear the badge
+    app.applicationIconBadgeNumber = 0;
+    
+    // alert observerts to do whatever they have to do with notifications
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPushNotificationDidReceive object:nil];
+}
+
 
 @end
