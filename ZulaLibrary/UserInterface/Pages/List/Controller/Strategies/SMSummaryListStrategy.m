@@ -41,12 +41,19 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SMListPage *listPage = (SMListPage *)self.controller.model;
-    SMListItem *item = [listPage.items objectAtIndex:[indexPath row]];
-    if (item.thumbnailUrl) {
-        return 180.0f + 30.0f + 20.0f;
-    } else {
-        return 100.0f + 30.0f + 20.0f;
+    if (listPage.items && [listPage.items count] > [indexPath row]) {
+        SMListItem *item = [listPage.items objectAtIndex:[indexPath row]];
+        if (item.thumbnailUrl) {
+            return 180.0f + 30.0f + 20.0f;
+        } else {
+            CGSize summarySize = [item.subtitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
+                                           constrainedToSize:CGSizeMake(320.0f, 999.0f)
+                                               lineBreakMode:NSLineBreakByWordWrapping];
+            return 30.0f + 20.0f + summarySize.height;
+        }
     }
+    
+    return 0.0f;
 }
 
 - (UITableViewCell *)cellForImageInTableView:(UITableView *)aTableView
@@ -148,7 +155,12 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
     
     // display this page now
     if (self.controller.navigationController && ctrl) {
-        [self.controller.navigationController pushViewController:ctrl animated:YES];
+        if ([ctrl isKindOfClass:[UINavigationController class]]) {
+            UIViewController *ctrlFromNavCtrl = [[(UINavigationController *)ctrl viewControllers] objectAtIndex:0];
+            [self.controller.navigationController pushViewController:ctrlFromNavCtrl animated:YES];
+        } else {
+            [self.controller.navigationController pushViewController:ctrl animated:YES];
+        }
     }
 }
 
