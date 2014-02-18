@@ -254,7 +254,7 @@
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    [[[UIAlertView alloc] initWithTitle:@"Device token failed" message:[NSString stringWithFormat:@"%@", [err description]] delegate:Nil cancelButtonTitle:@"Token registration failed?" otherButtonTitles:nil, nil] show];
+    //[[[UIAlertView alloc] initWithTitle:@"Device token failed" message:[NSString stringWithFormat:@"%@", [err description]] delegate:Nil cancelButtonTitle:@"Token registration failed?" otherButtonTitles:nil, nil] show];
 }
 
 - (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)userInfo

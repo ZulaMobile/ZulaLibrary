@@ -60,11 +60,13 @@
     NSString *apiUrl;
     
     // check if base url exists in defaults. Preview app sets base url on defaults
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     apiUrl = [defaults objectForKey:@"api_url"];
     if (apiUrl) {
         return [NSURL URLWithString:apiUrl];
     }
+     */
     
     // otherwise fetch if from the plist
     apiUrl = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"api_url"];
