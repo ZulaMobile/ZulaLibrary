@@ -43,7 +43,7 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
     SMListPage *listPage = (SMListPage *)self.controller.model;
     if (listPage.items && [listPage.items count] > [indexPath row]) {
         SMListItem *item = [listPage.items objectAtIndex:[indexPath row]];
-        if (item.thumbnailUrl) {
+        if (item.imageUrl) {
             return 180.0f + 30.0f + 20.0f;
         } else {
             CGSize summarySize = [item.subtitle sizeWithFont:[UIFont systemFontOfSize:13.0f]
@@ -114,13 +114,13 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
     [cell.summary setText:item.subtitle];
     
     // left image if exists
-    if (item.thumbnailUrl) {
+    if (item.imageUrl) {
         // add borders
         //UIColor *bgColor = [cell backgroundColor];
         //[cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
         //[cellImage.layer setBorderWidth:0.5];
         
-        [cell.image setImageWithURL:item.thumbnailUrl];
+        [cell.image setImageWithURL:item.imageUrl];
         [cell activateDisplayImageView];
     } else {
         cell.image = nil;

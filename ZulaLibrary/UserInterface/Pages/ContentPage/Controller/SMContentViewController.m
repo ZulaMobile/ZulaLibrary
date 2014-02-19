@@ -109,7 +109,7 @@
             
             // show error
             [self displayErrorString:error.localizedDescription];
-            
+            [self applyContents];
             return;
         }
         

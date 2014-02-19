@@ -9,17 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "SMViewElement.h"
 
+#define PADDING 10.0f;
+
 
 @interface SMSummaryCell : UITableViewCell <SMViewElement>
 
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) UILabel *title;
-@property (nonatomic, strong) UIImageView *image;
 @property (nonatomic, strong) UILabel *summary;
 
-- (void)activateDisplayImageView;
-- (void)activateNoImageView;
-
 - (float)height;
+- (void)adjustFrames;
+
+@end
+
+
+@interface SMSummaryImageCell : SMSummaryCell
+
+@property (nonatomic, strong) UIImageView *image;
 
 @end

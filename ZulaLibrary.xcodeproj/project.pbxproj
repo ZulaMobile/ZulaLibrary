@@ -258,6 +258,8 @@
 		67CCCA0C16C1710A000EBC0B /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA0A16C1710A000EBC0B /* SMContentViewController.m */; };
 		67CCCA1A16C3F1F2000EBC0B /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */; };
 		67CCCA2616C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */; };
+		67CD6FF718B3D40000C793E5 /* SMFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CD6FF618B3D40000C793E5 /* SMFeedViewController.m */; };
+		67CD6FF818B3D40000C793E5 /* SMFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CD6FF618B3D40000C793E5 /* SMFeedViewController.m */; };
 		67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D275A1174AADF000733E7A /* SMSubMenuView.m */; };
 		67D332C0177AF33F0010E49D /* SMPlainPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D332BF177AF33F0010E49D /* SMPlainPullToRefresh.m */; };
 		67D4C43D16D8ED0300BCE927 /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4C43C16D8ED0300BCE927 /* SMDefaultAppDelegate.m */; };
@@ -578,6 +580,8 @@
 		67CCCA1916C3F1F2000EBC0B /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescription.m; path = Library/Managers/SMAppDescription.m; sourceTree = "<group>"; };
 		67CCCA2416C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAppDescriptionRestApiDataSource.h; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.h; sourceTree = "<group>"; };
 		67CCCA2516C40B4D000EBC0B /* SMAppDescriptionRestApiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAppDescriptionRestApiDataSource.m; path = Library/Descriptions/SMAppDescriptionRestApiDataSource.m; sourceTree = "<group>"; };
+		67CD6FF518B3D40000C793E5 /* SMFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFeedViewController.h; path = UserInterface/Pages/Feed/SMFeedViewController.h; sourceTree = "<group>"; };
+		67CD6FF618B3D40000C793E5 /* SMFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFeedViewController.m; path = UserInterface/Pages/Feed/SMFeedViewController.m; sourceTree = "<group>"; };
 		67D275A0174AADF000733E7A /* SMSubMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSubMenuView.h; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.h; sourceTree = "<group>"; };
 		67D275A1174AADF000733E7A /* SMSubMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSubMenuView.m; path = UserInterface/Pages/ContentPage/View/SMSubMenuView.m; sourceTree = "<group>"; };
 		67D332BE177AF33F0010E49D /* SMPlainPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPlainPullToRefresh.h; path = UserInterface/Elements/PullToRefresh/SMPlainPullToRefresh.h; sourceTree = "<group>"; };
@@ -1406,6 +1410,7 @@
 				67CCC9CD16C11DB2000EBC0B /* Homepage */,
 				67CCC9FE16C16B44000EBC0B /* Content */,
 				6749EB7817257966002219C8 /* List */,
+				67CD6FF118B3D3B400C793E5 /* Feed */,
 				670DA447175747B400B154F0 /* ProductDetail */,
 				670DA453175CE2D500B154F0 /* Contact */,
 				674D6F30174B85E30007A4A1 /* ContentContainer */,
@@ -1608,6 +1613,39 @@
 				6772D44A16D6831F00B36C0F /* SMNavigationDescription.m */,
 			);
 			name = Descriptions;
+			sourceTree = "<group>";
+		};
+		67CD6FF118B3D3B400C793E5 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				67CD6FF418B3D3C900C793E5 /* View */,
+				67CD6FF318B3D3C400C793E5 /* Model */,
+				67CD6FF218B3D3BE00C793E5 /* Controller */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		67CD6FF218B3D3BE00C793E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				67CD6FF518B3D40000C793E5 /* SMFeedViewController.h */,
+				67CD6FF618B3D40000C793E5 /* SMFeedViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		67CD6FF318B3D3C400C793E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67CD6FF418B3D3C900C793E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		67E2F9B3189672D000A1E804 /* Links */ = {
@@ -1976,6 +2014,7 @@
 				673578F3182AC1BF009B327D /* SMFormModel.m in Sources */,
 				673578A4182A9EA9009B327D /* NSDictionarySSAdditionsTests.m in Sources */,
 				673FF972189D42BD000B9C88 /* SMImageView.m in Sources */,
+				67CD6FF818B3D40000C793E5 /* SMFeedViewController.m in Sources */,
 				673FF99B189D43D8000B9C88 /* SMContentContainer.m in Sources */,
 				673578A5182A9F78009B327D /* NSDictionary+SMAdditions.m in Sources */,
 				67357934182AE33A009B327D /* SMAppDescriptionBaseDataSource.m in Sources */,
@@ -2101,6 +2140,7 @@
 				67E2F9BE189684A900A1E804 /* SMTileCell.m in Sources */,
 				6749EB8017257C6F002219C8 /* SMListItem.m in Sources */,
 				673FF956189C1055000B9C88 /* SMPullToRefreshModule.m in Sources */,
+				67CD6FF718B3D40000C793E5 /* SMFeedViewController.m in Sources */,
 				6749EB8317258519002219C8 /* SMListViewController.m in Sources */,
 				6772077A1733D37900E5CDC2 /* SMListCell.m in Sources */,
 				67D275A2174AADF000733E7A /* SMSubMenuView.m in Sources */,
