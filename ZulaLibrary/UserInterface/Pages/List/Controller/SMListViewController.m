@@ -26,6 +26,8 @@
 
 #import "SMTabularListStrategy.h"
 #import "SMSummaryListStrategy.h"
+#import "SMCollectionStrategy.h"
+#import "SMSummaryLayout.h"
 
 #import "SMPullToRefreshModule.h"
 #import "SMPullToRefreshFactory.h"
@@ -46,9 +48,16 @@
     if (!pullToRefresh) {
         NSString *pullToRefreshType = [self.component.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
         SMListViewController *controller = (SMListViewController *)self.component;
-        pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)controller.strategy tableView]
-                                                                   delegate:self
-                                                                       name:pullToRefreshType];
+        if ([controller.strategy isKindOfClass:[SMCollectionStrategy class]]) {
+            pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMCollectionStrategy *)controller.strategy collectionView]
+                                                                       delegate:self
+                                                                           name:pullToRefreshType];
+        } else {
+            pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:[(SMTabularListStrategy *)controller.strategy tableView]
+                                                                       delegate:self
+                                                                           name:pullToRefreshType];
+        }
+        
     }
     
     [super componentDidFetchContent:model];
@@ -102,11 +111,11 @@
     
     // set the strategy
     if (listPage.listingStyle == SMListingStyleSummary) {
-        self.strategy = [[SMSummaryListStrategy alloc] initWithListViewController:self];
+        self.strategy = [[SMCollectionStrategy alloc] initWithListViewController:self];        
     } else if (listPage.listingStyle == SMListingStyleTable) {
         self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
     } else {
-        self.strategy = [[SMTabularListStrategy alloc] initWithListViewController:self];
+        self.strategy = [[SMSummaryListStrategy alloc] initWithListViewController:self];
     }
     
     [self.strategy setup];

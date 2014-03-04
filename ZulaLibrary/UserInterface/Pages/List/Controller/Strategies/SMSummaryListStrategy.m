@@ -120,11 +120,11 @@ static NSString* CellIdentifier = @"SummaryListImageReuseIdentifier";
         //[cellImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
         //[cellImage.layer setBorderWidth:0.5];
         
-        [cell.image setImageWithURL:item.imageUrl];
-        [cell activateDisplayImageView];
+        //[cell.image setImageWithURL:item.imageUrl];
+        //[cell activateDisplayImageView];
     } else {
-        cell.image = nil;
-        [cell activateNoImageView];
+        //cell.image = nil;
+        //[cell activateNoImageView];
     }
     
     return cell;

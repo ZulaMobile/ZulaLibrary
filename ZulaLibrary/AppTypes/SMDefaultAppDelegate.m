@@ -181,7 +181,12 @@
             index++;
         }
         
-        [self.window setRootViewController:self.navigationComponent];
+        if (index == 0) {
+            // there are no components
+            // @todo: show a placeholder
+        } else {
+            [self.window setRootViewController:self.navigationComponent];
+        }
         
         if (completion) completion(nil);
         rootViewController = nil;
@@ -230,6 +235,8 @@
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", nil];
     
+    NSLog(@"token: %@", token);
+    
     [[SMApiClient sharedClient] postPath:@"/devicetokens" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"device token is saved");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -255,6 +262,7 @@
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
     //[[[UIAlertView alloc] initWithTitle:@"Device token failed" message:[NSString stringWithFormat:@"%@", [err description]] delegate:Nil cancelButtonTitle:@"Token registration failed?" otherButtonTitles:nil, nil] show];
+    NSLog(@"Device token failed: %@", [err description]);
 }
 
 - (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)userInfo
