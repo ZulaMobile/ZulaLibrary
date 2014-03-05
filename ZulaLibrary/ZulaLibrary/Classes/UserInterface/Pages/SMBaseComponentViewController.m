@@ -93,9 +93,11 @@
     
     // the transculent navbar setting for ios7
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        /*
         self.navigationController.navigationBar.translucent = YES;
         self.automaticallyAdjustsScrollViewInsets = YES;
-        //self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+         */
     }
     
     // notify modules
