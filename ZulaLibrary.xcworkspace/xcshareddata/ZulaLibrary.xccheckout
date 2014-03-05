@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EF026935-6292-457C-B01A-31E024C049CD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZulaLibrary</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7437E0C6-38DC-4F22-972B-FF6375FCD61E</key>
+		<string>solomon@46.19.36.179:appcreator_library.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ZulaLibrary.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7437E0C6-38DC-4F22-972B-FF6375FCD61E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>solomon@46.19.36.179:appcreator_library.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7437E0C6-38DC-4F22-972B-FF6375FCD61E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7437E0C6-38DC-4F22-972B-FF6375FCD61E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZulaLibrary</string>
+		</dict>
+	</array>
+</dict>
+</plist>
