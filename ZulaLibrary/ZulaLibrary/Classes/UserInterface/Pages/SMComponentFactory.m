@@ -7,7 +7,6 @@
 //
 
 #import "SMComponentFactory.h"
-#import <DDLog.h>
 
 // component imports
 #import "SMHomePageViewController.h"
@@ -76,7 +75,7 @@
     }
     
     if (!component) {
-        DDLogError(@"Unknown component %@. Did you add extension components in app.plist?", componentDescription.type);
+        DDLogError(@"Unknown component %@. Did you add additional components in app.plist? Perhaps you didn't link an external project contains that component.", componentDescription.type);
         assert(component);
         return nil;
     }
