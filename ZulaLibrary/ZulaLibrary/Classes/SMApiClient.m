@@ -10,6 +10,7 @@
 #import "SMApiClient.h"
 #import "AFJSONRequestOperation.h"
 #import "SMDownloadSession.h"
+#import "SMNotifications.h"
 
 @interface SMApiClient ()
 @property (nonatomic, strong) AFHTTPClient *client;

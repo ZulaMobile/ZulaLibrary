@@ -7,7 +7,6 @@
 //
 
 #import "SMComponentFactory.h"
-#import <DDLog.h>
 
 // component imports
 #import "SMHomePageViewController.h"
