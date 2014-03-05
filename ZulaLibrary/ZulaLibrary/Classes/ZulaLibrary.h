@@ -1,27 +1,71 @@
 //
-//  Prefix header
+//  AppCreatorLibrary.h
+//  AppCreatorLibrary
 //
-//  The contents of this file are implicitly included at the beginning of every source file.
+//  Created by Suleyman Melikoglu on 2/4/13.
+//  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import <Availability.h>
+#import <Foundation/Foundation.h>
 
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
-#endif
+// application
+#import "SMDefaultAppDelegate.h"
+#import "SMPortfolioAppDelegate.h"
+#import "SMNavigation.h"
+#import "SMAppDescription.h"
+#import "SMAppDescriptionRestApiDataSource.h"
+#import "SMAppDescriptionDummyDataSource.h"
+#import "SMAppDescriptionPlistDataSource.h"
+#import "SMComponentDescription.h"
 
-#ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+// view controllers
+#import "SMBaseComponentViewController.h"
+#import "SMPreloaderComponentViewController.h"
+#import "SMHomePageViewController.h"
+#import "SMSimpleTableViewController.h"
 
-    #import "SMServerError.h"
-#endif
+// views
+#import "SMViewElement.h"
+#import "SMImageView.h"
 
-#import "DDLog.h"
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+// forms
+#import "SMFormField.h"
+#import "SMFormDescription.h"
+#import "SMFormTableViewStrategy.h"
 
+// models
+#import "SMModel.h"
+#import "SMUser.h"
 
-#define kMalformedAppNotification @"kMalformedAppNotification"
+// library
+#import "SMNotifications.h"
+#import "SMServerError.h"
+#import "SMApiClient.h"
+#import "SMDownloadSession.h"
+#import "SMProgressHUD.h"
+#import "SMValidator.h"
+#import "SMArrayDataSource.h"
+#import "SMPullToRefreshFactory.h"
+
+// categories
+#import "UIViewController+SMAdditions.h"
+#import "NSDictionary+SMAdditions.h"
+
+// modules
+#import "SMComponentModule.h"
+#import "SMCustomAdvertisementModule.h"
+#import "SMProgressHUDModule.h"
+#import "SMSwipeBackModule.h"
+#import "SMPullToRefreshModule.h"
+
+// notifications
+/*
+kMalformedAppNotification @"kMalformedAppNotification"
+kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
+kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
+*/
+
+#define zulaLibraryVersion 0.3
 
 #define UIViewAutoresizingFlexibleAll                       \
 UIViewAutoresizingFlexibleBottomMargin    | \
@@ -63,7 +107,3 @@ UIViewAutoresizingFlexibleTopMargin
 // retina screen detector
 #define isRetina() \
 ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
-
-#define kMalformedAppNotification @"kMalformedAppNotification"
-#define kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
-#define kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
