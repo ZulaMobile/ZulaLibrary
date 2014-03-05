@@ -7,6 +7,7 @@
 //
 
 #import "SMModel.h"
+#import "ZulaLibrary.h"
 
 // data structure constants
 #define kModelVideoGalleryTitle @"title"

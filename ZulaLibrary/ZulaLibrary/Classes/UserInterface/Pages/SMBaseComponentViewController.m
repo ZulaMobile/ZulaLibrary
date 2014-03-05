@@ -7,6 +7,7 @@
 //
 
 #import "SMBaseComponentViewController.h"
+#import "ZulaLibrary.h"
 #import "SMComponentDescription.h"
 #import "SMAppDescription.h"
 #import "SMNavigationDescription.h"

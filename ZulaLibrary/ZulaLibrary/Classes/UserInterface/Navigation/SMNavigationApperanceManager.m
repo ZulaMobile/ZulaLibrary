@@ -202,7 +202,7 @@
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error
 {
-    DDLogError(@"image not downloaded");
+    NSLog(@"image not downloaded");
 }
 */
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SMDefaultAppDelegate.h"
+#import "ZulaLibrary.h"
 #import "SMNavigationApperanceManager.h"
 #import "SMBaseComponentViewController.h"
 
@@ -157,7 +158,7 @@
     
     [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
         if (error) {
-            DDLogError(@"app description could not be fetched: %@", error);
+            NSLog(@"app description could not be fetched: %@", error);
             // show an error alert
             //[preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
             //[preloader onAppFail];

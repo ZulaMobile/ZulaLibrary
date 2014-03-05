@@ -7,6 +7,7 @@
 //
 
 #import "SMInterstitialAdvertView.h"
+#import "ZulaLibrary.h"
 #import "SMInterstitialAdvert.h"
 #import "UIImageView+WebCache.h"
 

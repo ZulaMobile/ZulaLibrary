@@ -7,6 +7,7 @@
 //
 
 #import "SMDefaultPullToRefresh.h"
+#import "ZulaLibrary.h"
 
 @interface SMDefaultPullToRefresh ()
 - (void)deviceOrientationDidChange:(NSNotification *)notification;

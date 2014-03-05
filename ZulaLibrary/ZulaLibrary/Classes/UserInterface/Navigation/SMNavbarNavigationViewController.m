@@ -109,13 +109,13 @@
 {
     // the homepage component must have a navigation controller
     if (!fromComponent.navigationController) {
-        DDLogError(@"Components set up incorrectly for navbarnavigation, Check componentFactory");
+        NSLog(@"Components set up incorrectly for navbarnavigation, Check componentFactory");
         return;
     }
     
     // the component that will be pushed must not be a navigation controller
     if (toComponent.navigationController) {
-        DDLogError(@"toComponent set up incorrectly for navbarnavigation, Check componentFactory");
+        NSLog(@"toComponent set up incorrectly for navbarnavigation, Check componentFactory");
         return;
     }
     

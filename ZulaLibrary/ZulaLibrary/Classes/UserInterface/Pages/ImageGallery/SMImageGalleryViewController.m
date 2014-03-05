@@ -7,6 +7,7 @@
 //
 
 #import "SMImageGalleryViewController.h"
+#import "ZulaLibrary.h"
 #import "UIViewController+SMAdditions.h"
 
 #import "SMComponentDescription.h"
@@ -52,7 +53,7 @@
     [SMImageGallery fetchWithURLString:url completion:^(SMImageGallery *_imageGallery, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            NSLog(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

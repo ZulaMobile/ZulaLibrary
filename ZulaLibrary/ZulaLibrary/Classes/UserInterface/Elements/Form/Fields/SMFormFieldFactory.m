@@ -20,7 +20,7 @@
 {
     NSString *type = [dictionary objectForKey:@"type"];
     if (!type || [type isEqualToString:@""]) {
-        DDLogError(@"Form field type cannot be an empty string, Check your form configuration!");
+        NSLog(@"Form field type cannot be an empty string, Check your form configuration!");
         return nil;
     }
 

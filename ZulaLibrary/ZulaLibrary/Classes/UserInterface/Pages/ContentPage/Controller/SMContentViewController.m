@@ -7,6 +7,7 @@
 //
 
 #import "SMContentViewController.h"
+#import "ZulaLibrary.h"
 #import "SMComponentDescription.h"
 #import "SMImageView.h"
 #import "SMLabel.h"
@@ -105,7 +106,7 @@
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *aContentPage, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            NSLog(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

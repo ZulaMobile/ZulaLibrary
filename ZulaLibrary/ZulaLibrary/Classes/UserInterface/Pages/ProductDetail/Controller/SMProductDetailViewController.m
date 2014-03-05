@@ -8,6 +8,7 @@
 
 #import "SMProductDetailViewController.h"
 #import <DDLog.h>
+#import "ZulaLibrary.h"
 
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"
@@ -74,7 +75,7 @@
     [SMProductDetail fetchWithURLString:url completion:^(SMProductDetail *productDetail, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            NSLog(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

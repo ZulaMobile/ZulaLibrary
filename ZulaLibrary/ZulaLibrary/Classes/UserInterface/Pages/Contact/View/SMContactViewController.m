@@ -7,6 +7,7 @@
 //
 
 #import "SMContactViewController.h"
+#import "ZulaLibrary.h"
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
 
@@ -97,7 +98,7 @@
     [SMContact fetchWithURLString:url Completion:^(SMContact *contactPage, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Contact page fetch contents error|%@", [error description]);
+            NSLog(@"Contact page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

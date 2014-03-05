@@ -7,6 +7,8 @@
 //
 
 #import "SMVideoGalleryViewController.h"
+#import "ZulaLibrary.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+SMAdditions.h"
 #import "UIColor+ZulaAdditions.h"
@@ -53,7 +55,7 @@
     [SMVideoGallery fetchWithURLString:url completion:^(SMVideoGallery *theVideoGallery, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"List page fetch contents error|%@", [error description]);
+            NSLog(@"List page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];
