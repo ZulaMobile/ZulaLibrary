@@ -271,6 +271,18 @@
 		67909C6518C74671005975DB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67909C6418C74671005975DB /* MobileCoreServices.framework */; };
 		67909C6718C7467C005975DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67909C6618C7467C005975DB /* SystemConfiguration.framework */; };
 		67909C6918C74AAB005975DB /* app.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67909C6818C74AAB005975DB /* app.plist */; };
+		67909C8318C74CE3005975DB /* NSDictionarySSAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C6D18C74CE3005975DB /* NSDictionarySSAdditionsTests.m */; };
+		67909C8418C74CE3005975DB /* UIColorSMAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C6E18C74CE3005975DB /* UIColorSMAdditionsTests.m */; };
+		67909C8518C74CE3005975DB /* SMAppDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7018C74CE3005975DB /* SMAppDescriptionTests.m */; };
+		67909C8618C74CE3005975DB /* SMComponentDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7118C74CE3005975DB /* SMComponentDescriptionTests.m */; };
+		67909C8718C74CE3005975DB /* SMSubMenuApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7518C74CE3005975DB /* SMSubMenuApplicationTests.m */; };
+		67909C8818C74CE3005975DB /* SMListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7718C74CE3005975DB /* SMListViewControllerTests.m */; };
+		67909C8918C74CE3005975DB /* SMAdvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7A18C74CE3005975DB /* SMAdvertTests.m */; };
+		67909C8A18C74CE3005975DB /* SMCustomAdvertisementModuleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7B18C74CE3005975DB /* SMCustomAdvertisementModuleTests.m */; };
+		67909C8B18C74CE3005975DB /* SMNavBarNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C7D18C74CE3005975DB /* SMNavBarNavigationControllerTests.m */; };
+		67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */; };
+		67909C8D18C74CE3005975DB /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */; };
+		67909C8E18C74CE3005975DB /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8218C74CE3005975DB /* SMFormFieldTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -560,6 +572,18 @@
 		67909C6418C74671005975DB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		67909C6618C7467C005975DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		67909C6818C74AAB005975DB /* app.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = app.plist; sourceTree = "<group>"; };
+		67909C6D18C74CE3005975DB /* NSDictionarySSAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionarySSAdditionsTests.m; sourceTree = "<group>"; };
+		67909C6E18C74CE3005975DB /* UIColorSMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorSMAdditionsTests.m; sourceTree = "<group>"; };
+		67909C7018C74CE3005975DB /* SMAppDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppDescriptionTests.m; sourceTree = "<group>"; };
+		67909C7118C74CE3005975DB /* SMComponentDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMComponentDescriptionTests.m; sourceTree = "<group>"; };
+		67909C7518C74CE3005975DB /* SMSubMenuApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSubMenuApplicationTests.m; sourceTree = "<group>"; };
+		67909C7718C74CE3005975DB /* SMListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMListViewControllerTests.m; sourceTree = "<group>"; };
+		67909C7A18C74CE3005975DB /* SMAdvertTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAdvertTests.m; sourceTree = "<group>"; };
+		67909C7B18C74CE3005975DB /* SMCustomAdvertisementModuleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCustomAdvertisementModuleTests.m; sourceTree = "<group>"; };
+		67909C7D18C74CE3005975DB /* SMNavBarNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavBarNavigationControllerTests.m; sourceTree = "<group>"; };
+		67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormDescriptionTests.m; sourceTree = "<group>"; };
+		67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
+		67909C8218C74CE3005975DB /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldTests.m; sourceTree = "<group>"; };
 		B023A1D199004587925A9E0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -652,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				67909A1518C74569005975DB /* ZulaLibraryTests.m */,
+				67909C6A18C74CE3005975DB /* tests */,
 				67909A1018C74569005975DB /* Supporting Files */,
 			);
 			path = ZulaLibraryTests;
@@ -1537,6 +1562,121 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		67909C6A18C74CE3005975DB /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				67909C6B18C74CE3005975DB /* Library */,
+				67909C7218C74CE3005975DB /* UserInterface */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		67909C6B18C74CE3005975DB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				67909C6C18C74CE3005975DB /* Categories */,
+				67909C6F18C74CE3005975DB /* Descriptions */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		67909C6C18C74CE3005975DB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				67909C6D18C74CE3005975DB /* NSDictionarySSAdditionsTests.m */,
+				67909C6E18C74CE3005975DB /* UIColorSMAdditionsTests.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		67909C6F18C74CE3005975DB /* Descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7018C74CE3005975DB /* SMAppDescriptionTests.m */,
+				67909C7118C74CE3005975DB /* SMComponentDescriptionTests.m */,
+			);
+			path = Descriptions;
+			sourceTree = "<group>";
+		};
+		67909C7218C74CE3005975DB /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7318C74CE3005975DB /* Components */,
+				67909C7818C74CE3005975DB /* Modules */,
+				67909C7C18C74CE3005975DB /* NavigationComponents */,
+				67909C7E18C74CE3005975DB /* UIElements */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		67909C7318C74CE3005975DB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7418C74CE3005975DB /* ContentContainer */,
+				67909C7618C74CE3005975DB /* List */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		67909C7418C74CE3005975DB /* ContentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7518C74CE3005975DB /* SMSubMenuApplicationTests.m */,
+			);
+			path = ContentContainer;
+			sourceTree = "<group>";
+		};
+		67909C7618C74CE3005975DB /* List */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7718C74CE3005975DB /* SMListViewControllerTests.m */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		67909C7818C74CE3005975DB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7918C74CE3005975DB /* CustomAdvertisement */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		67909C7918C74CE3005975DB /* CustomAdvertisement */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7A18C74CE3005975DB /* SMAdvertTests.m */,
+				67909C7B18C74CE3005975DB /* SMCustomAdvertisementModuleTests.m */,
+			);
+			path = CustomAdvertisement;
+			sourceTree = "<group>";
+		};
+		67909C7C18C74CE3005975DB /* NavigationComponents */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7D18C74CE3005975DB /* SMNavBarNavigationControllerTests.m */,
+			);
+			path = NavigationComponents;
+			sourceTree = "<group>";
+		};
+		67909C7E18C74CE3005975DB /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				67909C7F18C74CE3005975DB /* Form */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		67909C7F18C74CE3005975DB /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */,
+				67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */,
+				67909C8218C74CE3005975DB /* SMFormFieldTests.m */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1806,6 +1946,7 @@
 			files = (
 				67909C3518C74604005975DB /* SMHomePageViewController.m in Sources */,
 				67909B8D18C74604005975DB /* SMComponentDescription.m in Sources */,
+				67909C8518C74CE3005975DB /* SMAppDescriptionTests.m in Sources */,
 				67909BAF18C74604005975DB /* SMProgressHUDModule.m in Sources */,
 				67909BA318C74604005975DB /* SMAdvertManager.m in Sources */,
 				67909BD718C74604005975DB /* SMAnnotation.m in Sources */,
@@ -1817,6 +1958,7 @@
 				67909C1918C74604005975DB /* SMSimpleTableViewController.m in Sources */,
 				67909C3918C74604005975DB /* SMImageGalleryViewController.m in Sources */,
 				67909C0118C74604005975DB /* SMProgressHUD.m in Sources */,
+				67909C8818C74CE3005975DB /* SMListViewControllerTests.m in Sources */,
 				67909C0D18C74604005975DB /* SMNavigationApperanceManager.m in Sources */,
 				67909BEB18C74604005975DB /* SMRainboxPullToRefresh.m in Sources */,
 				67909C5518C74604005975DB /* SMBaseComponentViewController.m in Sources */,
@@ -1827,10 +1969,12 @@
 				67909BED18C74604005975DB /* SMTableCell.m in Sources */,
 				67909B9D18C74604005975DB /* SMDownloadSession.m in Sources */,
 				67909BFB18C74604005975DB /* SMMainView.m in Sources */,
+				67909C8E18C74CE3005975DB /* SMFormFieldTests.m in Sources */,
 				67909C5B18C74604005975DB /* SMVideoGalleryViewController.m in Sources */,
 				67909BCB18C74604005975DB /* SMFormPasswordField.m in Sources */,
 				67909BD518C74604005975DB /* SMFormTableViewStrategy.m in Sources */,
 				67909C1318C74604005975DB /* SMSideNavigationViewController.m in Sources */,
+				67909C8718C74CE3005975DB /* SMSubMenuApplicationTests.m in Sources */,
 				67909BC518C74604005975DB /* SMFormEmailField.m in Sources */,
 				67909BB918C74604005975DB /* SMSummaryLayout.m in Sources */,
 				67909BE318C74604005975DB /* SMGrayPullToRefresh.m in Sources */,
@@ -1844,6 +1988,7 @@
 				67909C4718C74604005975DB /* SMListCell.m in Sources */,
 				67909BE518C74604005975DB /* SMNoPullToRefresh.m in Sources */,
 				67909C1D18C74604005975DB /* SMContactViewController.m in Sources */,
+				67909C8918C74CE3005975DB /* SMAdvertTests.m in Sources */,
 				67909C4518C74604005975DB /* SMListPage.m in Sources */,
 				67909BEF18C74604005975DB /* SMAppearanceValidator.m in Sources */,
 				67909C5D18C74604005975DB /* SMVideoGallery.m in Sources */,
@@ -1851,11 +1996,13 @@
 				67909C1118C74604005975DB /* SMSideMenuViewController.m in Sources */,
 				67909B8718C74604005975DB /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67909C2318C74604005975DB /* SMContentContainerViewController.m in Sources */,
+				67909C8B18C74CE3005975DB /* SMNavBarNavigationControllerTests.m in Sources */,
 				67909C0518C74604005975DB /* SMTextView.m in Sources */,
 				67909BFD18C74604005975DB /* SMMapView.m in Sources */,
 				67909C0918C74604005975DB /* SMWebView.m in Sources */,
 				67909C2118C74604005975DB /* SMContainer.m in Sources */,
 				67909BCD18C74604005975DB /* SMFormSection.m in Sources */,
+				67909C8318C74CE3005975DB /* NSDictionarySSAdditionsTests.m in Sources */,
 				67909B9518C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909B9918C74604005975DB /* SMAppDescription.m in Sources */,
 				67909BF318C74604005975DB /* SMButton.m in Sources */,
@@ -1866,6 +2013,7 @@
 				67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
 				67909C5918C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */,
 				67909B8118C74604005975DB /* UIViewController+SMAdditions.m in Sources */,
+				67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */,
 				67909B8518C74604005975DB /* SMAppDescriptionBaseDataSource.m in Sources */,
 				67909C2D18C74604005975DB /* SMContentPage.m in Sources */,
 				67909C2718C74604005975DB /* SMTriangle.m in Sources */,
@@ -1883,13 +2031,16 @@
 				67909BA918C74604005975DB /* SMCustomAdvertisementModule.m in Sources */,
 				67909BE118C74604005975DB /* SMDefaultPullToRefresh.m in Sources */,
 				67909BC718C74604005975DB /* SMFormField.m in Sources */,
+				67909C8A18C74CE3005975DB /* SMCustomAdvertisementModuleTests.m in Sources */,
 				67909C1F18C74604005975DB /* SMContainerViewController.m in Sources */,
 				67909C1518C74604005975DB /* SMTabbedNavigationViewController.m in Sources */,
 				67909BBF18C74604005975DB /* SMFormSubmitAction.m in Sources */,
 				67909BDF18C74604005975DB /* SMTileLayout.m in Sources */,
 				67909BC918C74604005975DB /* SMFormFieldFactory.m in Sources */,
 				67909B8B18C74604005975DB /* SMAppDescriptionRestApiDataSource.m in Sources */,
+				67909C8618C74CE3005975DB /* SMComponentDescriptionTests.m in Sources */,
 				67909BB518C74604005975DB /* SMSwipeBackModule.m in Sources */,
+				67909C8D18C74CE3005975DB /* SMFormFieldFactoryTests.m in Sources */,
 				67909BCF18C74604005975DB /* SMFormTextArea.m in Sources */,
 				67909C5118C74604005975DB /* SMProductDetail.m in Sources */,
 				67909BD118C74604005975DB /* SMFormTextField.m in Sources */,
@@ -1919,6 +2070,7 @@
 				67909BC118C74604005975DB /* SMFormDescription.m in Sources */,
 				67909B7518C74604005975DB /* NSDictionary+SMAdditions.m in Sources */,
 				67909B7D18C74604005975DB /* UILabel+SMAdditions.m in Sources */,
+				67909C8418C74CE3005975DB /* UIColorSMAdditionsTests.m in Sources */,
 				67909B9B18C74604005975DB /* SMLogManager.m in Sources */,
 				67909C0318C74604005975DB /* SMScrollView.m in Sources */,
 				67909C3118C74604005975DB /* SMFeedViewController.m in Sources */,
