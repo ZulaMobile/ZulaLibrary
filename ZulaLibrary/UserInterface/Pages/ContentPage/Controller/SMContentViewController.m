@@ -16,11 +16,9 @@
 #import "SMWebView.h"
 #import "SMScrollView.h"
 #import "SMContentPage.h"
-#import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 #import "SMMultipleImageView.h"
-#import "SMPullToRefreshFactory.h"
 
 @interface SMContentViewController ()
 
@@ -29,13 +27,19 @@
  */
 @property (nonatomic, strong) SMScrollView *scrollView;
 
+- (void)deviceOrientationDidChange:(NSNotification *)notification;
+
 @end
 
 @implementation SMContentViewController
 @synthesize imageView = _imageView;
 @synthesize webView = _webView;
 @synthesize scrollView = _scrollView;
-@synthesize contentPage = _contentPage;
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)loadView
 {
@@ -47,24 +51,28 @@
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
+    self.scrollView.autoresizesSubviews = YES;
     
+    /*
     self.webView = [[SMWebView alloc] initWithFrame:
                     CGRectMake(padding,
                                padding,
                                CGRectGetWidth(self.view.frame) - padding * 2,
-                               600)];
-    [self.webView setAutoresizesSubviews:UIViewAutoresizingDefault];
+                               0)];*/
+    self.webView = [[SMWebView alloc] initWithFrame:self.scrollView.frame];
+    self.webView.autoresizingMask = UIViewAutoresizingFlexibleAll;
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.webView setDelegate:self];
     [self.webView disableScrollBounce];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     [self.scrollView addSubview:self.webView];
     [self.view addSubview:self.scrollView];
+    
+    // orientation notifiers
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -79,45 +87,49 @@
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.contentPage) {
+    [super fetchContents];
+    
+    // check if there are offline content instead of server one
+    if (![self.componentDesciption hasDownloadableContents]) {
+        
+        // the contents are ready
+        SMContentPage *contentPage = [[SMContentPage alloc] initWithAttributes:self.componentDesciption.contents];
+        self.model = contentPage;
         [self applyContents];
         return;
     }
     
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    // there are downloadable content. fetch it from the webservice.
+    NSString *url = [self.componentDesciption contents];
     
-    NSString *url = [self.componentDesciption url];
-    [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *contentPage, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
+    [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *aContentPage, SMServerError *error) {
         
         if (error) {
             DDLogError(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];
-            
+            [self applyContents];
             return;
         }
         
-        [self setContentPage:contentPage];
+        self.model = aContentPage;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    [_webView loadHTMLString:self.contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    SMContentPage *contentPage = (SMContentPage *)self.model;
+    
+    [_webView loadHTMLString:contentPage.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
     
     // set images
-    if ([self.contentPage.images count] > 0) {
+    if ([contentPage.images count] > 0) {
         self.imageView = [[SMMultipleImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
-        [self.imageView setAutoresizesSubviews:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
+        [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin];
         [self.imageView applyAppearances:[self.componentDesciption.appearance objectForKey:@"image"]];
-        [self.imageView addImagesWithArray:self.contentPage.images];
+        [self.imageView addImagesWithArray:contentPage.images];
         [self.scrollView addSubview:self.imageView];
     } else {
         // unset images if set before
@@ -127,18 +139,18 @@
         }
     }
     
-    if (self.contentPage.backgroundUrl) {
+    if (contentPage.backgroundUrl) {
         // set background
-        [self.backgroundImageView setImageWithURL:self.contentPage.backgroundUrl];
+        [self.backgroundImageView setImageWithURL:contentPage.backgroundUrl];
     } else if (self.backgroundImageView) {
         // unset background
         [self.backgroundImageView setImage:nil];
     }
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.contentPage.navbarIcon];
+    [self applyNavbarIconWithUrl:contentPage.navbarIcon];
     
-    [pullToRefresh endRefresh];
+    [super applyContents];
 }
 
 #pragma mark - web view delegate
@@ -185,6 +197,12 @@
     }
     
     return YES;
+}
+
+#pragma mark - private methods
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    [self webViewDidFinishLoad:self.webView];
 }
 
 @end

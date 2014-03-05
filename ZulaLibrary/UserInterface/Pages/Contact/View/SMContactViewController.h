@@ -7,18 +7,14 @@
 //
 
 #import "SMPullToRefreshComponentViewController.h"
-#import <MapKit/MapKit.h>
-#import "SMMapView.h"
 #import "SMFormTableViewStrategy.h"
 
-@class SMContact, SMWebView;
+@class SMContact, SMWebView, SMMapView;
 
 /**
  Contact controller to display maps, address info and a form
  */
-@interface SMContactViewController : SMPullToRefreshComponentViewController <UIWebViewDelegate, MKMapViewDelegate, SMMapViewDelegate, SMFormDelegate>
-
-@property (nonatomic, strong) SMContact *contact;
+@interface SMContactViewController : SMBaseComponentViewController <UIWebViewDelegate, SMFormDelegate>
 
 @property (nonatomic, strong) SMMapView *mapView;
 

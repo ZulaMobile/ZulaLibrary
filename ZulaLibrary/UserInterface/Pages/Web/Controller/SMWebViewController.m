@@ -12,7 +12,7 @@
 #import "SMComponentDescription.h"
 #import "SMAppDescription.h"
 #import "UIWebView+SMAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
 
 #import "SMWeb.h"
 #import "SMWebView.h"
@@ -22,7 +22,7 @@
 @end
 
 @implementation SMWebViewController
-@synthesize web=_web, webView=_webView;
+@synthesize webView=_webView;
 
 - (void)loadView
 {
@@ -48,25 +48,14 @@
     [self.view addSubview:self.webView];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
-}
-
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // start preloader
-    [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMWeb fetchWithURLString:url completion:^(SMWeb *theWeb, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Web page fetch contents error|%@", [error description]);
@@ -77,22 +66,26 @@
             return;
         }
         
-        [self setWeb:theWeb];
+        self.model = theWeb;
+        
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    [self setTitle:self.web.title];
+    SMWeb *web = (SMWeb *)self.model;
     
-    if (self.web.url) {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:self.web.url]];
+    [self setTitle:web.title];
+    
+    if (web.url) {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:web.url]];
     }
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.web.navbarIcon];
+    [self applyNavbarIconWithUrl:web.navbarIcon];
     
+    [super applyContents];
 }
 
 #pragma mark - web view delegate

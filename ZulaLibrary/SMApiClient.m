@@ -6,8 +6,14 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
+#import <AFNetworking/AFHTTPClient.h>
 #import "SMApiClient.h"
 #import "AFJSONRequestOperation.h"
+#import "SMDownloadSession.h"
+
+@interface SMApiClient ()
+@property (nonatomic, strong) AFHTTPClient *client;
+@end
 
 @implementation SMApiClient
 
@@ -23,6 +29,26 @@
     return _sharedClient;
 }
 
+- (id)initWithBaseURL:(NSURL *)baseUrl
+{
+    if (!baseUrl) {
+        return nil;
+    }
+    
+    self = [super init];
+    if (self) {
+        self.client = [[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+        [self.client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        
+        // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+        [self.client setDefaultHeader:@"Accept" value:@"application/json"];
+        //[operation setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain",@"text/html", nil]];
+        [self.client setParameterEncoding:AFJSONParameterEncoding];
+        
+    }
+    return self;
+}
+
 + (NSURL*)baseUrl
 {
 #ifdef DEBUG_APP
@@ -34,11 +60,13 @@
     NSString *apiUrl;
     
     // check if base url exists in defaults. Preview app sets base url on defaults
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     apiUrl = [defaults objectForKey:@"api_url"];
     if (apiUrl) {
         return [NSURL URLWithString:apiUrl];
     }
+     */
     
     // otherwise fetch if from the plist
     apiUrl = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"api_url"];
@@ -55,22 +83,64 @@
     return [NSURL URLWithString:@"http://www.zulamobile.com/"];
 }
 
-- (id)initWithBaseURL:(NSURL *)url
+- (SMDownloadSession *)downloadToPath:(NSString *)downloadPath
+               getPath:(NSString *)getPath
+            parameters:(NSDictionary *)parameters
+               success:(void (^)(AFHTTPRequestOperation *, id))success
+               failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+              progress:(void(^)(float percentage))progress
 {
-    if (!url) {
-        return nil;
-    }
     
-    self = [super initWithBaseURL:url];
-    if (self) {
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        
-        // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
-        //[operation setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain",@"text/html", nil]];
-        [self setParameterEncoding:AFJSONParameterEncoding];
-        
-    }
-    return self;
+    NSMutableURLRequest* rq = [self.client requestWithMethod:@"GET"
+                                                     path:getPath
+                                               parameters:parameters];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:rq];
+    
+    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:downloadPath append:NO];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success) {
+            success(operation, responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+    
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        // progress
+        float complete = (float)totalBytesRead / (float)totalBytesExpectedToRead;
+        if (progress) {
+            progress(complete);
+        }
+    }];
+    
+    __block id weakOperation = self;
+    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        AFHTTPRequestOperation *strongOperation = weakOperation;
+        [strongOperation pause];
+    }];
+    
+    [operation start];
+    
+    return [[SMDownloadSession alloc] initWithRequestOperation:operation];
 }
+
+- (void)getPath:(NSString *)path
+     parameters:(NSDictionary *)parameters
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self.client getPath:path parameters:parameters success:success failure:failure];
+}
+
+- (void)postPath:(NSString *)path
+      parameters:(NSDictionary *)parameters
+         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self.client postPath:path parameters:parameters success:success failure:failure];
+}
+
 @end

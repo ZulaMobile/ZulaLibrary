@@ -7,10 +7,9 @@
 //
 
 #import "SMVideoGalleryViewController.h"
-#import "SMProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIViewController+SSToolkitAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIViewController+SMAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 #import "SMVideoGallery.h"
 #import "SMPullToRefreshFactory.h"
@@ -22,7 +21,7 @@
 @end
 
 @implementation SMVideoGalleryViewController
-@synthesize videoGallery, tableView;
+@synthesize tableView;
 
 - (void)loadView
 {
@@ -41,39 +40,17 @@
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.tableView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
-    
     // add views to main view
     [self.view addSubview:self.tableView];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self fetchContents];
-}
-
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.videoGallery) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     
     [SMVideoGallery fetchWithURLString:url completion:^(SMVideoGallery *theVideoGallery, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"List page fetch contents error|%@", [error description]);
@@ -84,33 +61,36 @@
             return;
         }
         
-        [self setVideoGallery:theVideoGallery];
+        self.model = theVideoGallery;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
+    SMVideoGallery *videoGallery = (SMVideoGallery *)self.model;
     
     // ui changes
-    if (self.videoGallery.backgroundUrl) {
+    if (videoGallery.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:self.videoGallery.backgroundUrl];
+        [background setImageWithURL:videoGallery.backgroundUrl];
         [self.tableView setBackgroundView:background];
     }
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.videoGallery.navbarIcon];
+    [self applyNavbarIconWithUrl:videoGallery.navbarIcon];
     
-    [pullToRefresh endRefresh];
     [self.tableView reloadData];
+    
+    [super applyContents];
 }
 
 #pragma mark - table view data source
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.videoGallery videos] count];
+    SMVideoGallery *videoGallery = (SMVideoGallery *)self.model;
+    return [[videoGallery videos] count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
@@ -121,10 +101,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SMVideoGallery *videoGallery = (SMVideoGallery *)self.model;
+    
     static NSString* CellIdentifier = @"VideoGalleryImageReuseIdentifier";
     
     SMVideoCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    SMVideo *video = [self.videoGallery.videos objectAtIndex:[indexPath row]];
+    SMVideo *video = [videoGallery.videos objectAtIndex:[indexPath row]];
     
     if (cell == nil) {
         cell = [[SMVideoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -155,7 +137,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return ([self.videoGallery.videos count] - 1 == [indexPath row]) ? 170.0f : 160.0;
+    SMVideoGallery *videoGallery = (SMVideoGallery *)self.model;
+    return ([videoGallery.videos count] - 1 == [indexPath row]) ? 170.0f : 160.0;
 }
 
 

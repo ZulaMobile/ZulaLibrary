@@ -12,11 +12,6 @@
 
 @interface SMWebViewController : SMBaseComponentViewController <UIWebViewDelegate, UIAlertViewDelegate>
 
-/**
- Data model
- */
-@property (nonatomic, strong) SMWeb *web;
-
 @property (nonatomic, strong) SMWebView *webView;
 
 @end

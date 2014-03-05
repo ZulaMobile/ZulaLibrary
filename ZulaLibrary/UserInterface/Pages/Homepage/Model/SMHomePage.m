@@ -12,6 +12,7 @@
 @implementation SMHomePage
 @synthesize logoUrl = _logoUrl;
 @synthesize backgroundUrl = _backgroundUrl;
+@synthesize components = _components;
 
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
@@ -25,6 +26,11 @@
         NSString *backgroundImageUrlString = [attributes objectForKey:kModelHomePageBackgroundImageUrl];
         if (backgroundImageUrlString && ![backgroundImageUrlString isEqualToString:@""]) {
             _backgroundUrl = [NSURL URLWithString:backgroundImageUrlString];
+        }
+        
+        NSArray *theComponents = [attributes objectForKey:kModelHomePageComponents];
+        if (theComponents && [theComponents isKindOfClass:[NSArray class]]) {
+            _components = theComponents;
         }
     }
     return self;

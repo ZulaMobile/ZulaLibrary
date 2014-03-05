@@ -19,11 +19,23 @@
 {
     self = [super init];
     if (self) {
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            if (isPad()) {
+                [scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            } else {
+                [scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            }
+        }
+        
         _isRefreshing = NO;
         _delegate = delegate;
         _scrollView = scrollView;
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_indicator hidesWhenStopped];
+        
         
         //[_scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
         
@@ -118,6 +130,9 @@
     [_indicator stopAnimating];
     _arrowTop.transform = CGAffineTransformIdentity;
     [UIView commitAnimations];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStopRefreshing
+                                                        object:self];
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
@@ -126,6 +141,9 @@
     [_indicator startAnimating];
     _arrowTop.hidden = YES;
     [_delegate pullToRefreshShouldRefresh:self];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStartRefreshing
+                                                        object:self];
 }
 
 @end

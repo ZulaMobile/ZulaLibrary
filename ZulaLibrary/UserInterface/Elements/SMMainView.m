@@ -7,7 +7,7 @@
 //
 
 #import "SMMainView.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "SMImageView.h"
 
 @interface SMMainView()

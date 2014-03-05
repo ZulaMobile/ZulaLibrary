@@ -42,11 +42,12 @@
     }
     [tmpComponents addObject:componentDescription];
     [self setComponentDescriptions:[NSArray arrayWithArray:tmpComponents]];
-    /*
-     // if it's homepage component, add the navigation delegate to this class
-     if ([component isKindOfClass:[UINavigationController class]]) {
-     [(UINavigationController *)component setDelegate:self];
-     }*/
+    
+    // set view controllers of the tabbar
+    NSMutableArray *tmpViewControllers = [NSMutableArray arrayWithArray:self.viewControllers];
+    UIViewController *ctrl = [self componentAtIndex:componentDescription.index];
+    [tmpViewControllers addObject:ctrl];
+    self.viewControllers = [NSArray arrayWithArray:tmpViewControllers];
 }
 
 /*
@@ -73,6 +74,12 @@
     }
     
     return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:compDesc forNavigation:appDesc.navigationDescription];
+}
+
+- (SMBaseComponentViewController *)componentFromComponentDescription:(SMComponentDescription *)componentDescription
+{
+    SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:componentDescription forNavigation:appDesc.navigationDescription];
 }
 
 - (void)navigateComponent:(UIViewController *)toComponent fromComponent:(UIViewController *)fromComponent

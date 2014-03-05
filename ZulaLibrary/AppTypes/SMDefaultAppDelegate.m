@@ -11,7 +11,6 @@
 #import "SMBaseComponentViewController.h"
 
 #import "SMAppDescription.h"
-#import "SMAppDescriptionDummyDataSource.h"
 #import "SMAppDescriptionRestApiDataSource.h"
 
 #import "SMLogManager.h"
@@ -23,6 +22,11 @@
 #import "SMNavigationFactory.h"
 #import "SMNavigationDescription.h"
 #import "SMNavigation.h"
+
+#import "SMApiClient.h"
+
+
+#define kPushNotificationDidReceive @"kPushNotificationDidReceive"
 
 @interface SMDefaultAppDelegate()
 - (void)launchAppWithCompletion:(void(^)(NSError *))completion;
@@ -36,6 +40,7 @@
     __block SMPreloaderComponentViewController *preloader;
 }
 @synthesize navigationComponent = _navigationComponent;
+@synthesize appDataSource = _appDataSource;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -60,6 +65,17 @@
         // launch the app
         [self launchAppWithCompletion:nil];
     }];
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    // push notifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    
+    UILocalNotification *remoteNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotif) {
+        [self application:application didReceiveRemoteNotification:nil];
+    }
     
     return YES;
 }
@@ -115,6 +131,21 @@
     
 }
 
+#pragma mark - getter setters
+
+- (id<SMAppDescriptionDataSource>)appDataSource
+{
+    if (!_appDataSource) {
+        _appDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
+    }
+    return _appDataSource;
+}
+
+- (void)setAppDataSource:(id<SMAppDescriptionDataSource>)appDataSource
+{
+    _appDataSource = appDataSource;
+}
+
 #pragma mark - private methods
 
 - (void)launchAppWithCompletion:(void (^)(NSError *))completion
@@ -122,11 +153,7 @@
     // fetch `app description`
     SMAppDescription *appDescription = [SMAppDescription sharedInstance];
     
-    //SMAppDescriptionDummyDataSource *dummyDataSource = [[SMAppDescriptionDummyDataSource alloc] init];
-    //[appDescription setDataSource:dummyDataSource];
-    
-    SMAppDescriptionRestApiDataSource *restApiDataSource = [[SMAppDescriptionRestApiDataSource alloc] init];
-    [appDescription setDataSource:restApiDataSource];
+    [appDescription setDataSource:self.appDataSource];
     
     [appDescription fetchAndSaveAppDescriptionWithCompletion:^(NSError *error) {
         if (error) {
@@ -134,7 +161,8 @@
             // show an error alert
             //[preloader setErrorMessage:[NSString stringWithFormat:NSLocalizedString(@"%@ Please tap anywhere to try again", nil), error.localizedDescription]];
             //[preloader onAppFail];
-            [self showErrorScreenWithError:error];
+            [preloader onAppFail];
+            //[self showErrorScreenWithError:error];
             if (completion) completion(error);
             return;
         }
@@ -146,16 +174,26 @@
         [self.navigationComponent.apperanceManager applyAppearances:appDescription.appearance];
         
         // add component descriptions to the navigation
+        NSInteger index = 0;
         for (SMComponentDescription *componentDesc in appDescription.componentDescriptions) {
+            componentDesc.index = index;
             [self.navigationComponent addChildComponentDescription:componentDesc];
+            index++;
         }
         
-        [self.window setRootViewController:self.navigationComponent];
+        if (index == 0) {
+            // there are no components
+            // @todo: show a placeholder
+        } else {
+            [self.window setRootViewController:self.navigationComponent];
+        }
         
         if (completion) completion(nil);
         rootViewController = nil;
         preloader = nil;
     }];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 }
 
 - (void)showErrorScreen
@@ -190,5 +228,52 @@
     // relaunch app
     [self launchAppWithCompletion:nil];
 }
+
+#pragma mark - push notifications
+
+- (void)sendTokenToServer:(NSString *)token
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", nil];
+    
+    NSLog(@"token: %@", token);
+    
+    [[SMApiClient sharedClient] postPath:@"/devicetokens" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"device token is saved");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"device token cannot be saved");
+    }];
+}
+
+// Delegation methods
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    
+    const unsigned *tokenBytes = [devToken bytes];
+    NSString *tokenStr = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:tokenStr forKey:@"token"];
+    [defaults synchronize];
+    
+    [self performSelectorInBackground:@selector(sendTokenToServer:) withObject:tokenStr];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    //[[[UIAlertView alloc] initWithTitle:@"Device token failed" message:[NSString stringWithFormat:@"%@", [err description]] delegate:Nil cancelButtonTitle:@"Token registration failed?" otherButtonTitles:nil, nil] show];
+    NSLog(@"Device token failed: %@", [err description]);
+}
+
+- (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    // push notification increased the badge number outside the app
+    // when user opens the app, we should clear the badge
+    app.applicationIconBadgeNumber = 0;
+    
+    // alert observerts to do whatever they have to do with notifications
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPushNotificationDidReceive object:nil];
+}
+
 
 @end

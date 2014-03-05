@@ -7,7 +7,7 @@
 //
 
 #import "SMWebView.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 @interface SMWebView()
 {

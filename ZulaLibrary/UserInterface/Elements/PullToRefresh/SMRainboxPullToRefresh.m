@@ -24,26 +24,26 @@
         
         _pullToRefresh = [[MSPullToRefreshController alloc] initWithScrollView:_scrollView delegate:self];
         
-        NSMutableArray *animationImages = [NSMutableArray arrayWithCapacity:19];
-        for (int i=1; i<20; i++)
-            [animationImages addObject:[UIImage imageNamed:[NSString stringWithFormat:@"loading-%d.png",i]]];
+        //NSMutableArray *animationImages = [NSMutableArray arrayWithCapacity:19];
+        //for (int i=1; i<20; i++)
+        //    [animationImages addObject:[UIImage imageNamed:[NSString stringWithFormat:@"loading-%d.png",i]]];
         
-        _rainbowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loading-1.png"]];
+        _rainbowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/pull_to_refresh/gray/background"]];
         _rainbowTop.frame = CGRectMake(0, -_scrollView.frame.size.height, _scrollView.frame.size.width, scrollView.frame.size.height);
-        _rainbowTop.animationImages = animationImages;
+        //_rainbowTop.animationImages = animationImages;
         _rainbowTop.animationDuration = 2;
         [scrollView addSubview:_rainbowTop];
         
-        _rainbowBot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loading-1.png"]];
+        _rainbowBot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/pull_to_refresh/gray/background"]];
         _rainbowBot.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         _rainbowBot.frame = CGRectMake(0, _scrollView.frame.size.height, _scrollView.frame.size.width, scrollView.frame.size.height);
-        _rainbowBot.animationImages = animationImages;
+        //_rainbowBot.animationImages = animationImages;
         _rainbowBot.animationDuration = 2;
         [scrollView addSubview:_rainbowBot];
         
         
         
-        _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big_arrow.png"]];
+        _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/pull_to_refresh/default/big_arrow.png"]];
         _arrowTop.frame = CGRectMake(floorf((_rainbowTop.frame.size.width-_arrowTop.frame.size.width)/2), _rainbowTop.frame.size.height - _arrowTop.frame.size.height - 10 , _arrowTop.frame.size.width, _arrowTop.frame.size.height);
         [_rainbowTop addSubview:_arrowTop];
         
@@ -126,6 +126,9 @@
     _arrowTop.transform = CGAffineTransformIdentity;
     _arrowBot.transform  = CGAffineTransformMakeRotation(M_PI);
     [UIView commitAnimations];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStopRefreshing
+                                                        object:self];
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
@@ -135,6 +138,9 @@
     [_rainbowTop startAnimating];
     [_rainbowBot startAnimating];
     [_delegate pullToRefreshShouldRefresh:self];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStartRefreshing
+                                                        object:self];
 }
 
 @end

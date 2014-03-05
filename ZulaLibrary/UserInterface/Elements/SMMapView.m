@@ -7,7 +7,7 @@
 //
 
 #import "SMMapView.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 #import "SMButton.h"
 #import "SMAppDescription.h"

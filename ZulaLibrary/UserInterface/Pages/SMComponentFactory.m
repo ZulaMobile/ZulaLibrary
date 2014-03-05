@@ -20,12 +20,15 @@
 #import "SMContainerViewController.h"
 #import "SMWebViewController.h"
 #import "SMVideoGalleryViewController.h"
+#import "SMFeedViewController.h"
 
 @implementation SMComponentFactory
 
 + (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
 {
     UIViewController *component;
+    
+    // try to get build-in components
     if ([componentDescription.type isEqualToString:@"ContentComponent"]) {
         // create the component
         component = [[SMContentViewController alloc] initWithDescription:componentDescription];
@@ -33,6 +36,8 @@
         component = [[SMHomePageViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ListComponent"]) {
         component = [[SMListViewController alloc] initWithDescription:componentDescription];
+    } else if ([componentDescription.type isEqualToString:@"FeedComponent"]) {
+        component = [[SMFeedViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContentContainerComponent"]) {
         component = [[SMContentContainerViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ProductDetailComponent"]) {
@@ -49,8 +54,29 @@
         component = [[SMVideoGalleryViewController alloc] initWithDescription:componentDescription];
     }
     
+    // try to get app-specific components
     if (!component) {
-        DDLogError(@"unknown component %@", componentDescription.type);
+        NSString *appInfoPath = [[NSBundle mainBundle] pathForResource:@"app" ofType:@"plist"];
+        NSDictionary *appInfo = [NSDictionary dictionaryWithContentsOfFile:appInfoPath];
+        NSArray *appComponents = [appInfo objectForKey:@"available_components"];
+        for (NSString *componentTitle in appComponents) {
+            if ([componentDescription.type isEqualToString:componentTitle]) {
+                // by convention, component names are like this: [ComponentName]Component
+                // we need to cut the Component out from it, and append "ViewController" at the end, and prepend the namespece "SM"
+                NSString *componentName = [componentTitle stringByReplacingOccurrencesOfString:@"Component" withString:@""];
+                componentName = [NSString stringWithFormat:@"SM%@ViewController", componentName];
+                
+                Class cls = NSClassFromString(componentName);
+                if (cls) {
+                    component = [[cls alloc] initWithDescription:componentDescription];
+                    return component;
+                }
+            }
+        }
+    }
+    
+    if (!component) {
+        DDLogError(@"Unknown component %@. Did you add extension components in app.plist?", componentDescription.type);
         assert(component);
         return nil;
     }
@@ -58,7 +84,8 @@
     return component;
 }
 
-+ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription forNavigation:(SMNavigationDescription *)navigationDescription
++ (UIViewController *)componentWithDescription:(SMComponentDescription *)componentDescription
+                                 forNavigation:(SMNavigationDescription *)navigationDescription
 {
     UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
     
@@ -69,14 +96,41 @@
     if ([navigationDescription.type isEqualToString:@"tabbar"]) {
         return [[UINavigationController alloc] initWithRootViewController:component];
     } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
-        // only homepage must be navigation controller
-        if ([componentDescription.type isEqualToString:@"HomePageComponent"]) {
-            return [[UINavigationController alloc] initWithRootViewController:component];
-        }
+        // only the 1st component (the component with index no:0) will be a navigation controller
+        if (componentDescription.index == 0) return [[UINavigationController alloc] initWithRootViewController:component];
+        
+        // all other component are without navigation controller (because they will be pushed)
         return component;
+    } else if ([navigationDescription.type isEqualToString:@"sidebar"]) {
+        return [[UINavigationController alloc] initWithRootViewController:component];
     }
     
     DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    return nil;
+}
+
++ (UIViewController *)subComponentWithDescription:(SMComponentDescription *)componentDescription
+                                    forNavigation:(SMNavigationDescription *)navigationDescription
+{
+    UIViewController *component = [SMComponentFactory componentWithDescription:componentDescription];
+    
+    if (!component) {
+        return nil;
+    }
+    
+    if ([navigationDescription.type isEqualToString:@"tabbar"]) {
+        return component;
+    } else if ([navigationDescription.type isEqualToString:@"navbar"]) {
+        // only the 1st component (the component with index no:0) will be a navigation controller
+        if (componentDescription.index == 0) return [[UINavigationController alloc] initWithRootViewController:component];
+        
+        // all other component are without navigation controller (because they will be pushed)
+        return component;
+    } else if ([navigationDescription.type isEqualToString:@"sidebar"]) {
+        return component;
+    }
+    
+    DDLogError(@"sub component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
     return nil;
 }
 

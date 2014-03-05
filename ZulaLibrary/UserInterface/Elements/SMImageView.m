@@ -7,7 +7,8 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
+#import "UIImageView+WebCache.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 #import "UIImageView+ProgressView.h"
 
@@ -104,6 +105,11 @@
     } else {
         [self setBackgroundColor:[UIColor colorWithHex:colorHex]];
     }
+}
+
+- (void)setImageWithURL:(NSURL *)url
+{
+    [super setImageWithURL:url];
 }
 
 - (void)setImageWithURL:(NSURL *)url activityIndicatorStyle:(UIActivityIndicatorViewStyle)style

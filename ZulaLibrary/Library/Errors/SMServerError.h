@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperation.h"
+
+@class AFHTTPRequestOperation;
 
 /**
  Error class for server responses.

@@ -19,6 +19,7 @@
 @synthesize bgImageUrl = _bgImageUrl;
 @synthesize dataSource = _dataSource;
 @synthesize appearance = _appearance;
+@synthesize appDescriptionData = _appDescriptionData;
 
 // singleton implementation
 + (SMAppDescription *)sharedInstance
@@ -60,6 +61,9 @@
         //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         //[defaults setObject:response forKey:kDefaultsKeyAppDescription];
         //[defaults synchronize];
+        
+        // set the raw data
+        _appDescriptionData = response;
         
         // set the app title
         _appTitle = [response objectForKey:@"title"];

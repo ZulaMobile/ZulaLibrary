@@ -19,11 +19,6 @@
 @interface SMContentContainerViewController : SMBaseComponentViewController
 
 /**
- Model attribute that holds the data
- */
-@property (nonatomic, strong) SMContentContainer *contentContainer;
-
-/**
  Submenu view contains the buttons for sub-components
  */
 @property (nonatomic, strong) SDSegmentedControl *subMenu;

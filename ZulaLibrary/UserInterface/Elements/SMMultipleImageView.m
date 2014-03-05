@@ -9,7 +9,7 @@
 #import "SMMultipleImageView.h"
 #import "UIImageView+WebCache.h"
 
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 #import "UILabel+SMAdditions.h"
 #import "SMAppearanceValidator.h"
 #import "SMImageView.h"

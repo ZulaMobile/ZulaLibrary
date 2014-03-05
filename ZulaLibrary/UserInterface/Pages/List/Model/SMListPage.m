@@ -36,6 +36,8 @@ navbarIcon = _navbarIcon;
             _listingStyle = SMListingStyleBox;
         } else if ([theListingStyle isEqualToString:@"group"]) {
             _listingStyle = SMListingStyleGroup;
+        } else if ([theListingStyle isEqualToString:@"summary"]) {
+            _listingStyle = SMListingStyleSummary;
         }
         
         NSArray *theItems = (NSArray *)[attributes objectForKey:kModelListPageItems];

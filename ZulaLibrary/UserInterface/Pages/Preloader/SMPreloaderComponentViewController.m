@@ -29,18 +29,20 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), CGRectGetHeight(screenRect))];
     [view setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
-    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [self.activityIndicatorView setFrame:CGRectMake(CGRectGetWidth(view.frame) / 2 - 20 / 2, CGRectGetHeight(view.frame) - 20 - 20, 20, 20)];
     [self.activityIndicatorView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin];
     [self.activityIndicatorView startAnimating];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))];
     //[self.imageView setImage:[UIImage imageNamed:@"zularesources.bundle/preload_splash"]];
-    if (IS_IPHONE_5) {
+    /*if (IS_IPHONE_5) {
         [self.imageView setImage:[UIImage imageNamed:@"Default-568h@2x.png"]];
     } else {
         [self.imageView setImage:[UIImage imageNamed:@"Default"]];
     }
+     */
+    [self.imageView setImage:[UIImage imageNamed:@"Default"]];
     
     [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
@@ -92,7 +94,7 @@
     [errButton setFrame:errFrame];
     [errButton setTitle:self.errorMessage forState:UIControlStateNormal];
     [errButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [errButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [errButton setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
     [errButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
     [errButton setBackgroundColor:[UIColor blackColor]];
     [errButton.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];

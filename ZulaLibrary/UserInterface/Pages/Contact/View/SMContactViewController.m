@@ -8,10 +8,13 @@
 
 #import "SMContactViewController.h"
 #import <AddressBook/AddressBook.h>
+#import <MapKit/MapKit.h>
+
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"
-#import "UIViewController+SSToolkitAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIImageView+WebCache.h"
+#import "UIViewController+SMAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
@@ -30,9 +33,8 @@
 #import "SMFormButtonField.h"
 #import "SMFormEmailField.h"
 #import "SMFormTextArea.h"
-#import "SMPullToRefreshFactory.h"
 
-@interface SMContactViewController ()
+@interface SMContactViewController () <MKMapViewDelegate, SMMapViewDelegate>
 @property (nonatomic, strong) SMScrollView *scrollView;
 @property (nonatomic, strong) SMFormTableViewStrategy *formStrategy;
 - (void)addRegionAndAnnotationLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude annotationName:(NSString *)name;
@@ -48,16 +50,18 @@
     // screen size
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
+    self.padding = (CGPoint){0.0f, 20.0f};
+    
     self.scrollView = [[SMScrollView alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
     [self.scrollView applyAppearances:self.componentDesciption.appearance];
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     
     self.textView = [[SMWebView alloc] initWithFrame:
-                    CGRectMake(0,
-                               padding,
-                               CGRectGetWidth(self.view.frame),
-                               CGRectGetHeight(self.view.frame))];
-    [self.textView setAutoresizesSubviews:UIViewAutoresizingDefault];
+                    CGRectMake(self.padding.x,
+                               self.padding.y,
+                               CGRectGetWidth(self.view.frame) - self.padding.x * 2,
+                               CGRectGetHeight(self.view.frame) - self.padding.y * 2)];
+    [self.textView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.textView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
     [self.textView setDelegate:self];
     [self.textView disableScrollBounce];
@@ -68,17 +72,12 @@
                                                                   0,
                                                                   CGRectGetWidth(self.view.frame),
                                                                   CGRectGetHeight(self.view.frame))];
-    [self.extraView setAutoresizesSubviews:UIViewAutoresizingDefault];
+    [self.extraView setAutoresizingMask:UIViewAutoresizingDefault];
     [self.extraView applyAppearances:[self.componentDesciption.appearance objectForKey:@"extra"]];
     [self.extraView setDelegate:self];
     [self.extraView disableScrollBounce];
     [self.extraView setDataDetectorTypes:UIDataDetectorTypeAddress | UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber]; // detect phone numbers, addresses, etc.
     [self.extraView setTag:402];
-    
-    NSString *pullToRefreshType = [self.componentDesciption.appearance objectForKey:@"pull_to_refresh_type"];
-    pullToRefresh = [SMPullToRefreshFactory pullToRefreshWithScrollView:self.scrollView
-                                                               delegate:self
-                                                                   name:pullToRefreshType];
     
     [self.scrollView addSubview:self.textView];
     [self.scrollView addSubview:self.extraView];
@@ -88,32 +87,14 @@
     [self.view addSubview:self.scrollView];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // fetch the data and load the model
-    [self fetchContents];
-}
-
 #pragma mark - overridden methods
 
 - (void)fetchContents
 {
-    // if data is already set and not deliberately refreshing contents, so no need to fetch contents
-    if (![pullToRefresh isRefreshing] && self.contact) {
-        [self applyContents];
-        return;
-    }
-    
-    // start preloader
-    if (![pullToRefresh isRefreshing])
-        [SMProgressHUD show];
+    [super fetchContents];
     
     NSString *url = [self.componentDesciption url];
     [SMContact fetchWithURLString:url Completion:^(SMContact *contactPage, SMServerError *error) {
-        // end preloader
-        [SMProgressHUD dismiss];
         
         if (error) {
             DDLogError(@"Contact page fetch contents error|%@", [error description]);
@@ -124,31 +105,33 @@
             return;
         }
         
-        [self setContact:contactPage];
+        self.model = contactPage;
         [self applyContents];
     }];
 }
 
 - (void)applyContents
 {
-    [self setTitle:self.contact.title];
+    SMContact *contact = (SMContact *)self.model;
     
-    [self.textView loadHTMLString:self.contact.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
-    [self.extraView loadHTMLString:self.contact.extra baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    [self setTitle:contact.title];
     
-    if (self.contact.backgroundUrl)
-        [self.backgroundImageView setImageWithURL:self.contact.backgroundUrl];
+    [self.textView loadHTMLString:contact.text baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    [self.extraView loadHTMLString:contact.extra baseURL:[NSURL URLWithString:@"http://www.zulamobile.com/"]];
+    
+    if (contact.backgroundUrl)
+        [self.backgroundImageView setImageWithURL:contact.backgroundUrl];
     
     // add navigation image if set
-    [self applyNavbarIconWithUrl:self.contact.navbarIcon];
+    [self applyNavbarIconWithUrl:contact.navbarIcon];
     
     // maps
-    if ([self.contact hasCoordinates] && !self.mapView)
+    if ([contact hasCoordinates] && !self.mapView)
     {
         self.mapView = [[SMMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 160.0)];
         [self.mapView setDelegate:self];
         [self.mapView setRouteButtonDelegate:self];
-        [self.mapView setCenterCoordinate:self.contact.coordinates animated:NO];
+        [self.mapView setCenterCoordinate:contact.coordinates animated:NO];
         [self.mapView applyAppearances:[self.componentDesciption.appearance objectForKey:@"maps"]];
         
         [self.scrollView addSubview:mapView];
@@ -163,14 +146,14 @@
      
         // fetch app title to display in annotation
         NSString *appTitle = [[SMAppDescription sharedInstance] appTitle];
-        [self addRegionAndAnnotationLatitude:self.contact.coordinates.latitude longitude:self.contact.coordinates.longitude annotationName:appTitle];
+        [self addRegionAndAnnotationLatitude:contact.coordinates.latitude longitude:contact.coordinates.longitude annotationName:appTitle];
     }
     
     // form
-    if ([self.contact form] && !self.contactFormView) {
-        [self.contact.form setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
+    if ([contact form] && !self.contactFormView) {
+        [contact.form setExtraData:[NSDictionary dictionaryWithObjectsAndKeys:self.componentDesciption.type, @"type", self.componentDesciption.slug, @"slug", nil]];
         
-        self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:self.contact.form scrollView:self.scrollView];
+        self.formStrategy = [[SMFormTableViewStrategy alloc] initWithDescription:contact.form scrollView:self.scrollView];
         [self.formStrategy setDelegate:self];
         self.contactFormView = [[UITableView alloc] initWithFrame:CGRectMake(0, 280, 320, 0) style:UITableViewStyleGrouped];
         [self.contactFormView setDelegate:self.formStrategy];
@@ -180,7 +163,7 @@
         [self.scrollView addSubview:self.contactFormView];
     }
     
-    [pullToRefresh endRefresh];
+    [super applyContents];
 }
 
 #pragma mark - private methods
@@ -216,6 +199,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
+    SMContact *contact = (SMContact *)self.model;
+    
     CGRect frame = aWebView.frame;
     frame.size.height = 1;
     aWebView.frame = frame;
@@ -231,13 +216,13 @@
         scrollSize.height = CGRectGetHeight(self.textView.frame);
         
         // shift the text view if we have map view
-        if ([self.contact hasCoordinates]) {
+        if ([contact hasCoordinates]) {
             //textViewFrame.origin.y += CGRectGetHeight(self.mapView.frame);
             scrollSize.height += CGRectGetHeight(self.mapView.frame);
         }
         
         // add the initial padding of the text view
-        scrollSize.height += padding;
+        scrollSize.height += self.padding.y;
         
         self.textView.frame = textViewFrame;
         [self.scrollView setContentSize:scrollSize];
@@ -287,12 +272,14 @@
 
 - (void)onRouteButton:(SMMapView *)mapView
 {
+    SMContact *contact = (SMContact *)self.model;
+    
     NSString *os_version = [[UIDevice currentDevice] systemVersion];
     float os_v = [os_version floatValue];
     
-    CLLocationDegrees latitude = self.contact.coordinates.latitude;
-    CLLocationDegrees longitude = self.contact.coordinates.longitude;
-    NSString* name = self.contact.title;
+    CLLocationDegrees latitude = contact.coordinates.latitude;
+    CLLocationDegrees longitude = contact.coordinates.longitude;
+    NSString* name = contact.title;
     
     if (os_v >= 6.0) {
         MKPlacemark* placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude, longitude)

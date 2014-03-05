@@ -10,6 +10,7 @@
 #import "SMRainboxPullToRefresh.h"
 #import "SMDefaultPullToRefresh.h"
 #import "SMPlainPullToRefresh.h"
+#import "SMNoPullToRefresh.h"
 
 @implementation SMPullToRefreshFactory
 

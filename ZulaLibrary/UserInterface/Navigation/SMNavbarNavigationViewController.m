@@ -80,6 +80,12 @@
     return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:compDesc forNavigation:appDesc.navigationDescription];
 }
 
+- (SMBaseComponentViewController *)componentFromComponentDescription:(SMComponentDescription *)componentDescription
+{
+    SMAppDescription *appDesc = [SMAppDescription sharedInstance];
+    return (SMBaseComponentViewController *)[SMComponentFactory componentWithDescription:componentDescription forNavigation:appDesc.navigationDescription];
+}
+
 /*
 - (void)addChildComponent:(UIViewController *)component
 {

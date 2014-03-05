@@ -10,20 +10,13 @@
 #import "SMPullToRefreshComponentViewController.h"
 #import "SMPullToRefresh.h"
 
-#import "SMImageView.h"
-
-@class SMHomePage, SMHomePageLinks;
+@class SMHomePage, SMLinks, SMImageView;
 
 /**
  Home Page Component automatically displays all registered components 
  in order (if menu is not hidden)
  */
-@interface SMHomePageViewController : SMPullToRefreshComponentViewController
-
-/**
- Model class
- */
-@property (nonatomic, strong) SMHomePage *homePage;
+@interface SMHomePageViewController : SMBaseComponentViewController
 
 /**
  The optional logo image
@@ -35,6 +28,6 @@
  can display buttons in different listing style (grid, tabular, etc) or
  not displaying them at all
  */
-@property (nonatomic, strong) SMHomePageLinks *homePageLinks;
+@property (nonatomic, strong) SMLinks *linksView;
 
 @end

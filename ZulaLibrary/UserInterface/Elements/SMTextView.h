@@ -8,7 +8,7 @@
 
 #import "SSTextView.h"
 #import "SMViewElement.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 /**
  Standard uitextview element

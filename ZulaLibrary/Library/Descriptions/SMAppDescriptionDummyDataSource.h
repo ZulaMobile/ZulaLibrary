@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMAppDescription.h"
+#import "SMAppDescriptionBaseDataSource.h"
 
-@interface SMAppDescriptionDummyDataSource : NSObject <SMAppDescriptionDataSource>
+@interface SMAppDescriptionDummyDataSource : SMAppDescriptionBaseDataSource
 
 @end

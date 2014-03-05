@@ -124,7 +124,7 @@
     UIView *topView = window.rootViewController.view;
     CGRect aRect = topView.frame;
     aRect.size.height -= keyboardSize.height;
-    
+
     if (self.description.activeField && !CGRectContainsPoint(aRect, self.description.activeField.field.frame.origin) ) {
         for (UIView *subview in scrollView.subviews) {
             if ([subview isKindOfClass:[UITableView class]]) {

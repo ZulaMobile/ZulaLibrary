@@ -34,12 +34,21 @@
 - (void)addChildComponentDescription:(SMComponentDescription *)componentDescription;
 
 /**
- Gets the component description from AppDescription, 
- create its component and returns it
+ Gets the component description from AppDescription,
+ creates its component and returns it
  
  Raises an exception if component is not found at index
  */
 - (SMBaseComponentViewController *)componentAtIndex:(NSInteger)index;
+
+/**
+ *  Creates a component from the given desctiption
+ *
+ *  @param componentDescription
+ *
+ *  @return 
+ */
+- (SMBaseComponentViewController *)componentFromComponentDescription:(SMComponentDescription *)componentDescription;
 
 /**
  Present the component using an approptiate way. Using the optional fromCompoonent if needed.

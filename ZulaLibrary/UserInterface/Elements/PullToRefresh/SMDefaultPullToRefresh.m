@@ -8,6 +8,10 @@
 
 #import "SMDefaultPullToRefresh.h"
 
+@interface SMDefaultPullToRefresh ()
+- (void)deviceOrientationDidChange:(NSNotification *)notification;
+@end
+
 @implementation SMDefaultPullToRefresh
 {
     BOOL _isRefreshing;
@@ -21,6 +25,17 @@
         _isRefreshing = NO;
         _delegate = delegate;
         _scrollView = scrollView;
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            if (isPad()) {
+                [_scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            } else {
+                [_scrollView setContentInset:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+                [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f)];
+            }
+        }
+        
         //[_scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
         
         _pullToRefresh = [[MSPullToRefreshController alloc] initWithScrollView:_scrollView delegate:self];
@@ -30,16 +45,43 @@
         [scrollView addSubview:_background];
         
         _arrowTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/pull_to_refresh/default/big_arrow"]];
-        _arrowTop.frame = CGRectMake(floorf((_background.frame.size.width-_arrowTop.frame.size.width)/2), _background.frame.size.height - _arrowTop.frame.size.height - 10 , _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        _arrowTop.frame = CGRectMake((_background.frame.size.width - _arrowTop.frame.size.width)/2,
+                                     _background.frame.size.height - _arrowTop.frame.size.height - 10 ,
+                                     _arrowTop.frame.size.width, _arrowTop.frame.size.height);
         [_background addSubview:_arrowTop];
+        
+        _zulaLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zularesources.bundle/icon_alternate-50"]];
+        _zulaLogo.frame = CGRectMake((_background.frame.size.width - (_zulaLogo.frame.size.width/2))/2,
+                                     _background.frame.size.height - (_zulaLogo.frame.size.height/2) - 80 ,
+                                     _zulaLogo.frame.size.width/2, _zulaLogo.frame.size.height/2);
+        _zulaLogo.backgroundColor = [UIColor clearColor];
+        _zulaLogo.alpha = 0.5f;
+        [_background addSubview:_zulaLogo];
         
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_indicator setHidesWhenStopped:YES];
         _indicator.frame = CGRectMake(_arrowTop.frame.origin.x, _arrowTop.frame.origin.y, 16, 16);
         [_background addSubview:_indicator];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
     return self;
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+/*
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"%@",NSStringFromCGSize(_scrollView.contentSize));
+    CGFloat contentSizeArea = _scrollView.contentSize.width*_scrollView.contentSize.height;
+    CGFloat frameArea = _scrollView.frame.size.width*_scrollView.frame.size.height;
+    CGSize adjustedContentSize = contentSizeArea < frameArea ? _scrollView.frame.size : _scrollView.contentSize;
+    //_rainbowBot.frame = CGRectMake(0, adjustedContentSize.height, _scrollView.frame.size.width, _scrollView.frame.size.height);
+}
+ */
 
 - (void) endRefresh {
     [_pullToRefresh finishRefreshingDirection:MSRefreshDirectionTop animated:YES];
@@ -98,6 +140,9 @@
     [UIView setAnimationDuration:0.2];
     _arrowTop.transform = CGAffineTransformIdentity;
     [UIView commitAnimations];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStopRefreshing
+                                                        object:self];
 }
 
 - (void) pullToRefreshController:(MSPullToRefreshController *)controller didEngageRefreshDirection:(MSRefreshDirection)direction {
@@ -105,6 +150,34 @@
     _arrowTop.hidden = YES;
     [_indicator startAnimating];
     [_delegate pullToRefreshShouldRefresh:self];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kZulaNotificationPullToRefreshDidStartRefreshing
+                                                        object:self];
+}
+
+#pragma mark - private methods
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    CGRect fr = [[UIScreen mainScreen] bounds];
+    if (UIDeviceOrientationIsLandscape(orientation)) {
+        _arrowTop.frame = CGRectMake((CGRectGetHeight(fr) - _arrowTop.frame.size.width)/2,
+                                     _background.frame.size.height - _arrowTop.frame.size.height - 14 ,
+                                     _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        
+        _zulaLogo.frame = CGRectMake((CGRectGetHeight(fr) - _zulaLogo.frame.size.width)/2,
+                                     _background.frame.size.height - _zulaLogo.frame.size.height - 74 ,
+                                     _zulaLogo.frame.size.width, _zulaLogo.frame.size.height);
+    } else {
+        _arrowTop.frame = CGRectMake((CGRectGetWidth(fr) - _arrowTop.frame.size.width)/2,
+                                     _background.frame.size.height - _arrowTop.frame.size.height - 10 ,
+                                     _arrowTop.frame.size.width, _arrowTop.frame.size.height);
+        
+        _zulaLogo.frame = CGRectMake((CGRectGetWidth(fr) - _zulaLogo.frame.size.width)/2,
+                                     _background.frame.size.height - _zulaLogo.frame.size.height - 80 ,
+                                     _zulaLogo.frame.size.width, _zulaLogo.frame.size.height);
+    }
+    _indicator.frame = CGRectMake(_arrowTop.frame.origin.x, _arrowTop.frame.origin.y, 16, 16);
 }
 
 @end

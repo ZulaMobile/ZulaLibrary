@@ -14,7 +14,7 @@
  Merges 2 dictionaries
  dict2 will overridden by the values of dict1
  */
-+ (NSDictionary *) dictionaryByMerging:(NSDictionary *)dict1 with:(NSDictionary *)dict2;
++ (NSDictionary *)dictionaryByMerging:(NSDictionary *)dict1 with:(NSDictionary *)dict2;
 
 /**
  Merges the dictionary with given dictionary

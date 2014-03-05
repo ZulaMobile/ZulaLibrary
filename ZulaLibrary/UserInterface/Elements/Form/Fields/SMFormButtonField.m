@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SMFormSubmitAction.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+ZulaAdditions.h"
 
 @implementation SMFormButtonField
 

@@ -7,7 +7,6 @@
 //
 
 #import "SMListCell.h"
-#import "UIColor+SSToolkitAdditions.h"
 #import "UIColor+ZulaAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 
