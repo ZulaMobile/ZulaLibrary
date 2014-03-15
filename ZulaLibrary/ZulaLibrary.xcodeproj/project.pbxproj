@@ -283,6 +283,7 @@
 		67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */; };
 		67909C8D18C74CE3005975DB /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */; };
 		67909C8E18C74CE3005975DB /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8218C74CE3005975DB /* SMFormFieldTests.m */; };
+		67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -584,6 +585,8 @@
 		67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		67909C8218C74CE3005975DB /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldTests.m; sourceTree = "<group>"; };
+		67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
+		67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
 		B023A1D199004587925A9E0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1558,6 +1561,8 @@
 		67909B6918C74604005975DB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */,
+				67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1829,6 +1834,7 @@
 				67909BEE18C74604005975DB /* SMAppearanceValidator.m in Sources */,
 				67909C1218C74604005975DB /* SMSideNavigationViewController.m in Sources */,
 				67909BE818C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
+				67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */,
 				67909C2018C74604005975DB /* SMContainer.m in Sources */,
 				67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909BAA18C74604005975DB /* SMInterstitialAdvert.m in Sources */,

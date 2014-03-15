@@ -236,8 +236,6 @@
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:token, @"token", nil];
     
-    NSLog(@"token: %@", token);
-    
     [[SMApiClient sharedClient] postPath:@"/devicetokens" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"device token is saved");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

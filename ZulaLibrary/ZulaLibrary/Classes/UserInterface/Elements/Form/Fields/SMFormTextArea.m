@@ -7,7 +7,8 @@
 //
 
 #import "SMFormTextArea.h"
-#import "SSTextView.h"
+#import "SMTextView.h"
+
 
 @implementation SMFormTextArea
 
@@ -34,22 +35,22 @@
         
         // text field
         
-        self.field = [[SSTextView alloc] init];
+        self.field = [[SMTextView alloc] init];
         self.field.tag = 661;
-        [(SSTextView *)self.field setFont:[UIFont fontWithName:@"Helvetica" size:16]];
-        [(SSTextView *)self.field setDelegate:self];
+        [(SMTextView *)self.field setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+        //[(SMTextView *)self.field setDelegate:self];
         
         [cell.contentView addSubview:self.field];
     }
     
     if (!self.field)
-        self.field = (SSTextView *)[cell.contentView viewWithTag:661];
+        self.field = (UITextField *)[cell.contentView viewWithTag:661];
     
     [self.field setFrame:CGRectMake(0,
                                    0,
                                    CGRectGetWidth(tableView.frame) - 40,
                                    self.height - 14)];
-    [(SSTextView *)self.field setPlaceholder:self.label];
+    [(SMTextView *)self.field setPlaceholder:self.label];
     
     return cell;
 }
