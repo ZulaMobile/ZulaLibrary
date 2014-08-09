@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SMPullToRefreshComponentViewController.h"
 #import "MWPhotoBrowser.h"
+#import "SMBaseComponentViewController.h"
 #import "SMImageView.h"
 
 @class SMImageGallery;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SMPullToRefreshComponentViewController.h"
+#import "SMBaseComponentViewController.h"
 
 @class SMImageView, SMLabel, SMMultipleImageView, SMWebView;
 

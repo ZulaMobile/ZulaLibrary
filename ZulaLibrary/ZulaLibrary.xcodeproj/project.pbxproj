@@ -250,14 +250,10 @@
 		67909C4F18C74604005975DB /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4A18C74604005975DB /* SMProductDetailViewController.m */; };
 		67909C5018C74604005975DB /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4D18C74604005975DB /* SMProductDetail.m */; };
 		67909C5118C74604005975DB /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4D18C74604005975DB /* SMProductDetail.m */; };
-		67909C5218C74604005975DB /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5118C74604005975DB /* SMQAViewController.m */; };
-		67909C5318C74604005975DB /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5118C74604005975DB /* SMQAViewController.m */; };
 		67909C5418C74604005975DB /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5318C74604005975DB /* SMBaseComponentViewController.m */; };
 		67909C5518C74604005975DB /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5318C74604005975DB /* SMBaseComponentViewController.m */; };
 		67909C5618C74604005975DB /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5518C74604005975DB /* SMComponentFactory.m */; };
 		67909C5718C74604005975DB /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5518C74604005975DB /* SMComponentFactory.m */; };
-		67909C5818C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */; };
-		67909C5918C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */; };
 		67909C5A18C74604005975DB /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */; };
 		67909C5B18C74604005975DB /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */; };
 		67909C5C18C74604005975DB /* SMVideoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5E18C74604005975DB /* SMVideoGallery.m */; };
@@ -550,14 +546,10 @@
 		67909B4A18C74604005975DB /* SMProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMProductDetailViewController.m; sourceTree = "<group>"; };
 		67909B4C18C74604005975DB /* SMProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMProductDetail.h; sourceTree = "<group>"; };
 		67909B4D18C74604005975DB /* SMProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMProductDetail.m; sourceTree = "<group>"; };
-		67909B5018C74604005975DB /* SMQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQAViewController.h; sourceTree = "<group>"; };
-		67909B5118C74604005975DB /* SMQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQAViewController.m; sourceTree = "<group>"; };
 		67909B5218C74604005975DB /* SMBaseComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBaseComponentViewController.h; sourceTree = "<group>"; };
 		67909B5318C74604005975DB /* SMBaseComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBaseComponentViewController.m; sourceTree = "<group>"; };
 		67909B5418C74604005975DB /* SMComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMComponentFactory.h; sourceTree = "<group>"; };
 		67909B5518C74604005975DB /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMComponentFactory.m; sourceTree = "<group>"; };
-		67909B5618C74604005975DB /* SMPullToRefreshComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPullToRefreshComponentViewController.h; sourceTree = "<group>"; };
-		67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPullToRefreshComponentViewController.m; sourceTree = "<group>"; };
 		67909B5A18C74604005975DB /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67909B5D18C74604005975DB /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVideoGallery.h; sourceTree = "<group>"; };
@@ -1157,13 +1149,10 @@
 				67909B4218C74604005975DB /* Modules */,
 				67909B4318C74604005975DB /* Preloader */,
 				67909B4718C74604005975DB /* ProductDetail */,
-				67909B4E18C74604005975DB /* QA */,
 				67909B5218C74604005975DB /* SMBaseComponentViewController.h */,
 				67909B5318C74604005975DB /* SMBaseComponentViewController.m */,
 				67909B5418C74604005975DB /* SMComponentFactory.h */,
 				67909B5518C74604005975DB /* SMComponentFactory.m */,
-				67909B5618C74604005975DB /* SMPullToRefreshComponentViewController.h */,
-				67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */,
 				67909B5818C74604005975DB /* VideoGallery */,
 				67909B6218C74604005975DB /* Web */,
 			);
@@ -1477,23 +1466,6 @@
 				67909B4D18C74604005975DB /* SMProductDetail.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		67909B4E18C74604005975DB /* QA */ = {
-			isa = PBXGroup;
-			children = (
-				67909B4F18C74604005975DB /* Controller */,
-			);
-			path = QA;
-			sourceTree = "<group>";
-		};
-		67909B4F18C74604005975DB /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				67909B5018C74604005975DB /* SMQAViewController.h */,
-				67909B5118C74604005975DB /* SMQAViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		67909B5818C74604005975DB /* VideoGallery */ = {
@@ -1853,7 +1825,6 @@
 				67909B7418C74604005975DB /* NSDictionary+SMAdditions.m in Sources */,
 				67909BBC18C74604005975DB /* SMFormAction.m in Sources */,
 				67909BB018C74604005975DB /* SMPullToRefreshModule.m in Sources */,
-				67909C5218C74604005975DB /* SMQAViewController.m in Sources */,
 				67909C2618C74604005975DB /* SMTriangle.m in Sources */,
 				67909C1018C74604005975DB /* SMSideMenuViewController.m in Sources */,
 				67909B8818C74604005975DB /* SMAppDescriptionPlistDataSource.m in Sources */,
@@ -1944,7 +1915,6 @@
 				67909BB418C74604005975DB /* SMSwipeBackModule.m in Sources */,
 				67909C0A18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
 				67909C0218C74604005975DB /* SMScrollView.m in Sources */,
-				67909C5818C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2019,7 +1989,6 @@
 				67909BD318C74604005975DB /* SMFormModel.m in Sources */,
 				67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */,
 				67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
-				67909C5918C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */,
 				67909B8118C74604005975DB /* UIViewController+SMAdditions.m in Sources */,
 				67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */,
 				67909B8518C74604005975DB /* SMAppDescriptionBaseDataSource.m in Sources */,
@@ -2035,7 +2004,6 @@
 				67909B7318C74604005975DB /* SMModel.m in Sources */,
 				67909BAB18C74604005975DB /* SMInterstitialAdvert.m in Sources */,
 				67909C4F18C74604005975DB /* SMProductDetailViewController.m in Sources */,
-				67909C5318C74604005975DB /* SMQAViewController.m in Sources */,
 				67909BA918C74604005975DB /* SMCustomAdvertisementModule.m in Sources */,
 				67909BE118C74604005975DB /* SMDefaultPullToRefresh.m in Sources */,
 				67909BC718C74604005975DB /* SMFormField.m in Sources */,
