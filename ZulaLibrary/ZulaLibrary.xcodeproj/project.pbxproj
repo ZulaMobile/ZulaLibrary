@@ -208,8 +208,6 @@
 		67909C2518C74604005975DB /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B0F18C74604005975DB /* SMContentContainer.m */; };
 		67909C2618C74604005975DB /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1218C74604005975DB /* SMTriangle.m */; };
 		67909C2718C74604005975DB /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1218C74604005975DB /* SMTriangle.m */; };
-		67909C2818C74604005975DB /* SMContentPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67909B1518C74604005975DB /* SMContentPageViewController.xib */; };
-		67909C2918C74604005975DB /* SMContentPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67909B1518C74604005975DB /* SMContentPageViewController.xib */; };
 		67909C2A18C74604005975DB /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1718C74604005975DB /* SMContentViewController.m */; };
 		67909C2B18C74604005975DB /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1718C74604005975DB /* SMContentViewController.m */; };
 		67909C2C18C74604005975DB /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1A18C74604005975DB /* SMContentPage.m */; };
@@ -506,7 +504,6 @@
 		67909B0F18C74604005975DB /* SMContentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMContentContainer.m; sourceTree = "<group>"; };
 		67909B1118C74604005975DB /* SMTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTriangle.h; sourceTree = "<group>"; };
 		67909B1218C74604005975DB /* SMTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTriangle.m; sourceTree = "<group>"; };
-		67909B1518C74604005975DB /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMContentPageViewController.xib; sourceTree = "<group>"; };
 		67909B1618C74604005975DB /* SMContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContentViewController.h; sourceTree = "<group>"; };
 		67909B1718C74604005975DB /* SMContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMContentViewController.m; sourceTree = "<group>"; };
 		67909B1918C74604005975DB /* SMContentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContentPage.h; sourceTree = "<group>"; };
@@ -1149,12 +1146,12 @@
 				67909B4218C74604005975DB /* Modules */,
 				67909B4318C74604005975DB /* Preloader */,
 				67909B4718C74604005975DB /* ProductDetail */,
+				67909B5818C74604005975DB /* VideoGallery */,
+				67909B6218C74604005975DB /* Web */,
 				67909B5218C74604005975DB /* SMBaseComponentViewController.h */,
 				67909B5318C74604005975DB /* SMBaseComponentViewController.m */,
 				67909B5418C74604005975DB /* SMComponentFactory.h */,
 				67909B5518C74604005975DB /* SMComponentFactory.m */,
-				67909B5818C74604005975DB /* VideoGallery */,
-				67909B6218C74604005975DB /* Web */,
 			);
 			name = Components;
 			path = Pages;
@@ -1297,7 +1294,6 @@
 		67909B1418C74604005975DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				67909B1518C74604005975DB /* SMContentPageViewController.xib */,
 				67909B1618C74604005975DB /* SMContentViewController.h */,
 				67909B1718C74604005975DB /* SMContentViewController.m */,
 			);
@@ -1735,7 +1731,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67909C6918C74AAB005975DB /* app.plist in Resources */,
-				67909C2818C74604005975DB /* SMContentPageViewController.xib in Resources */,
 				679099FB18C74569005975DB /* InfoPlist.strings in Resources */,
 				67909A0318C74569005975DB /* Images.xcassets in Resources */,
 				67909C4C18C74604005975DB /* SMPreloaderComponentViewController.xib in Resources */,
@@ -1748,7 +1743,6 @@
 			files = (
 				67909C4D18C74604005975DB /* SMPreloaderComponentViewController.xib in Resources */,
 				67909A1418C74569005975DB /* InfoPlist.strings in Resources */,
-				67909C2918C74604005975DB /* SMContentPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
