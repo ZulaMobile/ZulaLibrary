@@ -852,10 +852,10 @@
 			isa = PBXGroup;
 			children = (
 				67909A6318C74603005975DB /* ComponentModules */,
-				67909A7F18C74603005975DB /* Delegates */,
+				67909A7F18C74603005975DB /* Strategies */,
 				67909A8918C74603005975DB /* Elements */,
 				67909AE418C74603005975DB /* Navigation */,
-				67909AF218C74603005975DB /* Pages */,
+				67909AF218C74603005975DB /* Components */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -866,10 +866,10 @@
 				67909A6418C74603005975DB /* CustomAdvertisement */,
 				67909A7318C74603005975DB /* ProgressHUD */,
 				67909A7618C74603005975DB /* PullToRefresh */,
+				67909A7C18C74603005975DB /* SwipeBack */,
 				67909A7918C74603005975DB /* SMComponentModule.h */,
 				67909A7A18C74603005975DB /* SMComponentModuleManager.h */,
 				67909A7B18C74603005975DB /* SMComponentModuleManager.m */,
-				67909A7C18C74603005975DB /* SwipeBack */,
 			);
 			path = ComponentModules;
 			sourceTree = "<group>";
@@ -922,7 +922,7 @@
 			path = SwipeBack;
 			sourceTree = "<group>";
 		};
-		67909A7F18C74603005975DB /* Delegates */ = {
+		67909A7F18C74603005975DB /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
 				67909A8018C74603005975DB /* CollectionViewStrategies */,
@@ -930,6 +930,7 @@
 				67909A8718C74603005975DB /* SMImageComponentStrategy.h */,
 				67909A8818C74603005975DB /* SMImageComponentStrategy.m */,
 			);
+			name = Strategies;
 			path = Delegates;
 			sourceTree = "<group>";
 		};
@@ -1139,7 +1140,7 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		67909AF218C74603005975DB /* Pages */ = {
+		67909AF218C74603005975DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				67909AF318C74603005975DB /* Auth */,
@@ -1166,6 +1167,7 @@
 				67909B5818C74604005975DB /* VideoGallery */,
 				67909B6218C74604005975DB /* Web */,
 			);
+			name = Components;
 			path = Pages;
 			sourceTree = "<group>";
 		};
