@@ -197,7 +197,7 @@
 /*
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
 {
-    DDLogInfo(@"finished");
+    NSLog(@"finished");
 }
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error

@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMFileLogger.h"
 
 @interface SMLogManager : NSObject
-{
-    //@private
-    //SMFileLogger *fileLogger;
-}
+
 - (void)start;
 
 @end

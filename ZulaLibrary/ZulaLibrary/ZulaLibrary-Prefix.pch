@@ -20,19 +20,10 @@
     #import "ZulaLibrary.h"
 #endif
 
-#import <DDLog.h>
-
 //#define DEBUG_APP 1
 
 // notifications
 #import "SMNotifications.h"
-
-#ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
-
 
 /**
  Macros

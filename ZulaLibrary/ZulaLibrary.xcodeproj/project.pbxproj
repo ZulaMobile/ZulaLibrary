@@ -24,8 +24,6 @@
 		67909B6D18C74604005975DB /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2318C74603005975DB /* SMDefaultAppDelegate.m */; };
 		67909B6E18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */; };
 		67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */; };
-		67909B7018C74604005975DB /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2718C74603005975DB /* CompressingLogFileManager.m */; };
-		67909B7118C74604005975DB /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2718C74603005975DB /* CompressingLogFileManager.m */; };
 		67909B7218C74604005975DB /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2B18C74603005975DB /* SMModel.m */; };
 		67909B7318C74604005975DB /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2B18C74603005975DB /* SMModel.m */; };
 		67909B7418C74604005975DB /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A3018C74603005975DB /* NSDictionary+SMAdditions.m */; };
@@ -58,12 +56,6 @@
 		67909B8F18C74604005975DB /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A4D18C74603005975DB /* SMNavigationDescription.m */; };
 		67909B9018C74604005975DB /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5018C74603005975DB /* SMServerError.m */; };
 		67909B9118C74604005975DB /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5018C74603005975DB /* SMServerError.m */; };
-		67909B9218C74604005975DB /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5418C74603005975DB /* SMFileLogger.m */; };
-		67909B9318C74604005975DB /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5418C74603005975DB /* SMFileLogger.m */; };
-		67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5618C74603005975DB /* SMLogFileFormatter.m */; };
-		67909B9518C74604005975DB /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5618C74603005975DB /* SMLogFileFormatter.m */; };
-		67909B9618C74604005975DB /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5818C74603005975DB /* SMUploadingLogFileManager.m */; };
-		67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5818C74603005975DB /* SMUploadingLogFileManager.m */; };
 		67909B9818C74604005975DB /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5A18C74603005975DB /* SMAppDescription.m */; };
 		67909B9918C74604005975DB /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5A18C74603005975DB /* SMAppDescription.m */; };
 		67909B9A18C74604005975DB /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5C18C74603005975DB /* SMLogManager.m */; };
@@ -309,8 +301,6 @@
 		67909A2318C74603005975DB /* SMDefaultAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDefaultAppDelegate.m; sourceTree = "<group>"; };
 		67909A2418C74603005975DB /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
 		67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPortfolioAppDelegate.m; sourceTree = "<group>"; };
-		67909A2618C74603005975DB /* CompressingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressingLogFileManager.h; sourceTree = "<group>"; };
-		67909A2718C74603005975DB /* CompressingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompressingLogFileManager.m; sourceTree = "<group>"; };
 		67909A2A18C74603005975DB /* SMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMModel.h; sourceTree = "<group>"; };
 		67909A2B18C74603005975DB /* SMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModel.m; sourceTree = "<group>"; };
 		67909A2C18C74603005975DB /* SMNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNotifications.h; sourceTree = "<group>"; };
@@ -345,12 +335,6 @@
 		67909A4D18C74603005975DB /* SMNavigationDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavigationDescription.m; sourceTree = "<group>"; };
 		67909A4F18C74603005975DB /* SMServerError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMServerError.h; sourceTree = "<group>"; };
 		67909A5018C74603005975DB /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMServerError.m; sourceTree = "<group>"; };
-		67909A5318C74603005975DB /* SMFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFileLogger.h; sourceTree = "<group>"; };
-		67909A5418C74603005975DB /* SMFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFileLogger.m; sourceTree = "<group>"; };
-		67909A5518C74603005975DB /* SMLogFileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogFileFormatter.h; sourceTree = "<group>"; };
-		67909A5618C74603005975DB /* SMLogFileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogFileFormatter.m; sourceTree = "<group>"; };
-		67909A5718C74603005975DB /* SMUploadingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUploadingLogFileManager.h; sourceTree = "<group>"; };
-		67909A5818C74603005975DB /* SMUploadingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUploadingLogFileManager.m; sourceTree = "<group>"; };
 		67909A5918C74603005975DB /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAppDescription.h; sourceTree = "<group>"; };
 		67909A5A18C74603005975DB /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppDescription.m; sourceTree = "<group>"; };
 		67909A5B18C74603005975DB /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogManager.h; sourceTree = "<group>"; };
@@ -679,8 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				67909A2018C74603005975DB /* AppTypes */,
-				67909A2618C74603005975DB /* CompressingLogFileManager.h */,
-				67909A2718C74603005975DB /* CompressingLogFileManager.m */,
 				67909A2818C74603005975DB /* Library */,
 				67909A6018C74603005975DB /* SMApiClient.h */,
 				67909A6118C74603005975DB /* SMApiClient.m */,
@@ -798,26 +780,12 @@
 		67909A5118C74603005975DB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				67909A5218C74603005975DB /* Loggers */,
 				67909A5918C74603005975DB /* SMAppDescription.h */,
 				67909A5A18C74603005975DB /* SMAppDescription.m */,
 				67909A5B18C74603005975DB /* SMLogManager.h */,
 				67909A5C18C74603005975DB /* SMLogManager.m */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		67909A5218C74603005975DB /* Loggers */ = {
-			isa = PBXGroup;
-			children = (
-				67909A5318C74603005975DB /* SMFileLogger.h */,
-				67909A5418C74603005975DB /* SMFileLogger.m */,
-				67909A5518C74603005975DB /* SMLogFileFormatter.h */,
-				67909A5618C74603005975DB /* SMLogFileFormatter.m */,
-				67909A5718C74603005975DB /* SMUploadingLogFileManager.h */,
-				67909A5818C74603005975DB /* SMUploadingLogFileManager.m */,
-			);
-			path = Loggers;
 			sourceTree = "<group>";
 		};
 		67909A5D18C74603005975DB /* Network */ = {
@@ -1775,7 +1743,6 @@
 				67909BE818C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
 				67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */,
 				67909C2018C74604005975DB /* SMContainer.m in Sources */,
-				67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909BAA18C74604005975DB /* SMInterstitialAdvert.m in Sources */,
 				67909BEC18C74604005975DB /* SMTableCell.m in Sources */,
 				67909C0818C74604005975DB /* SMWebView.m in Sources */,
@@ -1826,7 +1793,6 @@
 				67909BBA18C74604005975DB /* SMImageComponentStrategy.m in Sources */,
 				67909BE218C74604005975DB /* SMGrayPullToRefresh.m in Sources */,
 				67909C0018C74604005975DB /* SMProgressHUD.m in Sources */,
-				67909B7018C74604005975DB /* CompressingLogFileManager.m in Sources */,
 				67909BF018C74604005975DB /* SMBorderedImage.m in Sources */,
 				67909BFE18C74604005975DB /* SMMultipleImageView.m in Sources */,
 				67909BCA18C74604005975DB /* SMFormPasswordField.m in Sources */,
@@ -1840,7 +1806,6 @@
 				67909C6218C74604005975DB /* SMWeb.m in Sources */,
 				67909BCC18C74604005975DB /* SMFormSection.m in Sources */,
 				67909C2418C74604005975DB /* SMContentContainer.m in Sources */,
-				67909B9618C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
 				67909C3218C74604005975DB /* SMHomePage.m in Sources */,
 				67909BF818C74604005975DB /* SMLinks.m in Sources */,
 				67909B7818C74604005975DB /* UIButton+SMAdditions.m in Sources */,
@@ -1871,7 +1836,6 @@
 				67909B8A18C74604005975DB /* SMAppDescriptionRestApiDataSource.m in Sources */,
 				67909B7A18C74604005975DB /* UIColor+ZulaAdditions.m in Sources */,
 				67909BAC18C74604005975DB /* SMInterstitialAdvertView.m in Sources */,
-				67909B9218C74604005975DB /* SMFileLogger.m in Sources */,
 				67909C5A18C74604005975DB /* SMVideoGalleryViewController.m in Sources */,
 				67909BB618C74604005975DB /* SMSummaryCollectionCell.m in Sources */,
 				67909BE418C74604005975DB /* SMNoPullToRefresh.m in Sources */,
@@ -1919,7 +1883,6 @@
 				67909BB918C74604005975DB /* SMSummaryLayout.m in Sources */,
 				67909BE318C74604005975DB /* SMGrayPullToRefresh.m in Sources */,
 				67909B8F18C74604005975DB /* SMNavigationDescription.m in Sources */,
-				67909B9318C74604005975DB /* SMFileLogger.m in Sources */,
 				67909B7718C74604005975DB /* NSString+SMAdditions.m in Sources */,
 				67909C2F18C74604005975DB /* SMSubMenuView.m in Sources */,
 				67909C0F18C74604005975DB /* SMNavigationFactory.m in Sources */,
@@ -1932,7 +1895,6 @@
 				67909C4518C74604005975DB /* SMListPage.m in Sources */,
 				67909BEF18C74604005975DB /* SMAppearanceValidator.m in Sources */,
 				67909C5D18C74604005975DB /* SMVideoGallery.m in Sources */,
-				67909B7118C74604005975DB /* CompressingLogFileManager.m in Sources */,
 				67909C1118C74604005975DB /* SMSideMenuViewController.m in Sources */,
 				67909B8718C74604005975DB /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67909C2318C74604005975DB /* SMContentContainerViewController.m in Sources */,
@@ -1943,14 +1905,12 @@
 				67909C2118C74604005975DB /* SMContainer.m in Sources */,
 				67909BCD18C74604005975DB /* SMFormSection.m in Sources */,
 				67909C8318C74CE3005975DB /* NSDictionarySSAdditionsTests.m in Sources */,
-				67909B9518C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909B9918C74604005975DB /* SMAppDescription.m in Sources */,
 				67909BF318C74604005975DB /* SMButton.m in Sources */,
 				67909C0B18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
 				67909BE918C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
 				67909BD318C74604005975DB /* SMFormModel.m in Sources */,
 				67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */,
-				67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
 				67909B8118C74604005975DB /* UIViewController+SMAdditions.m in Sources */,
 				67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */,
 				67909B8518C74604005975DB /* SMAppDescriptionBaseDataSource.m in Sources */,

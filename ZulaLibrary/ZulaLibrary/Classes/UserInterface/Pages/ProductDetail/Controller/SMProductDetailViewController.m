@@ -7,7 +7,6 @@
 //
 
 #import "SMProductDetailViewController.h"
-#import <DDLog.h>
 #import "ZulaLibrary.h"
 
 #import "UIWebView+SMAdditions.h"

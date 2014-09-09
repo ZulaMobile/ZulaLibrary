@@ -1,16 +1,16 @@
-0.5
+0.6
 ---
 
 Remove dependencies
 
-0.6
+0.7
 ---
 
 * Autolayout
 * Refactor deprecated methods
 * Use `instancetype` instead of `id`
 
-0.7
+0.8
 ---
 
 Dependency injection for components and modules
