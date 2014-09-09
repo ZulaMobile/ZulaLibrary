@@ -41,7 +41,6 @@ Creating a New Project Based on ZulaLibrary
         platform :ios, '6.0'
         pod 'ZulaLibrary', :path => "/Users/solomon/Projects/ZulaMobile/src/ios/ZulaLibrary/ZulaLibrary.podspec"
         pod 'AFNetworking', '~> 1.3.2'
-        pod 'CocoaLumberjack'
         pod 'SVProgressHUD'
         pod 'MWPhotoBrowser', :git => 'https://github.com/yakubbaev/MWPhotoBrowser.git'
         pod 'SDSegmentedControl'
@@ -87,28 +86,44 @@ Creating a New Project Based on ZulaLibrary
         </dict>
         </plist>
 
-Issues and Notes
-================
+Configuration Files
+===================
 
-DTCoreText Issues
------------------
+Zula can work either a `plist` configuration file or a RESTFul web service (`json` endpoints).
 
-I had issues when I was installing `DTCoreText` library using cocoapods. I had `-lxml2` related errors. I changed following line on `Pods/Pods-ZulaLibrary.xcconfig`:
+Working With API endpoints
+--------------------------
 
-    OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreText -framework ImageIO -framework MapKit -framework MediaPlayer -framework MessageUI -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
+Add following entries to your main plist file:
 
-to
+    api_url: http://yourserver.com/api/
 
-    OTHER_LDFLAGS = -ObjC -lxml2 -framework CoreGraphics -framework CoreText -framework ImageIO -framework MapKit -framework MediaPlayer -framework MessageUI -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
+`api_url` is where all configuration of your app comes from. Following is an example app configuration:
 
-MWPhotoBrowser Issues
----------------------
+    {
+        "app-description": "http://lotb.zulamobile.com/api/v1/meta/app-description/", 
+        "homepage": "http://lotb.zulamobile.com/api/v1/homepage/", 
+        "content-containers": "http://lotb.zulamobile.com/api/v1/content-containers/", 
+        "contents": "http://lotb.zulamobile.com/api/v1/contents/", 
+        "lists": "http://lotb.zulamobile.com/api/v1/lists/"
+    }
 
-`MWPhotoBrowser` requires `SDWebImage < 3.0.0`, but I was using 3.2.1. I had to delete the `SDWebImage`.
+See docs for details.
 
-The issue that I face with `DTCoreText` is resolved by itself after I remove `SDWebImage`. So I had to restore `OTHER_LDFlAGS` to the original one, i.e:
 
-    OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreText -framework ImageIO -framework MapKit -framework MediaPlayer -framework MessageUI -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration
+Example Plist Configuration File
+--------------------------------
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    <key>available_components</key>
+    <array/>
+    </dict>
+    </plist>
+
+
 
 Compilation 
 ===========
