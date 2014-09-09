@@ -85,7 +85,7 @@ Creating a New Project Based on ZulaLibrary
           <key>available_components</key>
           <array/>
         </dict>
-        </PLISTst>
+        </plist>
 
 Issues and Notes
 ================

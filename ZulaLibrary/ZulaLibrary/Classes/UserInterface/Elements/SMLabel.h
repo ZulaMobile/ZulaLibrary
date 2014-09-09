@@ -6,9 +6,23 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import "SSLabel.h"
 #import "SMViewElement.h"
 #import "UIColor+ZulaAdditions.h"
+
+/**
+ The vertical alignment of text within a label.
+ @source http://sstoolk.it/
+ */
+typedef enum {
+	/** Aligns the text vertically at the top in the label (the default). */
+	SMLabelVerticalTextAlignmentTop = UIControlContentVerticalAlignmentTop,
+	
+	/** Aligns the text vertically in the center of the label. */
+	SMLabelVerticalTextAlignmentMiddle = UIControlContentVerticalAlignmentCenter,
+	
+	/** Aligns the text vertically at the bottom in the label. */
+	SMLabelVerticalTextAlignmentBottom = UIControlContentVerticalAlignmentBottom
+} SMLabelVerticalTextAlignment;
 
 /**
  Standard uilabel element
@@ -22,6 +36,20 @@
  
  @see [[Label Element]] wiki entry
  */
-@interface SMLabel : SSLabel <SMViewElement>
+@interface SMLabel : UILabel <SMViewElement>
+
+/**
+ The vertical text alignment of the receiver.
+ 
+ The default is `SMLabelVerticalTextAlignmentMiddle` to match `UILabel`.
+ */
+@property (nonatomic, assign) SMLabelVerticalTextAlignment verticalTextAlignment;
+
+/**
+ The edge insets of the text.
+ 
+ The default is `UIEdgeInsetsZero` so it behaves like `UILabel` by default.
+ */
+@property (nonatomic, assign) UIEdgeInsets textEdgeInsets;
 
 @end

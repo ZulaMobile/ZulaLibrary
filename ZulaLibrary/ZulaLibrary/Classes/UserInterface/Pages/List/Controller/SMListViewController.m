@@ -92,7 +92,7 @@
     [SMListPage fetchWithUrlString:url completion:^(SMListPage *theListPage, NSError *error) {
         
         if (error) {
-            DDLogError(@"List page fetch contents error|%@", [error description]);
+            NSLog(@"List page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

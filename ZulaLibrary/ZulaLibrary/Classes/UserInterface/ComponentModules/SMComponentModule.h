@@ -29,6 +29,7 @@
 - (id)initWithComponent:(SMBaseComponentViewController *)component;
 
 @optional
+
 - (void)componentViewDidLoad;
 - (BOOL)componentShouldFetchContents;
 - (void)componentWillFetchContents;

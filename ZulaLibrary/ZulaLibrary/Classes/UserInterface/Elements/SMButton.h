@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSButton.h"
+
+
+typedef enum {
+	SMButtonImagePositionLeft,
+	SMButtonImagePositionRight
+} SMButtonImagePosition;
+
 
 /**
  A fancier button with gradients and borders
  
  It's planning to apply theming in future
  */
-@interface SMButton : SSButton
+@interface SMButton : UIButton
+
+@property (nonatomic, assign) SMButtonImagePosition imagePosition;
 
 @end

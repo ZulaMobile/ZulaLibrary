@@ -13,6 +13,7 @@
 - (void)appearanceForBackgroundColorHex:(NSString *)colorHex;
 - (void)appearanceForTextColor:(NSString *)hexColor;
 - (void)appearanceForFontSize:(NSString *)fontSize fontFamily:(NSString *)fontFamily;
+- (void)_initialize;
 @end
 
 @implementation SMLabel
@@ -41,9 +42,9 @@
     } else if ([alignment isEqualToString:@"center"]) {
         [self setTextAlignment:NSTextAlignmentCenter];
     } else if ([alignment isEqualToString:@"top"]) {
-        [self setVerticalTextAlignment:SSLabelVerticalTextAlignmentTop];
+        [self setVerticalTextAlignment:SMLabelVerticalTextAlignmentTop];
     } else if ([alignment isEqualToString:@"bottom"]) {
-        [self setVerticalTextAlignment:SSLabelVerticalTextAlignmentBottom];
+        [self setVerticalTextAlignment:SMLabelVerticalTextAlignmentBottom];
     }
 }
 
@@ -87,6 +88,67 @@
     
     NSInteger fontSizeInteger = [fontSize integerValue];
     [self setFont:[UIFont fontWithName:fontFamily size:fontSizeInteger]];
+}
+
+#pragma mark - label related
+
+
+- (void)setVerticalTextAlignment:(SMLabelVerticalTextAlignment)verticalTextAlignment {
+	_verticalTextAlignment = verticalTextAlignment;
+    
+	[self setNeedsLayout];
+}
+
+
+@synthesize textEdgeInsets = _textEdgeInsets;
+
+- (void)setTextEdgeInsets:(UIEdgeInsets)textEdgeInsets {
+	_textEdgeInsets = textEdgeInsets;
+	
+	[self setNeedsLayout];
+}
+
+
+#pragma mark - UIView
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if ((self = [super initWithCoder:aDecoder])) {
+		[self _initialize];
+	}
+	return self;
+}
+
+
+- (id)initWithFrame:(CGRect)aFrame {
+	if ((self = [super initWithFrame:aFrame])) {
+		[self _initialize];
+	}
+	return self;
+}
+
+
+#pragma mark - UILabel
+
+- (void)drawTextInRect:(CGRect)rect {
+	rect = UIEdgeInsetsInsetRect(rect, _textEdgeInsets);
+	
+	if (self.verticalTextAlignment == SMLabelVerticalTextAlignmentTop) {
+		CGSize sizeThatFits = [self sizeThatFits:rect.size];
+		rect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, sizeThatFits.height);
+	} else if (self.verticalTextAlignment == SMLabelVerticalTextAlignmentBottom) {
+		CGSize sizeThatFits = [self sizeThatFits:rect.size];
+		rect = CGRectMake(rect.origin.x, rect.origin.y + (rect.size.height - sizeThatFits.height), rect.size.width, sizeThatFits.height);
+	}
+    
+	[super drawTextInRect:rect];
+}
+
+
+#pragma mark - Private
+
+- (void)_initialize {
+	self.verticalTextAlignment = SMLabelVerticalTextAlignmentMiddle;
+	self.textEdgeInsets = UIEdgeInsetsZero;
 }
 
 

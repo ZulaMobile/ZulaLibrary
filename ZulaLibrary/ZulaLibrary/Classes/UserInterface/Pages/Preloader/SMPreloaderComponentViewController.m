@@ -7,7 +7,8 @@
 //
 
 #import "SMPreloaderComponentViewController.h"
-#import "SSLabel.h"
+#import "ZulaLibrary.h"
+
 
 @interface SMPreloaderComponentViewController ()
 - (void)onErrButton:(UIButton *)sender;

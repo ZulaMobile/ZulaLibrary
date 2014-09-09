@@ -7,6 +7,7 @@
 //
 
 #import "SMMainView.h"
+#import "ZulaLibrary.h"
 #import "UIColor+ZulaAdditions.h"
 #import "SMImageView.h"
 

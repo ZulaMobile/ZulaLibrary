@@ -7,6 +7,7 @@
 //
 
 #import "SMHomePageViewController.h"
+#import "ZulaLibrary.h"
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"
@@ -122,7 +123,7 @@
     NSString *url = [self.componentDesciption url];
     [SMHomePage fetchWithURLString:url completion:^(SMHomePage *_homePage, SMServerError *error) {
         if (error) {
-            DDLogError(@"Home page fetch contents error|%@", [error description]);
+            NSLog(@"Home page fetch contents error|%@", [error description]);
             // show error
             [self displayErrorString:error.localizedDescription];
             return;

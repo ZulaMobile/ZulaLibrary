@@ -7,6 +7,7 @@
 //
 
 #import "SMPlainPullToRefresh.h"
+#import "ZulaLibrary.h"
 
 @implementation SMPlainPullToRefresh
 {

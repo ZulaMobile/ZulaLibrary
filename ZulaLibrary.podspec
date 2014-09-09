@@ -7,11 +7,10 @@ Pod::Spec.new do |s|
                     This is the main library for ZulaMobile. See Readme for details
                    DESC
 
-  s.homepage     = "https://github.com/vaivaikitay/RoboReader"
+  s.homepage     = "http://www.zulamobile.com"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { "Suleyman Melikoglu" => "suleymanmelikoglu@gmail.com"}
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/vaivaikitay/RoboReader" }
   s.source       = { :git => "solomon@melikoglu.info:appcreator_library.git" }
   s.source_files  = 'ZulaLibrary/ZulaLibrary/Classes/**/**/**/**/**/*.{h,m}'
   #s.exclude_files = 'Classes/Exclude'

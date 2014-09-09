@@ -7,6 +7,7 @@
 //
 
 #import "SMTabularListStrategy.h"
+#import "ZulaLibrary.h"
 
 #import "UIColor+ZulaAdditions.h"
 #import "UIViewController+SMAdditions.h"

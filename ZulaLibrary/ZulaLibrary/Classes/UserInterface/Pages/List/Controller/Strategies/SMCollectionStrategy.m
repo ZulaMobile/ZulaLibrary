@@ -7,6 +7,7 @@
 //
 
 #import "SMCollectionStrategy.h"
+#import "ZulaLibrary.h"
 #import "SMSummaryLayout.h"
 #import "SMListPage.h"
 #import "UIImageView+WebCache.h"

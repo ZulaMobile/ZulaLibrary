@@ -40,7 +40,11 @@
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     
     // settings
-    browser.wantsFullScreenLayout = YES;
+    if (SYSTEM_VERSION_GREATER_THAN(@"7.0")) {
+        browser.edgesForExtendedLayout = UIRectEdgeNone;
+    } else {
+        browser.wantsFullScreenLayout = YES;
+    }
     browser.displayActionButton = NO;
     [browser setInitialPageIndex:0];
     

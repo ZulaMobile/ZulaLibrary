@@ -7,6 +7,7 @@
 //
 
 #import "SMWebViewController.h"
+#import "ZulaLibrary.h"
 
 #import "SMProgressHUD.h"
 #import "SMComponentDescription.h"
@@ -58,7 +59,7 @@
     [SMWeb fetchWithURLString:url completion:^(SMWeb *theWeb, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Web page fetch contents error|%@", [error description]);
+            NSLog(@"Web page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

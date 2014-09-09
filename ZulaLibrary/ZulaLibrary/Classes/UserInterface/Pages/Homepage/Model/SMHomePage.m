@@ -7,6 +7,7 @@
 //
 
 #import "SMHomePage.h"
+#import "ZulaLibrary.h"
 #import "SMApiClient.h"
 
 @implementation SMHomePage

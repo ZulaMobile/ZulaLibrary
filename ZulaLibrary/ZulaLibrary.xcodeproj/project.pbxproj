@@ -208,8 +208,6 @@
 		67909C2518C74604005975DB /* SMContentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B0F18C74604005975DB /* SMContentContainer.m */; };
 		67909C2618C74604005975DB /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1218C74604005975DB /* SMTriangle.m */; };
 		67909C2718C74604005975DB /* SMTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1218C74604005975DB /* SMTriangle.m */; };
-		67909C2818C74604005975DB /* SMContentPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67909B1518C74604005975DB /* SMContentPageViewController.xib */; };
-		67909C2918C74604005975DB /* SMContentPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67909B1518C74604005975DB /* SMContentPageViewController.xib */; };
 		67909C2A18C74604005975DB /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1718C74604005975DB /* SMContentViewController.m */; };
 		67909C2B18C74604005975DB /* SMContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1718C74604005975DB /* SMContentViewController.m */; };
 		67909C2C18C74604005975DB /* SMContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B1A18C74604005975DB /* SMContentPage.m */; };
@@ -250,14 +248,10 @@
 		67909C4F18C74604005975DB /* SMProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4A18C74604005975DB /* SMProductDetailViewController.m */; };
 		67909C5018C74604005975DB /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4D18C74604005975DB /* SMProductDetail.m */; };
 		67909C5118C74604005975DB /* SMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B4D18C74604005975DB /* SMProductDetail.m */; };
-		67909C5218C74604005975DB /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5118C74604005975DB /* SMQAViewController.m */; };
-		67909C5318C74604005975DB /* SMQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5118C74604005975DB /* SMQAViewController.m */; };
 		67909C5418C74604005975DB /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5318C74604005975DB /* SMBaseComponentViewController.m */; };
 		67909C5518C74604005975DB /* SMBaseComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5318C74604005975DB /* SMBaseComponentViewController.m */; };
 		67909C5618C74604005975DB /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5518C74604005975DB /* SMComponentFactory.m */; };
 		67909C5718C74604005975DB /* SMComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5518C74604005975DB /* SMComponentFactory.m */; };
-		67909C5818C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */; };
-		67909C5918C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */; };
 		67909C5A18C74604005975DB /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */; };
 		67909C5B18C74604005975DB /* SMVideoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */; };
 		67909C5C18C74604005975DB /* SMVideoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B5E18C74604005975DB /* SMVideoGallery.m */; };
@@ -283,6 +277,7 @@
 		67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */; };
 		67909C8D18C74CE3005975DB /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */; };
 		67909C8E18C74CE3005975DB /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8218C74CE3005975DB /* SMFormFieldTests.m */; };
+		67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,7 +504,6 @@
 		67909B0F18C74604005975DB /* SMContentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMContentContainer.m; sourceTree = "<group>"; };
 		67909B1118C74604005975DB /* SMTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTriangle.h; sourceTree = "<group>"; };
 		67909B1218C74604005975DB /* SMTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTriangle.m; sourceTree = "<group>"; };
-		67909B1518C74604005975DB /* SMContentPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMContentPageViewController.xib; sourceTree = "<group>"; };
 		67909B1618C74604005975DB /* SMContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContentViewController.h; sourceTree = "<group>"; };
 		67909B1718C74604005975DB /* SMContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMContentViewController.m; sourceTree = "<group>"; };
 		67909B1918C74604005975DB /* SMContentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMContentPage.h; sourceTree = "<group>"; };
@@ -549,14 +543,10 @@
 		67909B4A18C74604005975DB /* SMProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMProductDetailViewController.m; sourceTree = "<group>"; };
 		67909B4C18C74604005975DB /* SMProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMProductDetail.h; sourceTree = "<group>"; };
 		67909B4D18C74604005975DB /* SMProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMProductDetail.m; sourceTree = "<group>"; };
-		67909B5018C74604005975DB /* SMQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQAViewController.h; sourceTree = "<group>"; };
-		67909B5118C74604005975DB /* SMQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQAViewController.m; sourceTree = "<group>"; };
 		67909B5218C74604005975DB /* SMBaseComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBaseComponentViewController.h; sourceTree = "<group>"; };
 		67909B5318C74604005975DB /* SMBaseComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBaseComponentViewController.m; sourceTree = "<group>"; };
 		67909B5418C74604005975DB /* SMComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMComponentFactory.h; sourceTree = "<group>"; };
 		67909B5518C74604005975DB /* SMComponentFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMComponentFactory.m; sourceTree = "<group>"; };
-		67909B5618C74604005975DB /* SMPullToRefreshComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPullToRefreshComponentViewController.h; sourceTree = "<group>"; };
-		67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPullToRefreshComponentViewController.m; sourceTree = "<group>"; };
 		67909B5A18C74604005975DB /* SMVideoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVideoGalleryViewController.h; sourceTree = "<group>"; };
 		67909B5B18C74604005975DB /* SMVideoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMVideoGalleryViewController.m; sourceTree = "<group>"; };
 		67909B5D18C74604005975DB /* SMVideoGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMVideoGallery.h; sourceTree = "<group>"; };
@@ -584,6 +574,8 @@
 		67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		67909C8218C74CE3005975DB /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldTests.m; sourceTree = "<group>"; };
+		67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
+		67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
 		B023A1D199004587925A9E0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -849,10 +841,10 @@
 			isa = PBXGroup;
 			children = (
 				67909A6318C74603005975DB /* ComponentModules */,
-				67909A7F18C74603005975DB /* Delegates */,
+				67909A7F18C74603005975DB /* Strategies */,
 				67909A8918C74603005975DB /* Elements */,
 				67909AE418C74603005975DB /* Navigation */,
-				67909AF218C74603005975DB /* Pages */,
+				67909AF218C74603005975DB /* Components */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -863,10 +855,10 @@
 				67909A6418C74603005975DB /* CustomAdvertisement */,
 				67909A7318C74603005975DB /* ProgressHUD */,
 				67909A7618C74603005975DB /* PullToRefresh */,
+				67909A7C18C74603005975DB /* SwipeBack */,
 				67909A7918C74603005975DB /* SMComponentModule.h */,
 				67909A7A18C74603005975DB /* SMComponentModuleManager.h */,
 				67909A7B18C74603005975DB /* SMComponentModuleManager.m */,
-				67909A7C18C74603005975DB /* SwipeBack */,
 			);
 			path = ComponentModules;
 			sourceTree = "<group>";
@@ -919,7 +911,7 @@
 			path = SwipeBack;
 			sourceTree = "<group>";
 		};
-		67909A7F18C74603005975DB /* Delegates */ = {
+		67909A7F18C74603005975DB /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
 				67909A8018C74603005975DB /* CollectionViewStrategies */,
@@ -927,6 +919,7 @@
 				67909A8718C74603005975DB /* SMImageComponentStrategy.h */,
 				67909A8818C74603005975DB /* SMImageComponentStrategy.m */,
 			);
+			name = Strategies;
 			path = Delegates;
 			sourceTree = "<group>";
 		};
@@ -1136,7 +1129,7 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		67909AF218C74603005975DB /* Pages */ = {
+		67909AF218C74603005975DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				67909AF318C74603005975DB /* Auth */,
@@ -1153,16 +1146,14 @@
 				67909B4218C74604005975DB /* Modules */,
 				67909B4318C74604005975DB /* Preloader */,
 				67909B4718C74604005975DB /* ProductDetail */,
-				67909B4E18C74604005975DB /* QA */,
+				67909B5818C74604005975DB /* VideoGallery */,
+				67909B6218C74604005975DB /* Web */,
 				67909B5218C74604005975DB /* SMBaseComponentViewController.h */,
 				67909B5318C74604005975DB /* SMBaseComponentViewController.m */,
 				67909B5418C74604005975DB /* SMComponentFactory.h */,
 				67909B5518C74604005975DB /* SMComponentFactory.m */,
-				67909B5618C74604005975DB /* SMPullToRefreshComponentViewController.h */,
-				67909B5718C74604005975DB /* SMPullToRefreshComponentViewController.m */,
-				67909B5818C74604005975DB /* VideoGallery */,
-				67909B6218C74604005975DB /* Web */,
 			);
+			name = Components;
 			path = Pages;
 			sourceTree = "<group>";
 		};
@@ -1303,7 +1294,6 @@
 		67909B1418C74604005975DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				67909B1518C74604005975DB /* SMContentPageViewController.xib */,
 				67909B1618C74604005975DB /* SMContentViewController.h */,
 				67909B1718C74604005975DB /* SMContentViewController.m */,
 			);
@@ -1474,23 +1464,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		67909B4E18C74604005975DB /* QA */ = {
-			isa = PBXGroup;
-			children = (
-				67909B4F18C74604005975DB /* Controller */,
-			);
-			path = QA;
-			sourceTree = "<group>";
-		};
-		67909B4F18C74604005975DB /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				67909B5018C74604005975DB /* SMQAViewController.h */,
-				67909B5118C74604005975DB /* SMQAViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		67909B5818C74604005975DB /* VideoGallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -1558,6 +1531,8 @@
 		67909B6918C74604005975DB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */,
+				67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1756,7 +1731,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67909C6918C74AAB005975DB /* app.plist in Resources */,
-				67909C2818C74604005975DB /* SMContentPageViewController.xib in Resources */,
 				679099FB18C74569005975DB /* InfoPlist.strings in Resources */,
 				67909A0318C74569005975DB /* Images.xcassets in Resources */,
 				67909C4C18C74604005975DB /* SMPreloaderComponentViewController.xib in Resources */,
@@ -1769,7 +1743,6 @@
 			files = (
 				67909C4D18C74604005975DB /* SMPreloaderComponentViewController.xib in Resources */,
 				67909A1418C74569005975DB /* InfoPlist.strings in Resources */,
-				67909C2918C74604005975DB /* SMContentPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,6 +1802,7 @@
 				67909BEE18C74604005975DB /* SMAppearanceValidator.m in Sources */,
 				67909C1218C74604005975DB /* SMSideNavigationViewController.m in Sources */,
 				67909BE818C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
+				67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */,
 				67909C2018C74604005975DB /* SMContainer.m in Sources */,
 				67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909BAA18C74604005975DB /* SMInterstitialAdvert.m in Sources */,
@@ -1845,7 +1819,6 @@
 				67909B7418C74604005975DB /* NSDictionary+SMAdditions.m in Sources */,
 				67909BBC18C74604005975DB /* SMFormAction.m in Sources */,
 				67909BB018C74604005975DB /* SMPullToRefreshModule.m in Sources */,
-				67909C5218C74604005975DB /* SMQAViewController.m in Sources */,
 				67909C2618C74604005975DB /* SMTriangle.m in Sources */,
 				67909C1018C74604005975DB /* SMSideMenuViewController.m in Sources */,
 				67909B8818C74604005975DB /* SMAppDescriptionPlistDataSource.m in Sources */,
@@ -1936,7 +1909,6 @@
 				67909BB418C74604005975DB /* SMSwipeBackModule.m in Sources */,
 				67909C0A18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
 				67909C0218C74604005975DB /* SMScrollView.m in Sources */,
-				67909C5818C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2011,7 +1983,6 @@
 				67909BD318C74604005975DB /* SMFormModel.m in Sources */,
 				67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */,
 				67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
-				67909C5918C74604005975DB /* SMPullToRefreshComponentViewController.m in Sources */,
 				67909B8118C74604005975DB /* UIViewController+SMAdditions.m in Sources */,
 				67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */,
 				67909B8518C74604005975DB /* SMAppDescriptionBaseDataSource.m in Sources */,
@@ -2027,7 +1998,6 @@
 				67909B7318C74604005975DB /* SMModel.m in Sources */,
 				67909BAB18C74604005975DB /* SMInterstitialAdvert.m in Sources */,
 				67909C4F18C74604005975DB /* SMProductDetailViewController.m in Sources */,
-				67909C5318C74604005975DB /* SMQAViewController.m in Sources */,
 				67909BA918C74604005975DB /* SMCustomAdvertisementModule.m in Sources */,
 				67909BE118C74604005975DB /* SMDefaultPullToRefresh.m in Sources */,
 				67909BC718C74604005975DB /* SMFormField.m in Sources */,

@@ -49,7 +49,7 @@
 - (void)applyAppearances:(NSDictionary *)appearances
 {
     if (![SMAppearanceValidator isValidData:appearances]) {
-        //DDLogError(@"Image data is not valid, expects dict: %@", appearances);
+        //NSLog(@"Image data is not valid, expects dict: %@", appearances);
         return;
     }
     

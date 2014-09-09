@@ -19,6 +19,7 @@
 @end
 
 @implementation SMButton
+@synthesize imagePosition = _imagePosition;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -33,6 +34,22 @@
         [self addTarget:self action:@selector(onTouchUp:) forControlEvents:UIControlEventTouchUpOutside];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	if (_imagePosition == SMButtonImagePositionLeft) {
+		return;
+	}
+    
+	CGRect imageFrame = self.imageView.frame;
+	CGRect labelFrame = self.titleLabel.frame;
+    
+	labelFrame.origin.x = imageFrame.origin.x - self.imageEdgeInsets.left + self.imageEdgeInsets.right;
+	imageFrame.origin.x += labelFrame.size.width;
+    
+	self.imageView.frame = imageFrame;
+	self.titleLabel.frame = labelFrame;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor

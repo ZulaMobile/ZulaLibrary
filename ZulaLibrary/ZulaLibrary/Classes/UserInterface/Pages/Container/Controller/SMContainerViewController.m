@@ -7,6 +7,7 @@
 //
 
 #import "SMContainerViewController.h"
+#import "ZulaLibrary.h"
 #import "SDSegmentedControl.h"
 #import "UIViewController+SMAdditions.h"
 
@@ -64,7 +65,7 @@
     [SMContainer fetchWithURLString:url completion:^(SMContainer *theContainer, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            NSLog(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

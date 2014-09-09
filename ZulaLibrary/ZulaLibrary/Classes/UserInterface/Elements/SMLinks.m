@@ -54,7 +54,7 @@
         self.strategy = [[SMLinksButtonsStrategy alloc] initWithLinks:self];
     } else if ([style isEqualToString:@"grid"]) {
         // @todo
-        DDLogError(@"Grid homepage links is not yet developed. %@", [self class]);
+        NSLog(@"Grid homepage links is not yet developed. %@", [self class]);
     } else if ([style isEqualToString:@"tiles"]) {
         self.strategy = [[SMLinksTilesStrategy alloc] initWithLinks:self];
     }

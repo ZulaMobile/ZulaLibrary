@@ -7,6 +7,7 @@
 //
 
 #import "SMContentViewController.h"
+#import "ZulaLibrary.h"
 #import "SMComponentDescription.h"
 #import "SMImageView.h"
 #import "SMLabel.h"
@@ -53,12 +54,6 @@
     [self.scrollView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     self.scrollView.autoresizesSubviews = YES;
     
-    /*
-    self.webView = [[SMWebView alloc] initWithFrame:
-                    CGRectMake(padding,
-                               padding,
-                               CGRectGetWidth(self.view.frame) - padding * 2,
-                               0)];*/
     self.webView = [[SMWebView alloc] initWithFrame:self.scrollView.frame];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleAll;
     [self.webView applyAppearances:[self.componentDesciption.appearance objectForKey:@"text"]];
@@ -105,7 +100,7 @@
     [SMContentPage fetchWithURLString:url Completion:^(SMContentPage *aContentPage, SMServerError *error) {
         
         if (error) {
-            DDLogError(@"Content page fetch contents error|%@", [error description]);
+            NSLog(@"Content page fetch contents error|%@", [error description]);
             
             // show error
             [self displayErrorString:error.localizedDescription];

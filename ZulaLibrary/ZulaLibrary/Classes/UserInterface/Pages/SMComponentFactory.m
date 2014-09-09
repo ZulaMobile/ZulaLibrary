@@ -75,7 +75,7 @@
     }
     
     if (!component) {
-        DDLogError(@"Unknown component %@. Did you add additional components in app.plist? Perhaps you didn't link an external project contains that component.", componentDescription.type);
+        NSLog(@"Unknown component %@. Did you add additional components in app.plist? Perhaps you didn't link an external project contains that component.", componentDescription.type);
         assert(component);
         return nil;
     }
@@ -104,7 +104,7 @@
         return [[UINavigationController alloc] initWithRootViewController:component];
     }
     
-    DDLogError(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    NSLog(@"component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
     return nil;
 }
 
@@ -129,7 +129,7 @@
         return component;
     }
     
-    DDLogError(@"sub component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
+    NSLog(@"sub component `%@` is not supported by the navigation type: `%@`", componentDescription.type, navigationDescription.type);
     return nil;
 }
 
