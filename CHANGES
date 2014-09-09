@@ -29,3 +29,4 @@
 * Image gallery component and its dependencies (MWPhotoBrowser) is removed
 * CocoaLumberjack dependency is removed
 * FFCircularProgressView is removed
+* MBProgressHUD is removed
