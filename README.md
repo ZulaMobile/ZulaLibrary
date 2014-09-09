@@ -38,36 +38,23 @@ Creating a New Project Based on ZulaLibrary
 
   * Create a new xcode project, choose `Empty Application`
   * Create a `Podfile` with following:
-        platform :ios, '6.0'
-        pod 'ZulaLibrary', :path => "/Users/solomon/Projects/ZulaMobile/src/ios/ZulaLibrary/ZulaLibrary.podspec"
-        pod 'AFNetworking', '~> 1.3.2'
-        pod 'SVProgressHUD'
-        pod 'MWPhotoBrowser', :git => 'https://github.com/yakubbaev/MWPhotoBrowser.git'
-        pod 'SDSegmentedControl'
-        pod 'MSPullToRefreshController'
+        platform :ios, '7.0'
+        pod 'ZulaLibrary', :path => '../../ZulaLibrary/ZulaLibrary.podspec'
+        pod 'AFNetworking', '~> 1.3.4'
+        pod 'SVProgressHUD', '~> 1.0'
+        pod 'SDSegmentedControl', '~> 1.0.2'
+        pod 'MSPullToRefreshController', :git => 'https://github.com/laplacesdemon/MSPullToRefreshController.git'
         pod 'UIActivityIndicator-for-SDWebImage'
-        pod 'SDWebImage-ProgressView'
-        pod 'SWRevealViewController'
-        pod 'SSToolkit'
+        pod 'SWRevealViewController', '~> 1.1.3'
     * Hit `pod install`
     * Edit prefix file (.pch file) and add following:
         #import <SystemConfiguration/SystemConfiguration.h>
         #import <MobileCoreServices/MobileCoreServices.h>
-        #import "SMServerError.h"
         #import "ZulaLibrary.h"
-        #import "SMNotifications.h"
     * Edit main plist file and add following:
         `api_url`: `http://zula-api-url.com`
         `default_api_url`: `http://zula-default-api-url.com`
     * Edit `AppDelegate` and inherit from one of the AppDelegate classes (e.g. SMDefaultAppDelegate).
-    * Edit `Pods-ZulaLibrary-Prefix.pch` file and add following:
-        #import "ZulaLibrary.h"
-        #import "DDLog.h"
-        #ifdef DEBUG
-          static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-        #else
-          static const int ddLogLevel = LOG_LEVEL_WARN;
-        #endif
     * Optionally create `app.plist` file and add following:
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
