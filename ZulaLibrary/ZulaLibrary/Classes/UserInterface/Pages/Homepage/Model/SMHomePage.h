@@ -7,7 +7,6 @@
 //
 
 #import "SMModel.h"
-#import "ZulaLibrary.h"
 
 // data structure constants
 #define kModelHomePageImageLogo @"logo"

@@ -7,7 +7,6 @@
 //
 
 #import "SMDefaultAppDelegate.h"
-#import "ZulaLibrary.h"
 #import "SMNavigationApperanceManager.h"
 #import "SMBaseComponentViewController.h"
 

@@ -7,7 +7,6 @@
 //
 
 #import "SMContactViewController.h"
-#import "ZulaLibrary.h"
 #import "Macros.h"
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
