@@ -1,48 +1,27 @@
 //
-// Prefix header for all source files of the 'AppCreatorLibrary' target in the 'AppCreatorLibrary' project
+//  Macros.h
+//  ZulaLibrary
+//
+//  Created by Suleyman Melikoglu on 09/09/14.
+//  Copyright (c) 2014 ZulaMobile. All rights reserved.
 //
 
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-    #import <UIKit/UIKit.h>
-    #import <SystemConfiguration/SystemConfiguration.h>
-    #import <MobileCoreServices/MobileCoreServices.h>
-
-    #import "SMServerError.h"
-#endif
-
-#import <DDLog.h>
-
-//#define DEBUG_APP 1
-
-// notifications
-#import "SMNotifications.h"
-
-#ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-#else
-static const int ddLogLevel = LOG_LEVEL_WARN;
-#endif
-
-/**
- Macros
- */
-
-#define ZULA_DEBUG 1
+#ifndef ZulaLibrary_Macros_h
+#define ZulaLibrary_Macros_h
 
 #define UIViewAutoresizingFlexibleAll                       \
-                UIViewAutoresizingFlexibleBottomMargin    | \
-                UIViewAutoresizingFlexibleHeight          | \
-                UIViewAutoresizingFlexibleLeftMargin      | \
-                UIViewAutoresizingFlexibleRightMargin     | \
-                UIViewAutoresizingFlexibleTopMargin       | \
-                UIViewAutoresizingFlexibleWidth
+UIViewAutoresizingFlexibleBottomMargin    | \
+UIViewAutoresizingFlexibleHeight          | \
+UIViewAutoresizingFlexibleLeftMargin      | \
+UIViewAutoresizingFlexibleRightMargin     | \
+UIViewAutoresizingFlexibleTopMargin       | \
+UIViewAutoresizingFlexibleWidth
 
 #define UIViewAutoresizingFlexibleMargins                   \
-                UIViewAutoresizingFlexibleBottomMargin    | \
-                UIViewAutoresizingFlexibleLeftMargin      | \
-                UIViewAutoresizingFlexibleRightMargin     | \
-                UIViewAutoresizingFlexibleTopMargin
+UIViewAutoresizingFlexibleBottomMargin    | \
+UIViewAutoresizingFlexibleLeftMargin      | \
+UIViewAutoresizingFlexibleRightMargin     | \
+UIViewAutoresizingFlexibleTopMargin
 
 #define UIViewAutoresizingDefault UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin
 
@@ -70,3 +49,5 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 // retina screen detector
 #define isRetina() \
 ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2)
+
+#endif

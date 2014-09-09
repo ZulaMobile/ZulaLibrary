@@ -7,6 +7,8 @@
 //
 
 #import "SMNavigationApperanceManager.h"
+#import "Macros.h"
+
 #import "SMAppDescription.h"
 #import "UIColor+ZulaAdditions.h"
 #import "SMNavigationDescription.h"

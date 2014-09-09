@@ -265,6 +265,8 @@
 		67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */; };
 		67909C8D18C74CE3005975DB /* SMFormFieldFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */; };
 		67909C8E18C74CE3005975DB /* SMFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909C8218C74CE3005975DB /* SMFormFieldTests.m */; };
+		67B878E819BF53B90093BB31 /* Macros.h in Sources */ = {isa = PBXBuildFile; fileRef = 67B878E719BF51A50093BB31 /* Macros.h */; };
+		67B878E919BF548B0093BB31 /* SMNotifications.h in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2C18C74603005975DB /* SMNotifications.h */; };
 		67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */; };
 /* End PBXBuildFile section */
 
@@ -533,7 +535,6 @@
 		67909B6518C74604005975DB /* SMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWebViewController.m; sourceTree = "<group>"; };
 		67909B6718C74604005975DB /* SMWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWeb.h; sourceTree = "<group>"; };
 		67909B6818C74604005975DB /* SMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWeb.m; sourceTree = "<group>"; };
-		67909B6A18C74604005975DB /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		67909B6B18C74604005975DB /* ZulaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZulaLibrary.h; sourceTree = "<group>"; };
 		67909C6418C74671005975DB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		67909C6618C7467C005975DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -550,6 +551,7 @@
 		67909C8018C74CE3005975DB /* SMFormDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormDescriptionTests.m; sourceTree = "<group>"; };
 		67909C8118C74CE3005975DB /* SMFormFieldFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldFactoryTests.m; sourceTree = "<group>"; };
 		67909C8218C74CE3005975DB /* SMFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFormFieldTests.m; sourceTree = "<group>"; };
+		67B878E719BF51A50093BB31 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
 		67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
 		B023A1D199004587925A9E0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -668,7 +670,6 @@
 				67909A6118C74603005975DB /* SMApiClient.m */,
 				67909A6218C74603005975DB /* UserInterface */,
 				67909B6918C74604005975DB /* Vendor */,
-				67909B6A18C74604005975DB /* ZulaLibrary-Prefix.pch */,
 				67909B6B18C74604005975DB /* ZulaLibrary.h */,
 			);
 			path = Classes;
@@ -707,6 +708,7 @@
 				67909A2B18C74603005975DB /* SMModel.m */,
 				67909A2C18C74603005975DB /* SMNotifications.h */,
 				67909A2D18C74603005975DB /* SMValidator.h */,
+				67B878E719BF51A50093BB31 /* Macros.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1726,6 +1728,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67B878E919BF548B0093BB31 /* SMNotifications.h in Sources */,
+				67B878E819BF53B90093BB31 /* Macros.h in Sources */,
 				67909BDC18C74604005975DB /* SMTileCell.m in Sources */,
 				67909B9A18C74604005975DB /* SMLogManager.m in Sources */,
 				67909BA218C74604005975DB /* SMAdvertManager.m in Sources */,

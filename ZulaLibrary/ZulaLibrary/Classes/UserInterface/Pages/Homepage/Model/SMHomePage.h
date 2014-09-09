@@ -7,12 +7,13 @@
 //
 
 #import "SMModel.h"
-#import "ZulaLibrary.h"
 
 // data structure constants
 #define kModelHomePageImageLogo @"logo"
 #define kModelHomePageBackgroundImageUrl @"bg_image"
 #define kModelHomePageComponents @"components"
+
+@class SMServerError;
 
 @interface SMHomePage : SMModel
 

@@ -7,8 +7,8 @@
 //
 
 #import "SMHomePage.h"
-#import "ZulaLibrary.h"
 #import "SMApiClient.h"
+#import "SMServerError.h"
 
 @implementation SMHomePage
 @synthesize logoUrl = _logoUrl;

@@ -7,7 +7,6 @@
 //
 
 #import "SMModel.h"
-#import "ZulaLibrary.h"
 
 // data structure constants
 #define kModelVideoGalleryTitle @"title"
@@ -19,7 +18,7 @@
 #define kModelVideoUrl @"video_url"
 #define kModelVideoDescription @"description"
 
-@class SMVideo;
+@class SMVideo, SMServerError;
 
 @interface SMVideoGallery : SMModel
 

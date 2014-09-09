@@ -1,16 +1,12 @@
-0.6
----
-
-Remove dependencies
-
 0.7
 ---
 
-* Autolayout
+* Dependency injection for components and modules, split dependant components
+  to their own projects
 * Refactor deprecated methods
 * Use `instancetype` instead of `id`
 
 0.8
 ---
 
-Dependency injection for components and modules
+* Autolayout

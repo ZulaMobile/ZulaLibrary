@@ -7,7 +7,8 @@
 //
 
 #import "SMLinksTilesStrategy.h"
-#import "ZulaLibrary.h"
+#import "Macros.h"
+
 #import "SMTileCell.h"
 #import "SMTileLayout.h"
 #import "SMComponentDescription.h"

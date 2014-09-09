@@ -7,9 +7,10 @@
 //
 
 #import "SMContactViewController.h"
-#import "ZulaLibrary.h"
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
+#import "Macros.h"
+#import "SMServerError.h"
 
 #import "SMProgressHUD.h"
 #import "UIWebView+SMAdditions.h"

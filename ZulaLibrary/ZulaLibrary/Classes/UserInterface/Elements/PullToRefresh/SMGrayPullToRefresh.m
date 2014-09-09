@@ -7,7 +7,8 @@
 //
 
 #import "SMGrayPullToRefresh.h"
-#import "ZulaLibrary.h"
+#import "SMNotifications.h"
+
 
 @implementation SMGrayPullToRefresh
 {

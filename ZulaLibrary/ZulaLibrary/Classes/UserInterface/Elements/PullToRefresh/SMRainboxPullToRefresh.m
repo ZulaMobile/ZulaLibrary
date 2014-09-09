@@ -7,7 +7,6 @@
 //
 
 #import "SMRainboxPullToRefresh.h"
-#import "ZulaLibrary.h"
 #import "SMNotifications.h"
 
 
