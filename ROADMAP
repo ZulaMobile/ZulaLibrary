@@ -9,3 +9,8 @@ Remove dependencies
 * Autolayout
 * Refactor deprecated methods
 * Use `instancetype` instead of `id`
+
+0.7
+---
+
+Dependency injection for components and modules
