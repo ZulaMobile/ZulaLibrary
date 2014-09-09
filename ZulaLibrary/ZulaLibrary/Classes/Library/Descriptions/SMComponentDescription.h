@@ -40,8 +40,11 @@
 /**
  Rest API URL
  To fetch the content data, components will use this url
+ 
+ @discussion
+ Use contents instead. This property is planned to be deprecated in 0.6
  */
-@property (nonatomic, readonly) NSString *url DEPRECATED_ATTRIBUTE;
+@property (nonatomic, readonly) NSString *url ;
 
 /**
  *  Contents attribute. 

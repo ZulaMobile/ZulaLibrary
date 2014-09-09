@@ -73,7 +73,7 @@ static NSString *SummaryCollectionImageCellIdentifier = @"SummaryCollectionImage
     // ui changes
     if (listPage.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:listPage.backgroundUrl];
+        [background sd_setImageWithURL:listPage.backgroundUrl];
         [self.collectionView setBackgroundView:background];
     } else {
         self.collectionView.backgroundColor = [UIColor clearColor];
@@ -119,7 +119,7 @@ static NSString *SummaryCollectionImageCellIdentifier = @"SummaryCollectionImage
                                                                                    forIndexPath:indexPath];
         cell.title.text = item.title;
         cell.summary.text = item.subtitle;
-        [cell.image setImageWithURL:item.imageUrl];
+        [cell.image sd_setImageWithURL:item.imageUrl];
         cell.backgroundColor = [UIColor greenColor];
         return cell;
     }

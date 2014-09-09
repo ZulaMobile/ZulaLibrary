@@ -35,7 +35,7 @@
 + (BOOL)isValidResponse:(id)response
 {
     if (![response isKindOfClass:[NSDictionary class]]) {
-        DDLogInfo(@"Web component response needs to be a dictionary");
+        NSLog(@"Web component response needs to be a dictionary");
         return NO;
     }
     

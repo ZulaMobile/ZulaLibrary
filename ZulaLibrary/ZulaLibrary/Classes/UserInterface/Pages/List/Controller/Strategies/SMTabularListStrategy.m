@@ -74,7 +74,7 @@
     // ui changes
     if (listPage.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:listPage.backgroundUrl];
+        [background sd_setImageWithURL:listPage.backgroundUrl];
         [self.tableView setBackgroundView:background];
     }
     
@@ -160,18 +160,19 @@
     // left image if exists
     if (item.thumbnailUrl) {
         SMImageView *cellImage = [[SMImageView alloc] initWithFrame:CGRectMake(5, 10, 60, 60)];
-        [cellImage setImageWithURL:item.thumbnailUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            // move text label and title to the side
-            CGRect textLabelFrame = cell.textLabel.frame;
-            textLabelFrame.origin.x += 5;
-            textLabelFrame.size.width -= 20;
-            [cell.textLabel setFrame:textLabelFrame];
-            
-            CGRect textDetailFrame = cell.detailTextLabel.frame;
-            textDetailFrame.origin.x += 5;
-            textDetailFrame.size.width -= 20;
-            [cell.detailTextLabel setFrame:textDetailFrame];
-        }];
+        [cellImage sd_setImageWithURL:item.thumbnailUrl
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                // move text label and title to the side
+                                CGRect textLabelFrame = cell.textLabel.frame;
+                                textLabelFrame.origin.x += 5;
+                                textLabelFrame.size.width -= 20;
+                                [cell.textLabel setFrame:textLabelFrame];
+                                
+                                CGRect textDetailFrame = cell.detailTextLabel.frame;
+                                textDetailFrame.origin.x += 5;
+                                textDetailFrame.size.width -= 20;
+                                [cell.detailTextLabel setFrame:textDetailFrame];
+                            }];
         
         [cellImage setContentMode:UIViewContentModeScaleAspectFill];
         [cellImage setClipsToBounds:YES];

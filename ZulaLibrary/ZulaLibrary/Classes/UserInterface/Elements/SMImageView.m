@@ -10,7 +10,6 @@
 #import "UIColor+ZulaAdditions.h"
 #import "UIImageView+WebCache.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
-#import "UIImageView+ProgressView.h"
 
 #import "UILabel+SMAdditions.h"
 #import "SMImageView.h"
@@ -109,7 +108,7 @@
 
 - (void)setImageWithURL:(NSURL *)url
 {
-    [super setImageWithURL:url];
+    [self sd_setImageWithURL:url];
 }
 
 - (void)setImageWithURL:(NSURL *)url activityIndicatorStyle:(UIActivityIndicatorViewStyle)style
@@ -135,8 +134,7 @@
     [progressView.layer setBorderColor:[UIColor colorWithHex:@"CCCCCC"].CGColor];
     [progressView.layer setBorderWidth:1.0f];
     
-    [self setImageWithURL:url
-        usingProgressView:progressView];
+    //[self setImageWithURL:url usingProgressView:progressView];
 }
 
 - (void)setImageWithUrlString:(NSString *)url

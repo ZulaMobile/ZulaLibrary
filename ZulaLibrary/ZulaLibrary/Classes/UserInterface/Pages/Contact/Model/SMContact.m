@@ -62,7 +62,7 @@ form=_form;
 + (BOOL)isValidResponse:(id)response
 {
     if (![response isKindOfClass:[NSDictionary class]]) {
-        DDLogInfo(@"Contact response needs to be a dictionary");
+        NSLog(@"Contact response needs to be a dictionary");
         return NO;
     }
     

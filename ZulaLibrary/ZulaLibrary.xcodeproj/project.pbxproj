@@ -24,8 +24,6 @@
 		67909B6D18C74604005975DB /* SMDefaultAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2318C74603005975DB /* SMDefaultAppDelegate.m */; };
 		67909B6E18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */; };
 		67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */; };
-		67909B7018C74604005975DB /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2718C74603005975DB /* CompressingLogFileManager.m */; };
-		67909B7118C74604005975DB /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2718C74603005975DB /* CompressingLogFileManager.m */; };
 		67909B7218C74604005975DB /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2B18C74603005975DB /* SMModel.m */; };
 		67909B7318C74604005975DB /* SMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2B18C74603005975DB /* SMModel.m */; };
 		67909B7418C74604005975DB /* NSDictionary+SMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A3018C74603005975DB /* NSDictionary+SMAdditions.m */; };
@@ -58,12 +56,6 @@
 		67909B8F18C74604005975DB /* SMNavigationDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A4D18C74603005975DB /* SMNavigationDescription.m */; };
 		67909B9018C74604005975DB /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5018C74603005975DB /* SMServerError.m */; };
 		67909B9118C74604005975DB /* SMServerError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5018C74603005975DB /* SMServerError.m */; };
-		67909B9218C74604005975DB /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5418C74603005975DB /* SMFileLogger.m */; };
-		67909B9318C74604005975DB /* SMFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5418C74603005975DB /* SMFileLogger.m */; };
-		67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5618C74603005975DB /* SMLogFileFormatter.m */; };
-		67909B9518C74604005975DB /* SMLogFileFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5618C74603005975DB /* SMLogFileFormatter.m */; };
-		67909B9618C74604005975DB /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5818C74603005975DB /* SMUploadingLogFileManager.m */; };
-		67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5818C74603005975DB /* SMUploadingLogFileManager.m */; };
 		67909B9818C74604005975DB /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5A18C74603005975DB /* SMAppDescription.m */; };
 		67909B9918C74604005975DB /* SMAppDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5A18C74603005975DB /* SMAppDescription.m */; };
 		67909B9A18C74604005975DB /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909A5C18C74603005975DB /* SMLogManager.m */; };
@@ -220,10 +212,6 @@
 		67909C3318C74604005975DB /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2418C74604005975DB /* SMHomePage.m */; };
 		67909C3418C74604005975DB /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2618C74604005975DB /* SMHomePageViewController.m */; };
 		67909C3518C74604005975DB /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2618C74604005975DB /* SMHomePageViewController.m */; };
-		67909C3618C74604005975DB /* SMImageGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2A18C74604005975DB /* SMImageGallery.m */; };
-		67909C3718C74604005975DB /* SMImageGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2A18C74604005975DB /* SMImageGallery.m */; };
-		67909C3818C74604005975DB /* SMImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2C18C74604005975DB /* SMImageGalleryViewController.m */; };
-		67909C3918C74604005975DB /* SMImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2C18C74604005975DB /* SMImageGalleryViewController.m */; };
 		67909C3A18C74604005975DB /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3018C74604005975DB /* SMListViewController.m */; };
 		67909C3B18C74604005975DB /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3018C74604005975DB /* SMListViewController.m */; };
 		67909C3C18C74604005975DB /* SMCollectionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3318C74604005975DB /* SMCollectionStrategy.m */; };
@@ -313,8 +301,6 @@
 		67909A2318C74603005975DB /* SMDefaultAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDefaultAppDelegate.m; sourceTree = "<group>"; };
 		67909A2418C74603005975DB /* SMPortfolioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPortfolioAppDelegate.h; sourceTree = "<group>"; };
 		67909A2518C74603005975DB /* SMPortfolioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPortfolioAppDelegate.m; sourceTree = "<group>"; };
-		67909A2618C74603005975DB /* CompressingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressingLogFileManager.h; sourceTree = "<group>"; };
-		67909A2718C74603005975DB /* CompressingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompressingLogFileManager.m; sourceTree = "<group>"; };
 		67909A2A18C74603005975DB /* SMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMModel.h; sourceTree = "<group>"; };
 		67909A2B18C74603005975DB /* SMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModel.m; sourceTree = "<group>"; };
 		67909A2C18C74603005975DB /* SMNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNotifications.h; sourceTree = "<group>"; };
@@ -349,12 +335,6 @@
 		67909A4D18C74603005975DB /* SMNavigationDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNavigationDescription.m; sourceTree = "<group>"; };
 		67909A4F18C74603005975DB /* SMServerError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMServerError.h; sourceTree = "<group>"; };
 		67909A5018C74603005975DB /* SMServerError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMServerError.m; sourceTree = "<group>"; };
-		67909A5318C74603005975DB /* SMFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFileLogger.h; sourceTree = "<group>"; };
-		67909A5418C74603005975DB /* SMFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFileLogger.m; sourceTree = "<group>"; };
-		67909A5518C74603005975DB /* SMLogFileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogFileFormatter.h; sourceTree = "<group>"; };
-		67909A5618C74603005975DB /* SMLogFileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogFileFormatter.m; sourceTree = "<group>"; };
-		67909A5718C74603005975DB /* SMUploadingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUploadingLogFileManager.h; sourceTree = "<group>"; };
-		67909A5818C74603005975DB /* SMUploadingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUploadingLogFileManager.m; sourceTree = "<group>"; };
 		67909A5918C74603005975DB /* SMAppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAppDescription.h; sourceTree = "<group>"; };
 		67909A5A18C74603005975DB /* SMAppDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppDescription.m; sourceTree = "<group>"; };
 		67909A5B18C74603005975DB /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogManager.h; sourceTree = "<group>"; };
@@ -516,10 +496,6 @@
 		67909B2418C74604005975DB /* SMHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomePage.m; sourceTree = "<group>"; };
 		67909B2518C74604005975DB /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHomePageViewController.h; sourceTree = "<group>"; };
 		67909B2618C74604005975DB /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomePageViewController.m; sourceTree = "<group>"; };
-		67909B2918C74604005975DB /* SMImageGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImageGallery.h; sourceTree = "<group>"; };
-		67909B2A18C74604005975DB /* SMImageGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImageGallery.m; sourceTree = "<group>"; };
-		67909B2B18C74604005975DB /* SMImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImageGalleryViewController.h; sourceTree = "<group>"; };
-		67909B2C18C74604005975DB /* SMImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImageGalleryViewController.m; sourceTree = "<group>"; };
 		67909B2F18C74604005975DB /* SMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMListViewController.h; sourceTree = "<group>"; };
 		67909B3018C74604005975DB /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMListViewController.m; sourceTree = "<group>"; };
 		67909B3218C74604005975DB /* SMCollectionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCollectionStrategy.h; sourceTree = "<group>"; };
@@ -687,8 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				67909A2018C74603005975DB /* AppTypes */,
-				67909A2618C74603005975DB /* CompressingLogFileManager.h */,
-				67909A2718C74603005975DB /* CompressingLogFileManager.m */,
 				67909A2818C74603005975DB /* Library */,
 				67909A6018C74603005975DB /* SMApiClient.h */,
 				67909A6118C74603005975DB /* SMApiClient.m */,
@@ -806,26 +780,12 @@
 		67909A5118C74603005975DB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				67909A5218C74603005975DB /* Loggers */,
 				67909A5918C74603005975DB /* SMAppDescription.h */,
 				67909A5A18C74603005975DB /* SMAppDescription.m */,
 				67909A5B18C74603005975DB /* SMLogManager.h */,
 				67909A5C18C74603005975DB /* SMLogManager.m */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		67909A5218C74603005975DB /* Loggers */ = {
-			isa = PBXGroup;
-			children = (
-				67909A5318C74603005975DB /* SMFileLogger.h */,
-				67909A5418C74603005975DB /* SMFileLogger.m */,
-				67909A5518C74603005975DB /* SMLogFileFormatter.h */,
-				67909A5618C74603005975DB /* SMLogFileFormatter.m */,
-				67909A5718C74603005975DB /* SMUploadingLogFileManager.h */,
-				67909A5818C74603005975DB /* SMUploadingLogFileManager.m */,
-			);
-			path = Loggers;
 			sourceTree = "<group>";
 		};
 		67909A5D18C74603005975DB /* Network */ = {
@@ -1141,7 +1101,6 @@
 				67909B1318C74604005975DB /* ContentPage */,
 				67909B1E18C74604005975DB /* Feed */,
 				67909B2118C74604005975DB /* Homepage */,
-				67909B2718C74604005975DB /* ImageGallery */,
 				67909B2D18C74604005975DB /* List */,
 				67909B4218C74604005975DB /* Modules */,
 				67909B4318C74604005975DB /* Preloader */,
@@ -1342,25 +1301,6 @@
 			children = (
 				67909B2318C74604005975DB /* SMHomePage.h */,
 				67909B2418C74604005975DB /* SMHomePage.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		67909B2718C74604005975DB /* ImageGallery */ = {
-			isa = PBXGroup;
-			children = (
-				67909B2818C74604005975DB /* Model */,
-				67909B2B18C74604005975DB /* SMImageGalleryViewController.h */,
-				67909B2C18C74604005975DB /* SMImageGalleryViewController.m */,
-			);
-			path = ImageGallery;
-			sourceTree = "<group>";
-		};
-		67909B2818C74604005975DB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				67909B2918C74604005975DB /* SMImageGallery.h */,
-				67909B2A18C74604005975DB /* SMImageGallery.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1699,7 +1639,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SM;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = ZulaMobile;
 				TargetAttributes = {
 					67909A0718C74569005975DB = {
@@ -1790,7 +1730,6 @@
 				67909B9A18C74604005975DB /* SMLogManager.m in Sources */,
 				67909BA218C74604005975DB /* SMAdvertManager.m in Sources */,
 				67909C4618C74604005975DB /* SMListCell.m in Sources */,
-				67909C3818C74604005975DB /* SMImageGalleryViewController.m in Sources */,
 				67909C1418C74604005975DB /* SMTabbedNavigationViewController.m in Sources */,
 				67909BC018C74604005975DB /* SMFormDescription.m in Sources */,
 				67909BD018C74604005975DB /* SMFormTextField.m in Sources */,
@@ -1804,7 +1743,6 @@
 				67909BE818C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
 				67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */,
 				67909C2018C74604005975DB /* SMContainer.m in Sources */,
-				67909B9418C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909BAA18C74604005975DB /* SMInterstitialAdvert.m in Sources */,
 				67909BEC18C74604005975DB /* SMTableCell.m in Sources */,
 				67909C0818C74604005975DB /* SMWebView.m in Sources */,
@@ -1855,7 +1793,6 @@
 				67909BBA18C74604005975DB /* SMImageComponentStrategy.m in Sources */,
 				67909BE218C74604005975DB /* SMGrayPullToRefresh.m in Sources */,
 				67909C0018C74604005975DB /* SMProgressHUD.m in Sources */,
-				67909B7018C74604005975DB /* CompressingLogFileManager.m in Sources */,
 				67909BF018C74604005975DB /* SMBorderedImage.m in Sources */,
 				67909BFE18C74604005975DB /* SMMultipleImageView.m in Sources */,
 				67909BCA18C74604005975DB /* SMFormPasswordField.m in Sources */,
@@ -1869,7 +1806,6 @@
 				67909C6218C74604005975DB /* SMWeb.m in Sources */,
 				67909BCC18C74604005975DB /* SMFormSection.m in Sources */,
 				67909C2418C74604005975DB /* SMContentContainer.m in Sources */,
-				67909B9618C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
 				67909C3218C74604005975DB /* SMHomePage.m in Sources */,
 				67909BF818C74604005975DB /* SMLinks.m in Sources */,
 				67909B7818C74604005975DB /* UIButton+SMAdditions.m in Sources */,
@@ -1900,11 +1836,9 @@
 				67909B8A18C74604005975DB /* SMAppDescriptionRestApiDataSource.m in Sources */,
 				67909B7A18C74604005975DB /* UIColor+ZulaAdditions.m in Sources */,
 				67909BAC18C74604005975DB /* SMInterstitialAdvertView.m in Sources */,
-				67909B9218C74604005975DB /* SMFileLogger.m in Sources */,
 				67909C5A18C74604005975DB /* SMVideoGalleryViewController.m in Sources */,
 				67909BB618C74604005975DB /* SMSummaryCollectionCell.m in Sources */,
 				67909BE418C74604005975DB /* SMNoPullToRefresh.m in Sources */,
-				67909C3618C74604005975DB /* SMImageGallery.m in Sources */,
 				67909C5418C74604005975DB /* SMBaseComponentViewController.m in Sources */,
 				67909BB418C74604005975DB /* SMSwipeBackModule.m in Sources */,
 				67909C0A18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
@@ -1928,7 +1862,6 @@
 				67909C1718C74604005975DB /* SMUser.m in Sources */,
 				67909BBD18C74604005975DB /* SMFormAction.m in Sources */,
 				67909C1918C74604005975DB /* SMSimpleTableViewController.m in Sources */,
-				67909C3918C74604005975DB /* SMImageGalleryViewController.m in Sources */,
 				67909C0118C74604005975DB /* SMProgressHUD.m in Sources */,
 				67909C8818C74CE3005975DB /* SMListViewControllerTests.m in Sources */,
 				67909C0D18C74604005975DB /* SMNavigationApperanceManager.m in Sources */,
@@ -1936,7 +1869,6 @@
 				67909C5518C74604005975DB /* SMBaseComponentViewController.m in Sources */,
 				67909B6D18C74604005975DB /* SMDefaultAppDelegate.m in Sources */,
 				67909C2B18C74604005975DB /* SMContentViewController.m in Sources */,
-				67909C3718C74604005975DB /* SMImageGallery.m in Sources */,
 				67909B9118C74604005975DB /* SMServerError.m in Sources */,
 				67909BED18C74604005975DB /* SMTableCell.m in Sources */,
 				67909B9D18C74604005975DB /* SMDownloadSession.m in Sources */,
@@ -1951,7 +1883,6 @@
 				67909BB918C74604005975DB /* SMSummaryLayout.m in Sources */,
 				67909BE318C74604005975DB /* SMGrayPullToRefresh.m in Sources */,
 				67909B8F18C74604005975DB /* SMNavigationDescription.m in Sources */,
-				67909B9318C74604005975DB /* SMFileLogger.m in Sources */,
 				67909B7718C74604005975DB /* NSString+SMAdditions.m in Sources */,
 				67909C2F18C74604005975DB /* SMSubMenuView.m in Sources */,
 				67909C0F18C74604005975DB /* SMNavigationFactory.m in Sources */,
@@ -1964,7 +1895,6 @@
 				67909C4518C74604005975DB /* SMListPage.m in Sources */,
 				67909BEF18C74604005975DB /* SMAppearanceValidator.m in Sources */,
 				67909C5D18C74604005975DB /* SMVideoGallery.m in Sources */,
-				67909B7118C74604005975DB /* CompressingLogFileManager.m in Sources */,
 				67909C1118C74604005975DB /* SMSideMenuViewController.m in Sources */,
 				67909B8718C74604005975DB /* SMAppDescriptionDummyDataSource.m in Sources */,
 				67909C2318C74604005975DB /* SMContentContainerViewController.m in Sources */,
@@ -1975,14 +1905,12 @@
 				67909C2118C74604005975DB /* SMContainer.m in Sources */,
 				67909BCD18C74604005975DB /* SMFormSection.m in Sources */,
 				67909C8318C74CE3005975DB /* NSDictionarySSAdditionsTests.m in Sources */,
-				67909B9518C74604005975DB /* SMLogFileFormatter.m in Sources */,
 				67909B9918C74604005975DB /* SMAppDescription.m in Sources */,
 				67909BF318C74604005975DB /* SMButton.m in Sources */,
 				67909C0B18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
 				67909BE918C74604005975DB /* SMPullToRefreshFactory.m in Sources */,
 				67909BD318C74604005975DB /* SMFormModel.m in Sources */,
 				67909B6F18C74604005975DB /* SMPortfolioAppDelegate.m in Sources */,
-				67909B9718C74604005975DB /* SMUploadingLogFileManager.m in Sources */,
 				67909B8118C74604005975DB /* UIViewController+SMAdditions.m in Sources */,
 				67909C8C18C74CE3005975DB /* SMFormDescriptionTests.m in Sources */,
 				67909B8518C74604005975DB /* SMAppDescriptionBaseDataSource.m in Sources */,
@@ -2086,7 +2014,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2126,7 +2053,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2187,7 +2113,6 @@
 		67909A1D18C74569005975DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2210,7 +2135,6 @@
 		67909A1E18C74569005975DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

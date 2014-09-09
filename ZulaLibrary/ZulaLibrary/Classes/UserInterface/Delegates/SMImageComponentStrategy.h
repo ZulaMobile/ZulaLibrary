@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SMComponentDelegate.h"
 #import "SMImageView.h"
-#import "MWPhotoBrowser.h"
 
 /**
  Delegate that adds opening full screen image when tapping on a SMImage
  */
-@interface SMImageComponentStrategy : NSObject <SMComponentStrategy, SMImageViewDelegate, MWPhotoBrowserDelegate>
+@interface SMImageComponentStrategy : NSObject <SMComponentStrategy, SMImageViewDelegate>
 
 @end

@@ -41,7 +41,7 @@
 + (BOOL)isValidResponse:(id)response
 {
     if (![response isKindOfClass:[NSDictionary class]]) {
-        DDLogInfo(@"Container response needs to be a dictionary");
+        NSLog(@"Container response needs to be a dictionary");
         return NO;
     }
     

@@ -17,3 +17,16 @@
 --------------
 
 * converted to cocoapods project
+
+0.5 - 9/9/2014
+--------------
+
+* this is the legacy version that wasn't developed for the 1.5 years.
+
+0.6
+---
+
+* Image gallery component and its dependencies (MWPhotoBrowser) is removed
+* CocoaLumberjack dependency is removed
+* FFCircularProgressView is removed
+* MBProgressHUD is removed
