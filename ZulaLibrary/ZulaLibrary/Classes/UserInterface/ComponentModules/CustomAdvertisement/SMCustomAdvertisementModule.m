@@ -7,6 +7,8 @@
 //
 
 #import "SMCustomAdvertisementModule.h"
+#import "Macros.h"
+
 #import "SMBaseComponentViewController.h"
 #import "SMAdvert.h"
 #import "SMInterstitialAdvert.h"

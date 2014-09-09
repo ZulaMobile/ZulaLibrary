@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "SMSummaryCollectionCell.h"
 #import "SMListItem.h"
+#import "Macros.h"
 
 
 static NSString *SummaryCollectionCellIdentifier = @"SummaryCollectionCellIdentifier";

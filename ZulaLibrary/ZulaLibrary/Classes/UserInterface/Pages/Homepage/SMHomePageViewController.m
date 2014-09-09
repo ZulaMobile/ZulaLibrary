@@ -8,6 +8,8 @@
 
 #import "SMHomePageViewController.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
+
 #import "SMAppDescription.h"
 #import "SMComponentDescription.h"
 #import "SMScrollView.h"

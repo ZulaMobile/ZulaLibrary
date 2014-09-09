@@ -8,6 +8,8 @@
 
 #import "SMPlainPullToRefresh.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
+
 
 @implementation SMPlainPullToRefresh
 {

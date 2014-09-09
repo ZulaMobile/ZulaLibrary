@@ -8,6 +8,7 @@
 
 #import "SMPreloaderComponentViewController.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
 
 
 @interface SMPreloaderComponentViewController ()

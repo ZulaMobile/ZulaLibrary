@@ -8,6 +8,7 @@
 
 #import "SMVideoGalleryViewController.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+SMAdditions.h"

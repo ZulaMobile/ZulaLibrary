@@ -7,6 +7,8 @@
 //
 
 #import "SMNoPullToRefresh.h"
+#import "Macros.h"
+
 
 @implementation SMNoPullToRefresh
 

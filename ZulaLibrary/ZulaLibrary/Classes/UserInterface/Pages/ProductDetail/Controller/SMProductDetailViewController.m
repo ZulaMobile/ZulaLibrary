@@ -8,6 +8,7 @@
 
 #import "SMProductDetailViewController.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
 
 #import "UIWebView+SMAdditions.h"
 #import "UIViewController+SMAdditions.h"

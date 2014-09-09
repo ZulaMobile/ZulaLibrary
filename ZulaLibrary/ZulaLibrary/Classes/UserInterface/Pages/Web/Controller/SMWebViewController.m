@@ -8,6 +8,7 @@
 
 #import "SMWebViewController.h"
 #import "ZulaLibrary.h"
+#import "Macros.h"
 
 #import "SMProgressHUD.h"
 #import "SMComponentDescription.h"
