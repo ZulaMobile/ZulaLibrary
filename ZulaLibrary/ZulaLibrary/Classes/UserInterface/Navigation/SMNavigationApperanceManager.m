@@ -143,7 +143,7 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor colorWithHex:hexColor], UITextAttributeTextColor,
+      [UIColor colorWithHex:hexColor], NSForegroundColorAttributeName,
       nil]];
     /*
     [[UINavigationBar appearance] setTitleTextAttributes:
@@ -181,9 +181,9 @@
         // text color
         [[UITabBar appearance] setTintColor:[UIColor colorWithHex:hexColor]];
     } else {
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:hexColor] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor colorWithHex:hexColor] }
                                                  forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:@{ UITextAttributeTextColor : [UIColor colorWithHex:@"CCCCCC"] }
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor colorWithHex:@"CCCCCC"] }
                                                  forState:UIControlStateSelected];
     }
 }

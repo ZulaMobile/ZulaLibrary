@@ -135,7 +135,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
     // background image
     if (self.backgroundImageUrl) {
         UIImageView *bgImage = [[UIImageView alloc] initWithFrame:self.view.frame];
-        [bgImage setImageWithURL:[NSURL URLWithString:self.backgroundImageUrl]];
+        [bgImage sd_setImageWithURL:[NSURL URLWithString:self.backgroundImageUrl]];
         
         // background image alignment
         NSDictionary *bgImageDict = [appearances objectForKey:@"bg_image"];
@@ -231,9 +231,7 @@ static NSString *const LogoCellIdentifier = @"MenuLogoCellIdentifier";
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), 70.0f)];
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 50.0f)];
-    [logo setImageWithURL:[NSURL URLWithString:self.logoUrl]
-                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                }];
+    [logo sd_setImageWithURL:[NSURL URLWithString:self.logoUrl]];
     logo.contentMode = UIViewContentModeCenter;
     
     SMNavigationDescription *navDesc = [[SMAppDescription sharedInstance] navigationDescription];

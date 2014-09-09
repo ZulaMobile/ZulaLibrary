@@ -28,42 +28,7 @@
 
 - (void)imageDidTouch:(SMImageView *)image
 {
-    // image data
-    MWPhoto *photo = [[MWPhoto alloc] initWithImage:image.image];
-    images = [NSArray arrayWithObject:photo];
-    
-    // show image full screen
-    [component setWantsFullScreenLayout:YES];
-    [component.navigationController setNavigationBarHidden:NO];
-    
-    // create the image browser
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    
-    // settings
-    if (SYSTEM_VERSION_GREATER_THAN(@"7.0")) {
-        browser.edgesForExtendedLayout = UIRectEdgeNone;
-    } else {
-        browser.wantsFullScreenLayout = YES;
-    }
-    browser.displayActionButton = NO;
-    [browser setInitialPageIndex:0];
-    
-    // present
-    if (component.navigationController) {
-        [component.navigationController pushViewController:browser animated:YES];
-    }
-}
-
-#pragma mark - photo browser delegate
-
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return [images count];
-}
-
-- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < images.count)
-        return [images objectAtIndex:index];
-    return nil;
+    // @TODO
 }
 
 @end

@@ -220,10 +220,6 @@
 		67909C3318C74604005975DB /* SMHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2418C74604005975DB /* SMHomePage.m */; };
 		67909C3418C74604005975DB /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2618C74604005975DB /* SMHomePageViewController.m */; };
 		67909C3518C74604005975DB /* SMHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2618C74604005975DB /* SMHomePageViewController.m */; };
-		67909C3618C74604005975DB /* SMImageGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2A18C74604005975DB /* SMImageGallery.m */; };
-		67909C3718C74604005975DB /* SMImageGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2A18C74604005975DB /* SMImageGallery.m */; };
-		67909C3818C74604005975DB /* SMImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2C18C74604005975DB /* SMImageGalleryViewController.m */; };
-		67909C3918C74604005975DB /* SMImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B2C18C74604005975DB /* SMImageGalleryViewController.m */; };
 		67909C3A18C74604005975DB /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3018C74604005975DB /* SMListViewController.m */; };
 		67909C3B18C74604005975DB /* SMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3018C74604005975DB /* SMListViewController.m */; };
 		67909C3C18C74604005975DB /* SMCollectionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67909B3318C74604005975DB /* SMCollectionStrategy.m */; };
@@ -516,10 +512,6 @@
 		67909B2418C74604005975DB /* SMHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomePage.m; sourceTree = "<group>"; };
 		67909B2518C74604005975DB /* SMHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHomePageViewController.h; sourceTree = "<group>"; };
 		67909B2618C74604005975DB /* SMHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomePageViewController.m; sourceTree = "<group>"; };
-		67909B2918C74604005975DB /* SMImageGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImageGallery.h; sourceTree = "<group>"; };
-		67909B2A18C74604005975DB /* SMImageGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImageGallery.m; sourceTree = "<group>"; };
-		67909B2B18C74604005975DB /* SMImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImageGalleryViewController.h; sourceTree = "<group>"; };
-		67909B2C18C74604005975DB /* SMImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImageGalleryViewController.m; sourceTree = "<group>"; };
 		67909B2F18C74604005975DB /* SMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMListViewController.h; sourceTree = "<group>"; };
 		67909B3018C74604005975DB /* SMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMListViewController.m; sourceTree = "<group>"; };
 		67909B3218C74604005975DB /* SMCollectionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCollectionStrategy.h; sourceTree = "<group>"; };
@@ -1141,7 +1133,6 @@
 				67909B1318C74604005975DB /* ContentPage */,
 				67909B1E18C74604005975DB /* Feed */,
 				67909B2118C74604005975DB /* Homepage */,
-				67909B2718C74604005975DB /* ImageGallery */,
 				67909B2D18C74604005975DB /* List */,
 				67909B4218C74604005975DB /* Modules */,
 				67909B4318C74604005975DB /* Preloader */,
@@ -1342,25 +1333,6 @@
 			children = (
 				67909B2318C74604005975DB /* SMHomePage.h */,
 				67909B2418C74604005975DB /* SMHomePage.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		67909B2718C74604005975DB /* ImageGallery */ = {
-			isa = PBXGroup;
-			children = (
-				67909B2818C74604005975DB /* Model */,
-				67909B2B18C74604005975DB /* SMImageGalleryViewController.h */,
-				67909B2C18C74604005975DB /* SMImageGalleryViewController.m */,
-			);
-			path = ImageGallery;
-			sourceTree = "<group>";
-		};
-		67909B2818C74604005975DB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				67909B2918C74604005975DB /* SMImageGallery.h */,
-				67909B2A18C74604005975DB /* SMImageGallery.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1699,7 +1671,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SM;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = ZulaMobile;
 				TargetAttributes = {
 					67909A0718C74569005975DB = {
@@ -1790,7 +1762,6 @@
 				67909B9A18C74604005975DB /* SMLogManager.m in Sources */,
 				67909BA218C74604005975DB /* SMAdvertManager.m in Sources */,
 				67909C4618C74604005975DB /* SMListCell.m in Sources */,
-				67909C3818C74604005975DB /* SMImageGalleryViewController.m in Sources */,
 				67909C1418C74604005975DB /* SMTabbedNavigationViewController.m in Sources */,
 				67909BC018C74604005975DB /* SMFormDescription.m in Sources */,
 				67909BD018C74604005975DB /* SMFormTextField.m in Sources */,
@@ -1904,7 +1875,6 @@
 				67909C5A18C74604005975DB /* SMVideoGalleryViewController.m in Sources */,
 				67909BB618C74604005975DB /* SMSummaryCollectionCell.m in Sources */,
 				67909BE418C74604005975DB /* SMNoPullToRefresh.m in Sources */,
-				67909C3618C74604005975DB /* SMImageGallery.m in Sources */,
 				67909C5418C74604005975DB /* SMBaseComponentViewController.m in Sources */,
 				67909BB418C74604005975DB /* SMSwipeBackModule.m in Sources */,
 				67909C0A18C74604005975DB /* SMNavbarNavigationViewController.m in Sources */,
@@ -1928,7 +1898,6 @@
 				67909C1718C74604005975DB /* SMUser.m in Sources */,
 				67909BBD18C74604005975DB /* SMFormAction.m in Sources */,
 				67909C1918C74604005975DB /* SMSimpleTableViewController.m in Sources */,
-				67909C3918C74604005975DB /* SMImageGalleryViewController.m in Sources */,
 				67909C0118C74604005975DB /* SMProgressHUD.m in Sources */,
 				67909C8818C74CE3005975DB /* SMListViewControllerTests.m in Sources */,
 				67909C0D18C74604005975DB /* SMNavigationApperanceManager.m in Sources */,
@@ -1936,7 +1905,6 @@
 				67909C5518C74604005975DB /* SMBaseComponentViewController.m in Sources */,
 				67909B6D18C74604005975DB /* SMDefaultAppDelegate.m in Sources */,
 				67909C2B18C74604005975DB /* SMContentViewController.m in Sources */,
-				67909C3718C74604005975DB /* SMImageGallery.m in Sources */,
 				67909B9118C74604005975DB /* SMServerError.m in Sources */,
 				67909BED18C74604005975DB /* SMTableCell.m in Sources */,
 				67909B9D18C74604005975DB /* SMDownloadSession.m in Sources */,
@@ -2086,7 +2054,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2126,7 +2093,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2187,7 +2153,6 @@
 		67909A1D18C74569005975DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2210,7 +2175,6 @@
 		67909A1E18C74569005975DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

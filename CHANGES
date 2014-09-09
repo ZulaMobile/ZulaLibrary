@@ -17,3 +17,8 @@
 --------------
 
 * converted to cocoapods project
+
+0.5 - 9/9/2014
+--------------
+
+* Image gallery component and its dependencies (MWPhotoBrowser) is removed

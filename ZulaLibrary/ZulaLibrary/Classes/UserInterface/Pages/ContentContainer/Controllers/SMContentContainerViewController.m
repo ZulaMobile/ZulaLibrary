@@ -41,8 +41,6 @@
     self.subMenu = [[SDSegmentedControl alloc] initWithItems:[NSArray array]];
     [self.subMenu setFrame:CGRectMake(0, 0, CGRectGetWidth(screenRect), 44)];
     [self.subMenu setAutoresizingMask:UIViewAutoresizingFlexibleAll];
-    //[self.subMenu applyAppearances:self.componentDesciption.appearance];
-    self.subMenu.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.subMenu addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventValueChanged];
     //self.subMenu.arrowHeightFactor *= -1.0;
     

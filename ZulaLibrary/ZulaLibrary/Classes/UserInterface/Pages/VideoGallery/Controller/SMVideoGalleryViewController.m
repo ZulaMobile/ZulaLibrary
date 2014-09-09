@@ -75,7 +75,7 @@
     // ui changes
     if (videoGallery.backgroundUrl) {
         UIImageView *background = [[UIImageView alloc] init];
-        [background setImageWithURL:videoGallery.backgroundUrl];
+        [background sd_setImageWithURL:videoGallery.backgroundUrl];
         [self.tableView setBackgroundView:background];
     }
     

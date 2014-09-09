@@ -57,11 +57,10 @@
 - (void)setupImageContent
 {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
-    //[imageView setImageWithURL:[NSURL URLWithString:self.model.url]];
-    [imageView setImageWithURL:[NSURL URLWithString:self.model.url]
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                         [self.indicator stopAnimating];
-                     }];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.url]
+                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                            [self.indicator stopAnimating];
+                        }];
     [imageView setContentMode:UIViewContentModeScaleAspectFit];
     [imageView setAutoresizingMask:UIViewAutoresizingFlexibleAll];
     imageView.backgroundColor = [UIColor clearColor];

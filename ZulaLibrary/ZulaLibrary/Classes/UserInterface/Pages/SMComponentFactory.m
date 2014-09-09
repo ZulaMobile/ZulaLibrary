@@ -15,7 +15,6 @@
 #import "SMContentContainerViewController.h"
 #import "SMProductDetailViewController.h"
 #import "SMContactViewController.h"
-#import "SMImageGalleryViewController.h"
 #import "SMContainerViewController.h"
 #import "SMWebViewController.h"
 #import "SMVideoGalleryViewController.h"
@@ -43,8 +42,6 @@
         component = [[SMProductDetailViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContactComponent"]) {
         component = [[SMContactViewController alloc] initWithDescription:componentDescription];
-    } else if ([componentDescription.type isEqualToString:@"ImageGalleryComponent"]) {
-        component = [[SMImageGalleryViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"ContainerComponent"]) {
         component = [[SMContainerViewController alloc] initWithDescription:componentDescription];
     } else if ([componentDescription.type isEqualToString:@"WebComponent"]) {
