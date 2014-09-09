@@ -58,14 +58,7 @@
 #import "SMSwipeBackModule.h"
 #import "SMPullToRefreshModule.h"
 
-// notifications
-/*
-kMalformedAppNotification @"kMalformedAppNotification"
-kZulaNotificationPullToRefreshDidStartRefreshing @"kZulaNotificationPullToRefreshDidStartRefreshing"
-kZulaNotificationPullToRefreshDidStopRefreshing @"kZulaNotificationPullToRefreshDidStopRefreshing"
-*/
-
-#define zulaLibraryVersion 0.3
+#define zulaLibraryVersion 0.6
 
 #define UIViewAutoresizingFlexibleAll                       \
 UIViewAutoresizingFlexibleBottomMargin    | \

@@ -55,15 +55,7 @@ Creating a New Project Based on ZulaLibrary
         #import <MobileCoreServices/MobileCoreServices.h>
         #import "SMServerError.h"
         #import "ZulaLibrary.h"
-        #import <DDLog.h>
-        //#define DEBUG_APP 1
         #import "SMNotifications.h"
-        #ifdef DEBUG
-          static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-        #else
-          static const int ddLogLevel = LOG_LEVEL_WARN;
-        #endif
-        #define ZULA_DEBUG 1
     * Edit main plist file and add following:
         `api_url`: `http://zula-api-url.com`
         `default_api_url`: `http://zula-default-api-url.com`

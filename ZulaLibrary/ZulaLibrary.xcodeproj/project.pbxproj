@@ -533,7 +533,6 @@
 		67909B6518C74604005975DB /* SMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWebViewController.m; sourceTree = "<group>"; };
 		67909B6718C74604005975DB /* SMWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMWeb.h; sourceTree = "<group>"; };
 		67909B6818C74604005975DB /* SMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMWeb.m; sourceTree = "<group>"; };
-		67909B6A18C74604005975DB /* ZulaLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZulaLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		67909B6B18C74604005975DB /* ZulaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZulaLibrary.h; sourceTree = "<group>"; };
 		67909C6418C74671005975DB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		67909C6618C7467C005975DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -668,7 +667,6 @@
 				67909A6118C74603005975DB /* SMApiClient.m */,
 				67909A6218C74603005975DB /* UserInterface */,
 				67909B6918C74604005975DB /* Vendor */,
-				67909B6A18C74604005975DB /* ZulaLibrary-Prefix.pch */,
 				67909B6B18C74604005975DB /* ZulaLibrary.h */,
 			);
 			path = Classes;
