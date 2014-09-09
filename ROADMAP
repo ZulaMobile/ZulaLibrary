@@ -1,0 +1,11 @@
+0.5
+---
+
+Remove dependencies
+
+0.6
+---
+
+* Autolayout
+* Refactor deprecated methods
+* Use `instancetype` instead of `id`
