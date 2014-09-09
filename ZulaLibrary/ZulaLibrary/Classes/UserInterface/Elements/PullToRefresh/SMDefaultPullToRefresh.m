@@ -8,6 +8,7 @@
 
 #import "SMDefaultPullToRefresh.h"
 #import "Macros.h"
+#import "SMNotifications.h"
 
 @interface SMDefaultPullToRefresh ()
 - (void)deviceOrientationDidChange:(NSNotification *)notification;

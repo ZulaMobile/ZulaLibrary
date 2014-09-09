@@ -9,6 +9,8 @@
 #import "SMListPage.h"
 #import "SMListItem.h"
 #import "SMApiClient.h"
+#import "SMServerError.h"
+#import "SMNotifications.h"
 
 @implementation SMListPage
 @synthesize title = _title,

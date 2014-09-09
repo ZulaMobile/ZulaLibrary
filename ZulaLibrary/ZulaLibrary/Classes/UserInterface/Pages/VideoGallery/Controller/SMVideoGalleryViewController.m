@@ -8,6 +8,7 @@
 
 #import "SMVideoGalleryViewController.h"
 #import "Macros.h"
+#import "SMServerError.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+SMAdditions.h"

@@ -13,6 +13,8 @@
 #define kModelHomePageBackgroundImageUrl @"bg_image"
 #define kModelHomePageComponents @"components"
 
+@class SMServerError;
+
 @interface SMHomePage : SMModel
 
 /**

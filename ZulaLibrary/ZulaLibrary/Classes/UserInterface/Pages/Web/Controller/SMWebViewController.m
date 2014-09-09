@@ -8,6 +8,7 @@
 
 #import "SMWebViewController.h"
 #import "Macros.h"
+#import "SMServerError.h"
 
 #import "SMProgressHUD.h"
 #import "SMComponentDescription.h"

@@ -7,6 +7,8 @@
 //
 
 #import "SMDefaultAppDelegate.h"
+#import "Macros.h"
+#import "SMNotifications.h"
 #import "SMNavigationApperanceManager.h"
 #import "SMBaseComponentViewController.h"
 

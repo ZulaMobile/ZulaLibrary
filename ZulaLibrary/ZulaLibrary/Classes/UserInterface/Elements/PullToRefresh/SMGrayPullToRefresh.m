@@ -7,6 +7,8 @@
 //
 
 #import "SMGrayPullToRefresh.h"
+#import "SMNotifications.h"
+
 
 @implementation SMGrayPullToRefresh
 {

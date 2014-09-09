@@ -8,7 +8,7 @@
 
 #import "SMPlainPullToRefresh.h"
 #import "Macros.h"
-
+#import "SMNotifications.h"
 
 @implementation SMPlainPullToRefresh
 {

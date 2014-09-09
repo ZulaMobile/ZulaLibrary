@@ -18,7 +18,7 @@
 #define kModelVideoUrl @"video_url"
 #define kModelVideoDescription @"description"
 
-@class SMVideo;
+@class SMVideo, SMServerError;
 
 @interface SMVideoGallery : SMModel
 
