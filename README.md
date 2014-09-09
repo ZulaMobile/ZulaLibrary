@@ -51,7 +51,7 @@ Creating a New Project Based on ZulaLibrary
         #import <SystemConfiguration/SystemConfiguration.h>
         #import <MobileCoreServices/MobileCoreServices.h>
         #import "ZulaLibrary.h"
-    * Edit main plist file and add following:
+    * To use a RESTFul Api endpoint, Edit main plist file and add following:
         `api_url`: `http://zula-api-url.com`
         `default_api_url`: `http://zula-default-api-url.com`
     * Edit `AppDelegate` and inherit from one of the AppDelegate classes (e.g. SMDefaultAppDelegate).
