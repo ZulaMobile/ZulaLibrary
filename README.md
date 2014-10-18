@@ -5,10 +5,7 @@ iOS Project README
 AppCreator Library
 ==================
 
-This is a "Cocoa Static Library" in the workspace. I have read the following article before I created this project
-
-    http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/
-    http://developer.apple.com/library/ios/#technotes/iOSStaticLibraries/Articles/creating.html
+ZulaLibrary is the core library of ZulaMobile. It includes the infrastructure to create applications. Please refer to wiki for details.
 
 Installation
 ============
