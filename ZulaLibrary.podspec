@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZulaLibrary"
-  s.version      = "0.6"
+  s.version      = "0.6.2"
   s.summary      = "Main library of ZulaMobile."
 
   s.description  = <<-DESC
