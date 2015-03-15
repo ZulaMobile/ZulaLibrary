@@ -36,26 +36,26 @@ Creating a New Project Based on ZulaLibrary
   * Hit `pod install`
   * Edit prefix file (.pch file) and add following:
 
-      #import <SystemConfiguration/SystemConfiguration.h>
-      #import <MobileCoreServices/MobileCoreServices.h>
-      #import "ZulaLibrary.h"
+        #import <SystemConfiguration/SystemConfiguration.h>
+        #import <MobileCoreServices/MobileCoreServices.h>
+        #import "ZulaLibrary.h"
 
   * To use a RESTFul Api endpoint, Edit main plist file and add following:
 
-      `api_url`: `http://zula-api-url.com`
-      `default_api_url`: `http://zula-default-api-url.com`
+        `api_url`: `http://zula-api-url.com`
+        `default_api_url`: `http://zula-default-api-url.com`
 
   * Edit `AppDelegate` and inherit from one of the AppDelegate classes (e.g. SMDefaultAppDelegate).
   * Optionally create `app.plist` file and add following:
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>available_components</key>
-        <array/>
-      </dict>
-      </plist>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>available_components</key>
+          <array/>
+        </dict>
+        </plist>
 
 Configuration Files
 ===================
