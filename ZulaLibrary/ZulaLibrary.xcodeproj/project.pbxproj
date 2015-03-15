@@ -268,6 +268,7 @@
 		67B878E819BF53B90093BB31 /* Macros.h in Sources */ = {isa = PBXBuildFile; fileRef = 67B878E719BF51A50093BB31 /* Macros.h */; };
 		67B878E919BF548B0093BB31 /* SMNotifications.h in Sources */ = {isa = PBXBuildFile; fileRef = 67909A2C18C74603005975DB /* SMNotifications.h */; };
 		67F581C318D49C6A00DA918E /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */; };
+		A8D38113066347C7CF2DE150 /* libPods-ZulaLibraryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C9BC059E2EFC5107C7353 /* libPods-ZulaLibraryTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,7 +282,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43AEF1C8F251456797277839 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		679099ED18C74569005975DB /* ZulaLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZulaLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		679099F018C74569005975DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		679099F218C74569005975DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -554,7 +554,12 @@
 		67B878E719BF51A50093BB31 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		67F581C118D49C6A00DA918E /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
 		67F581C218D49C6A00DA918E /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
+		6FBE131DF31570B45A92E798 /* Pods-ZulaLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibraryTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ZulaLibraryTests/Pods-ZulaLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		73D1589FECCEC5F10F7A0D40 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9C49FBFC8BE78BE5752E191E /* Pods-ZulaLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZulaLibraryTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ZulaLibraryTests/Pods-ZulaLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
+		9DDF207DD8374494A7BD4A19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B023A1D199004587925A9E0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C49C9BC059E2EFC5107C7353 /* libPods-ZulaLibraryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZulaLibraryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,6 +583,7 @@
 				67909A0A18C74569005975DB /* XCTest.framework in Frameworks */,
 				67909A0C18C74569005975DB /* UIKit.framework in Frameworks */,
 				67909A0B18C74569005975DB /* Foundation.framework in Frameworks */,
+				A8D38113066347C7CF2DE150 /* libPods-ZulaLibraryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +597,7 @@
 				67909A0F18C74569005975DB /* ZulaLibraryTests */,
 				679099EF18C74569005975DB /* Frameworks */,
 				679099EE18C74569005975DB /* Products */,
-				43AEF1C8F251456797277839 /* Pods.xcconfig */,
+				71F77B45BA4EC0E7FD13C31E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -614,6 +620,7 @@
 				679099F418C74569005975DB /* UIKit.framework */,
 				67909A0918C74569005975DB /* XCTest.framework */,
 				B023A1D199004587925A9E0D /* libPods.a */,
+				C49C9BC059E2EFC5107C7353 /* libPods-ZulaLibraryTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1594,6 +1601,17 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
+		71F77B45BA4EC0E7FD13C31E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DDF207DD8374494A7BD4A19 /* Pods.debug.xcconfig */,
+				73D1589FECCEC5F10F7A0D40 /* Pods.release.xcconfig */,
+				6FBE131DF31570B45A92E798 /* Pods-ZulaLibraryTests.debug.xcconfig */,
+				9C49FBFC8BE78BE5752E191E /* Pods-ZulaLibraryTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1620,9 +1638,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67909A1C18C74569005975DB /* Build configuration list for PBXNativeTarget "ZulaLibraryTests" */;
 			buildPhases = (
+				2A7970FDF7516035270744A4 /* Check Pods Manifest.lock */,
 				67909A0418C74569005975DB /* Sources */,
 				67909A0518C74569005975DB /* Frameworks */,
 				67909A0618C74569005975DB /* Resources */,
+				F2580A87E72C682F70BAD017 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1691,6 +1711,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2A7970FDF7516035270744A4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		4165F18A5AD14A4EB7405BDB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1703,7 +1738,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9423DA96BBD45A8A2065E62 /* Check Pods Manifest.lock */ = {
@@ -1719,6 +1754,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2580A87E72C682F70BAD017 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ZulaLibraryTests/Pods-ZulaLibraryTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2088,7 +2138,7 @@
 		};
 		67909A1A18C74569005975DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43AEF1C8F251456797277839 /* Pods.xcconfig */;
+			baseConfigurationReference = 9DDF207DD8374494A7BD4A19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2102,7 +2152,7 @@
 		};
 		67909A1B18C74569005975DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43AEF1C8F251456797277839 /* Pods.xcconfig */;
+			baseConfigurationReference = 73D1589FECCEC5F10F7A0D40 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2116,6 +2166,7 @@
 		};
 		67909A1D18C74569005975DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FBE131DF31570B45A92E798 /* Pods-ZulaLibraryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2138,6 +2189,7 @@
 		};
 		67909A1E18C74569005975DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C49FBFC8BE78BE5752E191E /* Pods-ZulaLibraryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZulaLibrary.app/ZulaLibrary";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import <GHUnitIOS/GHUnit.h>
+#import "GHUnit.h"
 #import "SMAppDescription.h"
 //#import "SMNavbarNavigationViewController.h"
 #import "SMComponentDescription.h"

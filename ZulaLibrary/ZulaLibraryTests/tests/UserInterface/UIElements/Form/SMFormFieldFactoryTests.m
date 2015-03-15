@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 laplacesdemon. All rights reserved.
 //
 
-#import <GHUnitIOS/GHUnit.h>
+#import "GHUnit.h"
 #import "SMFormFieldFactory.h"
 #import "SMFormField.h"
 #import "SMFormTextField.h"

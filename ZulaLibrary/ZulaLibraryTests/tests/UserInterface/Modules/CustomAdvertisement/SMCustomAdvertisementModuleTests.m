@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 laplacesdemon. All rights reserved.
 //
 
-#import <GHUnitIOS/GHTestCase.h>
+#import "GHUnit.h"
 #import "SMCustomAdvertisementModule.h"
 #import "SMAdvertManager.h"
 #import "SMInterstitialAdvert.h"

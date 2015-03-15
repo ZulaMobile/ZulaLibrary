@@ -6,3 +6,6 @@ pod 'SDSegmentedControl', '~> 1.0.2'
 pod 'MSPullToRefreshController', :git => 'https://github.com/laplacesdemon/MSPullToRefreshController.git'
 pod 'UIActivityIndicator-for-SDWebImage'
 pod 'SWRevealViewController', '~> 1.1.3'
+target :ZulaLibraryTests do
+    pod 'GHUnit', '~> 0.5.9'
+end
